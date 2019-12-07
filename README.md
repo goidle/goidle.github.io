@@ -1,1 +1,0 @@
-# gosan.github.io
