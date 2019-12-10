@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Deep Dive Magic Code]]></title><description><![CDATA[Goidle Personal Development Blog]]></description><link>https://github.com/goidle</link><generator>RSS for Node</generator><lastBuildDate>Tue, 10 Dec 2019 04:53:04 GMT</lastBuildDate><item><title><![CDATA[Third Post]]></title><description><![CDATA[Third Post]]></description><link>https://github.com/goidle/redux/redux/</link><guid isPermaLink="false">https://github.com/goidle/redux/redux/</guid><pubDate>Thu, 05 Dec 2019 16:21:13 GMT</pubDate><content:encoded>&lt;p&gt;Third Post&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Quick Start]]></title><description><![CDATA[Getting Started 😎 1. Create a Gatsby site. If you are not using  , following  Gatsby Getting Started 2. Start developing. 3. Add your…]]></description><link>https://github.com/goidle/development/quick_start/</link><guid isPermaLink="false">https://github.com/goidle/development/quick_start/</guid><pubDate>Fri, 31 May 2019 16:21:13 GMT</pubDate><content:encoded>&lt;h1 id=&quot;getting-started-&quot;&gt;&lt;a href=&quot;#getting-started-&quot; aria-label=&quot;getting started  permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Getting Started 😎&lt;/h1&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Deep Dive Magic Code]]></title><description><![CDATA[Goidle Personal Development Blog]]></description><link>https://github.com/goidle</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 10 Dec 2019 05:02:11 GMT</lastBuildDate><item><title><![CDATA[Third Post]]></title><description><![CDATA[Third Post]]></description><link>https://github.com/goidle/redux/redux/</link><guid isPermaLink="false">https://github.com/goidle/redux/redux/</guid><pubDate>Thu, 05 Dec 2019 16:21:13 GMT</pubDate><content:encoded>&lt;p&gt;Third Post&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Quick Start]]></title><description><![CDATA[Getting Started 😎 1. Create a Gatsby site. If you are not using , following Gatsby Getting Started 2. Start developing. 3. Add your content…]]></description><link>https://github.com/goidle/development/quick_start/</link><guid isPermaLink="false">https://github.com/goidle/development/quick_start/</guid><pubDate>Fri, 31 May 2019 16:21:13 GMT</pubDate><content:encoded>&lt;h1 id=&quot;getting-started-&quot;&gt;&lt;a href=&quot;#getting-started-&quot; aria-label=&quot;getting started  permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Getting Started 😎&lt;/h1&gt;
 &lt;h2 id=&quot;1-create-a-gatsby-site&quot;&gt;&lt;a href=&quot;#1-create-a-gatsby-site&quot; aria-label=&quot;1 create a gatsby site permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;1. Create a Gatsby site.&lt;/h2&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sh&quot;&gt;&lt;pre class=&quot;language-sh&quot;&gt;&lt;code class=&quot;language-sh&quot;&gt;# create a new Gatsby site using the blog starter
 $ npx gatsby new my-blog-starter https://github.com/JaeYeopHan/gatsby-starter-bee&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
@@ -70,25 +70,25 @@ $ npm start
 &lt;p&gt;Welcome to gatsby-starter-bee!
 Happy blogging! 👻&lt;/p&gt;
 &lt;/blockquote&gt;</content:encoded></item><item><title><![CDATA[Welcome Bee starter]]></title><description><![CDATA[Welcome, Gatsby! This starter is full-package for your new blog! 1. Support Three frontmatter title date category 2. Code highlighting With…]]></description><link>https://github.com/goidle/development/hello/</link><guid isPermaLink="false">https://github.com/goidle/development/hello/</guid><pubDate>Wed, 06 Feb 2019 16:21:13 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
-    class=&quot;gatsby-resp-image-wrapper&quot;
-    style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 466px;&quot;
-  &gt;
-    &lt;span
-      class=&quot;gatsby-resp-image-background-image&quot;
-      style=&quot;padding-bottom: 95.70815450643778%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAATCAYAAACQjC21AAAACXBIWXMAABYlAAAWJQFJUiTwAAADJElEQVQ4y21UaU9TQRR9v0LjEvclxn1fvhhjokYTg6DirmyiaCIawAUlmKgJllpAkFVFqoIsBhCjgKgYWQRUEKtgRAwim+wUSkvb47sX3+O92ptM3nQ6c+ace89cAf/CbrfzkOY2qw02mx2OYR0ZW1eekUJQAlLQZuWm4SEL+ruHYOw1qdbpQiUBGVB5C22Sorr4J6L9n8F/QzK8FsfCd0U8LrmmISuqHJ0t/aNANvt/oIIjGLGJOPkUOydpGUjnl4c0TQmSQ18h2CUVuyZr4bMsDsWZBqepEiSZFAM9JmZBhzJ0ZSyzq3UADZ/a0FTficH+YfyobceF7Q/hOiEcz+5+VMlnQOUN0aefM7PSvHqYBi2IDSxgqQdmR+HwvGgEbEpBSU4dE9D6PsG+mZH4Uv5LpVCQJl/fNTMz/dU3sJitCNysx97pESzPd2UCA3ssvIU903TIjCzH7YtFcJ+qQ5hHtkq6DJgUXMQHSHZsQD6D+a1NwtHl8fIg0OOrE3Fkfgw8F93CsVUJ8Fkah0ZDh+wQQfJW6O50PtDVNoDXGQYcnHtzFEhcI5Y09xYPH5gTxf/ROLIghr+0X8JhQEr2uW0P+FbKE/0uzvrCuZOYeS+JxYl1SUg4/4IrfifkJSJFN+yfFYm8xPdqQLNphIHCPLPZZ35rEjE0YJZBCdBLBDyz8R7qKn+zRGPfMFd+74wIFOhrxgAly1DViAFFmuYt52/IaGY5ElMaJJ+KV5H/HSW5dTz/XNokV1ogVAo6SN6S8pFypZgvIFCZqVhtYnTt0GN+JSFuj3Bq/V0MixaTjS15kBbJKlTF9qZeXtOLoMdF+YOiPHoZBBbmmcO2orztGK+RzW39Z25BaUpD2S+uGuXq24cWXsuOqeD89nQY8ae5jw2fG1cJt4nh0PjkqjqP07dc9aKB7UGv4KbYHKoKG3DZPQNnt95H4f0a/rqMuw7tsSdcOOXTVUmmjwTa2tiD+KBCbg67p9xgI+8Xc0gvI2iLHkWptao2pmLo2M+ULay73Yjq1414lf6ZK0pNYsRiHdvrpNEKzjo2bXTWreWu7dBclYT+AlgR5WSr8vZzAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
-    &gt;&lt;/span&gt;
-    &lt;img
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 466px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 95.70815450643778%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAATCAYAAACQjC21AAAACXBIWXMAABYlAAAWJQFJUiTwAAADIklEQVQ4y21UZ09UQRR9v0Jjib3E2Hv5YoyJGk0MgmIBFRCkaCIawYISTNQEF6RIBwVZFKQYmkGagJGioIIUwYgYQJpIXZa2u8d3L77He7g3mbzZ2Zkz59x75gr4FyaTiYc0NxqMMBpNmBmGyel15RkpBCUgBW1WbhrTT2CoTw/dwKhqnS5UEpABlbfQJimqS34ixD0H7nvicG59OJy3ROK2ZRLSgivQ2zE0BWQ0/QcqzAQjNoEXX+HoPH8GCnDLRpKmFHE+RfCySMSx+f5w2hSBktR6s6kSJJkUw/2jzIIOpQSUs8w/ncNo/tKF1qZejAyN4UdtN24efg7LOX7Iif2sks+AyhtCLr9mZmXZTRgdmUC4Rx5LtV0ejLOrQnB1XzxKMxqZgL9zFk4tDUJDRZtKoSBNvr5vZ2bae28xMW6Ax34tTi4OZHnOW6MY2H5tGE4sCkBqUAUe3yrE8YUB8LVPV0mXAWO8CvkAyQ6/mstgbjtjcH5zpDwI1HV7NOxWh8JhXRhctkXBaWMEWup7ZIcIkrd8rJP5QF/XMIpT6nF65aMpIHGNWNLcUTxsuyKY/6NhtyaUv7RfwmFASvb1Q8/4VsoT/S5Ja+DcScwcN4Tjwq4YRN0o4Io/8X6DINENNsuCkB39UQ04PjrJQL4O6ewztx3R0A+Py6AEeE4EvLL3KRorf7FE3eAYV/7kkkDkaWumASXLUNWIAUWS5h3nT68bZzkSUxokn4r3Ifc7SjMbeV5X1ipXWiBUCjpI3pLyEX+3hC8gUJmpWG1idP/MS34l3lYvcGl3LMZEi8nGljxIi2QVqmJ36wCvaUVQV1H+iCiPXgaB+TpksK0ob0dma2RzG/6ZW1Casr68jatGufr2qYPX0kM/cH77e3T43T7Ihs+MqITVXD9onDJVncfsW64qaGZ70Ct4JDaHqvxm3DmegmsHE5CfUMNfi1kP4O+SxYVTPl2VZPpIoJ0t/Yj0zOfmYL3gIRvZRswhvQzPA1oUJtaq2piK4cx+pmxhfd06VBe3oCi5jitKTWJywjC910yjFcx1bNporlvLXXtGc1US+gtbe+VlgtA+ywAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
         class=&quot;gatsby-resp-image-image&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;box-shadow:inset 0px 0px 0px 400px white;&quot;
         alt=&quot;hello&quot;
-        title=&quot;&quot;
-        src=&quot;/static/31955aadfaea1bcef76bb662347d1af4/fde49/hello.png&quot;
-        srcset=&quot;/static/31955aadfaea1bcef76bb662347d1af4/a8463/hello.png 148w,
-/static/31955aadfaea1bcef76bb662347d1af4/f2e0d/hello.png 295w,
-/static/31955aadfaea1bcef76bb662347d1af4/fde49/hello.png 466w&quot;
+        title=&quot;hello&quot;
+        src=&quot;/static/31955aadfaea1bcef76bb662347d1af4/c5652/hello.png&quot;
+        srcset=&quot;/static/31955aadfaea1bcef76bb662347d1af4/00d96/hello.png 148w,
+/static/31955aadfaea1bcef76bb662347d1af4/0b23c/hello.png 295w,
+/static/31955aadfaea1bcef76bb662347d1af4/c5652/hello.png 466w&quot;
         sizes=&quot;(max-width: 466px) 100vw, 466px&quot;
+        loading=&quot;lazy&quot;
       /&gt;
-  &lt;/span&gt;&lt;/p&gt;
+    &lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;Welcome, Gatsby! This starter is full-package for your new blog!&lt;/p&gt;
 &lt;h2 id=&quot;1-support-three-frontmatter&quot;&gt;&lt;a href=&quot;#1-support-three-frontmatter&quot; aria-label=&quot;1 support three frontmatter permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;1. Support Three frontmatter&lt;/h2&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;---
@@ -111,13 +111,13 @@ category: &amp;#39;development&amp;#39;
 
 &lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;TEMPLATE&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;gatsby-starter-bee&apos;&lt;/span&gt;&lt;/span&gt;
 &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Foo&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;React&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;Component&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;token function-variable function&quot;&gt;handleClick&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; val &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token function-variable function&quot;&gt;handleClick&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token parameter&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;val &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;bar&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
       &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;
     &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;val &lt;span class=&quot;token operator&quot;&gt;!==&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;zoo&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
       &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;
     &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-    console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token string&quot;&gt;`clicked`&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;clicked&lt;/span&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
     &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;3&lt;/span&gt;
   &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
 
@@ -127,27 +127,27 @@ category: &amp;#39;development&amp;#39;
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;&lt;em&gt;code&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;span
-    class=&quot;gatsby-resp-image-wrapper&quot;
-    style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;&quot;
-  &gt;
-    &lt;span
-      class=&quot;gatsby-resp-image-background-image&quot;
-      style=&quot;padding-bottom: 104.97131931166348%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAVCAYAAABG1c6oAAAACXBIWXMAAAsSAAALEgHS3X78AAAC4UlEQVQ4y52UbU/TUBiG91cQ2Lq163t72vVlZWPjxRBjYvwNSqK/ARL9ZmIUEzXKhwEjgEGDBgyIyO/ah90+z+lwQwcRPtw97cnp1ft5a+Hw+0nv5PSsd3p23vvx89ctdd47JgazCodHx/iwvoEXL99i7dV7rK2R3txMr1+/w8f1DgiIwt7ng/6D9v3+w8jsG023ryhuv1IklVjOH5WL46XS+ekJoz/bWOrvf/naL2x2dzBbX4RRMqEZAsq0LVWSq0OrI1eCggD/iD6M6Tsm6skctrZ3UOhsdjGTLcA1QkTuDKKgDVuPENg12FWBwBSwNV+CGaCMgFiq4qE4aSKN59DZ3GbgNhr1BfjkzjVrCMUsBIFdowaLQKEVwNUFTNWHQTJVD3rZuwT9C9hFM1uEo3nwrAhx2EZNtGBWCag6qNkBBLkMLQ/C8BDRs6eLQRrGAnOHgtxFfgue3UTkJEhFgkRkSPyYQk/hGPRRYx5aOZJhM6h8FZATaqox6uE9gt5F7LURUg5baRuxG0GvBAQKUSVxzvICuVc7zNJ5TE3osKo+2kmGTMRwqCBu1ZN50wiiKqPVZXfD4owFcukdnVxFGVU7hqB8unoIW3UJ7MuiqYrIQx0pyLVAQwtkqNxC1bIPldtCtoabuxoBXVPlITAL6mjUUvhWSuE3yaGP2All61RKw1b5L4fFSQvCjlBzItnQefJzh5VrxO7HVHkelaINUxMytNJg5EqXRjBfuWVKU7YUjyifn5oYAW7QJaW20ahqS40W6hS2zxNDuYyoZUJy7eiBdO6bIU1PgLpISQmNJ40opcOqOONCtqGr+YixOGwGsQzad42A9vJ73rt45nPVkn159LJ0QYbAOVEGf5dLKg7/Onw/+hfKQzaQRO1ByFs0ejTLnNiLQoyVclVRPDJjSlPMKuzu7WNl9TmWl5/i0eMntxK/u7L6DDvEKhx8O8Lup31J72x0wSm4kegdfpcZzPoN0agnefU0/LsAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
-    &gt;&lt;/span&gt;
-    &lt;img
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 104.97131931166348%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAVCAYAAABG1c6oAAAACXBIWXMAAAsSAAALEgHS3X78AAAC4UlEQVQ4y52UbU/TUBiG91cQ2Lq163t72vVlZWPjxRBjYvwNSqK/ARL9ZmIUEzXKhwEjgEGDBgyIyO/ah90+z+lwQwcRPtw97cnp1ft5a+Hw+0nv5PSsd3p23vvx89ctdd47JgazCodHx/iwvoEXL99i7dV7rK2R3txMr1+/w8f1DgiIwt7ng/6D9v3+w8jsG023ryhuv1IklVjOH5WL46XS+ekJoz/bWOrvf/naL2x2dzBbX4RRMqEZAsq0LVWSq0OrI1eCggD/iD6M6Tsm6skctrZ3UOhsdjGTLcA1QkTuDKKgDVuPENg12FWBwBSwNV+CGaCMgFiq4qE4aSKN59DZ3GbgNhr1BfjkzjVrCMUsBIFdowaLQKEVwNUFTNWHQTJVD3rZuwT9C9hFM1uEo3nwrAhx2EZNtGBWCag6qNkBBLkMLQ/C8BDRs6eLQRrGAnOHgtxFfgue3UTkJEhFgkRkSPyYQk/hGPRRYx5aOZJhM6h8FZATaqox6uE9gt5F7LURUg5baRuxG0GvBAQKUSVxzvICuVc7zNJ5TE3osKo+2kmGTMRwqCBu1ZN50wiiKqPVZXfD4owFcukdnVxFGVU7hqB8unoIW3UJ7MuiqYrIQx0pyLVAQwtkqNxC1bIPldtCtoabuxoBXVPlITAL6mjUUvhWSuE3yaGP2All61RKw1b5L4fFSQvCjlBzItnQefJzh5VrxO7HVHkelaINUxMytNJg5EqXRjBfuWVKU7YUjyifn5oYAW7QJaW20ahqS40W6hS2zxNDuYyoZUJy7eiBdO6bIU1PgLpISQmNJ40opcOqOONCtqGr+YixOGwGsQzad42A9vJ73rt45nPVkn159LJ0QYbAOVEGf5dLKg7/Onw/+hfKQzaQRO1ByFs0ejTLnNiLQoyVclVRPDJjSlPMKuzu7WNl9TmWl5/i0eMntxK/u7L6DDvEKhx8O8Lup31J72x0wSm4kegdfpcZzPoN0agnefU0/LsAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
         class=&quot;gatsby-resp-image-image&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;box-shadow:inset 0px 0px 0px 400px white;&quot;
         alt=&quot;code example&quot;
-        title=&quot;&quot;
-        src=&quot;/static/14a95f9ea1a2560a874efa82ad7db24f/e41c6/code_example.png&quot;
-        srcset=&quot;/static/14a95f9ea1a2560a874efa82ad7db24f/7c8aa/code_example.png 148w,
-/static/14a95f9ea1a2560a874efa82ad7db24f/1e920/code_example.png 295w,
-/static/14a95f9ea1a2560a874efa82ad7db24f/e41c6/code_example.png 590w,
-/static/14a95f9ea1a2560a874efa82ad7db24f/8067e/code_example.png 885w,
-/static/14a95f9ea1a2560a874efa82ad7db24f/8b64f/code_example.png 1046w&quot;
+        title=&quot;code example&quot;
+        src=&quot;/static/14a95f9ea1a2560a874efa82ad7db24f/799d3/code_example.png&quot;
+        srcset=&quot;/static/14a95f9ea1a2560a874efa82ad7db24f/00d96/code_example.png 148w,
+/static/14a95f9ea1a2560a874efa82ad7db24f/0b23c/code_example.png 295w,
+/static/14a95f9ea1a2560a874efa82ad7db24f/799d3/code_example.png 590w,
+/static/14a95f9ea1a2560a874efa82ad7db24f/2a3d6/code_example.png 885w,
+/static/14a95f9ea1a2560a874efa82ad7db24f/0d7ad/code_example.png 1046w&quot;
         sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        loading=&quot;lazy&quot;
       /&gt;
-  &lt;/span&gt;&lt;/p&gt;
+    &lt;/span&gt;&lt;/p&gt;
 &lt;h2 id=&quot;3-support-markdown-h2&quot;&gt;&lt;a href=&quot;#3-support-markdown-h2&quot; aria-label=&quot;3 support markdown h2 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;3. Support Markdown (h2)&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;With &lt;a href=&quot;https://fonts.google.com/specimen/Noto+Sans&quot;&gt;Noto Sans&lt;/a&gt; font&lt;/li&gt;
