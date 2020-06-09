@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Deep Dive Magic Code]]></title><description><![CDATA[오픈소스를 톺아보며 매직 코드라 생각했던 부분들의 동작 원리와 의미, 의도를 파악해보고 서로의 생각을 나누기 위한 블로그]]></description><link>https://github.com/goidle</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 09 Jun 2020 00:39:48 GMT</lastBuildDate><item><title><![CDATA[React 톺아보기- 02. Intro]]></title><description><![CDATA[…]]></description><link>https://github.com/goidle/react/in-depth-react-intro/</link><guid isPermaLink="false">https://github.com/goidle/react/in-depth-react-intro/</guid><pubDate>Tue, 09 Jun 2020 09:20:00 GMT</pubDate><content:encoded>&lt;blockquote&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Deep Dive Magic Code]]></title><description><![CDATA[오픈소스를 톺아보며 매직 코드라 생각했던 부분들의 동작 원리와 의미, 의도를 파악해보고 서로의 생각을 나누기 위한 블로그]]></description><link>https://github.com/goidle</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 09 Jun 2020 01:38:47 GMT</lastBuildDate><item><title><![CDATA[React 톺아보기- 02. Intro]]></title><description><![CDATA[…]]></description><link>https://github.com/goidle/react/in-depth-react-intro/</link><guid isPermaLink="false">https://github.com/goidle/react/in-depth-react-intro/</guid><pubDate>Tue, 09 Jun 2020 09:20:00 GMT</pubDate><content:encoded>&lt;blockquote&gt;
 &lt;p&gt;모든 설명은 함수형 컴포넌트 기준이며 클래스는 제외 대상임을 알려드립니다.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;이번 포스트에서는 사전지식들을 좀 더 자세하게 다루도록 하겠습니다.&lt;/p&gt;
@@ -14,7 +14,7 @@
 표 왼쪽을 보면 리액트를 개발하면서 접해보지 못한 단어들이 보입니다.&lt;br&gt;
 &lt;em&gt;“Render phase”&lt;/em&gt;, &lt;em&gt;“Commit phase”&lt;/em&gt;&lt;br&gt;
 표만봐서는 설명에서 언급되는 &lt;em&gt;side effect&lt;/em&gt;가 무엇을 뜻하는 것이고 또 무엇이 중지되고 다시 시작될 수 있는지 이해하기가 어렵습니다.&lt;/p&gt;
-&lt;h2 id=&quot;render-phase-commit-phase&quot;&gt;&lt;a href=&quot;#render-phase-commit-phase&quot; aria-label=&quot;render phase commit phase permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Render phase, Commit phase&lt;/h2&gt;
+&lt;h2 id=&quot;render-phase&quot;&gt;&lt;a href=&quot;#render-phase&quot; aria-label=&quot;render phase permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Render phase&lt;/h2&gt;
 &lt;p&gt;&lt;em&gt;Render phase&lt;/em&gt;는 쉽게 말해 vDOM 조작 단계라고 생각 하시면 됩니다.&lt;br&gt;
 리액트는 변경점이 생겼을 때 다르게 말하면 react element가 추가, 수정, 삭제 등이 발생했을 때 이를 vDOM에 반영하기 위해 &lt;u&gt;&lt;strong&gt;&lt;em&gt;vDOM 재조정 작업(이하 Work)&lt;/em&gt;&lt;/strong&gt;&lt;/u&gt;을 &lt;em&gt;scheduler&lt;/em&gt;을 통해 실행 시킵니다.  &lt;/p&gt;
 &lt;p&gt;이 vDOM을 재조정하는 일련의 과정을 &lt;em&gt;Render phase&lt;/em&gt;라고 부릅니다. 재조정을 담당하는 &lt;em&gt;reconciler&lt;/em&gt;의 시스템이 stack 기반에서 fiber archtecture로 넘어가면서 이 과정을 abort, stop, restart 할 수 있게 되었습니다.&lt;br&gt;
@@ -23,6 +23,7 @@
 에서만 비동기로 함께 이루어 지며 lagacy mode(현재 우리가 일반적으로 사용하는 ReactDOM.render)에서는 위 기능없이 동기적으로 &lt;em&gt;Render phase&lt;/em&gt;가 동작하게 됩니다.  &lt;/p&gt;
 &lt;p&gt;컴포넌트 실행은 &lt;em&gt;Render phase&lt;/em&gt;에서 실행되며 위 내용으로 짐작할 수 있듯이 컴포넌트 실행이 곧 화면에 페인트 된다는 뜻은 아닙니다.
 이전 포스트에서 언급한 용어인 렌더링에 빗대어 보자면 컴포넌트가 리-렌더링 된다는 말은 컴포넌트가 실행되고 그 결과가 vDOM에 반영된다는 거지 DOM에 마운트되어 페인트된다는 뜻이 아니라는 겁니다.&lt;/p&gt;
+&lt;h2 id=&quot;commit-phase&quot;&gt;&lt;a href=&quot;#commit-phase&quot; aria-label=&quot;commit phase permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Commit phase&lt;/h2&gt;
 &lt;p&gt;&lt;em&gt;Commit phase&lt;/em&gt;는 &lt;em&gt;Render phase&lt;/em&gt;에서 재조정된 vDOM을 DOM에 마운트시키고 라이프 사이클을 실행하는 단계 입니다.
 여기서도 마찬가지로 DOM에 마운트된다는거지 페인트된다는건 아닙니다.  &lt;/p&gt;
 &lt;p&gt;이 단계는 모드와는 상관없이 항상 일관적인 화면 업데이트를 위해 동기적으로 실행 됩니다. 동기적으로 실행된다는건 DOM 조작을 Call stack을 한번도 비우지 않고 일괄처리 한다는 뜻입니다. 그렇기 때문에 &lt;em&gt;Commit phase&lt;/em&gt; 중간에 페인트 되지 않습니다. 이 단계가 끝나고 리액트에서 Call stack을 비워줘야지만 브라우저에서 화면을 페인트 할 수 있게 됩니다.  &lt;/p&gt;
@@ -193,7 +194,17 @@ executionContext &lt;span class=&quot;token operator&quot;&gt;|=&lt;/span&gt; Co
     &lt;span class=&quot;token comment&quot;&gt;//현재 context가 Render phase이거나 Commit phase이면&lt;/span&gt;
     &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;msToExpirationTime&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;now&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;사전 지식은 이정도면 충분합니다. 다음 포스트에서 본격적으로 리액트를 분석해보도록 하겠습니다.&lt;/p&gt;
+&lt;p&gt;사전 지식은 이정도면 충분합니다.&lt;br&gt;
+이해되지 않는다고 좌절할 필요는 없습니다. 그냥 이런게 있구나하고 기억만 해두시면 됩니다. 우리는 개발자이니 백번 말로 설명하는 것 보단 한 번 코드로 보는게 더 이해하기 쉬울거라 생각합니다.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 568px;&quot;&gt;
+      &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 21.12676056338028%; position: relative; bottom: 0; left: 0; background-image: url(&amp;apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAYAAACOXx+WAAAACXBIWXMAAAsSAAALEgHS3X78AAAAlklEQVQY001Pyw6EIAz0pDwl3MFIRAkJB/7/57qZburuYTJ9TKft4pwjrTWVUmjOSSkljp/noeu6GL13rt33zXlrjXVg1I0xBJ9932kRw5wzjTFYeBwHD8MIdcTneTLQgyl0WIqatfZnKIlSitZ1ZRZgMyAaALn0t21jlt73QuveAe/9yyEEqrXyS2C8h4tijK9O8H/hB7liY9htm+ykAAAAAElFTkSuQmCC&amp;apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;showMeTheCode&quot; title=&quot;showMeTheCode&quot; src=&quot;/static/e6117eec2a6fedd9a10a636574357cc2/870c3/showMeTheCode.png&quot; srcset=&quot;/static/e6117eec2a6fedd9a10a636574357cc2/00d96/showMeTheCode.png 148w,
+/static/e6117eec2a6fedd9a10a636574357cc2/0b23c/showMeTheCode.png 295w,
+/static/e6117eec2a6fedd9a10a636574357cc2/870c3/showMeTheCode.png 568w&quot; sizes=&quot;(max-width: 568px) 100vw, 568px&quot; loading=&quot;lazy&quot;&gt;
+    &lt;/span&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;다음 포스트에서 코드와 함께 본격적으로 리액트를 분석해보도록 하겠습니다.&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -204,7 +215,7 @@ executionContext &lt;span class=&quot;token operator&quot;&gt;|=&lt;/span&gt; Co
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td align=&quot;center&quot;&gt;1&lt;/td&gt;
-&lt;td align=&quot;center&quot;&gt;&lt;a href=&quot;https://goidle.github.io/react/in-depth-react-intro/&quot;&gt;React 톺아보기- 01. Preview&lt;/a&gt;&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;&lt;a href=&quot;https://goidle.github.io/react/in-depth-react-preview/&quot;&gt;React 톺아보기- 01. Preview&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td align=&quot;center&quot;&gt;3&lt;/td&gt;
