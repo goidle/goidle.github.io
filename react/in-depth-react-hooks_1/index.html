@@ -248,16 +248,16 @@ reconciler -> shared/ReactSharedInternal -> react/ReactSharedInternal -> react/R
 <div class="gatsby-highlight" data-language="ts"><pre class="language-ts"><code class="language-ts"><span class="token keyword">function</span> <span class="token constant">FC</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token keyword">const</span> <span class="token punctuation">[</span>a<span class="token punctuation">,</span> setA<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token comment">// aHook</span>
   <span class="token keyword">const</span> <span class="token punctuation">[</span>b<span class="token punctuation">,</span> setB<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token comment">// bHook</span>
-  <span class="token function">setA</span><span class="token punctuation">(</span><span class="token parameter">_a</span> <span class="token operator">=></span> _a <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span>
-  <span class="token function">setA</span><span class="token punctuation">(</span><span class="token parameter">_a</span> <span class="token operator">=></span> _a <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span>
-  <span class="token function">setA</span><span class="token punctuation">(</span><span class="token parameter">_a</span> <span class="token operator">=></span> _a <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span>
+  <span class="token function">setA</span><span class="token punctuation">(</span><span class="token parameter">_a</span> <span class="token operator">=></span> _a <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token comment">// firstUpdate</span>
+  <span class="token function">setA</span><span class="token punctuation">(</span><span class="token parameter">_a</span> <span class="token operator">=></span> _a <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token comment">// secondUpdate</span>
+  <span class="token function">setA</span><span class="token punctuation">(</span><span class="token parameter">_a</span> <span class="token operator">=></span> _a <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token comment">// thirdUpdate</span>
 
   <span class="token comment">// hook linked list</span>
   <span class="token comment">// fiber.memoizedState => aHook.next => bHook.next => null</span>
 
-  <span class="token comment">//  update in queue of aHook</span>
-  <span class="token comment">// fiber.memoizedState => aHook.queue.last => firstUpdate.next</span>
-  <span class="token comment">// => secondUpdate.next => thirdUpdate.next => firstUpdate</span>
+  <span class="token comment">//  update circular linked list in queue of aHook</span>
+  <span class="token comment">// fiber.memoizedState => aHook.queue.last => thirdUpdate.next</span>
+  <span class="token comment">// firstUpdate.next => secondUpdate.next => thirdUpdate.next => firstUpdate</span>
 <span class="token punctuation">}</span></code></pre></div>
 <p>queue는 왜 <em>Circular Linked List</em>인지는 <code class="language-text">update state에서</code> 설명합니다.</p>
 <p>계속해서 <em>mountState</em>로 다시 돌아와서 훅을 mount 할 때 넘겨받은 <em>initialState</em>가 함수이면 바로 실행해서 결괏값을 얻어옵니다. 이 이후 이 함수가 실행되는 일은 없습니다.</p>
