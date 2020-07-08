@@ -1,13 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Deep Dive Magic Code]]></title><description><![CDATA[오픈소스를 톺아보며 매직 코드라 생각했던 부분들의 동작 원리와 의미, 의도를 파악해보고 서로의 생각을 나누기 위한 블로그]]></description><link>https://github.com/goidle</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 08 Jul 2020 07:59:25 GMT</lastBuildDate><item><title><![CDATA[React 톺아보기- 05. Reconciler_1]]></title><description><![CDATA[모든 설명은 v16.12.0 버전 함수형 컴포넌트 기준입니다. 버전에 따라 코드는 변경될 수 있으며 클래스 컴포넌트는 설명에서 제외됨을 알려 드립니다. 목록  4 React 톺아보기- 04. Scheduler_1 6 React 톺아보기- 0…]]></description><link>https://github.com/goidle/react/in-depth-react-reconciler_1/</link><guid isPermaLink="false">https://github.com/goidle/react/in-depth-react-reconciler_1/</guid><pubDate>Wed, 01 Jul 2020 10:00:00 GMT</pubDate><content:encoded>&lt;blockquote&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Deep Dive Magic Code]]></title><description><![CDATA[오픈소스를 톺아보며 매직 코드라 생각했던 부분들의 동작 원리와 의미, 의도를 파악해보고 서로의 생각을 나누기 위한 블로그]]></description><link>https://github.com/goidle</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 08 Jul 2020 08:36:46 GMT</lastBuildDate><item><title><![CDATA[React 톺아보기- 05. Reconciler_1]]></title><description><![CDATA[모든 설명은 v16.12.0 버전 함수형 컴포넌트 기준입니다. 버전에 따라 코드는 변경될 수 있으며 클래스 컴포넌트는 설명에서 제외됨을 알려 드립니다. 목록  4 React 톺아보기- 04. Scheduler_1 6 React 톺아보기- 0…]]></description><link>https://github.com/goidle/react/in-depth-react-reconciler_1/</link><guid isPermaLink="false">https://github.com/goidle/react/in-depth-react-reconciler_1/</guid><pubDate>Wed, 01 Jul 2020 10:00:00 GMT</pubDate><content:encoded>&lt;blockquote&gt;
 &lt;p&gt;모든 설명은 v16.12.0 버전 함수형 컴포넌트 기준입니다. 버전에 따라 코드는 변경될 수 있으며 클래스 컴포넌트는 설명에서 제외됨을 알려 드립니다.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;iframe
-     src=&quot;https://codesandbox.io/embed/reconcilerexample-2oq1t?fontsize=14&amp;hidenavigation=1&amp;theme=dark&quot;
+     src=&quot;https://stackblitz.com/edit/react-jr5b3g?ctl=1&amp;embed=1&amp;file=index.js&amp;hideNavigation=1&quot;
      style=&quot;width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;&quot;
      title=&quot;reconciler_example&quot;
-     allow=&quot;accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking&quot;
-     sandbox=&quot;allow-autoplay allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts&quot;
-&gt;&lt;/iframe&gt;
+   &gt;&lt;/iframe&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -753,7 +751,12 @@ reconciler는 VDOM 재조정 작업 전에 설정해줘야 하는 부분들이 �
 &lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;currentTime&lt;/code&gt;은 이전 포스트의 &lt;a href=&quot;/react/in-depth-react-hooks_1/#currentTime&quot;&gt;expirationTime 섹션&lt;/a&gt;에서 보여드렸던 msToExpirationTime() 함수를 이용하여 구합니다.&lt;/p&gt;
 &lt;p&gt;우선순위는 코드를 직접 보는 게 이해하기가 더 편합니다.&lt;br&gt;
 currentTime은 ms가 아닌 expirationTime임을 생각하시고 코드를 보시길 바랍니다.&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;ts&quot;&gt;&lt;pre class=&quot;language-ts&quot;&gt;&lt;code class=&quot;language-ts&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// reconciler &gt; ReactFiberHooks.js &gt; dispatchAction() &gt; ReactFiberWorkLoop.js &gt; scheduleUpdateOnFiber() &gt; ensureRootIsScheduled() &gt; inferPriorityFromExpirationTime()&lt;/span&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;ts&quot;&gt;&lt;pre class=&quot;language-ts&quot;&gt;&lt;code class=&quot;language-ts&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;HIGH_PRIORITY_EXPIRATION&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; __DEV__ &lt;span class=&quot;token operator&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;500&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;150&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;HIGH_PRIORITY_BATCH_SIZE&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;100&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;LOW_PRIORITY_EXPIRATION&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;5000&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;LOW_PRIORITY_BATCH_SIZE&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;250&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;// reconciler &gt; ReactFiberHooks.js &gt; dispatchAction() &gt; ReactFiberWorkLoop.js &gt; scheduleUpdateOnFiber() &gt; ensureRootIsScheduled() &gt; inferPriorityFromExpirationTime()&lt;/span&gt;
 &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;inferPriorityFromExpirationTime&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
   &lt;span class=&quot;token parameter&quot;&gt;currentTime&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; ExpirationTime&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
   expirationTime&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; ExpirationTime&lt;/span&gt;
@@ -776,11 +779,6 @@ currentTime은 ms가 아닌 expirationTime임을 생각하시고 코드를 보�
   &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;msUntil &lt;span class=&quot;token operator&quot;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;LOW_PRIORITY_EXPIRATION&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;LOW_PRIORITY_BATCH_SIZE&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; NormalPriority
   &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-
-  &lt;span class=&quot;token comment&quot;&gt;// const HIGH_PRIORITY_EXPIRATION = __DEV__ ? 500 : 150;&lt;/span&gt;
-  &lt;span class=&quot;token comment&quot;&gt;// const HIGH_PRIORITY_BATCH_SIZE = 100;&lt;/span&gt;
-  &lt;span class=&quot;token comment&quot;&gt;// const LOW_PRIORITY_EXPIRATION = 5000;&lt;/span&gt;
-  &lt;span class=&quot;token comment&quot;&gt;// const LOW_PRIORITY_BATCH_SIZE = 250;&lt;/span&gt;
 
   &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; IdlePriority
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;

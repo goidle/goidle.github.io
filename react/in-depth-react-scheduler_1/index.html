@@ -202,7 +202,12 @@ reconciler는 VDOM 재조정 작업 전에 설정해줘야 하는 부분들이 �
 <p><code class="language-text">currentTime</code>은 이전 포스트의 <a href="/react/in-depth-react-hooks_1/#currentTime">expirationTime 섹션</a>에서 보여드렸던 msToExpirationTime() 함수를 이용하여 구합니다.</p>
 <p>우선순위는 코드를 직접 보는 게 이해하기가 더 편합니다.<br>
 currentTime은 ms가 아닌 expirationTime임을 생각하시고 코드를 보시길 바랍니다.</p>
-<div class="gatsby-highlight" data-language="ts"><pre class="language-ts"><code class="language-ts"><span class="token comment">// reconciler > ReactFiberHooks.js > dispatchAction() > ReactFiberWorkLoop.js > scheduleUpdateOnFiber() > ensureRootIsScheduled() > inferPriorityFromExpirationTime()</span>
+<div class="gatsby-highlight" data-language="ts"><pre class="language-ts"><code class="language-ts"><span class="token keyword">const</span> <span class="token constant">HIGH_PRIORITY_EXPIRATION</span> <span class="token operator">=</span> __DEV__ <span class="token operator">?</span> <span class="token number">500</span> <span class="token punctuation">:</span> <span class="token number">150</span>
+<span class="token keyword">const</span> <span class="token constant">HIGH_PRIORITY_BATCH_SIZE</span> <span class="token operator">=</span> <span class="token number">100</span>
+<span class="token keyword">const</span> <span class="token constant">LOW_PRIORITY_EXPIRATION</span> <span class="token operator">=</span> <span class="token number">5000</span>
+<span class="token keyword">const</span> <span class="token constant">LOW_PRIORITY_BATCH_SIZE</span> <span class="token operator">=</span> <span class="token number">250</span>
+
+<span class="token comment">// reconciler > ReactFiberHooks.js > dispatchAction() > ReactFiberWorkLoop.js > scheduleUpdateOnFiber() > ensureRootIsScheduled() > inferPriorityFromExpirationTime()</span>
 <span class="token keyword">function</span> <span class="token function">inferPriorityFromExpirationTime</span><span class="token punctuation">(</span>
   <span class="token parameter">currentTime<span class="token punctuation">:</span> ExpirationTime<span class="token punctuation">,</span>
   expirationTime<span class="token punctuation">:</span> ExpirationTime</span>
@@ -225,11 +230,6 @@ currentTime은 ms가 아닌 expirationTime임을 생각하시고 코드를 보�
   <span class="token keyword">if</span> <span class="token punctuation">(</span>msUntil <span class="token operator">&lt;=</span> <span class="token constant">LOW_PRIORITY_EXPIRATION</span> <span class="token operator">+</span> <span class="token constant">LOW_PRIORITY_BATCH_SIZE</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">return</span> NormalPriority
   <span class="token punctuation">}</span>
-
-  <span class="token comment">// const HIGH_PRIORITY_EXPIRATION = __DEV__ ? 500 : 150;</span>
-  <span class="token comment">// const HIGH_PRIORITY_BATCH_SIZE = 100;</span>
-  <span class="token comment">// const LOW_PRIORITY_EXPIRATION = 5000;</span>
-  <span class="token comment">// const LOW_PRIORITY_BATCH_SIZE = 250;</span>
 
   <span class="token keyword">return</span> IdlePriority
 <span class="token punctuation">}</span></code></pre></div>
