@@ -40,14 +40,355 @@
         }
       }
     })
-  </script><link rel="preconnect dns-prefetch" href="https://www.google-analytics.com"/><link rel="icon" href="/icons/icon-48x48.png?v=9dbdaa6d9a815c4dab57eaac04ef491f"/><link rel="manifest" href="/manifest.webmanifest"/><meta name="theme-color" content="#ffffff"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=9dbdaa6d9a815c4dab57eaac04ef491f"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=9dbdaa6d9a815c4dab57eaac04ef491f"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=9dbdaa6d9a815c4dab57eaac04ef491f"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=9dbdaa6d9a815c4dab57eaac04ef491f"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=9dbdaa6d9a815c4dab57eaac04ef491f"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=9dbdaa6d9a815c4dab57eaac04ef491f"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=9dbdaa6d9a815c4dab57eaac04ef491f"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=9dbdaa6d9a815c4dab57eaac04ef491f"/><meta name="generator" content="Gatsby 2.18.10"/><link rel="alternate" type="application/rss+xml" href="/rss.xml"/><title data-react-helmet="true">React 톺아보기- 05. Reconciler_1 | Deep Dive Magic Code</title><meta data-react-helmet="true" name="description" content="모든 설명은 v16.12.0 버전 함수형 컴포넌트 기준입니다. 버전에 따라 코드는 변경될 수 있으며 클래스 컴포넌트는 설명에서 제외됨을 알려 드립니다. 목록  4 React 톺아보기- 04. Scheduler_1 6 React 톺아보기- 05. Reconciler"/><meta data-react-helmet="true" property="og:title" content="React 톺아보기- 05. Reconciler_1 | Deep Dive Magic Code"/><meta data-react-helmet="true" property="og:description" content="모든 설명은 v16.12.0 버전 함수형 컴포넌트 기준입니다. 버전에 따라 코드는 변경될 수 있으며 클래스 컴포넌트는 설명에서 제외됨을 알려 드립니다. 목록  4 React 톺아보기- 04. Scheduler_1 6 React 톺아보기- 05. Reconciler"/><meta data-react-helmet="true" property="og:image" content="/static/felog-f24356c48475809626ea0c2ac67855c6.png"/><meta data-react-helmet="true" property="og:type" content="website"/><meta data-react-helmet="true" name="google-site-verification" content="o402P1kCwteUVT_5s9zR21dD9lTF4ALZNLms22CIMx4"/><meta data-react-helmet="true" name="keywords" content="react, redux, javascript, web, development, frontend, 리액트, react, fiber, reconciler, reconcilation"/><link rel="sitemap" type="application/xml" href="/sitemap.xml"/><link as="script" rel="preload" href="/app-69573b14c89d32433a71.js"/><link as="script" rel="preload" href="/component---src-templates-blog-post-js-ef229068f1a7461d6597.js"/><link as="script" rel="preload" href="/styles-f42f8789f3cee93e7f05.js"/><link as="script" rel="preload" href="/commons-fbb6f814cffdadebdb5b.js"/><link as="script" rel="preload" href="/webpack-runtime-e1056f6722281b635472.js"/><link as="fetch" rel="preload" href="/page-data/react/in-depth-react-reconciler_1/page-data.json" crossorigin="anonymous"/></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="___gatsby"><div style="outline:none" tabindex="-1" role="group" id="gatsby-focus-wrapper"><div style="margin-left:auto;margin-right:auto;max-width:52rem;padding:2.4375rem 1.21875rem" class="post"><a class="link" href="/"><svg class="home" width="1.125em" font-size="2em" overflow="visible" viewBox="0 0 576 512"><path fill="currentColor" d="M280.37 148.26L96 300.11V464a16 16 0 0 0 16 16l112.06-.29a16 16 0 0 0 15.92-16V368a16 16 0 0 1 16-16h64a16 16 0 0 1 16 16v95.64a16 16 0 0 0 16 16.05L464 480a16 16 0 0 0 16-16V300L295.67 148.26a12.19 12.19 0 0 0-15.3 0zM571.6 251.47L488 182.56V44.05a12 12 0 0 0-12-12h-56a12 12 0 0 0-12 12v72.61L318.47 43a48 48 0 0 0-61 0L4.34 251.47a12 12 0 0 0-1.6 16.9l25.5 31A12 12 0 0 0 45.15 301l235.22-193.74a12.19 12.19 0 0 1 15.3 0L530.9 301a12 12 0 0 0 16.9-1.6l25.5-31a12 12 0 0 0-1.7-16.93z"></path></svg></a><div class="switch-container"><label for="normal-switch"><div style="position:relative;display:inline-block;text-align:left;opacity:1;direction:ltr;border-radius:12px;-webkit-transition:opacity 0.25s;-moz-transition:opacity 0.25s;transition:opacity 0.25s;touch-action:none;-webkit-tap-highlight-color:rgba(0, 0, 0, 0);-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none"><div class="react-switch-bg" style="height:24px;width:48px;margin:0;position:relative;background:#d9dfe2;border-radius:12px;cursor:pointer;-webkit-transition:background 0.25s;-moz-transition:background 0.25s;transition:background 0.25s"><div style="height:24px;width:26px;position:relative;opacity:0;pointer-events:none;-webkit-transition:opacity 0.25s;-moz-transition:opacity 0.25s;transition:opacity 0.25s"><div class="icon checkedIcon">D</div></div><div style="height:24px;width:26px;position:absolute;opacity:1;right:0;top:0;pointer-events:none;-webkit-transition:opacity 0.25s;-moz-transition:opacity 0.25s;transition:opacity 0.25s"><div class="icon uncheckedIcon">L</div></div></div><div class="react-switch-handle" style="height:22px;width:22px;background:#ffffff;display:inline-block;cursor:pointer;border-radius:50%;position:absolute;transform:translateX(1px);top:1px;outline:0;border:0;-webkit-transition:background-color 0.25s, transform 0.25s, box-shadow 0.15s;-moz-transition:background-color 0.25s, transform 0.25s, box-shadow 0.15s;transition:background-color 0.25s, transform 0.25s, box-shadow 0.15s"></div><input type="checkbox" role="switch" style="border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px" id="normal-switch"/></div></label></div><h1>React 톺아보기- 05. Reconciler_1</h1><p class="post-date">8 days ago</p><div><blockquote>
+  </script><link rel="preconnect dns-prefetch" href="https://www.google-analytics.com"/><link rel="icon" href="/icons/icon-48x48.png?v=9dbdaa6d9a815c4dab57eaac04ef491f"/><link rel="manifest" href="/manifest.webmanifest"/><meta name="theme-color" content="#ffffff"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=9dbdaa6d9a815c4dab57eaac04ef491f"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=9dbdaa6d9a815c4dab57eaac04ef491f"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=9dbdaa6d9a815c4dab57eaac04ef491f"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=9dbdaa6d9a815c4dab57eaac04ef491f"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=9dbdaa6d9a815c4dab57eaac04ef491f"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=9dbdaa6d9a815c4dab57eaac04ef491f"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=9dbdaa6d9a815c4dab57eaac04ef491f"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=9dbdaa6d9a815c4dab57eaac04ef491f"/><meta name="generator" content="Gatsby 2.18.10"/><link rel="alternate" type="application/rss+xml" href="/rss.xml"/><title data-react-helmet="true">React 톺아보기- 05. Reconciler_1 | Deep Dive Magic Code</title><meta data-react-helmet="true" name="description" content="모든 설명은 v16.12.0 버전 함수형 컴포넌트 기준입니다. 버전에 따라 코드는 변경될 수 있으며 클래스 컴포넌트는 설명에서 제외됨을 알려 드립니다. 아마 이번 포스터에서 리액트에 대해 궁금증을 가지고 있었던 거의 대부분을 다루지 않을까 생각해봅니다. 그만큼 중추적인 역할을 하는 패키지가 reconciler입니다.   우리는 먼저 JSX로 작성한 컴포넌트들이 어떤 형식으로 react element로 변환되고 이것을 VDOM에 올리기 위해 어떻게 fiber…"/><meta data-react-helmet="true" property="og:title" content="React 톺아보기- 05. Reconciler_1 | Deep Dive Magic Code"/><meta data-react-helmet="true" property="og:description" content="모든 설명은 v16.12.0 버전 함수형 컴포넌트 기준입니다. 버전에 따라 코드는 변경될 수 있으며 클래스 컴포넌트는 설명에서 제외됨을 알려 드립니다. 아마 이번 포스터에서 리액트에 대해 궁금증을 가지고 있었던 거의 대부분을 다루지 않을까 생각해봅니다. 그만큼 중추적인 역할을 하는 패키지가 reconciler입니다.   우리는 먼저 JSX로 작성한 컴포넌트들이 어떤 형식으로 react element로 변환되고 이것을 VDOM에 올리기 위해 어떻게 fiber…"/><meta data-react-helmet="true" property="og:image" content="/static/felog-f24356c48475809626ea0c2ac67855c6.png"/><meta data-react-helmet="true" property="og:type" content="website"/><meta data-react-helmet="true" name="google-site-verification" content="o402P1kCwteUVT_5s9zR21dD9lTF4ALZNLms22CIMx4"/><meta data-react-helmet="true" name="keywords" content="react, redux, javascript, web, development, frontend, 리액트, react, fiber, VDOM, reconciler"/><link rel="sitemap" type="application/xml" href="/sitemap.xml"/><link as="script" rel="preload" href="/app-69573b14c89d32433a71.js"/><link as="script" rel="preload" href="/component---src-templates-blog-post-js-ef229068f1a7461d6597.js"/><link as="script" rel="preload" href="/styles-f42f8789f3cee93e7f05.js"/><link as="script" rel="preload" href="/commons-fbb6f814cffdadebdb5b.js"/><link as="script" rel="preload" href="/webpack-runtime-e1056f6722281b635472.js"/><link as="fetch" rel="preload" href="/page-data/react/in-depth-react-reconciler_1/page-data.json" crossorigin="anonymous"/></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="___gatsby"><div style="outline:none" tabindex="-1" role="group" id="gatsby-focus-wrapper"><div style="margin-left:auto;margin-right:auto;max-width:52rem;padding:2.4375rem 1.21875rem" class="post"><a class="link" href="/"><svg class="home" width="1.125em" font-size="2em" overflow="visible" viewBox="0 0 576 512"><path fill="currentColor" d="M280.37 148.26L96 300.11V464a16 16 0 0 0 16 16l112.06-.29a16 16 0 0 0 15.92-16V368a16 16 0 0 1 16-16h64a16 16 0 0 1 16 16v95.64a16 16 0 0 0 16 16.05L464 480a16 16 0 0 0 16-16V300L295.67 148.26a12.19 12.19 0 0 0-15.3 0zM571.6 251.47L488 182.56V44.05a12 12 0 0 0-12-12h-56a12 12 0 0 0-12 12v72.61L318.47 43a48 48 0 0 0-61 0L4.34 251.47a12 12 0 0 0-1.6 16.9l25.5 31A12 12 0 0 0 45.15 301l235.22-193.74a12.19 12.19 0 0 1 15.3 0L530.9 301a12 12 0 0 0 16.9-1.6l25.5-31a12 12 0 0 0-1.7-16.93z"></path></svg></a><div class="switch-container"><label for="normal-switch"><div style="position:relative;display:inline-block;text-align:left;opacity:1;direction:ltr;border-radius:12px;-webkit-transition:opacity 0.25s;-moz-transition:opacity 0.25s;transition:opacity 0.25s;touch-action:none;-webkit-tap-highlight-color:rgba(0, 0, 0, 0);-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none"><div class="react-switch-bg" style="height:24px;width:48px;margin:0;position:relative;background:#d9dfe2;border-radius:12px;cursor:pointer;-webkit-transition:background 0.25s;-moz-transition:background 0.25s;transition:background 0.25s"><div style="height:24px;width:26px;position:relative;opacity:0;pointer-events:none;-webkit-transition:opacity 0.25s;-moz-transition:opacity 0.25s;transition:opacity 0.25s"><div class="icon checkedIcon">D</div></div><div style="height:24px;width:26px;position:absolute;opacity:1;right:0;top:0;pointer-events:none;-webkit-transition:opacity 0.25s;-moz-transition:opacity 0.25s;transition:opacity 0.25s"><div class="icon uncheckedIcon">L</div></div></div><div class="react-switch-handle" style="height:22px;width:22px;background:#ffffff;display:inline-block;cursor:pointer;border-radius:50%;position:absolute;transform:translateX(1px);top:1px;outline:0;border:0;-webkit-transition:background-color 0.25s, transform 0.25s, box-shadow 0.15s;-moz-transition:background-color 0.25s, transform 0.25s, box-shadow 0.15s;transition:background-color 0.25s, transform 0.25s, box-shadow 0.15s"></div><input type="checkbox" role="switch" style="border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px" id="normal-switch"/></div></label></div><h1>React 톺아보기- 05. Reconciler_1</h1><p class="post-date">15 days ago</p><div><blockquote>
 <p>모든 설명은 v16.12.0 버전 함수형 컴포넌트 기준입니다. 버전에 따라 코드는 변경될 수 있으며 클래스 컴포넌트는 설명에서 제외됨을 알려 드립니다.</p>
 </blockquote>
-<iframe
-     src="https://stackblitz.com/edit/react-jr5b3g?ctl=1&embed=1&file=index.js&hideNavigation=1"
-     style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
-     title="reconciler_example"
-   ></iframe>
+<p>아마 이번 포스터에서 리액트에 대해 궁금증을 가지고 있었던 거의 대부분을 다루지 않을까 생각해봅니다. 그만큼 중추적인 역할을 하는 패키지가 reconciler입니다.  </p>
+<p>우리는 먼저 JSX로 작성한 컴포넌트들이 어떤 형식으로 react element로 변환되고 이것을 VDOM에 올리기 위해 어떻게 fiber로 확장하는지 알아볼 것입니다. 그 후에 변경점들을 VDOM에 적용하는 render phase와 완성된 VDOM을 DOM에 적용하는 commit phase를 순서대로 확인해보며 마무리할 것입니다.  </p>
+<h1 id="1-react-element"><a href="#1-react-element" aria-label="1 react element permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1. react element</h1>
+<h2 id="종류"><a href="#%EC%A2%85%EB%A5%98" aria-label="종류 permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>종류</h2>
+<p>리액트 컴포넌트는 크게 호스트 컴포넌트, 사용자 정의 컴포넌트<up>커스텀 컴포넌트</up>, 리액트에서 제공하는 컴포넌트<up>스태틱 컴포넌트</up>로 나눌 수 있습니다.<br>
+호스트 컴포넌트는 div, input, button 등 html element에 대응하는 컴포넌트이며<br>
+커스텀 컴포넌트는 일반적으로 개발자들이 만들게 되는 class, functional component입니다.<br>
+리액트에서 제공하는 컴포넌트는 하나의 특수한 목적을 가진 컴포넌트로 fragment, lazy, context(Provider, Consumer), memo 등이 있습니다.</p>
+<h2 id="createelement"><a href="#createelement" aria-label="createelement permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>createElement()</h2>
+<p>JSX 문법으로 작성된 코드는 바벨을 통해 React.createElement로 치환됩니다. 이 이유 때문에 개발자가 React를 명시적으로 사용하지 않아도 JSX를 작성할 때는 항상 React를 import 해야합니다. 이 함수가 어떤 인자를 받는지 부터 확인하고 가겠습니다.</p>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token comment">// react > ReactElement.js</span>
+<span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">createElement</span><span class="token punctuation">(</span><span class="token parameter">type<span class="token punctuation">,</span> config<span class="token punctuation">,</span> children</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token operator">...</span> <span class="token punctuation">}</span></code></pre></div>
+<p><code class="language-text">type</code>에는 JSX로 컴포넌트를 선언할 때 사용한 값이 들어갑니다.</p>
+<ul>
+<li>호스트 컴포넌트: 태그 이름</li>
+<li>커스텀 컴포넌트: class, function 그 자체</li>
+<li>스태틱 컴포넌트: <a target="_black" href="https://github.com/facebook/react/blob/v16.12.0/packages/shared/ReactSymbols.js">미리 정의된 Symbol</a> 또는 memo, lazy와 같이 함수 호출을 통해 만들어진 react element</li>
+</ul>
+<p><code class="language-text">config</code>는 컴포넌트를 사용할 때 넘겨준 모든 attribute를 담고 있는 객체입니다.<br>
+<code class="language-text">children</code>은 조금 부연 설명이 필요한데 함수 선언 형태는 3개의 인자만 있지만 실제로는 여러 자식이 올 경우 3 ~ n번째의 인자에 자식들이 들어옵니다. type, config, children1, children2, … childrenN의 형태가 됩니다.</p>
+<p>다음의 예제로 위 내용을 확인해보겠습니다.</p>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">CustomComponent</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token string">''</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> <span class="token function-variable function">App</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token operator">&lt;</span><span class="token operator">></span><span class="token operator">&lt;</span>CustomComponent <span class="token operator">/</span><span class="token operator">></span><span class="token operator">&lt;</span>div id<span class="token operator">=</span><span class="token string">"host_component"</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span><span class="token operator">></span></code></pre></div>
+<blockquote>
+<p>&#x3C;>…&#x3C;/>는 &#x3C;React.Fragment>…&#x3C;/React.Fragment>의 단축 형태입니다.</p>
+</blockquote>
+<p>치환된 코드는 다음과 같습니다.</p>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">App</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">(</span>
+  React<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span>
+    React<span class="token punctuation">.</span>Fragment<span class="token punctuation">,</span> <span class="token comment">// type: Symbol.for('react.fragment')</span>
+    <span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token comment">// config</span>
+    React<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span> <span class="token comment">// 첫번째 자식</span>
+      CustomComponent<span class="token punctuation">,</span> <span class="token comment">// type: function</span>
+      <span class="token keyword">null</span> <span class="token comment">// config</span>
+      <span class="token comment">// 자식은 없음</span>
+    <span class="token punctuation">)</span><span class="token punctuation">,</span>
+    React<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span> <span class="token comment">// 두번째 자식</span>
+      <span class="token string">"div"</span><span class="token punctuation">,</span> <span class="token comment">// type: tag name</span>
+      <span class="token punctuation">{</span> id<span class="token punctuation">:</span> <span class="token string">"host_component"</span> <span class="token punctuation">}</span> <span class="token comment">// config</span>
+    <span class="token punctuation">)</span> 
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">)</span></code></pre></div>
+<p>이 인자들을 받아서 react element를 만드는 과정은 다음과 같습니다.</p>
+<ol>
+<li>react element에는 key와 ref라는 예약된 속성들이 존재합니다. config에 해당 속성을 제외한 나머지를 props 객체에 저장합니다. </li>
+<li>인자로 넘어온 자식이 복수개이면 하나의 배열에 저장합니다.</li>
+<li>default props가 존재할경우 props 객체에 적용합니다.</li>
+<li>위 내용을 이용하여 react element 객체를 만듭니다.</li>
+</ol>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token comment">// react > ReactElement.js</span>
+<span class="token keyword">const</span> <span class="token constant">RESERVED_PROPS</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+  key<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  ref<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">createElement</span><span class="token punctuation">(</span><span class="token parameter">type<span class="token punctuation">,</span> config<span class="token punctuation">,</span> children</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+  <span class="token comment">// 1. react element에는 key와 ref라는 예약된 속성들이 존재합니다. config에 해당 속성을 제외한 나머지를 props 객체에 저장합니다. </span>
+  <span class="token keyword">let</span> propName<span class="token punctuation">;</span>
+
+  <span class="token keyword">const</span> props <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">let</span> key <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+  <span class="token keyword">let</span> ref <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>config <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">hasValidRef</span><span class="token punctuation">(</span>config<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// config.ref !== undefined;</span>
+      ref <span class="token operator">=</span> config<span class="token punctuation">.</span>ref<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">hasValidKey</span><span class="token punctuation">(</span>config<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// config.key !== undefined;</span>
+      key <span class="token operator">=</span> <span class="token string">''</span> <span class="token operator">+</span> config<span class="token punctuation">.</span>key<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// 예약된 속성을 제외한 나머지를 props 객체에 저장</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span>propName <span class="token keyword">in</span> config<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>
+        <span class="token function">hasOwnProperty</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>config<span class="token punctuation">,</span> propName<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span>
+        <span class="token operator">!</span><span class="token constant">RESERVED_PROPS</span><span class="token punctuation">.</span><span class="token function">hasOwnProperty</span><span class="token punctuation">(</span>propName<span class="token punctuation">)</span>
+      <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        props<span class="token punctuation">[</span>propName<span class="token punctuation">]</span> <span class="token operator">=</span> config<span class="token punctuation">[</span>propName<span class="token punctuation">]</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">// 2. 인자로 넘어온 자식이 복수개이면 하나의 배열에 저장합니다.</span>
+  <span class="token keyword">const</span> childrenLength <span class="token operator">=</span> arguments<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">2</span><span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>childrenLength <span class="token operator">===</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    props<span class="token punctuation">.</span>children <span class="token operator">=</span> children<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>childrenLength <span class="token operator">></span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> childArray <span class="token operator">=</span> <span class="token function">Array</span><span class="token punctuation">(</span>childrenLength<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> childrenLength<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      childArray<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> arguments<span class="token punctuation">[</span>i <span class="token operator">+</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    props<span class="token punctuation">.</span>children <span class="token operator">=</span> childArray<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">// 3. default props가 존재할경우 props 객체에 기본값으로 저장합니다.</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>type <span class="token operator">&amp;&amp;</span> type<span class="token punctuation">.</span>defaultProps<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> defaultProps <span class="token operator">=</span> type<span class="token punctuation">.</span>defaultProps<span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span>propName <span class="token keyword">in</span> defaultProps<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>props<span class="token punctuation">[</span>propName<span class="token punctuation">]</span> <span class="token operator">===</span> <span class="token keyword">undefined</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        props<span class="token punctuation">[</span>propName<span class="token punctuation">]</span> <span class="token operator">=</span> defaultProps<span class="token punctuation">[</span>propName<span class="token punctuation">]</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">// 4. 위 내용을 이용하여 react element 객체를 만듭니다.</span>
+  <span class="token keyword">return</span> <span class="token function">ReactElement</span><span class="token punctuation">(</span>
+    type<span class="token punctuation">,</span>
+    key<span class="token punctuation">,</span>
+    ref<span class="token punctuation">,</span>
+    props<span class="token punctuation">,</span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>만드는 과정은 확인했으니 react element의 생김새를 한번 확인해볼까요?</p>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">ReactElement</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">type<span class="token punctuation">,</span> key<span class="token punctuation">,</span> ref<span class="token punctuation">,</span> props</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> element <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token comment">// This tag allows us to uniquely identify this as a React Element</span>
+    $$<span class="token keyword">typeof</span><span class="token punctuation">:</span> <span class="token constant">REACT_ELEMENT_TYPE</span><span class="token punctuation">,</span>
+    <span class="token comment">// Built-in properties that belong on the element</span>
+    type<span class="token punctuation">:</span> type<span class="token punctuation">,</span>
+    key<span class="token punctuation">:</span> key<span class="token punctuation">,</span>
+    ref<span class="token punctuation">:</span> ref<span class="token punctuation">,</span>
+    props<span class="token punctuation">:</span> props<span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> element<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre></div>
+<p>특이하게 생긴 <code class="language-text">$$typeof</code>가 있습니다. 이 속성은 fiber를 만들때 element의 종류를 확인하는데 쓰입니다. 기본적으로는 <code class="language-text">REACT_ELEMENT_TYPE</code>이지만 스태틱 컴포넌트의 경우는 심볼이 들어갑니다. 스태틱 컴포넌트는 간단하게 memo와 lazy만 확인해보겠습니다.</p>
+<anchor id="memo">
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token comment">// react > memo.js</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span><span class="token constant">REACT_MEMO_TYPE</span><span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'shared/ReactSymbols'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">function</span> memo<span class="token operator">&lt;</span>Props<span class="token operator">></span><span class="token punctuation">(</span>
+  type<span class="token punctuation">:</span> React$ElementType<span class="token punctuation">,</span>
+  compare<span class="token operator">?</span><span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token parameter">oldProps<span class="token punctuation">:</span> Props<span class="token punctuation">,</span> newProps<span class="token punctuation">:</span> Props</span><span class="token punctuation">)</span> <span class="token operator">=></span> boolean<span class="token punctuation">,</span>
+<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">{</span>
+    $$<span class="token keyword">typeof</span><span class="token punctuation">:</span> <span class="token constant">REACT_MEMO_TYPE</span><span class="token punctuation">,</span>
+    type<span class="token punctuation">,</span>
+    compare<span class="token punctuation">:</span> compare <span class="token operator">===</span> <span class="token keyword">undefined</span> <span class="token operator">?</span> <span class="token keyword">null</span> <span class="token punctuation">:</span> compare<span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// react > lazy.js</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span><span class="token constant">REACT_LAZY_TYPE</span><span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'shared/ReactSymbols'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">function</span> lazy<span class="token operator">&lt;</span><span class="token constant">T</span><span class="token punctuation">,</span> <span class="token constant">R</span><span class="token operator">></span><span class="token punctuation">(</span><span class="token function-variable function">ctor</span><span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> Thenable<span class="token operator">&lt;</span><span class="token constant">T</span><span class="token punctuation">,</span> <span class="token constant">R</span><span class="token operator">></span><span class="token punctuation">)</span><span class="token punctuation">:</span> LazyComponent<span class="token operator">&lt;</span><span class="token constant">T</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> lazyType <span class="token operator">=</span> <span class="token punctuation">{</span>
+    $$<span class="token keyword">typeof</span><span class="token punctuation">:</span> <span class="token constant">REACT_LAZY_TYPE</span><span class="token punctuation">,</span>
+    _ctor<span class="token punctuation">:</span> ctor<span class="token punctuation">,</span>
+    <span class="token comment">// React uses these fields to store the result.</span>
+    _status<span class="token punctuation">:</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span>
+    _result<span class="token punctuation">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">return</span> lazyType<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>react element에 대해서 알아야 할 부분은 이정도면 충분할 것 같습니다. react core 패키지가 하는 일은 대게 이런 리액트용 element를 만드는 거라고 생각하시면 됩니다.</p>
+<h1 id="2-fiber"><a href="#2-fiber" aria-label="2 fiber permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2. fiber</h1>
+<blockquote>
+<p>react element를 VDOM에 올리기 위해서는 fiber로 확장해야 합니다. 확장할 때의 코드에는 주로 element가 어떤 종류인지 판단하는 코드가 많습니다. 코드를 간략화하기 위해서 분석 대상을  커스텀 컴포넌트, 호스트 컴포넌트, fragment, memo로 압축하도록 하겠습니다.</p>
+</blockquote>
+<p>react element의 종류를 type 심볼을 통해 판단했다면 fiber는 <a target="_black" href="https://github.com/facebook/react/blob/v16.12.0/packages/shared/ReactWorkTags.js">tag</a>를 통해 판단합니다. 그리고 이 tag의 명칭은 work tag 입니다. 각 fiber의 종류에 따라 재조정 작업의 처리가 달라야 하기 때문에 붙은 명칭입니다. </p>
+<h2 id="createfiber"><a href="#createfiber" aria-label="createfiber permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>createFiber()</h2>
+<p>react element를 만들 때 와 같이 fiber도 종류에 따라 만드는 형식이 약간 다릅니다. fiber를 생성하는 함수는 createFiberFrom***()의 형태로 나뉘어 있지만 결국에는 createFiber()로 끝납니다. 먼저 이 함수를 확인해보자면</p>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token comment">// reconciler > ReactFiber.js</span>
+<span class="token keyword">const</span> <span class="token function-variable function">createFiber</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>
+  <span class="token parameter">tag<span class="token punctuation">:</span> WorkTag<span class="token punctuation">,</span>
+  pendingProps<span class="token punctuation">:</span> mixed<span class="token punctuation">,</span>
+  key<span class="token punctuation">:</span> <span class="token keyword">null</span> <span class="token operator">|</span> string<span class="token punctuation">,</span>
+  mode<span class="token punctuation">:</span> TypeOfMode<span class="token punctuation">,</span></span>
+<span class="token punctuation">)</span><span class="token punctuation">:</span> Fiber <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">FiberNode</span><span class="token punctuation">(</span>tag<span class="token punctuation">,</span> pendingProps<span class="token punctuation">,</span> key<span class="token punctuation">,</span> mode<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre></div>
+<p><code class="language-text">FiberNode</code>의 설명은 <a target="_blank" href="/react/in-depth-react-intro#FiberNode">Intro</a>에서 언급한 내용으로 대체하도록 하겠습니다.</p>
+<p>일반적으로 createFiberFromElement()를 통해 fiber를 만드는데 몇몇 종류의 fiber들은 props를 조금 다른 의미로 다루고 있습니다. 이에 해당하는 fiber 중 fragment와 text 만 다루고 넘어가겠습니다.</p>
+<blockquote>
+<p>이들을 처리하기 위해 파생된 함수가 createFiberFrom***입니다.</p>
+</blockquote>
+<h2 id="createfiberfromfragment-createfiberfromtext"><a href="#createfiberfromfragment-createfiberfromtext" aria-label="createfiberfromfragment createfiberfromtext permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>createFiberFromFragment(), createFiberFromText()</h2>
+<p>fragment는 단순히 컴포넌트들을 하나로 묶어주는 포장지라고 생각하면 됩니다. 그래서 props에는 다른 값을 다루지 않고 오로지 children만을 저장합니다.</p>
+<div class="gatsby-highlight has-highlighted-lines" data-language="js"><pre class="language-js"><code class="language-js"><span class="token comment">// fragment fiber를 만드는 코드 중..</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> <span class="token constant">REACT_FRAGMENT_TYPE</span> <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'shared/ReactSymbols'</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>element<span class="token punctuation">.</span>type <span class="token operator">===</span> <span class="token constant">REACT_FRAGMENT_TYPE</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> created <span class="token operator">=</span> <span class="token function">createFiberFromFragment</span><span class="token punctuation">(</span>
+<span class="gatsby-highlight-code-line">    element<span class="token punctuation">.</span>props<span class="token punctuation">.</span>children<span class="token punctuation">,</span></span>    returnFiber<span class="token punctuation">.</span>mode<span class="token punctuation">,</span>
+    expirationTime<span class="token punctuation">,</span>
+    element<span class="token punctuation">.</span>key<span class="token punctuation">,</span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  created<span class="token punctuation">.</span>return <span class="token operator">=</span> returnFiber<span class="token punctuation">;</span>
+  <span class="token keyword">return</span> created<span class="token punctuation">;</span>
+<span class="token punctuation">}</span> 
+
+<span class="token comment">// reconciler > ReactFiber.js</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Fragment <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'shared/ReactWorkTags'</span><span class="token punctuation">;</span>
+<span class="token keyword">function</span> <span class="token function">createFiberFromFragment</span><span class="token punctuation">(</span>
+  <span class="token parameter">elements<span class="token punctuation">:</span> ReactFragment<span class="token punctuation">,</span>
+  mode<span class="token punctuation">:</span> TypeOfMode<span class="token punctuation">,</span>
+  expirationTime<span class="token punctuation">:</span> ExpirationTime<span class="token punctuation">,</span>
+  key<span class="token punctuation">:</span> <span class="token keyword">null</span> <span class="token operator">|</span> string<span class="token punctuation">,</span></span>
+<span class="token punctuation">)</span><span class="token punctuation">:</span> Fiber <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> fiber <span class="token operator">=</span> <span class="token function">createFiber</span><span class="token punctuation">(</span>Fragment<span class="token punctuation">,</span> elements<span class="token punctuation">,</span> key<span class="token punctuation">,</span> mode<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  fiber<span class="token punctuation">.</span>expirationTime <span class="token operator">=</span> expirationTime<span class="token punctuation">;</span>
+  <span class="token keyword">return</span> fiber<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>fragment를 만들 때 애초에 children을 꺼내 props에 넘겨줍니다.<br>
+그렇다면 text fiber의 props에는 무엇이 저장될까요?<br>
+text는 그 자체가 데이터 입니다. 다른 추가적이 요소가 필요 없습니다 심지어 key도요. 그래서 props에는 text 그 자체가 들어갑니다.</p>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token comment">// text fiber를 만드는 코드 중..</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> newChild <span class="token operator">===</span> <span class="token string">'string'</span> <span class="token operator">||</span> <span class="token keyword">typeof</span> newChild <span class="token operator">===</span> <span class="token string">'number'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> created <span class="token operator">=</span> <span class="token function">createFiberFromText</span><span class="token punctuation">(</span>
+    textContent<span class="token punctuation">,</span>
+    returnFiber<span class="token punctuation">.</span>mode<span class="token punctuation">,</span>
+    expirationTime<span class="token punctuation">,</span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// reconciler > ReactFiber.js</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> HostText <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'shared/ReactWorkTags'</span><span class="token punctuation">;</span>
+<span class="token keyword">function</span> <span class="token function">createFiberFromText</span><span class="token punctuation">(</span>
+  <span class="token parameter">content<span class="token punctuation">:</span> string<span class="token punctuation">,</span>
+  mode<span class="token punctuation">:</span> TypeOfMode<span class="token punctuation">,</span>
+  expirationTime<span class="token punctuation">:</span> ExpirationTime<span class="token punctuation">,</span></span>
+<span class="token punctuation">)</span><span class="token punctuation">:</span> Fiber <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> fiber <span class="token operator">=</span> <span class="token function">createFiber</span><span class="token punctuation">(</span>HostText<span class="token punctuation">,</span> content<span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">,</span> mode<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  fiber<span class="token punctuation">.</span>expirationTime <span class="token operator">=</span> expirationTime<span class="token punctuation">;</span>
+  <span class="token keyword">return</span> fiber<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<blockquote>
+<p>이 이외에도 props를 특별하게 다루는 fiber는 portal이 있습니다.</p>
+</blockquote>
+<h2 id="createfiberfromelement"><a href="#createfiberfromelement" aria-label="createfiberfromelement permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>createFiberFromElement()</h2>
+<p>이제 일반적인 react element에서 fiber로 확장하는 코드를 보도록 하겠습니다.</p>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">createFiberFromElement</span><span class="token punctuation">(</span>
+  <span class="token parameter">element<span class="token punctuation">:</span> ReactElement<span class="token punctuation">,</span>
+  mode<span class="token punctuation">:</span> TypeOfMode<span class="token punctuation">,</span>
+  expirationTime<span class="token punctuation">:</span> ExpirationTime<span class="token punctuation">,</span></span>
+<span class="token punctuation">)</span><span class="token punctuation">:</span> Fiber <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> type <span class="token operator">=</span> element<span class="token punctuation">.</span>type<span class="token punctuation">;</span>
+  <span class="token keyword">const</span> key <span class="token operator">=</span> element<span class="token punctuation">.</span>key<span class="token punctuation">;</span>
+  <span class="token keyword">const</span> pendingProps <span class="token operator">=</span> element<span class="token punctuation">.</span>props<span class="token punctuation">;</span>
+  <span class="token keyword">const</span> fiber <span class="token operator">=</span> <span class="token function">createFiberFromTypeAndProps</span><span class="token punctuation">(</span>
+    type<span class="token punctuation">,</span>
+    key<span class="token punctuation">,</span>
+    pendingProps<span class="token punctuation">,</span>
+    mode<span class="token punctuation">,</span>
+    expirationTime<span class="token punctuation">,</span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> fiber<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>먼저 element에서 필요한 정보들을 꺼냅니다. 이제 이 정보들을 이용하여 <code class="language-text">createFiberFromTypeAndProps()</code>를 통해 해당 type에 맞는 fiber을 찾아 확장하기만 하면 됩니다.  </p>
+<p>이 함수의 첫 번째 목적은 fiber의 tag를 추출하는 겁니다. 그리고 해당 tag를 가진 fiber를 만들어 반환합니다.</p>
+<div class="gatsby-highlight" data-language="js"><pre style="counter-reset: linenumber 0" class="language-js line-numbers"><code class="language-js"><span class="token comment">// reconciler > ReactFiberBeginWork.js</span>
+<span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">createFiberFromTypeAndProps</span><span class="token punctuation">(</span>
+  type<span class="token punctuation">:</span> any<span class="token punctuation">,</span> <span class="token comment">// React$ElementType</span>
+  key<span class="token punctuation">:</span> <span class="token keyword">null</span> <span class="token operator">|</span> string<span class="token punctuation">,</span>
+  pendingProps<span class="token punctuation">:</span> any<span class="token punctuation">,</span>
+  mode<span class="token punctuation">:</span> TypeOfMode<span class="token punctuation">,</span>
+  expirationTime<span class="token punctuation">:</span> ExpirationTime<span class="token punctuation">,</span>
+<span class="token punctuation">)</span><span class="token punctuation">:</span> Fiber <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> fiber<span class="token punctuation">;</span>
+
+  <span class="token keyword">let</span> fiberTag <span class="token operator">=</span> IndeterminateComponent<span class="token punctuation">;</span> <span class="token comment">// class인지 functional component인지 아직 알 수 없음을 뜻함.</span>
+  <span class="token keyword">let</span> resolvedType <span class="token operator">=</span> type<span class="token punctuation">;</span>
+
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> type <span class="token operator">===</span> <span class="token string">'function'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// class component</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">shouldConstruct</span><span class="token punctuation">(</span>type<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      fiberTag <span class="token operator">=</span> ClassComponent<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment">// else?? 여기서는 함수형 컴포넌트라고 단정지을 수 없습니다.</span>
+    
+  <span class="token comment">// type이 string이면 호스트 컴포넌트 입니다. 'div', 'input'..</span>
+  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> type <span class="token operator">===</span> <span class="token string">'string'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    fiberTag <span class="token operator">=</span> HostComponent<span class="token punctuation">;</span>
+  <span class="token comment">// 이하 스태틱 컴포넌트</span>
+  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+    getTag<span class="token punctuation">:</span> <span class="token keyword">switch</span> <span class="token punctuation">(</span>type<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">case</span> <span class="token constant">REACT_STRICT_MODE_TYPE</span><span class="token punctuation">:</span>
+        fiberTag <span class="token operator">=</span> Mode<span class="token punctuation">;</span>
+        mode <span class="token operator">|=</span> StrictMode<span class="token punctuation">;</span>
+        <span class="token keyword">break</span><span class="token punctuation">;</span>
+      <span class="token keyword">case</span> <span class="token constant">REACT_SUSPENSE_TYPE</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token function">createFiberFromSuspense</span><span class="token punctuation">(</span>pendingProps<span class="token punctuation">,</span> mode<span class="token punctuation">,</span> expirationTime<span class="token punctuation">,</span> key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token comment">// 생략..</span>
+      <span class="token keyword">default</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> type <span class="token operator">===</span> <span class="token string">'object'</span> <span class="token operator">&amp;&amp;</span> type <span class="token operator">!==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          <span class="token keyword">switch</span> <span class="token punctuation">(</span>type<span class="token punctuation">.</span>$$<span class="token keyword">typeof</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">case</span> <span class="token constant">REACT_MEMO_TYPE</span><span class="token punctuation">:</span>
+              fiberTag <span class="token operator">=</span> MemoComponent<span class="token punctuation">;</span>
+              <span class="token keyword">break</span> getTag<span class="token punctuation">;</span>
+            <span class="token keyword">case</span> <span class="token constant">REACT_LAZY_TYPE</span><span class="token punctuation">:</span>
+              fiberTag <span class="token operator">=</span> LazyComponent<span class="token punctuation">;</span>
+              resolvedType <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+              <span class="token keyword">break</span> getTag<span class="token punctuation">;</span>
+            <span class="token comment">// 생략..</span>
+          <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">let</span> info <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">;</span>
+        <span class="token function">invariant</span><span class="token punctuation">(</span>
+          <span class="token boolean">false</span><span class="token punctuation">,</span>
+          <span class="token string">'Element type is invalid: expected a string (for built-in '</span> <span class="token operator">+</span>
+            <span class="token string">'components) or a class/function (for composite components) '</span> <span class="token operator">+</span>
+            <span class="token string">'but got: %s.%s'</span><span class="token punctuation">,</span>
+          type <span class="token operator">==</span> <span class="token keyword">null</span> <span class="token operator">?</span> type <span class="token punctuation">:</span> <span class="token keyword">typeof</span> type<span class="token punctuation">,</span>
+          info<span class="token punctuation">,</span>
+        <span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+  fiber <span class="token operator">=</span> <span class="token function">createFiber</span><span class="token punctuation">(</span>fiberTag<span class="token punctuation">,</span> pendingProps<span class="token punctuation">,</span> key<span class="token punctuation">,</span> mode<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  fiber<span class="token punctuation">.</span>elementType <span class="token operator">=</span> type<span class="token punctuation">;</span>
+  fiber<span class="token punctuation">.</span>type <span class="token operator">=</span> resolvedType<span class="token punctuation">;</span>
+  fiber<span class="token punctuation">.</span>expirationTime <span class="token operator">=</span> expirationTime<span class="token punctuation">;</span>
+
+  <span class="token keyword">return</span> fiber<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></div>
+<p>코드를 묶어 보자면 13 ~ 59 라인이 tag를 추출하는 코드, 61 ~ 64 라인이 fiber를 만들어 내는 코드입니다.<br>
+짚고 넘어갈만한 부분은 11, 19, 35번 라인 입니다.  </p>
+<ul>
+<li>11: <code class="language-text">IndeterminateComponent</code> tag는 현재 이 fiber가 클래스 컴포넌트인지 함수형 컴포넌트인지 확실히 알 수 없는 상태라는 걸 나타냅니다.  </li>
+<li>19: 16라인에서 <code class="language-text">type</code>이 React.Componenet를 상속받은 클래스인지 확인하여 <code class="language-text">ClassComponent</code> tag를 설정합니다.<br>
+그런데 왜 else문을 사용하여 함수형 컴포넌트라고 단정짓지 않은것일까요?<br>
+함수로 정의하는 컴포넌트가 꼭 함수형 컴포넌트만 있는것이 아니기 때문입니다.<br>
+suspsend의 기능을 구현한 함수의 경우 클래스 컴포넌트를 반환할지 함수형 컴포넌트를 반환할지 직접 실행해보기 전까지는 모릅니다. 그래서 fiber로 확장만 하는 createFiberFromTypeAndProps()에서는 이를 알 수 있는 방법이 없습니다.  </li>
+<li>
+<p>35: 이 부분에서 헷갈릴 수 있습니다. 26라인의 switch문에서 스태틱 컴포넌트들을 이미 분기처리했는데 <code class="language-text">default</code>에서 <code class="language-text">type</code>이 <code class="language-text">object</code>인지는 왜 확인하는 걸까요?<br>
+이를 이해하기 위해서 리액트 코어 패키지의 <a href="#memo">memo 함수</a>를 다시 확인해 보면 반환값이 react element입니다. 이제 memo를 사용하는 일반적인 코드를 생각해보시면 이해가 가실겁니다.</p>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token keyword">const</span> <span class="token constant">FC</span> <span class="token operator">=</span> React<span class="token punctuation">.</span><span class="token function">memo</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token string">'memo component'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> <span class="token function-variable function">App</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token operator">&lt;</span><span class="token constant">FC</span> <span class="token operator">/</span><span class="token operator">></span><span class="token punctuation">;</span></code></pre></div>
+<p>이해가 가시나요? 우리는 첫줄에서 이미 memo element를 만들었습니다. 그리고 이 element를 다시 React.createElement()에 넘겨주었기 때문에 type에는 memo element 오브젝트가 들어가게 되는겁니다.</p>
+</li>
+</ul>
+<p>react element와 fiber를 어떻게 생성하는지는 이정도면 충분할 것 같습니다.<br>
+다음 주제는 render phase이지만 VDOM을 순회할 때 헷갈리지 않도록 미리 좀더 VDOM에 익숙해지는 시간을 가지도록 하겠습니다. 다음의 간단한 <a target="_blank" href="">todo list</a> 예제를 통해 VDOM이 어떻게 생겼는지 확인해보겠습니다.</p>
+<h1 id="3-vdom"><a href="#3-vdom" aria-label="3 vdom permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3. VDOM</h1>
+<p>먼저 Intro에서 사용했던 VDOM 이미지를 가지고 와서 어떻게 서로 참조하고 있었는지 상기시키도록 하겠습니다.</p>
+<figure>
+ <span class="gatsby-resp-image-wrapper" style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 634px;">
+      <span class="gatsby-resp-image-background-image" style="padding-bottom: 143.69085173501577%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAdCAYAAACqhkzFAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAEOElEQVRIx31VaVMbRxDl/1cZCXOksKGAKrv4EmOBDSGxY9kcTkglgSRCEgh0sTr2vne150vPiBUSEnRV1+xcb1/PdL+Zw5ilacpbx3VhOw58f4AoipAkCR8zTQuO40LTDXi+P9qT7WM2Nw6W3E9UqjUcfiriy9cTHBx+xq/FY/zx5zl2Cvu8/2b7R5Qr13wt+9k46NwshsyCIOTs/MGAswvDiPdD8iiOZ+6ZYsjMNE1IkgRRFKEoCndd16Gqw9axbSg0L/V6MKj/OOwpQJ/OxjAM2LSRuWVZvC8IAmzPg0NgSqkEg1qPmM8EzDqP6Y+bS2DMom4XqarOCPkR4HN+cnyMt9vbEGo1pLKMmN082Fx2IckDw6dYZePs3FZXVzE/P4+fDw/xnLE9nKETWhA9AYrfR5zGCOOQPCAWCfpSH4XdAlZfraJyVeEb7cBAz2lDsBvou3foum1Ygf4Qco8GWnaNT+oDGU5igpIF10IVl80SZK+LlnYDLZSh+QrUQIQa99H37yA4DbTtW94mRIYDGoE6Qb3VbOGqegWZUmc4T4wINDPHclD65xK+OxiN2aGBIB4MAfWBwjvMms0mFhYWsJCbx28XJVzrKb7U+9i/buGi5+LvjoN3799jZXkJu3u77GqQkQqT4AGQnRmzer2OxcUl/LCyjOO//kONAE/bIj7V2yhLPm4UD+92drC0soJCoTBiaATaJGCUhKPJi/Nz/Ht6OuprvoaO02GVy/syVc/Rx4+wKOGzFDQfA8Yp5VacQFE1nipUf4hM2hClMEMdktfh4bmuB5nWuO02HaaD+L5azGmGEc+jMAx5/ULTkFICM1IWAcp+lycwUxeLlWSrNVQbtmY24DDkmJTkw4c9HOztkeIML6prK3SWdyOVKVcqeLOxgUaj8XTI2aWUy2Xk8nl+y/vffsdZN8HB9R12SCNPWg6+3hhY39hELpfD1tbWqKKMacAhw77Yx8bmJjbW11BrCdDpPyWqlrNuE307gBumKBaLWHz5EkdHR7MZalQdCWKIsgJR6MAlqXLu1SU7H9F7uGX2BFQq1YlimAJkv5EUFQ4pCqns1GKJKiXhqgIMSMU1ujSm4FliTwDasY6+LKJE+RcrD2UoSiKajRa/5QyQGcuEIAi4z2R4pzTwev0V8vkFfP9+DHhU+MItXq+tIT+fx7ezIsxE4RnwlMxNANZ7NSwuL5Lm5fD5F9K8xELr9hJLy8vIvcjhpyJVRaoSYIRZgjwjZAPlapnf2ngY1WqV1PoUqitRYvdGIY8/GTMBzVDDIPThe/79WxuP3gjXduHEJkS3MwH4mOFEHmq+TC+cRZs9KqVkxNCjuvVsnxjKkPzus/JvkmKPAFVf4sltByaXdyekltyibzbG5lnITObZc2Hfz2fO1qu+iJj0gAOyOnYjG17kcGff7tg3+zNbnI2Pe7YmE+j/AYmfmLxmz5QpAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;"></span>
+  <img class="gatsby-resp-image-image" alt="vDOM" title="vDOM" src="/static/258b43ce623e7b6340fc6aed969199ed/153fa/vDOM.png" srcset="/static/258b43ce623e7b6340fc6aed969199ed/0780f/vDOM.png 198w,
+/static/258b43ce623e7b6340fc6aed969199ed/47b26/vDOM.png 395w,
+/static/258b43ce623e7b6340fc6aed969199ed/153fa/vDOM.png 634w" sizes="(max-width: 634px) 100vw, 634px" loading="lazy">
+    </span>
+  <figcaption>Virtual DOM</figcaption>
+</figure>
 <table>
 <thead>
 <tr>
