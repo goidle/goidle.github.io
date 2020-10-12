@@ -52,7 +52,6 @@
   <span class="token keyword">return</span> <span class="token function">updateReducer</span><span class="token punctuation">(</span>basicStateReducer<span class="token punctuation">,</span> initialState<span class="token punctuation">)</span>
 <span class="token punctuation">}</span></code></pre></div>
 <p><code class="language-text">updateState()</code>는 그저 <code class="language-text">updateReducer()</code>로 포워딩하는 함수입니다. 그리고 이름에서 알 수 있듯이 updateReducer()는 useReducer()의 업데이트 구현체입니다. useState()와 useReducer()의 차이점은 내부에서 action을 소비하는 리듀서를 외부에서 주입할 수 있느냐?입니다.</p>
-<anchor id="updateWorkInProgressHook">
 <p>업데이트 구현체가 해야 할 일은 이전에 만들어놓았던 훅을 다시 불러오는 것입니다. 그리고 훅의 queue에 담겨있는 update를 소비하여 최종 상태 값을 구해야 합니다. 이 동작은 useState(), useReducer()의 훅 객체마다 행해지는데 이 과정에서 진행 상황을 훅 객체의 <a href="/react/in-depth-react-hooks_1#hook_object" target="_blank">baseUpdate와 baseState</a>에 기입하게 됩니다.</p>
 <p>문제는 여러가지 이유로 컴포넌트 렌더링을 취소해야 될 경우가 있습니다. 이를 대비하기 위해 fiber의 workInProgress 처럼 훅 객체 또한 작업용 훅을 만들어 사용합니다.</p>
 <p>가장 먼저 마운트는 객체를 생성했다면 업데이트는 기존 훅을 작업용 훅으로 생성해야 합니다.</p>
@@ -62,6 +61,7 @@
   <span class="token keyword">const</span> hook <span class="token operator">=</span> <span class="token function">updateWorkInProgressHook</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
   <span class="token comment">/*...*/</span>
 <span class="token punctuation">}</span></code></pre></div>
+<anchor id="updateWorkInProgressHook">
 <p><a href="https://github.com/facebook/react/blob/v16.12.0/packages/react-reconciler/src/ReactFiberHooks.js#L593" target="_blank" class="code_link_6">reconciler > ReactFiberHooks.js </a></p>
 <div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js">  
 <span class="token keyword">function</span> <span class="token function">updateWorkInProgressHook</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
