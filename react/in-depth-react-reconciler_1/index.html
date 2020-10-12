@@ -53,17 +53,20 @@
 <li>완성된 VDOM을 commit phase를 통해 DOM에 적용한다.</li>
 <li>사용자의 상호작용으로 이벤트가 발생하고 등록된 핸들러가 실행되면서 다시 1번으로 되돌아간다.</li>
 </ol>
-<p>아마 이번 포스터에서 리액트에 대한 궁금증을 가지고 있었던 대부분을 다루지 않을까 생각해봅니다. 그만큼 중추적인 역할을 하는 패키지가 <strong>reconciler</strong>입니다.  </p>
-<p>우리는 먼저 <u>JSX로 작성한 컴포넌트들이 어떻게 react element로 변환되고 또 이것을 VDOM에 올리기 위한 fiber로의 확장을 알아볼 것입니다. 그 후에 변경점들을 VDOM에 적용하는 render phase와 완성된 VDOM을 DOM에 적용하는 commit phase를 순서대로 확인해보며 마무리할 것입니다.</u>  </p>
+<hr>
+<p>아마 이번 포스트에서 리액트에 대해 막연하게 생각하셨던 대부분을 다루게 될 것입니다. 그만큼 중추적인 역할을 하는 패키지가 <strong>reconciler</strong>입니다.  </p>
+<p>우리는 먼저 <u>JSX로 작성한 컴포넌트들이 어떻게 react element로 변환되고, VDOM에 올리기 위해 어떤 방식으로 fiber로 확장하는지 알아볼 것입니다.</u> 그 후에 컴포넌트로부터 발생한 변경점들을 VDOM에 적용하는 render phase와 완성된 VDOM을 DOM에 적용하는 commit phase를 순서대로 확인해보며 마무리할 것입니다.</p>
 <h1 id="1-react-element"><a href="#1-react-element" aria-label="1 react element permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1. React element</h1>
 <h2 id="1---1-종류"><a href="#1---1-%EC%A2%85%EB%A5%98" aria-label="1   1 종류 permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1 - 1 종류</h2>
-<p>리액트 컴포넌트는 크게 호스트 컴포넌트, 사용자 정의 컴포넌트<up>커스텀 컴포넌트</up>, 리액트에서 제공하는 컴포넌트<up>스태틱 컴포넌트</up>로 나눌 수 있습니다.<br>
-호스트 컴포넌트는 div, input, button 등 html element에 대응하는 컴포넌트이며<br>
-커스텀 컴포넌트는 일반적으로 개발자들이 만들게 되는 class, functional component입니다.<br>
-리액트에서 제공하는 컴포넌트는 하나의 특수한 목적을 가진 컴포넌트로 fragment, lazy, context(Provider, Consumer), memo 등이 있습니다.</p>
-<h2 id="1---2-createelement"><a href="#1---2-createelement" aria-label="1   2 createelement permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1 - 2 createElement</h2>
-<p>JSX 문법으로 작성된 코드는 바벨을 통해 React.createElement로 치환됩니다. 이 이유 때문에 개발자는 React를 명시적으로 사용하지 않아도 JSX를 작성할 때는 항상 React를 import 해야합니다.   </p>
-<p>createElement() 함수가 어떤 인자를 받는지부터 확인하겠습니다.</p>
+<p>리액트 컴포넌트는 크게 호스트 컴포넌트, 사용자 정의 컴포넌트<up>커스텀 컴포넌트</up>, 리액트에서 제공하는 컴포넌트<up>스태틱 컴포넌트</up>로 나눌 수 있습니다.  </p>
+<ul>
+<li>호스트 컴포넌트는 div, input, button 등 html element에 대응하는 컴포넌트이며  </li>
+<li>커스텀 컴포넌트는 일반적으로 개발자들이 만들게 되는 class, functional component입니다.  </li>
+<li>스태틱 컴포넌트는 하나의 특수한 목적을 가진 컴포넌트로 fragment, lazy, context(Provider, Consumer), memo 등이 있습니다.</li>
+</ul>
+<h2 id="1---2-createelement"><a href="#1---2-createelement" aria-label="1   2 createelement permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1 - 2 createElement()</h2>
+<p>JSX 문법으로 작성된 컴포넌트는 바벨을 통해 React.createElement()로 치환됩니다. 이러한 이유로 개발자는 React 모듈을 사용하지  않아도 JSX를 작성할 때는 항상 React를 import 해야합니다.   </p>
+<p>createElement()가 어떤 인자를 받는지부터 확인하겠습니다.</p>
 <p><a class="code_link" href="https://github.com/facebook/react/blob/v16.12.0/packages/react/src/ReactElement.js#L312" target="_blank">react > ReactElement.js</a></p>
 <div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js">  
 <span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">createElement</span><span class="token punctuation">(</span><span class="token parameter">type<span class="token punctuation">,</span> config<span class="token punctuation">,</span> children</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> 
@@ -72,12 +75,12 @@
 <p><code class="language-text">type</code>: 컴포넌트의 종류에 따라 다음의 값이 사용됩니다.  </p>
 <ul>
 <li>호스트 컴포넌트: 태그 이름</li>
-<li>커스텀 컴포넌트: class, function 그 자체</li>
-<li>스태틱 컴포넌트: <a target="_black" href="https://github.com/facebook/react/blob/v16.12.0/packages/shared/ReactSymbols.js">미리 정의된 Symbol</a> 또는 memo, lazy와 같이 함수 호출을 통해 만들어진 react element</li>
+<li>커스텀 컴포넌트: 작성한 함수</li>
+<li>스태틱 컴포넌트: <a target="_black" href="https://github.com/facebook/react/blob/v16.12.0/packages/shared/ReactSymbols.js#L12">미리 정의된 Symbol</a> 또는 memo, lazy와 같이 함수 호출을 통해 만들어진 react element</li>
 </ul>
-<p><code class="language-text">config</code>: 컴포넌트를 사용할 때 넘겨준 props를 담고 있는 객체입니다.<br>
-<code class="language-text">children</code>: 위 코드에서는 자식을 하나의 인자가 받도록 되어 있지만 실제로는 여러 자식이 올 경우 3 ~ n번째의 인자에 자식들이 들어옵니다. type, config, children1, children2, … childrenN의 형태가 됩니다.</p>
-<p>다음의 예제로 위 내용을 확인해봅시다.</p>
+<p><code class="language-text">config</code>: props를 담고 있는 객체입니다.<br>
+<code class="language-text">children</code>: 코드에서는 자식을 하나의 인자가 받도록 되어 있지만 실제로는 여러 자식이 올 경우 3 ~ n번째의 인자에 자식들이 들어옵니다. <code class="language-text">function createElement(type, config, children1, children2, ..childrenN)</code>의 형태가 됩니다.</p>
+<p>다음의 예제로 해당 내용을 확인해봅시다.</p>
 <div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">CustomComponent</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token string">''</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> <span class="token function-variable function">App</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token operator">&lt;</span><span class="token operator">></span><span class="token operator">&lt;</span>CustomComponent <span class="token operator">/</span><span class="token operator">></span><span class="token operator">&lt;</span>div id<span class="token operator">=</span><span class="token string">"host_component"</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span><span class="token operator">></span></code></pre></div>
 <blockquote>
@@ -102,10 +105,10 @@
 <span class="token punctuation">)</span></code></pre></div>
 <p>react element를 만드는 과정은 다음과 같습니다.</p>
 <ol>
-<li>react element에는 key와 ref라는 예약된 속성들이 존재합니다. config에 해당 속성을 제외한 나머지를 props 객체에 저장합니다. </li>
-<li>복수개의 자식이 넘어온다면 하나의 배열에 저장합니다.</li>
+<li>react element에는 key와 ref라는 예약된 속성들이 존재합니다. config에 예약 속성을 제외한 나머지를 props 객체에 저장합니다. </li>
+<li>복수의 자식이 넘어온다면 하나의 배열에 저장합니다.</li>
 <li>default props가 존재할 경우 props 객체에 적용합니다.</li>
-<li>정제된 정보를 가지고 react element 객체를 만듭니다.</li>
+<li>1 ~ 3에서 작성한 정보를 가지고 react element 객체를 만듭니다.</li>
 </ol>
 <anchor id="createElement" />
 <p><a class="code_link" href="https://github.com/facebook/react/blob/v16.12.0/packages/react/src/ReactElement.js#L312" target="_blank">react > ReactElement.js</a></p>
@@ -116,7 +119,7 @@
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
 
 <span class="token keyword">function</span> <span class="token function">createElement</span><span class="token punctuation">(</span><span class="token parameter">type<span class="token punctuation">,</span> config<span class="token punctuation">,</span> children</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> 
-  <span class="token comment">// 1. react element에는 key와 ref라는 예약된 속성들이 존재합니다. config에 해당 속성을 제외한 나머지를 props 객체에 저장합니다. </span>
+  <span class="token comment">// 1</span>
   <span class="token keyword">let</span> propName<span class="token punctuation">;</span>
 
   <span class="token keyword">const</span> props <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
@@ -143,7 +146,7 @@
     <span class="token punctuation">}</span>
   <span class="token punctuation">}</span>
 
-  <span class="token comment">// 2. 인자로 넘어온 자식이 복수개이면 하나의 배열에 저장합니다.</span>
+  <span class="token comment">// 2</span>
   <span class="token keyword">const</span> childrenLength <span class="token operator">=</span> arguments<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">2</span><span class="token punctuation">;</span>
   <span class="token keyword">if</span> <span class="token punctuation">(</span>childrenLength <span class="token operator">===</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     props<span class="token punctuation">.</span>children <span class="token operator">=</span> children<span class="token punctuation">;</span>
@@ -155,7 +158,7 @@
     props<span class="token punctuation">.</span>children <span class="token operator">=</span> childArray<span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
 
-  <span class="token comment">// 3. default props가 존재할경우 props 객체에 기본값으로 저장합니다.</span>
+  <span class="token comment">// 3</span>
   <span class="token keyword">if</span> <span class="token punctuation">(</span>type <span class="token operator">&amp;&amp;</span> type<span class="token punctuation">.</span>defaultProps<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">const</span> defaultProps <span class="token operator">=</span> type<span class="token punctuation">.</span>defaultProps<span class="token punctuation">;</span>
     <span class="token keyword">for</span> <span class="token punctuation">(</span>propName <span class="token keyword">in</span> defaultProps<span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -165,7 +168,7 @@
     <span class="token punctuation">}</span>
   <span class="token punctuation">}</span>
 
-  <span class="token comment">// 4. 정제된 정보를 가지고 react element 객체를 만듭니다.</span>
+  <span class="token comment">// 4</span>
   <span class="token keyword">return</span> <span class="token function">ReactElement</span><span class="token punctuation">(</span>
     type<span class="token punctuation">,</span>
     key<span class="token punctuation">,</span>
@@ -173,7 +176,7 @@
     props<span class="token punctuation">,</span>
   <span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span></code></pre></div>
-<p>만드는 과정은 확인했으니 react element의 생김새를 한번 확인해볼까요?</p>
+<p>만드는 과정은 확인했으니 <code class="language-text">ReactElement()</code>가 무엇을 반환하는지 확인해봅시다.</p>
 <p><a class="code_link" href="https://github.com/facebook/react/blob/v16.12.0/packages/react/src/ReactElement.js#L111" target="_blank">react > ReactElement.js</a></p>
 <div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js">  
 <span class="token keyword">const</span> <span class="token function-variable function">ReactElement</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">type<span class="token punctuation">,</span> key<span class="token punctuation">,</span> ref<span class="token punctuation">,</span> props</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
