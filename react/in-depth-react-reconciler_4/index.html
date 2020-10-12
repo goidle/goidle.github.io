@@ -1,0 +1,822 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, minimum-scale=1, maximum-scale=2"/><link rel="shortcut icon" href="/icons/icon-48x48.png"/><style id="typography.js">html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,main,menu,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block}audio:not([controls]){display:none;height:0}progress{vertical-align:baseline}[hidden],template{display:none}a{background-color:transparent;-webkit-text-decoration-skip:objects}a:active,a:hover{outline-width:0}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:inherit;font-weight:bolder}dfn{font-style:italic}h1{font-size:2em;margin:.67em 0}mark{background-color:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}img{border-style:none}svg:not(:root){overflow:hidden}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}figure{margin:1em 40px}hr{box-sizing:content-box;height:0;overflow:visible}button,input,optgroup,select,textarea{font:inherit;margin:0}optgroup{font-weight:700}button,input{overflow:visible}button,select{text-transform:none}[type=reset],[type=submit],button,html [type=button]{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:1px dotted ButtonText}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-cancel-button,[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-input-placeholder{color:inherit;opacity:.54}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}html{font:100%/1.625 -apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';box-sizing:border-box;overflow-y:scroll;}*{box-sizing:inherit;}*:before{box-sizing:inherit;}*:after{box-sizing:inherit;}body{color:hsla(0,0%,0%,0.8);font-family:-apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight:normal;word-wrap:break-word;font-kerning:normal;-moz-font-feature-settings:"kern", "liga", "clig", "calt";-ms-font-feature-settings:"kern", "liga", "clig", "calt";-webkit-font-feature-settings:"kern", "liga", "clig", "calt";font-feature-settings:"kern", "liga", "clig", "calt";}img{max-width:100%;margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}h1{margin-left:0;margin-right:0;margin-top:2.4375rem;padding-bottom:calc(0.40625rem - 1px);padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.21875rem;color:inherit;font-family:Catamaran;font-weight:800;text-rendering:optimizeLegibility;font-size:2rem;line-height:1.2;border-bottom:1px solid hsla(0,0%,0%,0.07);}h2{margin-left:0;margin-right:0;margin-top:56px;padding-bottom:calc(0.40625rem - 1px);padding-left:0;padding-right:0;padding-top:0;margin-bottom:20px;color:inherit;font-family:Catamaran;font-weight:700;text-rendering:optimizeLegibility;font-size:1.51572rem;line-height:1.2;border-bottom:1px solid hsla(0,0%,0%,0.07);}h3{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;color:inherit;font-family:-apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight:600;text-rendering:optimizeLegibility;font-size:1.31951rem;line-height:1.1;}h4{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;color:inherit;font-family:-apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight:600;text-rendering:optimizeLegibility;font-size:1rem;line-height:1.1;}h5{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;color:inherit;font-family:-apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight:600;text-rendering:optimizeLegibility;font-size:0.87055rem;line-height:1.1;}h6{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;color:hsla(0,0%,0%,0.53);font-family:-apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight:600;text-rendering:optimizeLegibility;font-size:0.81225rem;line-height:1.1;}hgroup{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}ul{margin-left:1.625rem;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:6px;list-style-position:outside;list-style-image:none;}ol{margin-left:1.625rem;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;list-style-position:outside;list-style-image:none;}dl{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}dd{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}p{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}figure{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}pre{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;font-size:0.85rem;line-height:1.625rem;}table{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;font-size:1rem;line-height:1.625rem;border-collapse:collapse;width:100%;}fieldset{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}blockquote{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:calc(0.8125rem - 1px);padding-right:0;padding-top:0;margin-bottom:0.8125rem;border-left:4px solid hsla(0,0%,0%,0.13);color:hsla(0,0%,0%,0.53);}form{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}noscript{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}iframe{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}hr{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:calc(0.8125rem - 1px);background:hsla(0,0%,0%,0.2);border:none;height:1px;}address{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}b{font-weight:600;}strong{font-weight:600;}dt{font-weight:600;}th{font-weight:600;}li{margin-bottom:2px;}ol li{padding-left:0;}ul li{padding-left:0;}li > ol{margin-left:1.625rem;margin-bottom:calc(0.8125rem / 2);margin-top:calc(0.8125rem / 2);}li > ul{margin-left:1.625rem;margin-bottom:calc(0.8125rem / 2);margin-top:calc(0.8125rem / 2);}blockquote *:last-child{margin-bottom:0;}li *:last-child{margin-bottom:0;}p *:last-child{margin-bottom:0;}li > p{margin-bottom:calc(0.8125rem / 2);}code{font-size:0.85rem;line-height:1.625rem;}kbd{font-size:0.85rem;line-height:1.625rem;}samp{font-size:0.85rem;line-height:1.625rem;}abbr{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;}acronym{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;}abbr[title]{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;text-decoration:none;}thead{text-align:left;}td,th{text-align:left;border-bottom:1px solid hsla(0,0%,0%,0.12);font-feature-settings:"tnum";-moz-font-feature-settings:"tnum";-ms-font-feature-settings:"tnum";-webkit-font-feature-settings:"tnum";padding-left:1.08333rem;padding-right:1.08333rem;padding-top:0.8125rem;padding-bottom:calc(0.8125rem - 1px);}th:first-child,td:first-child{padding-left:0;}th:last-child,td:last-child{padding-right:0;}h3,h4,h5,h6{margin-bottom:0.8125rem;margin-top:1.625rem;}ol,ul{margin-left:2.03125rem;}li>ol,li>ul{margin-left:2.03125rem;}a{color:#0687f0;text-decoration:none;box-shadow:none;}a:hover,a:active{text-decoration:underline;}a.gatsby-resp-image-link{box-shadow:none;text-decoration:none;}a:hover{text-decoration:none;}</style><style data-href="/styles.49f24db4f09953f776c8.css">@import url(https://cdn.jsdelivr.net/gh/tonsky/FiraCode@1.206/distr/fira_code.css);@font-face{font-family:Noto Sans KR;font-style:normal;font-display:swap;font-weight:100;src:local("Noto Sans KR Thin "),local("Noto Sans KR-Thin"),url(/static/noto-sans-kr-latin-100-2de137ca3e12ea146ee47485a97f1e78.woff2) format("woff2"),url(/static/noto-sans-kr-latin-100-b965647685dd9fc531d1f8a1cc25e024.woff) format("woff")}@font-face{font-family:Noto Sans KR;font-style:normal;font-display:swap;font-weight:300;src:local("Noto Sans KR Light "),local("Noto Sans KR-Light"),url(/static/noto-sans-kr-latin-300-4f773a0fce88aa857d70b56c5b0a1d26.woff2) format("woff2"),url(/static/noto-sans-kr-latin-300-ee87751dac814562bac316d848e35748.woff) format("woff")}@font-face{font-family:Noto Sans KR;font-style:normal;font-display:swap;font-weight:400;src:local("Noto Sans KR Regular "),local("Noto Sans KR-Regular"),url(/static/noto-sans-kr-latin-400-be09f2ced7ff9fa6eda5f0416e2fc840.woff2) format("woff2"),url(/static/noto-sans-kr-latin-400-4c50be0fe5b21a153b8e40a392c2d3fe.woff) format("woff")}@font-face{font-family:Noto Sans KR;font-style:normal;font-display:swap;font-weight:500;src:local("Noto Sans KR Medium "),local("Noto Sans KR-Medium"),url(/static/noto-sans-kr-latin-500-416698c2fc4b3951f8d63d3d2ae23900.woff2) format("woff2"),url(/static/noto-sans-kr-latin-500-28601458e118110e494903a1fcd6dcf5.woff) format("woff")}@font-face{font-family:Noto Sans KR;font-style:normal;font-display:swap;font-weight:700;src:local("Noto Sans KR Bold "),local("Noto Sans KR-Bold"),url(/static/noto-sans-kr-latin-700-04e782e08729f3725ae5a9c95da0c8ba.woff2) format("woff2"),url(/static/noto-sans-kr-latin-700-b9e989a96027f839a9569d2d011e0b71.woff) format("woff")}@font-face{font-family:Noto Sans KR;font-style:normal;font-display:swap;font-weight:900;src:local("Noto Sans KR Black "),local("Noto Sans KR-Black"),url(/static/noto-sans-kr-latin-900-c41f1395489a117ca36d550142a1695f.woff2) format("woff2"),url(/static/noto-sans-kr-latin-900-589f5fbf84d9dc9984a969bae969fd60.woff) format("woff")}@font-face{font-family:Catamaran;font-style:normal;font-display:swap;font-weight:100;src:local("Catamaran Thin "),local("Catamaran-Thin"),url(/static/catamaran-latin-100-3570195a7b5f619dd9b2419d8fa3f089.woff2) format("woff2"),url(/static/catamaran-latin-100-e82908f57f6d2f23eb9876b2d6868195.woff) format("woff")}@font-face{font-family:Catamaran;font-style:normal;font-display:swap;font-weight:200;src:local("Catamaran Extra Light "),local("Catamaran-Extra Light"),url(/static/catamaran-latin-200-987ea210308405ac77ba2f36430a70c9.woff2) format("woff2"),url(/static/catamaran-latin-200-bb5993d2f001b739bb9ab7c3ed9725c3.woff) format("woff")}@font-face{font-family:Catamaran;font-style:normal;font-display:swap;font-weight:300;src:local("Catamaran Light "),local("Catamaran-Light"),url(/static/catamaran-latin-300-2b8a4bd13e9d5ba755f010f8732b0bb6.woff2) format("woff2"),url(/static/catamaran-latin-300-c2696c65c33dcf37871b72bad51ee1ce.woff) format("woff")}@font-face{font-family:Catamaran;font-style:normal;font-display:swap;font-weight:400;src:local("Catamaran Regular "),local("Catamaran-Regular"),url(/static/catamaran-latin-400-640947b787a38ec35d097129637d9130.woff2) format("woff2"),url(/static/catamaran-latin-400-97e5bc807a3e915e3fbf40ce5fcb1128.woff) format("woff")}@font-face{font-family:Catamaran;font-style:normal;font-display:swap;font-weight:500;src:local("Catamaran Medium "),local("Catamaran-Medium"),url(/static/catamaran-latin-500-884483dd213f37ae3b5c98f73dd190a5.woff2) format("woff2"),url(/static/catamaran-latin-500-412cf386e31213e3601cb2132b9c4c2d.woff) format("woff")}@font-face{font-family:Catamaran;font-style:normal;font-display:swap;font-weight:600;src:local("Catamaran SemiBold "),local("Catamaran-SemiBold"),url(/static/catamaran-latin-600-eb6ebda25331e50d3f42c45a41f613bb.woff2) format("woff2"),url(/static/catamaran-latin-600-215c58c6114e0556cb1c332c0fda463a.woff) format("woff")}@font-face{font-family:Catamaran;font-style:normal;font-display:swap;font-weight:700;src:local("Catamaran Bold "),local("Catamaran-Bold"),url(/static/catamaran-latin-700-3196f49881b324fa5a5f937875cc380f.woff2) format("woff2"),url(/static/catamaran-latin-700-05f6e51c518dd3b521b258e5c05d0e72.woff) format("woff")}@font-face{font-family:Catamaran;font-style:normal;font-display:swap;font-weight:800;src:local("Catamaran ExtraBold "),local("Catamaran-ExtraBold"),url(/static/catamaran-latin-800-601b1d0f1b78fd65c3205b2c004bbe60.woff2) format("woff2"),url(/static/catamaran-latin-800-3b1675e4ede7e86ec79fa84c1203908e.woff) format("woff")}@font-face{font-family:Catamaran;font-style:normal;font-display:swap;font-weight:900;src:local("Catamaran Black "),local("Catamaran-Black"),url(/static/catamaran-latin-900-6bb5f96614acb7754020b922e1a63d24.woff2) format("woff2"),url(/static/catamaran-latin-900-79292dba48851cc3a212863c860d8f09.woff) format("woff")}code[class*=language-],pre[class*=language-]{color:#657b83;font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;font-size:1em;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-ms-hyphens:none;hyphens:none}code[class*=language-]::selection,code[class*=language-] ::selection,pre[class*=language-]::selection,pre[class*=language-] ::selection{background:#073642}pre[class*=language-]{padding:1em;margin:.5em 0;overflow:auto;border-radius:.3em}:not(pre)>code[class*=language-],pre[class*=language-]{background-color:#fdf6e3}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#93a1a1}.token.punctuation{color:#586e75}.namespace{opacity:.7}.token.boolean,.token.constant,.token.deleted,.token.number,.token.property,.token.symbol,.token.tag{color:#268bd2}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string,.token.url{color:#2aa198}.token.entity{color:#657b83;background:#eee8d5}.token.atrule,.token.attr-value,.token.keyword{color:#859900}.token.class-name,.token.function{color:#b58900}.token.important,.token.regex,.token.variable{color:#cb4b16}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}.custom-hr{margin:64px 0;background:linear-gradient(72deg,#291e95,#cc007a);border:none;height:2px}.home-header{margin-top:0;border-bottom:none;font-weight:900;font-size:48px;letter-spacing:-2px}.link{box-shadow:none;text-decoration:none;color:inherit}.switch-container{text-align:right}.switch-container .icon{text-align:center;color:#222;font-size:14px;font-weight:900}.footer{padding-top:52px;text-align:center;font-size:12px}.footer a{text-decoration:none!important}.home{position:absolute;margin-top:-1.5px}body.light{background-color:#fff;color:#615f5f}body.light .home-header{color:#5a5a5a}body.light .bio .author-name-content{background-color:#ecf0f2}body.light .bio .author-introduction{color:#7d7d7d}body.light .bio a{color:navy}body.light .bio .bio_fontaswesome{fill:navy;vertical-align:-.125em}body.light .category-container{border-color:#ecf0f2;border-style:solid;border-width:1px 6px;background-color:#f4f7f8}body.light .category-container .item{border:1px solid #ecf0f2;background-color:#fff;box-shadow:0 1px 1px rgba(0,0,0,.1)}body.light .category-container .item a{color:#666}body.light .category-container .item[aria-selected=true]{border:2px solid #909da1;font-weight:bolder}body.light .category-container .item[aria-selected=true] a{color:#636c6e}body.light .category-container .item .badge{background-color:#f5222d;color:#fff}body.light .thumbnail{background-color:#fff;box-shadow:0 0 12px rgba(122,124,136,.212)}body.light .thumbnail h3{color:#5173b3}body.light .thumbnail p{color:#7d7d7d}body.light .thumbnail:hover{text-shadow:.1px .1px .1px rgba(68,67,67,.925);box-shadow:1px 3px 15px rgba(122,124,136,.432)}body.light .footer,body.light .thumbnail .thumbnail-subinfo{color:#615f5f}body.light .footer a{color:#5a5a5a}body.light .navigator a{background-color:#fceff7;color:#cc007a}body.light :not(pre)>code[class*=language-]{color:#fff;border:1.2px solid hsla(0,0%,100%,.64);background:#7d7d7d}body.dark{background-color:#282c35;color:#dbd8d8}body.dark .home-header{color:#eee}body.dark .bio .author-name-content{background-color:#383636}body.dark .bio .author-introduction{color:#dbd8d8}body.dark .bio a{color:#bb72ec}body.dark .bio .bio_fontaswesome{fill:#bb72ec;vertical-align:-.125em}body.dark .category-container{border-color:#383636;border-style:solid;border-width:1px 6px;background-color:#24272c}body.dark .category-container .item{border:1px solid #383636;background-color:#282c35;box-shadow:0 1px 1px hsla(0,0%,100%,.1)}body.dark .category-container .item a{color:#d8d7d7}body.dark .category-container .item[aria-selected=true]{border:2px solid #666;font-weight:bolder}body.dark .category-container .item[aria-selected=true] a{color:#fff}body.dark .category-container .item .badge{background-color:#d695ab;color:#eee}body.dark .thumbnail{background-color:#282c35;box-shadow:0 0 12px rgba(197,166,201,.2)}body.dark .thumbnail h3{color:#d695ab}body.dark .thumbnail p{color:#dbd8d8}body.dark .thumbnail:hover{box-shadow:1px 1px 13px rgba(195,153,201,.26);text-shadow:.1px .1px .1px #fff}body.dark .footer,body.dark .thumbnail .thumbnail-subinfo{color:#dbd8d8}body.dark .footer a{color:#fff}body.dark blockquote{border-left:4px solid hsla(0,0%,100%,.822)}body.dark h1,body.dark h2{border-bottom-color:hsla(0,0%,100%,.3)}body.dark .navigator a{background-color:#fceff7;color:#cc007a}body.dark td,body.dark th{border-bottom:1px solid hsla(0,0%,100%,.15)}body.dark :not(pre)>code[class*=language-]{color:#c85656;border:1.2px solid rgba(0,0,0,.64);background:#e1e1e1}body.dark hr{background:hsla(0,0%,100%,.3)}body{font-family:Noto Sans KR,sans-serif;background-color:#fff;-webkit-text-size-adjust:antialiased;-moz-osx-font-smoothing:grayscale;-webkit-transition:background-color .3s,color .3s;transition:background-color .3s,color .3s}h1{margin-top:2em;font-size:2.15em}h1,h2{letter-spacing:-1px;border-bottom:transparent!important}h2{margin-top:1.5em;margin-bottom:0;font-size:1.5em}h3{font-weight:700;margin-bottom:.1rem;margin-top:0;letter-spacing:-1px}@media (max-width:500px){.home-header{font-size:40px}}.post-date{text-align:right;font-size:12px;font-style:italic}.bio{margin-bottom:15px}.bio .author-description{display:flex}.bio .author-image{margin-top:0;margin-right:12px;margin-bottom:0;min-width:95px}.bio .author-name{display:flex;flex-direction:column;justify-content:center}.bio .author-name-prefix{font-size:90%;margin-right:4px}.bio .author-name-content{display:inline-block;font-size:95%;padding:2px 6px;font-weight:bolder;border-radius:8px;-webkit-transform-origin:center;transform-origin:center}.bio .author-introduction{margin-top:4px;font-size:80%;line-height:1.4}.bio .author-socials{margin-top:4px}.bio a{margin-right:8px;font-size:80%;cursor:pointer}.bio a.visited{text-decoration:none}@-webkit-keyframes flutter{0%{-webkit-transform:rotate(0deg);transform:rotate(0deg)}35%{-webkit-transform:rotate(0deg);transform:rotate(0deg)}40%{-webkit-transform:rotate(-5deg);transform:rotate(-5deg)}60%{-webkit-transform:rotate(5deg);transform:rotate(5deg)}65%{-webkit-transform:rotate(0deg);transform:rotate(0deg)}to{-webkit-transform:rotate(0deg);transform:rotate(0deg)}}@keyframes flutter{0%{-webkit-transform:rotate(0deg);transform:rotate(0deg)}35%{-webkit-transform:rotate(0deg);transform:rotate(0deg)}40%{-webkit-transform:rotate(-5deg);transform:rotate(-5deg)}60%{-webkit-transform:rotate(5deg);transform:rotate(5deg)}65%{-webkit-transform:rotate(0deg);transform:rotate(0deg)}to{-webkit-transform:rotate(0deg);transform:rotate(0deg)}}.navigator{margin:40px 0;display:flex;flex-wrap:wrap;justify-content:space-between;list-style:none;padding:0}.navigator li{margin-bottom:12px}.navigator a{padding:7px 16px 8px;border-radius:6px;font-size:12px;opacity:.8}.post h1{font-size:2.5rem;line-height:1.1}.post h2{margin-top:3.5rem;font-size:1.73286rem}.post h2,.post p{margin-bottom:1.75rem}.post li{margin-bottom:.875rem}.post .gatsby-highlight-code-line{background-color:#022a4b;display:block;margin-right:-1.2em;margin-left:-1.2em;padding-right:1em;padding-left:.75em;border-left:.35em solid #0687f0}.post blockquote{color:#999}.post code[class*=language-],.post pre[class*=language-]{color:#e0e0e0;background:none;font-family:Fira Code,Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.6;font-size:13px;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-hyphens:none;-ms-hyphens:none;hyphens:none;-ms-overflow-style:none;overflow:-moz-scrollbars-none}.post pre[class*=language-]::-webkit-scrollbar{display:none}.post pre[class*=language-]{padding:1.2em;margin:1.5em 0;overflow:auto;border-radius:.6em}.post :not(pre)>code[class*=language-],.post pre[class*=language-]{background:#212121}.post :not(pre)>code[class*=language-]{padding:.1em .3em;border-radius:.5em;white-space:normal;color:#d66587;margin:0 .1em}.post .token.block-comment,.post .token.cdata,.post .token.comment,.post .token.doctype,.post .token.prolog{color:#616161}.post .token.punctuation{color:#e0e0e0}.post .token.attr-name,.post .token.deleted,.post .token.namespace,.post .token.tag{color:#e2777a}.post .token.function-name{color:#6196cc}.post .token.boolean,.post .token.function,.post .token.number{color:#ff9100}.post .token.class-name,.post .token.constant,.post .token.property,.post .token.symbol{color:#ff0}.post .token.atrule,.post .token.builtin,.post .token.important,.post .token.keyword,.post .token.selector{color:#b388ff}.post .token.attr-value,.post .token.char,.post .token.regex,.post .token.string,.post .token.variable{color:#00e676}.post .token.entity,.post .token.operator,.post .token.url{color:#67cdcc}.post .token.bold,.post .token.important{font-weight:700}.post .token.italic{font-style:italic}.post .token.entity{cursor:help}.post .token.inserted{color:green}.dark .anchor{fill:#dbd8d8}.light .anchor{fill:#615f5f}td[align=center]:first-child,th[align=center]:first-child{text-align:center!important;font-weight:bolder!important}table{margin-top:100px}pre[class*=language-].line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}pre[class*=language-].line-numbers>code{position:relative;white-space:inherit}.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:0;font-size:100%;left:-3.8em;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-ms-user-select:none;user-select:none;margin:1.2em}.line-numbers-rows>span{display:block;counter-increment:linenumber}.line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.tldr{padding-left:1em;margin-top:-26px}h3{margin-bottom:.5em}h3 code.language-text{font-size:16px!important}up{top:-.5em;font-size:75%}down,up{position:relative;line-height:0;vertical-align:baseline;font-weight:500}down{font-size:85%}figcaption{padding:3px;text-align:center}center,figcaption{font:italic smaller sans-serif;font-weight:700;font-size:14px}center{top:-.7em;position:relative}ol li,ol li p{margin-bottom:.3rem!important}.gatsby-resp-image-wrapper{margin-bottom:20px}p{position:relative}a.code_link{position:absolute;font-size:small;bottom:-2rem;left:1rem}a.code_link_2{bottom:-2rem}a.code_link_2,a.code_link_3{position:absolute;font-size:small;left:3.1rem;z-index:999}a.code_link_3{bottom:-2.5rem}a.code_link_4{position:absolute;font-size:small;bottom:-3rem;left:1rem}h4{font-weight:700}a.code_link_5{position:absolute;font-size:small;bottom:-3rem;left:3.1rem;z-index:999}strong{font-weight:700}a.code_link_6{position:absolute;font-size:small;bottom:-2.5rem;z-index:999;left:1rem}.item{position:relative}.item .badge{display:inline-block;position:absolute;top:1px;right:3px;-webkit-transform:translate(50%,-50%);transform:translate(50%,-50%);border-radius:10px;box-shadow:0 0 0 1px;padding:8px 7px;z-index:999;font-weight:700}.category-container{position:sticky;position:-webkit-sticky;top:0;line-height:0;white-space:nowrap;overflow-x:scroll;-ms-overflow-style:none;overflow:-moz-scrollbars-none;z-index:1;padding:6px 20px;margin:0 -5px!important}.category-container .item{display:inline-block;margin:.25rem 7px .25rem 0;border-radius:15px;white-space:normal;box-sizing:border-box;cursor:pointer}.category-container .item div{display:block;padding:14px 16px 16px;font-size:13px;box-sizing:border-box}.category-container .item:last-child{margin-right:0}.category-container::-webkit-scrollbar{display:none}.thumbnail-container{min-height:calc(100vh - 3.5rem)}.thumbnail{display:block;margin-top:12px;padding:15px 15px 12px;-webkit-transition:box-shadow .3s,text-shadow .3s,opacity .4s;transition:box-shadow .3s,text-shadow .3s,opacity .4s;opacity:0;border-radius:10px}.thumbnail p{font-size:90%;line-height:1.4}.thumbnail .thumbnail-subinfo{font-size:.75rem;margin-bottom:.6rem;padding-bottom:.6rem;border-bottom:1px solid #e8e8e8}.thumbnail.visible{opacity:1}</style><style type="text/css">.gatsby-resp-image-image{width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;color:transparent;}</style><style type="text/css">
+    .anchor {
+      float: left;
+      padding-right: 4px;
+      margin-left: -20px;
+    }
+    h1 .anchor svg,
+    h2 .anchor svg,
+    h3 .anchor svg,
+    h4 .anchor svg,
+    h5 .anchor svg,
+    h6 .anchor svg {
+      visibility: hidden;
+    }
+    h1:hover .anchor svg,
+    h2:hover .anchor svg,
+    h3:hover .anchor svg,
+    h4:hover .anchor svg,
+    h5:hover .anchor svg,
+    h6:hover .anchor svg,
+    h1 .anchor:focus svg,
+    h2 .anchor:focus svg,
+    h3 .anchor:focus svg,
+    h4 .anchor:focus svg,
+    h5 .anchor:focus svg,
+    h6 .anchor:focus svg {
+      visibility: visible;
+    }
+  </style><script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+      var hash = window.decodeURI(location.hash.replace('#', ''))
+      if (hash !== '') {
+        var element = document.getElementById(hash)
+        if (element) {
+          var offset = element.offsetTop
+          // Wait for the browser to finish rendering before scrolling.
+          setTimeout((function() {
+            window.scrollTo(0, offset - 0)
+          }), 0)
+        }
+      }
+    })
+  </script><link rel="preconnect dns-prefetch" href="https://www.google-analytics.com"/><link rel="icon" href="/icons/icon-48x48.png?v=9dbdaa6d9a815c4dab57eaac04ef491f"/><link rel="manifest" href="/manifest.webmanifest"/><meta name="theme-color" content="#ffffff"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=9dbdaa6d9a815c4dab57eaac04ef491f"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=9dbdaa6d9a815c4dab57eaac04ef491f"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=9dbdaa6d9a815c4dab57eaac04ef491f"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=9dbdaa6d9a815c4dab57eaac04ef491f"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=9dbdaa6d9a815c4dab57eaac04ef491f"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=9dbdaa6d9a815c4dab57eaac04ef491f"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=9dbdaa6d9a815c4dab57eaac04ef491f"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=9dbdaa6d9a815c4dab57eaac04ef491f"/><meta name="generator" content="Gatsby 2.18.10"/><link rel="alternate" type="application/rss+xml" href="/rss.xml"/><title data-react-helmet="true">React 톺아보기- 05. Reconciler_4 | Deep Dive Magic Code</title><meta data-react-helmet="true" name="description" content="모든 설명은 v16.12.0 버전 함수형 컴포넌트와 브라우저 환경을 기준으로 합니다. 버전에 따라 코드는 변경될 수 있으며 클래스 컴포넌트는 설명에서 제외됨을 알려 드립니다. 현재의 위치를 짚어보자면 업데이트된 컴포넌트를 호출하여 반환받은 element를 fiber로 확장까지 진행하였습니다. 그리고 이 fiber는 reconcileChildren()에서 반환되어 5 -&gt; 3-&gt; 2-&gt; 1로 거슬로 올라가 다음 Work의  대상이 됩니다.   지금까지 Work…"/><meta data-react-helmet="true" property="og:title" content="React 톺아보기- 05. Reconciler_4 | Deep Dive Magic Code"/><meta data-react-helmet="true" property="og:description" content="모든 설명은 v16.12.0 버전 함수형 컴포넌트와 브라우저 환경을 기준으로 합니다. 버전에 따라 코드는 변경될 수 있으며 클래스 컴포넌트는 설명에서 제외됨을 알려 드립니다. 현재의 위치를 짚어보자면 업데이트된 컴포넌트를 호출하여 반환받은 element를 fiber로 확장까지 진행하였습니다. 그리고 이 fiber는 reconcileChildren()에서 반환되어 5 -&gt; 3-&gt; 2-&gt; 1로 거슬로 올라가 다음 Work의  대상이 됩니다.   지금까지 Work…"/><meta data-react-helmet="true" property="og:image" content="/static/felog-f24356c48475809626ea0c2ac67855c6.png"/><meta data-react-helmet="true" property="og:type" content="website"/><meta data-react-helmet="true" name="google-site-verification" content="o402P1kCwteUVT_5s9zR21dD9lTF4ALZNLms22CIMx4"/><meta data-react-helmet="true" name="keywords" content="react, redux, javascript, web, development, frontend, 리액트, react, fiber, VDOM, reconciler"/><link rel="sitemap" type="application/xml" href="/sitemap.xml"/><link as="script" rel="preload" href="/app-69573b14c89d32433a71.js"/><link as="script" rel="preload" href="/component---src-templates-blog-post-js-ef229068f1a7461d6597.js"/><link as="script" rel="preload" href="/styles-f42f8789f3cee93e7f05.js"/><link as="script" rel="preload" href="/commons-e292b02c69f3a51ef82a.js"/><link as="script" rel="preload" href="/webpack-runtime-e1056f6722281b635472.js"/><link as="fetch" rel="preload" href="/page-data/react/in-depth-react-reconciler_4/page-data.json" crossorigin="anonymous"/></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="___gatsby"><div style="outline:none" tabindex="-1" role="group" id="gatsby-focus-wrapper"><div style="margin-left:auto;margin-right:auto;max-width:52rem;padding:2.4375rem 1.21875rem" class="post"><a class="link" href="/"><svg class="home" width="1.125em" font-size="2em" overflow="visible" viewBox="0 0 576 512"><path fill="currentColor" d="M280.37 148.26L96 300.11V464a16 16 0 0 0 16 16l112.06-.29a16 16 0 0 0 15.92-16V368a16 16 0 0 1 16-16h64a16 16 0 0 1 16 16v95.64a16 16 0 0 0 16 16.05L464 480a16 16 0 0 0 16-16V300L295.67 148.26a12.19 12.19 0 0 0-15.3 0zM571.6 251.47L488 182.56V44.05a12 12 0 0 0-12-12h-56a12 12 0 0 0-12 12v72.61L318.47 43a48 48 0 0 0-61 0L4.34 251.47a12 12 0 0 0-1.6 16.9l25.5 31A12 12 0 0 0 45.15 301l235.22-193.74a12.19 12.19 0 0 1 15.3 0L530.9 301a12 12 0 0 0 16.9-1.6l25.5-31a12 12 0 0 0-1.7-16.93z"></path></svg></a><div class="switch-container"><label for="normal-switch"><div style="position:relative;display:inline-block;text-align:left;opacity:1;direction:ltr;border-radius:12px;-webkit-transition:opacity 0.25s;-moz-transition:opacity 0.25s;transition:opacity 0.25s;touch-action:none;-webkit-tap-highlight-color:rgba(0, 0, 0, 0);-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none"><div class="react-switch-bg" style="height:24px;width:48px;margin:0;position:relative;background:#d9dfe2;border-radius:12px;cursor:pointer;-webkit-transition:background 0.25s;-moz-transition:background 0.25s;transition:background 0.25s"><div style="height:24px;width:26px;position:relative;opacity:0;pointer-events:none;-webkit-transition:opacity 0.25s;-moz-transition:opacity 0.25s;transition:opacity 0.25s"><div class="icon checkedIcon">D</div></div><div style="height:24px;width:26px;position:absolute;opacity:1;right:0;top:0;pointer-events:none;-webkit-transition:opacity 0.25s;-moz-transition:opacity 0.25s;transition:opacity 0.25s"><div class="icon uncheckedIcon">L</div></div></div><div class="react-switch-handle" style="height:22px;width:22px;background:#ffffff;display:inline-block;cursor:pointer;border-radius:50%;position:absolute;transform:translateX(1px);top:1px;outline:0;border:0;-webkit-transition:background-color 0.25s, transform 0.25s, box-shadow 0.15s;-moz-transition:background-color 0.25s, transform 0.25s, box-shadow 0.15s;transition:background-color 0.25s, transform 0.25s, box-shadow 0.15s"></div><input type="checkbox" role="switch" style="border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px" id="normal-switch"/></div></label></div><h1>React 톺아보기- 05. Reconciler_4</h1><p class="post-date">a day ago</p><div><blockquote>
+<p>모든 설명은 v16.12.0 버전 함수형 컴포넌트와 브라우저 환경을 기준으로 합니다. 버전에 따라 코드는 변경될 수 있으며 클래스 컴포넌트는 설명에서 제외됨을 알려 드립니다.</p>
+</blockquote>
+<span class="gatsby-resp-image-wrapper" style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 790px;">
+      <span class="gatsby-resp-image-background-image" style="padding-bottom: 47.22036168787676%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsSAAALEgHS3X78AAABKklEQVQoz4VS2W6DQBDj//8oH4AapEb5hR5qI+UAws0e43qGbkvVpH2wdgDb65khExEIsEBr0QooqwqbzQYP2y0edzvkeY79fo+iKFBfr8a5pc2sCGFBMowRbp5RlSXqukZTV6jLC7q25VnCDQOgfPLE+0WrdTKMTbPAOUQaxa6FtA3gHYUeGPoF0wjeAjkfEXhGGsfzidorjZ0lzSwujYRGXgkUaW3PfYdZDdxsF40Ue6aUaSK3RxgH+yaq0ZRmuJoD0jwSSIoUY/XNkr0+Q05HHdxP/tcM/4Bn+zoCa6vrEDhLd3iDu5wR+h7CroRp0w7uG663N46LiIiamu8j3wemDC9PiId3G8N3y7fA+eiiNJWlGD+hC9MF6WW62bThf1tO5HswHn79hx/bZsBJOgJy5wAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;"></span>
+  <img class="gatsby-resp-image-image" alt="render phase flow" title="render phase flow" src="/static/ea0101d7212866b4c6776ee262f8160e/c94d1/render_phase_flow.png" srcset="/static/ea0101d7212866b4c6776ee262f8160e/0780f/render_phase_flow.png 198w,
+/static/ea0101d7212866b4c6776ee262f8160e/47b26/render_phase_flow.png 395w,
+/static/ea0101d7212866b4c6776ee262f8160e/c94d1/render_phase_flow.png 790w,
+/static/ea0101d7212866b4c6776ee262f8160e/9e288/render_phase_flow.png 1185w,
+/static/ea0101d7212866b4c6776ee262f8160e/624a3/render_phase_flow.png 1493w" sizes="(max-width: 790px) 100vw, 790px" loading="lazy">
+    </span>
+<p>현재의 위치를 짚어보자면 <u>업데이트된 컴포넌트를 호출하여 반환받은 element를 fiber로 확장</u>까지 진행하였습니다. 그리고 이 fiber는 reconcileChildren()에서 반환되어 5 -> 3-> 2-> 1로 거슬로 올라가 다음 <strong>Work</strong>의  대상이 됩니다.  </p>
+<p>지금까지 <strong>Work</strong>를 통해 결과물을 만들어 내었으니 다음은 이 결과물을 마무리하는 방법을 확인할 차례입니다만 그 이전에 completeUnitOfWork()의 진입점인 2. performUnitOfWork()를 다시 한번 확인해보면서 어떤 상황일 때 Work를 마무리 하는지 확인하고 넘어가겠습니다.</p>
+<p><a class="code_link_2" href="https://github.com/facebook/react/blob/v16.12.0/packages/react-reconciler/src/ReactFiberWorkLoop.js#L1469" target="_blank">reconciler > ReactFiberWorkLoop.js</a></p>
+<div class="gatsby-highlight has-highlighted-lines" data-language="js"><pre style="counter-reset: linenumber 0" class="language-js line-numbers"><code class="language-js">  
+<span class="token keyword">function</span> <span class="token function">performUnitOfWork</span><span class="token punctuation">(</span><span class="token parameter">unitOfWork<span class="token punctuation">:</span> Fiber</span><span class="token punctuation">)</span><span class="token punctuation">:</span> Fiber <span class="token operator">|</span> <span class="token keyword">null</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> current <span class="token operator">=</span> unitOfWork<span class="token punctuation">.</span>alternate
+
+<span class="gatsby-highlight-code-line">  <span class="token keyword">let</span> next <span class="token operator">=</span> <span class="token function">beginWork</span><span class="token punctuation">(</span>current<span class="token punctuation">,</span> unitOfWork<span class="token punctuation">,</span> renderExpirationTime<span class="token punctuation">)</span></span>
+  unitOfWork<span class="token punctuation">.</span>memoizedProps <span class="token operator">=</span> unitOfWork<span class="token punctuation">.</span>pendingProps
+<span class="gatsby-highlight-code-line">  <span class="token keyword">if</span> <span class="token punctuation">(</span>next <span class="token operator">===</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span></span>    next <span class="token operator">=</span> <span class="token function">completeUnitOfWork</span><span class="token punctuation">(</span>unitOfWork<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+  ReactCurrentOwner<span class="token punctuation">.</span>current <span class="token operator">=</span> <span class="token keyword">null</span>
+  <span class="token keyword">return</span> next
+<span class="token punctuation">}</span></code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></div>
+<p><code class="language-text">beginWork()</code>가 null을 반환<up>8</up>한다는 것은 <code class="language-text">unitOfWork</code>가 leaf 노드라는 뜻이며 더 이상 재조정을 진행할 하위 서브 트리가 없기 때문에 unitOfWork의 <strong>Work</strong>를 마무리<up>9</up>합니다.</p>
+<p>현재 까지만 놓고 보면 트리의 밑으로만 내려갔지 옆으로 이동하는 부분이 없습니다. 이는 <code class="language-text">completeUnitOfWork()</code>에서 leaf 노드를 처리하고 형제 노드가 있으면 반환<up>9</up>해줍니다. 이 부분은 다음 섹션에서 확인합니다.</p>
+<p>지금까지의 상황을 아래의 이미지를 통해 정리를 한번 해봅시다.</p>
+<span class="gatsby-resp-image-wrapper" style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 790px;">
+      <span class="gatsby-resp-image-background-image" style="padding-bottom: 50.58697972251868%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsSAAALEgHS3X78AAAB00lEQVQoz22Sa1PaQBiF/f9f+hP6pZ2OIxbq2Km1zFQorcpFMJMQ7gIptxAEEUIgl6dvAlqlfWfe7CbZPXvOnnMQBAH7ba8dFqsVzmbD/ypwHDzTxPM8fN9/tffg5Ys8ogWfrn7x5jTOebGAO51iW2NWliU9xpne86hp1D7GUI4PGejl7SE74FeAvvwIAZv9Plm1SM8c4QrT9XLJxpaW0RV2jmGgn5yQPzth0uttAYN9QAFivZV4oSm8zaRIqQo8zvGlvfmczWyGK/NFt0vj6xeqZ6eMm/V/GUbMFkuy35IkRO73UpbZoE+9XkUrK+i1Kp27Fg/DIQ8Ti3tdR0skKH6OY6hqBOjLfT4DPpVutEgqJdRmRe7LxByN0Bs1aq06XaOL2W4zbXewhgO6tzna6TSWWvhrVggYTm5bTd79uCCt3uDYK87zlxxfZ1BE2svyfve4ix1RjMeoppJMSsL+8D2Fow9UM2k8kR0BNkVe8iZPVhzry/xnWSOZz6G2GvgSnY3EKBBJoSGjUP7VJcNKhdlkQk/WGoUcVqeNvy85KteN4kNokm2zmk1xxIxoFENC158l7uc0ApSNIVVXGIRjeIoroGF7O+f8XT73O3j6HgZ8F/I/II3wk+Y0GSAAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;"></span>
+  <img class="gatsby-resp-image-image" alt="reconcile children" title="reconcile children" src="/static/8add8101dc88320afdd3537f1f4d6b98/c94d1/reconcile_children.png" srcset="/static/8add8101dc88320afdd3537f1f4d6b98/0780f/reconcile_children.png 198w,
+/static/8add8101dc88320afdd3537f1f4d6b98/47b26/reconcile_children.png 395w,
+/static/8add8101dc88320afdd3537f1f4d6b98/c94d1/reconcile_children.png 790w,
+/static/8add8101dc88320afdd3537f1f4d6b98/d6df5/reconcile_children.png 937w" sizes="(max-width: 790px) 100vw, 790px" loading="lazy">
+    </span>
+<ol>
+<li>App, Todo, Input의 fiber들은 모두 bailout을 통해 기존 current를 그대로 가져와서 workInProgress로 사용합니다.  </li>
+<li>Input 컴포넌트를 호출하여 input과 button을 담고 있는 Fragment를 반환받습니다. key가 없으므로 바로 벗겨내어 배열을 얻고 배열에 대한 재조정 작업을 시작합니다.  </li>
+<li>배열 원소 중 재사용 가능한 경우 current에서 props만 교체하여 workInProgress를 만들어 냅니다. 다른 원소들도 같은 처리가 적용되며 동시에 sibling으로 연결해 준 후 첫번째 자식만 반환합니다.  </li>
+<li>반환된 첫 번째 자식인 input을 대상으로 <strong>Work</strong>를 진행합니다.</li>
+<li>beginWork(input)는 null을 반화하며 이번 포스트에서 분석할 <strong>Work</strong> 마무리 단계를 거치게 됩니다.</li>
+</ol>
+<p><strong>Work</strong> 마무리란 재조정 작업으로 얻은 fiber를 commit phase에서 사용할 수 있도록 준비하는 걸 뜻합니다. fiber를 DOM에 올리기 위한 사전 작업으로 생각할 수 있으며 fiber와 대응하는 html element를 생성하거나 이벤트 핸들러, 컴포넌트의 수정, 삭제(side-effect) 등 <strong>Work</strong>를 통해 발생한 모든 결과물을 여기서 처리합니다.</p>
+<anchor id="processing_order" />
+<blockquote>
+<h3 id="처리-순서"><a href="#%EC%B2%98%EB%A6%AC-%EC%88%9C%EC%84%9C" aria-label="처리 순서 permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>처리 순서</h3>
+<p>만약 App에서 업데이트가 발생하여 전체 컴포넌트가 호출된다고 가정하면 호출의 순서는 전위 순회와 같습니다.<br>
+App -> Todo -> Input -> OrderList 입니다.<br>
+input과 button, ol 등 호스트 컴포넌트는 호출 대상이 아니므로 제외했습니다.  </p>
+<p><strong>Work</strong> 마무리 순서는 후위 순회와 같습니다.<br>
+input -> button -> Input … -> Todo -> App</p>
+</blockquote>
+<h2 id="6---7-completeunitofwork"><a href="#6---7-completeunitofwork" aria-label="6   7 completeunitofwork permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>6 - 7 completeUnitOfWork</h2>
+<p>먼저 VDOM 순회 코드부터 보도록 하겠습니다.</p>
+<p><a class="code_link_2" href="https://github.com/facebook/react/blob/v16.12.0/packages/react-reconciler/src/ReactFiberWorkLoop.js#L1498" target="_blank">reconciler > ReactFiberWorkLoop.js</a></p>
+<div class="gatsby-highlight" data-language="js"><pre style="counter-reset: linenumber 0" class="language-js line-numbers"><code class="language-js">  
+<span class="token keyword">function</span> <span class="token function">completeUnitOfWork</span><span class="token punctuation">(</span><span class="token parameter">unitOfWork<span class="token punctuation">:</span> Fiber</span><span class="token punctuation">)</span><span class="token punctuation">:</span> Fiber <span class="token operator">|</span> <span class="token keyword">null</span> <span class="token punctuation">{</span>
+  workInProgress <span class="token operator">=</span> unitOfWork
+  <span class="token keyword">do</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> current <span class="token operator">=</span> workInProgress<span class="token punctuation">.</span>alternate
+    <span class="token keyword">const</span> returnFiber <span class="token operator">=</span> workInProgress<span class="token punctuation">.</span>return
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>workInProgress<span class="token punctuation">.</span>effectTag <span class="token operator">&amp;</span> Incomplete<span class="token punctuation">)</span> <span class="token operator">===</span> NoEffect<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token comment">// completeWork(current, workInProgress, renderExpirationTime);</span>
+      <span class="token comment">// if (returnFiber !== null &amp;&amp; (returnFiber.effectTag &amp; Incomplete) === NoEffect) {...}</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+      <span class="token comment">// Work를 진행하던 중 에러가 발생한 경우.</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">const</span> siblingFiber <span class="token operator">=</span> workInProgress<span class="token punctuation">.</span>sibling
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>siblingFiber <span class="token operator">!==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token comment">// 형제가 존재한다면 Work를 진행하기 위해 반환한다.</span>
+      <span class="token keyword">return</span> siblingFiber
+    <span class="token punctuation">}</span>
+    <span class="token comment">// 부모로 올라간다.</span>
+    workInProgress <span class="token operator">=</span> returnFiber
+  <span class="token punctuation">}</span> <span class="token keyword">while</span> <span class="token punctuation">(</span>workInProgress <span class="token operator">!==</span> <span class="token keyword">null</span><span class="token punctuation">)</span>
+
+  <span class="token keyword">return</span> <span class="token keyword">null</span>
+<span class="token punctuation">}</span></code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></div>
+<p>workInProgress의 <strong>Work</strong>를 마무리<up>9 ~ 10</up> 하고 형제 노드<up>15 ~ 16</up>를 찾습니다. 만약 형제 노드가 없다면 이는 부모의 서브 트리가 모두 마무리 된 것으로 다음 대상은 부모<up>21</up>가 됩니다. 계속해서 while문은 부모를 처리하고 부모의 형제가 있으면 형제부터 다시 <strong>Work</strong>를 진행 하기 위해 반환할 것이고 없다면 부모의 부모로 타고 올라가는 순서로 흘러갑니다. 그리고 최종적으로 최상단 노드인 host root에 도달<up>24</up>하면 끝납니다.</p>
+<p>그러면 <strong>Work</strong>의 결과물들 중에 무엇을 마무리해야 하는 것일까요? 크게 다음의 두가지가 있습니다.</p>
+<anchor id="completeUnitOfWork">
+<ol>
+<li>호스트 환경과 연관된 부분</li>
+<li>VDOM 변경점을 담고 있는 side-effect</li>
+</ol>
+<p>첫번째는 <code class="language-text">completeWork()</code><up>9</up> 두번째는 if문<up>10</up>에서 각각 처리합니다.</p>
+<h2 id="6---8-completework"><a href="#6---8-completework" aria-label="6   8 completework permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>6 - 8 completeWork</h2>
+<p><strong>Work</strong>의 결과물 중 호스트와 연관된 부분이라 하면 html element에 해당하는 fiber가 있습니다.<br>
+commit phase에서는 완성된 element를 요구므로 fiber에 반영된 정보들을 바탕으로 element를 완성시켜야 합니다.<br>
+새롭게 생성된 fiber라면 element 역시 새로 만들어야 하고 그렇지 않다면 current와 workInProgress가 가지고 있는 props 사이의 차이점을 찾아내어 element에 적용시켜야 합니다. 이 이외에도 호스트와 연관된 부분은 이벤트 바인딩이 있습니다.</p>
+<p>지금부터 호스트 환경에 의존적인 작업을 할 것이고 대상은 뷰에 완전히 1:1 대응되는 호스트 컴포넌트 하나입니다.  </p>
+<blockquote>
+<p>호스트 컴포넌트 말고도 suspense, portal도 대상에 포함되지만 생략합니다.</p>
+</blockquote>
+<p><a class="code_link" href="https://github.com/facebook/react/blob/v16.12.0/packages/react-reconciler/src/ReactFiberCompleteWork.js#L632" target="_blank">reconciler > ReactFiberCompleteWork.js</a></p>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js">  
+<span class="token keyword">function</span> <span class="token function">completeWork</span><span class="token punctuation">(</span>
+  <span class="token parameter">current<span class="token punctuation">:</span> Fiber <span class="token operator">|</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+  workInProgress<span class="token punctuation">:</span> Fiber<span class="token punctuation">,</span>
+  renderExpirationTime<span class="token punctuation">:</span> ExpirationTime</span>
+<span class="token punctuation">)</span><span class="token punctuation">:</span> Fiber <span class="token operator">|</span> <span class="token keyword">null</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> newProps <span class="token operator">=</span> workInProgress<span class="token punctuation">.</span>pendingProps
+  <span class="token keyword">switch</span> <span class="token punctuation">(</span>workInProgress<span class="token punctuation">.</span>tag<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">case</span> IndeterminateComponent<span class="token punctuation">:</span>
+    <span class="token keyword">case</span> SimpleMemoComponent<span class="token punctuation">:</span>
+    <span class="token keyword">case</span> FunctionComponent<span class="token punctuation">:</span>
+    <span class="token keyword">case</span> ClassComponent<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      <span class="token keyword">break</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">case</span> HostComponent<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      <span class="token comment">/*...*/</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment">// suspense, portal..</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>element 생성 코드를 먼저 본 후에 업데이트 부분을 확인하겠습니다.</p>
+<h3 id="1-html-element-생성"><a href="#1-html-element-%EC%83%9D%EC%84%B1" aria-label="1 html element 생성 permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1) html element 생성</h3>
+<anchor id="create_element">
+<p><a class="code_link_2" href="https://github.com/facebook/react/blob/v16.12.0/packages/react-reconciler/src/ReactFiberCompleteWork.js#L632" target="_blank">reconciler > ReactFiberCompleteWork.js</a></p>
+<div class="gatsby-highlight" data-language="js"><pre style="counter-reset: linenumber 0" class="language-js line-numbers"><code class="language-js">  
+<span class="token keyword">function</span> <span class="token function">completeWork</span><span class="token punctuation">(</span><span class="token parameter">current<span class="token punctuation">,</span> workInProgress<span class="token punctuation">,</span> renderExpirationTime</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> newProps <span class="token operator">=</span> workInProgress<span class="token punctuation">.</span>pendingProps
+  <span class="token keyword">switch</span> <span class="token punctuation">(</span>workInProgress<span class="token punctuation">.</span>tag<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">/*...*/</span>
+    <span class="token keyword">case</span> HostComponent<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      <span class="token keyword">var</span> rootContainerInstance <span class="token operator">=</span> <span class="token function">getRootHostContainer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// host root를 가지고 온다.</span>
+      <span class="token keyword">const</span> type <span class="token operator">=</span> workInProgress<span class="token punctuation">.</span>type<span class="token punctuation">;</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>current <span class="token operator">!==</span> <span class="token keyword">null</span> <span class="token operator">&amp;&amp;</span> workInProgress<span class="token punctuation">.</span>stateNode <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 업데이트</span>
+        <span class="token comment">// updateHostComponent(...);</span>
+      <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        <span class="token comment">// element 생성</span>
+        <span class="token keyword">let</span> instance <span class="token operator">=</span> <span class="token function">createInstance</span><span class="token punctuation">(</span>
+          type<span class="token punctuation">,</span>
+          newProps<span class="token punctuation">,</span>
+          rootContainerInstance<span class="token punctuation">,</span>
+          workInProgress<span class="token punctuation">,</span>
+        <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token function">appendAllChildren</span><span class="token punctuation">(</span>instance<span class="token punctuation">,</span> workInProgress<span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        workInProgress<span class="token punctuation">.</span>stateNode <span class="token operator">=</span> instance<span class="token punctuation">;</span>
+
+        <span class="token comment">// event binding</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">finalizeInitialChildren</span><span class="token punctuation">(</span>instance<span class="token punctuation">,</span> type<span class="token punctuation">,</span> newProps<span class="token punctuation">,</span> rootContainerInstance<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          <span class="token function">markUpdate</span><span class="token punctuation">(</span>workInProgress<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+      <span class="token keyword">break</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment">/*...*/</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></div>
+<blockquote>
+<p>getRootHostContainer()<up>7</up> 경우 설명의 간략화를 위해 생략된 부분으로 스택에서 host root를 가지고 온다 라고만 생각해주세요. 추가하는 부분은 <a href="https://github.com/facebook/react/blob/v16.13.0/packages/react-reconciler/src/ReactFiberBeginWork.js#L2931" target="_blank">beginWork()</a>에 있습니다. </p>
+</blockquote>
+<p>element를 생성<up>14</up>하고 fiber의 <code class="language-text">stateNode</code><up>22</up>에 저장합니다. 만약 해당 fiber가 자식을 가지고 있다면 새로 생성한 element에 연결<up>21</up>해주는 처리가 필요합니다.</p>
+<p>이 내용에 대해서 좀더 자세히 설명 하자면 type, key의 변경으로 fiber가 새로 생성된다면 일단 해당 fiber에는 current가 존재하지 않게 됩니다. 그리고 하위 서브 트리로 내려가면서 <strong>Work</strong>를 진행할 때도 자손들 역시 부모가 새로 생성되었으니 current를 가지고 있지 않습니다. 그러므로 어느 한 노드가 새로 생성된다면 그 하위 트리는 재구축 된다고 생각하시면 됩니다. </p>
+<p>element를 생성하고 자식을 연결해줄 때 주의할 점은 VDOM 상에서의 자식이 아닌 DOM 입장에서 생각해야 된다는 점입니다. DOM 기준으로 1depth 호스트 컴포넌트의 element를 생성된 element에 연결해주어야 하는데 문제는 중간에 커스텀 컴포넌트, 스태틱 컴포넌트 등이 언제든지 존재할 수 있으므로 이 부분을 필터링하여 호스트 컴포넌트를 찾아내야 합니다.</p>
+<p>마지막으로 <code class="language-text">finalizeInitialChildren()</code>을 통해 element에 이벤트와 atrribute 적용 등 마무리 작업<up>25</up>을 진행합니다. 동시에 해당 element의 auto focus 여부를 반환하여 Update tag를 달아줍니다. 만약 이 부분이 빠져있다면 해당 fiber에는 Placement tag만 존재하므로 element 삽입 또는 이동만 하게 됩니다.</p>
+<p>차례대로 createInstance(), appendAllChildren(), finalizeInitialChildren() + markUpdate()를 확인하여 element 생성 섹션을 끝내고 element 업데이트로 넘어가겠습니다.</p>
+<h4 id="createinstance"><a href="#createinstance" aria-label="createinstance permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>createInstance</h4>
+<blockquote>
+<p>호스트 환경에 의존도가 높은 코드에 대해서는 깊게 들어가지 않고 기본만 확인하고 나오도록 하겠습니다.</p>
+</blockquote>
+<p><a class="code_link_2" href="https://github.com/facebook/react/blob/v16.12.0/packages/react-dom/src/client/ReactDOMHostConfig.js#L213" target="_blank">react-dom > client > ReactDOMHostConfig.js</a></p>
+<div class="gatsby-highlight" data-language="js"><pre style="counter-reset: linenumber 0" class="language-js line-numbers"><code class="language-js">  
+<span class="token keyword">function</span> <span class="token function">createInstance</span><span class="token punctuation">(</span>
+  type<span class="token punctuation">,</span>
+  props<span class="token punctuation">,</span>
+  rootContainerInstance<span class="token punctuation">,</span>
+  internalInstanceHandle <span class="token comment">// workInProgress</span>
+<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> domElement <span class="token operator">=</span> <span class="token function">createElement</span><span class="token punctuation">(</span>
+    type<span class="token punctuation">,</span>
+    props<span class="token punctuation">,</span>
+    rootContainerInstance
+  <span class="token punctuation">)</span>
+  <span class="token function">precacheFiberNode</span><span class="token punctuation">(</span>internalInstanceHandle<span class="token punctuation">,</span> domElement<span class="token punctuation">)</span>
+  <span class="token function">updateFiberProps</span><span class="token punctuation">(</span>domElement<span class="token punctuation">,</span> props<span class="token punctuation">)</span>
+  <span class="token keyword">return</span> domElement
+<span class="token punctuation">}</span></code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></div>
+<p>브라우저 환경에서 <code class="language-text">createElement()</code>는 document.createElement(type)와 같으며 호스트 컴포넌트의 경우 type은 html element의 tag명 문자열 입니다.</p>
+<p>일전에 생성한 element를 fiber의 stateNode에 저장해주었습니다. 이는 react에서 호스트에 접근할 수 있도록 해주는 부분이고 그 반대로 호스트 영역에서 리액트에 접근할 수 있도록 element에 fiber와 props를 저장하는 부분이 <code class="language-text">precacheFiberNode()</code>와 <code class="language-text">updateFiberProps()</code>입니다.</p>
+<p><a class="code_link" href="https://github.com/facebook/react/blob/v16.12.0/packages/react-dom/src/client/ReactDOMComponentTree.js#L18" target="_blank">react-dom > client > ReactDOMComponentTree.js</a></p>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js">  
+<span class="token keyword">const</span> randomKey <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token number">36</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> internalInstanceKey <span class="token operator">=</span> <span class="token string">'__reactInternalInstance$'</span> <span class="token operator">+</span> randomKey
+<span class="token keyword">const</span> internalEventHandlersKey <span class="token operator">=</span> <span class="token string">'__reactEventHandlers$'</span> <span class="token operator">+</span> randomKey
+
+<span class="token keyword">function</span> <span class="token function">precacheFiberNode</span><span class="token punctuation">(</span><span class="token parameter">hostInst<span class="token punctuation">,</span> node</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  node<span class="token punctuation">[</span>internalInstanceKey<span class="token punctuation">]</span> <span class="token operator">=</span> hostInst
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">updateFiberProps</span><span class="token punctuation">(</span><span class="token parameter">node<span class="token punctuation">,</span> props</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  node<span class="token punctuation">[</span>internalEventHandlersKey<span class="token punctuation">]</span> <span class="token operator">=</span> props
+<span class="token punctuation">}</span></code></pre></div>
+<h4 id="appendallchildren"><a href="#appendallchildren" aria-label="appendallchildren permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>appendAllChildren</h4>
+<p>일전에 설명드린 것 처럼 연결해 줄 것은 DOM 기준으로 ‘자식’ 호스트 컴포넌트의 element입니다.</p>
+<anchor id="append_all_children"/>
+<p><a class="code_link_2" href="https://github.com/facebook/react/blob/v16.12.0/packages/react-reconciler/src/ReactFiberCompleteWork.js#L151" target="_blank">reconciler > ReactFiberCompleteWork.js</a></p>
+<div class="gatsby-highlight" data-language="js"><pre style="counter-reset: linenumber 0" class="language-js line-numbers"><code class="language-js">  
+<span class="token keyword">function</span> <span class="token function">appendAllChildren</span><span class="token punctuation">(</span><span class="token parameter">parent<span class="token punctuation">,</span> workInProgress</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// 자식 호스트 컴포넌트를 추려내기 위한 변수</span>
+  <span class="token keyword">let</span> node <span class="token operator">=</span> workInProgress<span class="token punctuation">.</span>child
+
+  <span class="token keyword">while</span> <span class="token punctuation">(</span>node <span class="token operator">!==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 호스트 컴포넌트</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>node<span class="token punctuation">.</span>tag <span class="token operator">===</span> HostComponent <span class="token operator">||</span> node<span class="token punctuation">.</span>tag <span class="token operator">===</span> HostText<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token function">appendInitialChild</span><span class="token punctuation">(</span>parent<span class="token punctuation">,</span> node<span class="token punctuation">.</span>stateNode<span class="token punctuation">)</span> <span class="token comment">// parent.appendChild(node.stateNode)</span>
+    <span class="token comment">// 이외 컴포넌트</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>node<span class="token punctuation">.</span>child <span class="token operator">!==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      node<span class="token punctuation">.</span>child<span class="token punctuation">.</span>return <span class="token operator">=</span> node
+      <span class="token comment">// 호스트 컴포넌트를 찾기 위해 한 단계 밑으로 내려 간다.</span>
+      node <span class="token operator">=</span> node<span class="token punctuation">.</span>child
+      <span class="token keyword">continue</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// 내려갔던 만큼 다시 위로 올라간다.</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>node<span class="token punctuation">.</span>sibling <span class="token operator">===</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token comment">// 형제가 더이상 없고 부모가 workInProgress라면 모든 경로를 탐색하였음을 뜻함.</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>node<span class="token punctuation">.</span>return <span class="token operator">===</span> <span class="token keyword">null</span> <span class="token operator">||</span> node<span class="token punctuation">.</span>return <span class="token operator">===</span> workInProgress<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span>
+      <span class="token punctuation">}</span>
+      node <span class="token operator">=</span> node<span class="token punctuation">.</span>return
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// 옆으로 이동한다.</span>
+    node<span class="token punctuation">.</span>sibling<span class="token punctuation">.</span>return <span class="token operator">=</span> node<span class="token punctuation">.</span>return
+    node <span class="token operator">=</span> node<span class="token punctuation">.</span>sibling
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></div>
+<p>코드의 설명은 주석으로 대신하고 <a href="/react/in-depth-react-reconciler_1/#todo" target="_blank">Todo 예제</a>를 이용하여 appendAllChildren()의 알고리즘이 어떻게 동작하는지 다음의 이미지를 통해 확인해봅시다.</p>
+<blockquote>
+<p>appendAllChildren() 알고리즘의 커버리지를 위해 Todo 컴포넌트의 Fragment를 div로 변경합니다.</p>
+<div class="gatsby-highlight has-highlighted-lines" data-language="js"><pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">Todo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token punctuation">[</span>todos<span class="token punctuation">,</span> push<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+<span class="gatsby-highlight-code-line">    <span class="token operator">&lt;</span>div<span class="token operator">></span></span>      <span class="token operator">&lt;</span>Input submit<span class="token operator">=</span><span class="token punctuation">{</span><span class="token parameter">todo</span> <span class="token operator">=></span> <span class="token function">push</span><span class="token punctuation">(</span><span class="token parameter">todos</span> <span class="token operator">=></span> <span class="token punctuation">[</span><span class="token operator">...</span>todos<span class="token punctuation">,</span> todo<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">></span>
+      <span class="token operator">&lt;</span>OrderList list<span class="token operator">=</span><span class="token punctuation">{</span>todos<span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">></span>
+<span class="gatsby-highlight-code-line">    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span></span>  <span class="token punctuation">)</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>다음의 이미지에서 Input 컴포넌트의 형제인 OrderList는 간략화를 위해 생략했음을 유의해주세요.</p>
+</blockquote>
+<img src="/path/to/dir/b0bbf0943d606f5f1770404c6c550e7c/append_all_children.gif" width="100%">
+<h4 id="finalizeinitialchildren-markupdate"><a href="#finalizeinitialchildren-markupdate" aria-label="finalizeinitialchildren markupdate permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>finalizeInitialChildren, markUpdate</h4>
+<p><a class="code_link_4" href="https://github.com/facebook/react/blob/v16.12.0/packages/react-dom/src/client/ReactDOMHostConfig.js#L258" target="_blank">react-dom > client > ReactDOMHostConfig.js</a></p>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js">  
+<span class="token keyword">function</span> <span class="token function">finalizeInitialChildren</span><span class="token punctuation">(</span>
+  <span class="token parameter">domElement<span class="token punctuation">:</span> Instance<span class="token punctuation">,</span>
+  type<span class="token punctuation">:</span> string<span class="token punctuation">,</span>
+  props<span class="token punctuation">:</span> Props<span class="token punctuation">,</span> 
+  rootContainerInstance<span class="token punctuation">:</span> Container</span>
+<span class="token punctuation">)</span><span class="token punctuation">:</span> boolean <span class="token punctuation">{</span>
+  <span class="token function">setInitialProperties</span><span class="token punctuation">(</span>domElement<span class="token punctuation">,</span> type<span class="token punctuation">,</span> props<span class="token punctuation">,</span> rootContainerInstance<span class="token punctuation">)</span>
+  <span class="token keyword">return</span> <span class="token function">shouldAutoFocusHostComponent</span><span class="token punctuation">(</span>type<span class="token punctuation">,</span> props<span class="token punctuation">)</span> <span class="token comment">// auto focus 여부</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>상대적으로 간단한 <code class="language-text">shouldAutoFocusHostComponent()</code> 부터 확인 하겠습니다.</p>
+<p><a class="code_link" href="https://github.com/facebook/react/blob/v16.12.0/packages/react-dom/src/client/ReactDOMHostConfig.js#L132" target="_blank">react-dom > client > ReactDOMHostConfig.js</a></p>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js">  
+<span class="token keyword">function</span> <span class="token function">shouldAutoFocusHostComponent</span><span class="token punctuation">(</span><span class="token parameter">type<span class="token punctuation">:</span> string<span class="token punctuation">,</span> props<span class="token punctuation">:</span> Props</span><span class="token punctuation">)</span><span class="token punctuation">:</span> boolean <span class="token punctuation">{</span>
+  <span class="token keyword">switch</span> <span class="token punctuation">(</span>type<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">case</span> <span class="token string">'button'</span><span class="token punctuation">:</span>
+    <span class="token keyword">case</span> <span class="token string">'input'</span><span class="token punctuation">:</span>
+    <span class="token keyword">case</span> <span class="token string">'select'</span><span class="token punctuation">:</span>
+    <span class="token keyword">case</span> <span class="token string">'textarea'</span><span class="token punctuation">:</span>
+      <span class="token keyword">return</span> <span class="token operator">!</span><span class="token operator">!</span>props<span class="token punctuation">.</span>autoFocus
+  <span class="token punctuation">}</span>
+  <span class="token keyword">return</span> <span class="token boolean">false</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>일전에 말씀드린대로 auto focus를 지원하는 태그들은 해당 여부를 반환해야 Update tag를 달아줄 수 있습니다.</p>
+<p><a class="code_link" href="https://github.com/facebook/react/blob/v16.12.0/packages/react-reconciler/src/ReactFiberCompleteWork.js#L134" target="_blank">reconciler > ReactFiberCompleteWork.js</a></p>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js">  
+<span class="token keyword">function</span> <span class="token function">markUpdate</span><span class="token punctuation">(</span><span class="token parameter">workInProgress<span class="token punctuation">:</span> Fiber</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  workInProgress<span class="token punctuation">.</span>effectTag <span class="token operator">|=</span> Update<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p><code class="language-text">setInitialProperties()</code>는 새로 생성된 element에 이벤트 리스너를 달아주고 atrribute를 추가하는 함수입니다.</p>
+<p><a class="code_link_2" href="https://github.com/facebook/react/blob/v16.12.0/packages/react-dom/src/client/ReactDOMComponent.js#L511" target="_blank">react-dom > client > ReactDOMComponent.js</a></p>
+<div class="gatsby-highlight" data-language="js"><pre style="counter-reset: linenumber 0" class="language-js line-numbers"><code class="language-js">    
+<span class="token keyword">function</span> <span class="token function">setInitialProperties</span><span class="token punctuation">(</span>
+  <span class="token parameter">domElement<span class="token punctuation">:</span> Element<span class="token punctuation">,</span>
+  tag<span class="token punctuation">:</span> string<span class="token punctuation">,</span>
+  rawProps<span class="token punctuation">:</span> Object<span class="token punctuation">,</span>
+  rootContainerElement<span class="token punctuation">:</span> Element <span class="token operator">|</span> Document</span>
+<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">void</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> props<span class="token punctuation">:</span> Object
+  <span class="token comment">// 이벤트 바인딩</span>
+  <span class="token keyword">switch</span> <span class="token punctuation">(</span>tag<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">case</span> <span class="token string">'img'</span><span class="token punctuation">:</span>
+    <span class="token keyword">case</span> <span class="token string">'image'</span><span class="token punctuation">:</span>
+    <span class="token keyword">case</span> <span class="token string">'link'</span><span class="token punctuation">:</span>
+      <span class="token function">trapBubbledEvent</span><span class="token punctuation">(</span><span class="token constant">TOP_ERROR</span><span class="token punctuation">,</span> domElement<span class="token punctuation">)</span>
+      <span class="token function">trapBubbledEvent</span><span class="token punctuation">(</span><span class="token constant">TOP_LOAD</span><span class="token punctuation">,</span> domElement<span class="token punctuation">)</span>
+      props <span class="token operator">=</span> rawProps
+      <span class="token keyword">break</span>
+    <span class="token keyword">case</span> <span class="token string">'form'</span><span class="token punctuation">:</span>
+      <span class="token function">trapBubbledEvent</span><span class="token punctuation">(</span><span class="token constant">TOP_RESET</span><span class="token punctuation">,</span> domElement<span class="token punctuation">)</span>
+      <span class="token function">trapBubbledEvent</span><span class="token punctuation">(</span><span class="token constant">TOP_SUBMIT</span><span class="token punctuation">,</span> domElement<span class="token punctuation">)</span>
+      props <span class="token operator">=</span> rawProps
+      <span class="token keyword">break</span>
+    <span class="token keyword">case</span> <span class="token string">'input'</span><span class="token punctuation">:</span>
+      <span class="token function">ReactDOMInputInitWrapperState</span><span class="token punctuation">(</span>domElement<span class="token punctuation">,</span> rawProps<span class="token punctuation">)</span>
+      props <span class="token operator">=</span> <span class="token function">ReactDOMInputGetHostProps</span><span class="token punctuation">(</span>domElement<span class="token punctuation">,</span> rawProps<span class="token punctuation">)</span>
+      <span class="token function">trapBubbledEvent</span><span class="token punctuation">(</span><span class="token constant">TOP_INVALID</span><span class="token punctuation">,</span> domElement<span class="token punctuation">)</span>
+      <span class="token function">ensureListeningTo</span><span class="token punctuation">(</span>rootContainerElement<span class="token punctuation">,</span> <span class="token string">'onChange'</span><span class="token punctuation">)</span>
+      <span class="token keyword">break</span>
+    <span class="token comment">/*...*/</span>
+    <span class="token keyword">default</span><span class="token punctuation">:</span>
+      props <span class="token operator">=</span> rawProps
+  <span class="token punctuation">}</span>
+  <span class="token comment">// attribute 추가</span>
+  <span class="token function">setInitialDOMProperties</span><span class="token punctuation">(</span>
+    tag<span class="token punctuation">,</span>
+    domElement<span class="token punctuation">,</span>
+    rootContainerElement<span class="token punctuation">,</span>
+    props<span class="token punctuation">,</span>
+    isCustomComponentTag
+  <span class="token punctuation">)</span>
+<span class="token punctuation">}</span></code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></div>
+<blockquote>
+<p>코드 형식이 중복되는 태그들은 생략하였습니다.</p>
+</blockquote>
+<p>이벤트 바인딩과 관련된 부분은 다음 포스트인 Synthetic Event에서 다루게 되므로 자세한 설명은 생략하고 간략하게나마 알려드리자면 <code class="language-text">trapBubbledEvent()</code>는 명시된 이벤트만 <strong>element</strong>에 바인딩하고 <code class="language-text">ensureListeningTo()</code>는 명시된 이벤트이외에도 해당 이벤트와 의존성을 가지고 있는 다른 이벤트들도 <strong>document</strong>에 이벤트 위임 형식으로 바인딩합니다. ex) <a href="https://github.com/facebook/react/blob/v16.12.0/packages/react-dom/src/events/ChangeEventPlugin.js#L33" target="_blank">onChange</a></p>
+<p><code class="language-text">ReactDOMInputInitWrapperState()</code><up>24</up> 와 <code class="language-text">ReactDOMInputGetHostProps()</code><up>25</up>는 리액트에서 input 태그를 다룸에 있어 기본적으로 필요한 속성들을 추가합니다.</p>
+<p><a class="code_link" href="https://github.com/facebook/react/blob/v16.12.0/packages/react-dom/src/client/ReactDOMInput.js#L73" target="_blank">react-dom > client > ReactDOMInput.js</a></p>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js">  
+<span class="token comment">// ReactDOMInputInitWrapperState</span>
+<span class="token keyword">function</span> <span class="token function">initWrapperState</span><span class="token punctuation">(</span><span class="token parameter">element<span class="token punctuation">:</span> Element<span class="token punctuation">,</span> props<span class="token punctuation">:</span> Object</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> node <span class="token operator">=</span> element
+  <span class="token keyword">const</span> defaultValue <span class="token operator">=</span> props<span class="token punctuation">.</span>defaultValue <span class="token operator">==</span> <span class="token keyword">null</span> <span class="token operator">?</span> <span class="token string">''</span> <span class="token punctuation">:</span> props<span class="token punctuation">.</span>defaultValue
+
+  node<span class="token punctuation">.</span>_wrapperState <span class="token operator">=</span> <span class="token punctuation">{</span>
+    initialChecked<span class="token punctuation">:</span>
+      props<span class="token punctuation">.</span>checked <span class="token operator">!=</span> <span class="token keyword">null</span> <span class="token operator">?</span> props<span class="token punctuation">.</span>checked <span class="token punctuation">:</span> props<span class="token punctuation">.</span>defaultChecked<span class="token punctuation">,</span>
+    initialValue<span class="token punctuation">:</span> <span class="token function">getToStringValue</span><span class="token punctuation">(</span>
+      props<span class="token punctuation">.</span>value <span class="token operator">!=</span> <span class="token keyword">null</span> <span class="token operator">?</span> props<span class="token punctuation">.</span>value <span class="token punctuation">:</span> defaultValue
+    <span class="token punctuation">)</span><span class="token punctuation">,</span>
+    controlled<span class="token punctuation">:</span> <span class="token function">isControlled</span><span class="token punctuation">(</span>props<span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">isControlled</span><span class="token punctuation">(</span><span class="token parameter">props</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> usesChecked <span class="token operator">=</span> props<span class="token punctuation">.</span>type <span class="token operator">===</span> <span class="token string">'checkbox'</span> <span class="token operator">||</span> props<span class="token punctuation">.</span>type <span class="token operator">===</span> <span class="token string">'radio'</span>
+  <span class="token keyword">return</span> usesChecked <span class="token operator">?</span> props<span class="token punctuation">.</span>checked <span class="token operator">!=</span> <span class="token keyword">null</span> <span class="token punctuation">:</span> props<span class="token punctuation">.</span>value <span class="token operator">!=</span> <span class="token keyword">null</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// ReactDOMInputGetHostProps</span>
+<span class="token keyword">function</span> <span class="token function">getHostProps</span><span class="token punctuation">(</span><span class="token parameter">element<span class="token punctuation">:</span> Element<span class="token punctuation">,</span> props<span class="token punctuation">:</span> Object</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> node <span class="token operator">=</span> element
+  <span class="token keyword">const</span> checked <span class="token operator">=</span> props<span class="token punctuation">.</span>checked
+
+  <span class="token keyword">const</span> hostProps <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">assign</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> props<span class="token punctuation">,</span> <span class="token punctuation">{</span>
+    defaultChecked<span class="token punctuation">:</span> <span class="token keyword">undefined</span><span class="token punctuation">,</span>
+    defaultValue<span class="token punctuation">:</span> <span class="token keyword">undefined</span><span class="token punctuation">,</span>
+    value<span class="token punctuation">:</span> <span class="token keyword">undefined</span><span class="token punctuation">,</span>
+    checked<span class="token punctuation">:</span> checked <span class="token operator">!=</span> <span class="token keyword">null</span> <span class="token operator">?</span> checked <span class="token punctuation">:</span> node<span class="token punctuation">.</span>_wrapperState<span class="token punctuation">.</span>initialChecked<span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+  <span class="token keyword">return</span> hostProps
+<span class="token punctuation">}</span></code></pre></div>
+<p><code class="language-text">setInitialDOMProperties()</code><up>34</up>는 호스트 컴포넌트가 가지고 있는 props를 element에 적용시키는 함수입니다.<br>
+하지만 호스트 입장에서는 이렇게 넘어오는 props를 날것 그대로 사용할 수 없으므로 각 종류에 맞춰 가공처리가 필요합니다.<br>
+props가 가지고 있는 정보들을 분류해보자면 다음과 같습니다.  </p>
+<p>일반적인 값, style 그리고 리액트 전용의 event, children, dangerouslySetInnerHTML 등이 있습니다.  </p>
+<p><a class="code_link_2" href="https://github.com/facebook/react/blob/v16.12.0/packages/react-dom/src/client/ReactDOMComponent.js#L308" target="_blank">react-dom > client > ReactDOMComponent.js</a></p>
+<div class="gatsby-highlight" data-language="js"><pre style="counter-reset: linenumber 0" class="language-js line-numbers"><code class="language-js">  
+<span class="token keyword">function</span> <span class="token function">setInitialDOMProperties</span><span class="token punctuation">(</span>
+  <span class="token parameter">tag<span class="token punctuation">:</span> string<span class="token punctuation">,</span>
+  domElement<span class="token punctuation">:</span> Element<span class="token punctuation">,</span>
+  rootContainerElement<span class="token punctuation">:</span> Element <span class="token operator">|</span> Document<span class="token punctuation">,</span>
+  nextProps<span class="token punctuation">:</span> Object<span class="token punctuation">,</span>
+  isCustomComponentTag<span class="token punctuation">:</span> boolean</span>
+<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">void</span> <span class="token punctuation">{</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> propKey <span class="token keyword">in</span> nextProps<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>nextProps<span class="token punctuation">.</span><span class="token function">hasOwnProperty</span><span class="token punctuation">(</span>propKey<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">continue</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">const</span> nextProp <span class="token operator">=</span> nextProps<span class="token punctuation">[</span>propKey<span class="token punctuation">]</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>propKey <span class="token operator">===</span> <span class="token constant">STYLE</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token function">setValueForStyles</span><span class="token punctuation">(</span>domElement<span class="token punctuation">,</span> nextProp<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>propKey <span class="token operator">===</span> <span class="token constant">DANGEROUSLY_SET_INNER_HTML</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">const</span> nextHtml <span class="token operator">=</span> nextProp <span class="token operator">?</span> nextProp<span class="token punctuation">[</span><span class="token constant">HTML</span><span class="token punctuation">]</span> <span class="token punctuation">:</span> <span class="token keyword">undefined</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>nextHtml <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">setInnerHTML</span><span class="token punctuation">(</span>domElement<span class="token punctuation">,</span> nextHtml<span class="token punctuation">)</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>propKey <span class="token operator">===</span> <span class="token constant">CHILDREN</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> nextProp <span class="token operator">===</span> <span class="token string">'string'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">setTextContent</span><span class="token punctuation">(</span>domElement<span class="token punctuation">,</span> nextProp<span class="token punctuation">)</span>
+      <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> nextProp <span class="token operator">===</span> <span class="token string">'number'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">setTextContent</span><span class="token punctuation">(</span>domElement<span class="token punctuation">,</span> <span class="token string">''</span> <span class="token operator">+</span> nextProp<span class="token punctuation">)</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>registrationNameModules<span class="token punctuation">.</span><span class="token function">hasOwnProperty</span><span class="token punctuation">(</span>propKey<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>nextProp <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">ensureListeningTo</span><span class="token punctuation">(</span>rootContainerElement<span class="token punctuation">,</span> propKey<span class="token punctuation">)</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>nextProp <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token function">setValueForProperty</span><span class="token punctuation">(</span>domElement<span class="token punctuation">,</span> propKey<span class="token punctuation">,</span> nextProp<span class="token punctuation">,</span> isCustomComponentTag<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></div>
+<p><code class="language-text">registrationNameModules</code><up>29</up> 는 html의 모든 이벤트를 on***의 형태로 가지고 있으며 이 또한 추후에 Synthetic Event에서 다룹니다.  </p>
+<p>props를 처리하는 함수들의 설명은 다음의 링크로 대체합니다.</p>
+<ul>
+<li><a href="https://github.com/facebook/react/blob/v16.12.0/packages/react-dom/src/shared/CSSPropertyOperations.js#L62" target="_blank">setValueForStyles</a></li>
+<li><a href="https://github.com/facebook/react/blob/v16.12.0/packages/react-dom/src/client/setInnerHTML.js#L26" target="_blank">setInnerHTML</a></li>
+<li><a href="https://github.com/facebook/react/blob/v16.12.0/packages/react-dom/src/client/setTextContent.js#L21" target="_blank">setTextContent</a></li>
+<li><a href="https://github.com/facebook/react/blob/v16.12.0/packages/react-dom/src/client/DOMPropertyOperations.js#L127" target="_blank">setValueForProperty</a></li>
+</ul>
+<p>다음은 기존 current를 재사용 했을 때 current와 workInProgress 사이의 변경점을 찾아 어떻게 html element에 적용하는지 알아보겠습니다.</p>
+<h3 id="2-html-element-업데이트"><a href="#2-html-element-%EC%97%85%EB%8D%B0%EC%9D%B4%ED%8A%B8" aria-label="2 html element 업데이트 permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2) html element 업데이트</h3>
+<p><a class="code_link_5" href="https://github.com/facebook/react/blob/v16.12.0/packages/react-reconciler/src/ReactFiberCompleteWork.js#L632" target="_blank">reconciler > ReactFiberCompleteWork.js</a></p>
+<div class="gatsby-highlight" data-language="js"><pre style="counter-reset: linenumber 0" class="language-js line-numbers"><code class="language-js">  
+<span class="token keyword">function</span> <span class="token function">completeWork</span><span class="token punctuation">(</span><span class="token parameter">current<span class="token punctuation">,</span> workInProgress<span class="token punctuation">,</span> renderExpirationTime</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// const newProps = workInProgress.pendingProps</span>
+  <span class="token keyword">switch</span> <span class="token punctuation">(</span>workInProgress<span class="token punctuation">.</span>tag<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">/*...*/</span>
+    <span class="token keyword">case</span> HostComponent<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      <span class="token comment">// var rootContainerInstance = getRootHostContainer();</span>
+      <span class="token comment">// const type = workInProgress.type;</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>current <span class="token operator">!==</span> <span class="token keyword">null</span> <span class="token operator">&amp;&amp;</span> workInProgress<span class="token punctuation">.</span>stateNode <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 업데이트</span>
+        <span class="token function">updateHostComponent</span><span class="token punctuation">(</span>
+          current<span class="token punctuation">,</span>
+          workInProgress<span class="token punctuation">,</span>
+          type<span class="token punctuation">,</span>
+          newProps<span class="token punctuation">,</span>
+          rootContainerInstance<span class="token punctuation">,</span>
+        <span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        <span class="token comment">// element 생성</span>
+        <span class="token comment">// let instance = createInstance(...);</span>
+        <span class="token comment">// appendAllChildren(instance, ...);</span>
+        <span class="token comment">/*...*/</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment">/*...*/</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></div>
+<p><code class="language-text">updateHostComponent()</code>는 current와 workInProgress 사이의 차이점을 찾아내 commit phase에서 소비할 수 있도록 가공해놓습니다. 실질적으로 props가 element에 반영되는 시점은 commit phase 입니다.</p>
+<p><a class="code_link_2" href="https://github.com/facebook/react/blob/v16.12.0/packages/react-reconciler/src/ReactFiberCompleteWork.js#L191" target="_blank">reconciler > ReactFiberCompleteWork.js</a></p>
+<div class="gatsby-highlight" data-language="js"><pre style="counter-reset: linenumber 0" class="language-js line-numbers"><code class="language-js">  
+<span class="token keyword">function</span> <span class="token function">updateHostComponent</span><span class="token punctuation">(</span>
+  <span class="token parameter">current<span class="token punctuation">:</span> Fiber<span class="token punctuation">,</span>
+  workInProgress<span class="token punctuation">:</span> Fiber<span class="token punctuation">,</span>
+  type<span class="token punctuation">:</span> Type<span class="token punctuation">,</span>
+  newProps<span class="token punctuation">:</span> Props<span class="token punctuation">,</span>
+  rootContainerInstance<span class="token punctuation">:</span> Container</span>
+<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> oldProps <span class="token operator">=</span> current<span class="token punctuation">.</span>memoizedProps
+  <span class="token comment">// 경로 최적화를 이용한 경우 변경된 부분이 없으므로</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>oldProps <span class="token operator">===</span> newProps<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">const</span> instance<span class="token punctuation">:</span> Instance <span class="token operator">=</span> workInProgress<span class="token punctuation">.</span>stateNode
+  <span class="token keyword">const</span> updatePayload <span class="token operator">=</span> <span class="token function">prepareUpdate</span><span class="token punctuation">(</span>
+    instance<span class="token punctuation">,</span>
+    type<span class="token punctuation">,</span>
+    oldProps<span class="token punctuation">,</span>
+    newProps<span class="token punctuation">,</span>
+    rootContainerInstance
+  <span class="token punctuation">)</span>
+  workInProgress<span class="token punctuation">.</span>updateQueue <span class="token operator">=</span> updatePayload
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>updatePayload<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">markUpdate</span><span class="token punctuation">(</span>workInProgress<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></div>
+<p><code class="language-text">prepareUpdate()</code>는 변경점을 찾아 가공된 데이터를 반환<up>16</up>합니다. 여기에는 추가, 수정, 삭제 해야 될 속성들이 담겨있습니다.<br>
+이것을 workInProgress의 <code class="language-text">updateQueue</code>에 담아<up>23</up>놓습니다. 일전에도 updateQueue를 다룬적이 있습니다. 그때는 커스텀 컴포넌트의 updateQueue였으며 life cycle hook의 정보가 저장된다고 언급했습니다.</p>
+<p>그리고 <code class="language-text">updatePayload</code>가 비어 있지 않다면<up>24</up> commit phase에서 element를 수정해야 하므로 Update tag를 달아줍니다.<up>25</up></p>
+<p><a class="code_link" href="https://github.com/facebook/react/blob/v16.12.0/packages/react-dom/src/client/ReactDOMHostConfig.js#L269" target="_blank">react-dom > client > ReactDOMHostConfig.js</a></p>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js">  
+<span class="token keyword">function</span> <span class="token function">prepareUpdate</span><span class="token punctuation">(</span>
+  <span class="token parameter">domElement<span class="token punctuation">:</span> Instance<span class="token punctuation">,</span>
+  type<span class="token punctuation">:</span> string<span class="token punctuation">,</span>
+  oldProps<span class="token punctuation">:</span> Props<span class="token punctuation">,</span>
+  newProps<span class="token punctuation">:</span> Props<span class="token punctuation">,</span>
+  rootContainerInstance<span class="token punctuation">:</span> Container<span class="token punctuation">,</span>
+  hostContext<span class="token punctuation">:</span> HostContext</span>
+<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">null</span> <span class="token operator">|</span> Array<span class="token operator">&lt;</span>mixed<span class="token operator">></span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token function">diffProperties</span><span class="token punctuation">(</span>
+    domElement<span class="token punctuation">,</span>
+    type<span class="token punctuation">,</span>
+    oldProps<span class="token punctuation">,</span>
+    newProps<span class="token punctuation">,</span>
+    rootContainerInstance
+  <span class="token punctuation">)</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>변경점을 추출할 때는 다음의 두 단계로 나누어 처리합니다. 그래야 O(n)으로 처리(<down>style 제외</down>)할 수 있습니다.</p>
+<ul>
+<li>삭제: current를 기준으로 workInProgress에 없다면 삭제이다.</li>
+<li>추가, 수정: workInProgress를 기준으로 current에 없다면 추가, 값이 다르다면 수정이다.</li>
+</ul>
+<p>즉 current, workInProgress기준으로 각각 한번의 반복을 통해 처리합니다.<br>
+이때 style만은 유일하게 추가, 수정, 삭제가 모두 한번에 일어날 수 있는 속성이므로 다른 속성들과는 조금 다르게 처리합니다.</p>
+<p><a class="code_link" href="https://github.com/facebook/react/blob/v16.12.0/packages/react-dom/src/client/ReactDOMComponent.js#L643" target="_blank">react-dom > client > ReactDOMComponent.js</a></p>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js">  
+<span class="token keyword">function</span> <span class="token function">diffProperties</span><span class="token punctuation">(</span>
+  <span class="token parameter">domElement<span class="token punctuation">:</span> Element<span class="token punctuation">,</span>
+  tag<span class="token punctuation">:</span> string<span class="token punctuation">,</span>
+  lastRawProps<span class="token punctuation">:</span> Object<span class="token punctuation">,</span>
+  nextRawProps<span class="token punctuation">:</span> Object<span class="token punctuation">,</span>
+  rootContainerElement<span class="token punctuation">:</span> Element <span class="token operator">|</span> Document</span>
+<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">null</span> <span class="token operator">|</span> Array<span class="token operator">&lt;</span>mixed<span class="token operator">></span> <span class="token punctuation">{</span>
+  <span class="token comment">// 변경점을 담을 저장소로 [[key, value], ...]의 형태를 취함.</span>
+  <span class="token keyword">let</span> updatePayload<span class="token punctuation">:</span> <span class="token keyword">null</span> <span class="token operator">|</span> Array<span class="token operator">&lt;</span>any<span class="token operator">></span> <span class="token operator">=</span> <span class="token keyword">null</span>
+
+  <span class="token keyword">let</span> lastProps<span class="token punctuation">:</span> Object
+  <span class="token keyword">let</span> nextProps<span class="token punctuation">:</span> Object
+
+  <span class="token comment">// 기본 속성 추가</span>
+  <span class="token keyword">switch</span> <span class="token punctuation">(</span>tag<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">case</span> <span class="token string">'input'</span><span class="token punctuation">:</span>
+      lastProps <span class="token operator">=</span> <span class="token function">ReactDOMInputGetHostProps</span><span class="token punctuation">(</span>domElement<span class="token punctuation">,</span> lastRawProps<span class="token punctuation">)</span>
+      nextProps <span class="token operator">=</span> <span class="token function">ReactDOMInputGetHostProps</span><span class="token punctuation">(</span>domElement<span class="token punctuation">,</span> nextRawProps<span class="token punctuation">)</span>
+      updatePayload <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+      <span class="token keyword">break</span>
+    <span class="token comment">// option, select, textarea...</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">let</span> propKey
+  <span class="token keyword">let</span> styleName
+  <span class="token keyword">let</span> styleUpdates <span class="token operator">=</span> <span class="token keyword">null</span> <span class="token comment">// style은 임시 변수를 두고 변경점을 추출하여 담아둔다.</span>
+
+  <span class="token comment">// 삭제</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span>propKey <span class="token keyword">in</span> lastProps<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>
+      nextProps<span class="token punctuation">.</span><span class="token function">hasOwnProperty</span><span class="token punctuation">(</span>propKey<span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token comment">// workInProgress에 있다면 삭제가 아니다.</span>
+      <span class="token operator">!</span>lastProps<span class="token punctuation">.</span><span class="token function">hasOwnProperty</span><span class="token punctuation">(</span>propKey<span class="token punctuation">)</span> <span class="token operator">||</span>
+      lastProps<span class="token punctuation">[</span>propKey<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token keyword">null</span>
+    <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">continue</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment">// 이하 workInProgress에는 존재하지 않는 속성들이므로 모두 삭제해준다.</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>propKey <span class="token operator">===</span> <span class="token constant">STYLE</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">const</span> lastStyle <span class="token operator">=</span> lastProps<span class="token punctuation">[</span>propKey<span class="token punctuation">]</span>
+      <span class="token keyword">for</span> <span class="token punctuation">(</span>styleName <span class="token keyword">in</span> lastStyle<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>lastStyle<span class="token punctuation">.</span><span class="token function">hasOwnProperty</span><span class="token punctuation">(</span>styleName<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>styleUpdates<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            styleUpdates <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+          <span class="token punctuation">}</span>
+          styleUpdates<span class="token punctuation">[</span>styleName<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">''</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+      <span class="token punctuation">(</span>updatePayload <span class="token operator">=</span> updatePayload <span class="token operator">||</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>propKey<span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">// 추가, 수정</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span>propKey <span class="token keyword">in</span> nextProps<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> nextProp <span class="token operator">=</span> nextProps<span class="token punctuation">[</span>propKey<span class="token punctuation">]</span>
+    <span class="token keyword">const</span> lastProp <span class="token operator">=</span> lastProps <span class="token operator">!=</span> <span class="token keyword">null</span> <span class="token operator">?</span> lastProps<span class="token punctuation">[</span>propKey<span class="token punctuation">]</span> <span class="token punctuation">:</span> <span class="token keyword">undefined</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>
+      <span class="token operator">!</span>nextProps<span class="token punctuation">.</span><span class="token function">hasOwnProperty</span><span class="token punctuation">(</span>propKey<span class="token punctuation">)</span> <span class="token operator">||</span>
+      nextProp <span class="token operator">===</span> lastProp <span class="token operator">||</span>
+      <span class="token punctuation">(</span>nextProp <span class="token operator">==</span> <span class="token keyword">null</span> <span class="token operator">&amp;&amp;</span> lastProp <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span>
+    <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">continue</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>propKey <span class="token operator">===</span> <span class="token constant">STYLE</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token comment">// style은 추가, 수정, 삭제가 동시에 일어날 수 있음.</span>
+      <span class="token comment">// current에만 존재하면 삭제하면 그만이지만 그렇지 않을 경우 모든 케이스에 대한 처리가 필요함.</span>
+
+      <span class="token comment">// 추가, 삭제, 수정</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>lastProp<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span>styleName <span class="token keyword">in</span> lastProp<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          <span class="token comment">// 삭제</span>
+          <span class="token keyword">if</span> <span class="token punctuation">(</span>
+            lastProp<span class="token punctuation">.</span><span class="token function">hasOwnProperty</span><span class="token punctuation">(</span>styleName<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span>
+            <span class="token punctuation">(</span><span class="token operator">!</span>nextProp <span class="token operator">||</span> <span class="token operator">!</span>nextProp<span class="token punctuation">.</span><span class="token function">hasOwnProperty</span><span class="token punctuation">(</span>styleName<span class="token punctuation">)</span><span class="token punctuation">)</span>
+          <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>styleUpdates<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+              styleUpdates <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+            styleUpdates<span class="token punctuation">[</span>styleName<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">''</span>
+          <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token comment">// 추가, 수정</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span>styleName <span class="token keyword">in</span> nextProp<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          <span class="token keyword">if</span> <span class="token punctuation">(</span>
+            nextProp<span class="token punctuation">.</span><span class="token function">hasOwnProperty</span><span class="token punctuation">(</span>styleName<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span>
+            lastProp<span class="token punctuation">[</span>styleName<span class="token punctuation">]</span> <span class="token operator">!==</span> nextProp<span class="token punctuation">[</span>styleName<span class="token punctuation">]</span>
+          <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>styleUpdates<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+              styleUpdates <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+            styleUpdates<span class="token punctuation">[</span>styleName<span class="token punctuation">]</span> <span class="token operator">=</span> nextProp<span class="token punctuation">[</span>styleName<span class="token punctuation">]</span>
+          <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token comment">// 추가</span>
+      <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>styleUpdates<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>updatePayload<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            updatePayload <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+          <span class="token punctuation">}</span>
+          updatePayload<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>propKey<span class="token punctuation">,</span> styleUpdates<span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+        styleUpdates <span class="token operator">=</span> nextProp
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>propKey <span class="token operator">===</span> <span class="token constant">DANGEROUSLY_SET_INNER_HTML</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">const</span> nextHtml <span class="token operator">=</span> nextProp <span class="token operator">?</span> nextProp<span class="token punctuation">[</span><span class="token constant">HTML</span><span class="token punctuation">]</span> <span class="token punctuation">:</span> <span class="token keyword">undefined</span>
+      <span class="token keyword">const</span> lastHtml <span class="token operator">=</span> lastProp <span class="token operator">?</span> lastProp<span class="token punctuation">[</span><span class="token constant">HTML</span><span class="token punctuation">]</span> <span class="token punctuation">:</span> <span class="token keyword">undefined</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>nextHtml <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>lastHtml <span class="token operator">!==</span> nextHtml<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          <span class="token punctuation">(</span>updatePayload <span class="token operator">=</span> updatePayload <span class="token operator">||</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>
+            propKey<span class="token punctuation">,</span>
+            <span class="token function">toStringOrTrustedType</span><span class="token punctuation">(</span>nextHtml<span class="token punctuation">)</span> <span class="token comment">// return '' + nextHtml</span>
+          <span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>propKey <span class="token operator">===</span> <span class="token constant">CHILDREN</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>
+        lastProp <span class="token operator">!==</span> nextProp <span class="token operator">&amp;&amp;</span>
+        <span class="token punctuation">(</span><span class="token keyword">typeof</span> nextProp <span class="token operator">===</span> <span class="token string">'string'</span> <span class="token operator">||</span> <span class="token keyword">typeof</span> nextProp <span class="token operator">===</span> <span class="token string">'number'</span><span class="token punctuation">)</span>
+      <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token punctuation">(</span>updatePayload <span class="token operator">=</span> updatePayload <span class="token operator">||</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>propKey<span class="token punctuation">,</span> <span class="token string">''</span> <span class="token operator">+</span> nextProp<span class="token punctuation">)</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>registrationNameModules<span class="token punctuation">.</span><span class="token function">hasOwnProperty</span><span class="token punctuation">(</span>propKey<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>nextProp <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">ensureListeningTo</span><span class="token punctuation">(</span>rootContainerElement<span class="token punctuation">,</span> propKey<span class="token punctuation">)</span>
+      <span class="token punctuation">}</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>updatePayload <span class="token operator">&amp;&amp;</span> lastProp <span class="token operator">!==</span> nextProp<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        updatePayload <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+      <span class="token punctuation">(</span>updatePayload <span class="token operator">=</span> updatePayload <span class="token operator">||</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>propKey<span class="token punctuation">,</span> nextProp<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">// style 변경점을 가지고 있는 styleUpdates를 마지막으로 추가하면서 마무리한다.</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>styleUpdates<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token punctuation">(</span>updatePayload <span class="token operator">=</span> updatePayload <span class="token operator">||</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token constant">STYLE</span><span class="token punctuation">,</span> styleUpdates<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">return</span> updatePayload
+<span class="token punctuation">}</span></code></pre></div>
+<p>completeWork()의 첫 번째 역할인 호스트 영역에 대한 작업(<down>element 생성과 업데이트</down>)을 보았습니다.<br>
+다음은 side-effect를 가지고 있는 fiber를 effect list로 연결하는 두번 째 역할을 보도록 하겠습니다.</p>
+<h3 id="3-effect-list-연결"><a href="#3-effect-list-%EC%97%B0%EA%B2%B0" aria-label="3 effect list 연결 permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3) effect list 연결</h3>
+<p><strong>Work</strong>를 진행하며 발생한 VDOM에 산재되어 있는 side-effect을 어떻게 하면 commit phase에서 편하게 사용할 수 있을까요?<br>
+그냥 host root부터 시작해서 밑으로 내려가며 effect를 소비하면 될까요?</p>
+<p>다행히도 effect를 수거해갈 타이밍이 있습니다. 일전에 언급한 <a href="#processing_order">Work 마무리 순서</a>를 생각해보시면 됩니다. 후위 순회이기 때문에 어쨋든 host root로 되돌아가게 됩니다. 이때 우리는 effect가 발생한 fiber을 위로 엮어주기만 하면 됩니다. 이렇게 되면 최종적으로 host root는 side-effect가 발생한 fiber들을 모두 가지고 있게 되므로 commit phase에서는 root만 참조할 수 있으면 됩니다.</p>
+<p><a class="code_link" href="https://github.com/facebook/react/blob/v16.12.0/packages/react-reconciler/src/ReactFiberWorkLoop.js#L1498" target="_blank">reconciler > ReactFiberWorkLoop.js</a></p>
+<div class="gatsby-highlight has-highlighted-lines" data-language="js"><pre class="language-js"><code class="language-js">  
+<span class="token keyword">function</span> <span class="token function">completeUnitOfWork</span><span class="token punctuation">(</span><span class="token parameter">unitOfWork<span class="token punctuation">:</span> Fiber</span><span class="token punctuation">)</span><span class="token punctuation">:</span> Fiber <span class="token operator">|</span> <span class="token keyword">null</span> <span class="token punctuation">{</span>
+  <span class="token comment">/*
+  workInProgress = unitOfWork
+  do {
+  const current = workInProgress.alternate
+  const returnFiber = workInProgress.return
+
+  if ((workInProgress.effectTag &amp; Incomplete) === NoEffect) {
+    completeWork(current, workInProgress, renderExpirationTime);
+  */</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>
+      returnFiber <span class="token operator">!==</span> <span class="token keyword">null</span> <span class="token operator">&amp;&amp;</span>
+      <span class="token punctuation">(</span>returnFiber<span class="token punctuation">.</span>effectTag <span class="token operator">&amp;</span> Incomplete<span class="token punctuation">)</span> <span class="token operator">===</span> NoEffect
+    <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token comment">// effect list의 head를 위로 올린다.</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>returnFiber<span class="token punctuation">.</span>firstEffect <span class="token operator">===</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        returnFiber<span class="token punctuation">.</span>firstEffect <span class="token operator">=</span> workInProgress<span class="token punctuation">.</span>firstEffect
+      <span class="token punctuation">}</span>
+      <span class="token comment">// 서브 트리의 effect list를 부모 list 뒤에 연결한다.</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>workInProgress<span class="token punctuation">.</span>lastEffect <span class="token operator">!==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>returnFiber<span class="token punctuation">.</span>lastEffect <span class="token operator">!==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          returnFiber<span class="token punctuation">.</span>lastEffect<span class="token punctuation">.</span>nextEffect <span class="token operator">=</span> workInProgress<span class="token punctuation">.</span>firstEffect
+        <span class="token punctuation">}</span>
+        returnFiber<span class="token punctuation">.</span>lastEffect <span class="token operator">=</span> workInProgress<span class="token punctuation">.</span>lastEffect
+      <span class="token punctuation">}</span>
+<span class="gatsby-highlight-code-line">      <span class="token comment">// 자신도 side-effect를 품고 있다면 부모 list에 연결한다.</span></span>      <span class="token keyword">const</span> effectTag <span class="token operator">=</span> workInProgress<span class="token punctuation">.</span>effectTag
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>effectTag <span class="token operator">></span> PerformedWork<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>returnFiber<span class="token punctuation">.</span>lastEffect <span class="token operator">!==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          returnFiber<span class="token punctuation">.</span>lastEffect<span class="token punctuation">.</span>nextEffect <span class="token operator">=</span> workInProgress
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+          returnFiber<span class="token punctuation">.</span>firstEffect <span class="token operator">=</span> workInProgress
+        <span class="token punctuation">}</span>
+        returnFiber<span class="token punctuation">.</span>lastEffect <span class="token operator">=</span> workInProgress
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token comment">/*
+  } else {
+  부모의 서브트리에서 Work를 진행하던 중 에러가 발생한 경우.
+  }
+
+  const siblingFiber = workInProgress.sibling
+  if (siblingFiber !== null) {
+    return siblingFiber
+  }
+
+  workInProgress = returnFiber
+  } while (workInProgress !== null)
+
+  return null
+  */</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>하이라이트 코드만 설명하고 넘어가겠습다.<br>
+기억 안나실 수 있지만 <code class="language-text">PerformedWork</code>는 <a href="/react/in-depth-react-reconciler_2/#updateFunctionComponent" target="_blank">updateFunctionComponent()</a>에서 커스텀 컴포넌트를 호출한 후에 달아주었습니다. 부등호를 보면 커스텀 컴포넌트의 호출을 제외한 나머지 side-effect가 발생한다면 자신을 effect로 간주하고 위로 올린다라고 해석하시면 되겠습니다.</p>
+<blockquote>
+<p>effect tag</p>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token comment">// 주소</span>
+<span class="token keyword">export</span> <span class="token keyword">const</span> NoEffect <span class="token operator">=</span> <span class="token comment">/*              */</span> <span class="token number">0b0000000000000</span>
+<span class="token keyword">export</span> <span class="token keyword">const</span> PerformedWork <span class="token operator">=</span> <span class="token comment">/*     */</span> <span class="token number">0b0000000000001</span>
+<span class="token keyword">export</span> <span class="token keyword">const</span> Placement <span class="token operator">=</span> <span class="token comment">/*            */</span> <span class="token number">0b0000000000010</span>
+<span class="token keyword">export</span> <span class="token keyword">const</span> Update <span class="token operator">=</span> <span class="token comment">/*                */</span> <span class="token number">0b0000000000100</span>
+<span class="token comment">/*...*/</span></code></pre></div>
+</blockquote>
+<p>이번에도 마찬가지로 이미지를 통해 함수의 호출부터 tag가 어떤 순서로 달리고 effect가 어떻게 host root까지 전달되는지 확인해봅시다.</p>
+<blockquote>
+<p>effect list 연결 로직의 커버리지를 위해 useEffect를 Input 컴포넌트에 추가합니다.</p>
+<div class="gatsby-highlight has-highlighted-lines" data-language="jsx"><pre class="language-jsx"><code class="language-jsx"><span class="token keyword">function</span> <span class="token function">Input</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> submit <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token punctuation">[</span>value<span class="token punctuation">,</span> setValue<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">)</span>
+
+<span class="gatsby-highlight-code-line">  <span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span></span><span class="gatsby-highlight-code-line">    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Deep dive magic code'</span><span class="token punctuation">)</span></span><span class="gatsby-highlight-code-line">  <span class="token punctuation">}</span><span class="token punctuation">)</span></span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token operator">...</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+</blockquote>
+<anchor id="effect_list" />
+<blockquote>
+<p>아래의 이미지는 Input 컴포넌트에서 사용자가 타이핑 했다고 가정하고 그 이후의 흐름을 보여주고 있는 것입니다.</p>
+</blockquote>
+<img src="/path/to/dir/d978a8fa3dc9fecda1104272ca46ab9e/effect_list.gif" width="100%">
+<p>render phase를 거치고 나면 Root<up>host root</up>는 firstEffect로 input을 lastEffect로 Input 가지고 있게 됩니다.<br>
+이제 commit phase에서 host root의 firstEffect 참조만을 통해 모든 변경점들을 알 수 있게 되었습니다.</p>
+<blockquote>
+<p>호스트 컴포넌트의 tag 4는 Update(<down>props 변경</down>) tag, Input 컴포넌트의 tag 517은 Passive(<down>useEffect</down>) + Update(<down>useState 상태 변경</down>) + PerformedWork tag를 나타냅니다.</p>
+</blockquote>
+<p>host root까지 올라왔다면 더 이상의 <strong>Work</strong>를 진행할 노드가 남아 있지 않으므로 자연스레 workLoop()의 반복은 중단될 것입니다.</p>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">workLoopSync</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">while</span> <span class="token punctuation">(</span>workInProgress <span class="token operator">!==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    workInProgress <span class="token operator">=</span> <span class="token function">performUnitOfWork</span><span class="token punctuation">(</span>workInProgress<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>우리는 다시 <strong>Work</strong>의 진입점이었던 performSyncWorkOnRoot()로 돌아가게 됩니다.</p>
+<p><a class="code_link" href="https://github.com/facebook/react/blob/v16.12.0/packages/react-reconciler/src/ReactFiberWorkLoop.js#L1022" target="_blank">reconciler > ReactFiberWorkLoop.js</a></p>
+<div class="gatsby-highlight has-highlighted-lines" data-language="js"><pre class="language-js"><code class="language-js">  
+<span class="token keyword">function</span> <span class="token function">performSyncWorkOnRoot</span><span class="token punctuation">(</span><span class="token parameter">root</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">/*...*/</span>
+  <span class="token comment">// if (..) prepareFreshStack(root, expirationTime);</span>
+
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>workInProgress <span class="token operator">!==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> prevExecutionContext <span class="token operator">=</span> executionContext
+    executionContext <span class="token operator">|=</span> RenderContext
+    <span class="token keyword">do</span> <span class="token punctuation">{</span>
+      <span class="token keyword">try</span> <span class="token punctuation">{</span>
+        <span class="token function">workLoopSync</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">break</span>
+      <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span>thrownValue<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">handleError</span><span class="token punctuation">(</span>root<span class="token punctuation">,</span> thrownValue<span class="token punctuation">)</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span> <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span>
+<span class="gatsby-highlight-code-line">    executionContext <span class="token operator">=</span> prevExecutionContext</span>
+    <span class="token comment">// commit phase..</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">return</span> <span class="token keyword">null</span> <span class="token comment">// 잔여 작업이 없으므로 null을 리턴.</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>이전 context로 다시 설정해줌으로써 render phase가 끝나게 됩니다.</p>
+<p>다음 포스터는 완성된 workInProgress tree를 commit phase를 통해 DOM에 적용해보면서 <strong>reconciler</strong> 시리즈를 마무리할 것입니다. </p></div><hr class="custom-hr"/><div class="bio"><div class="author"><div class="author-description"><a class="link" href="/"><img class="author-image" src="/static/felog-f24356c48475809626ea0c2ac67855c6.png" alt="Goidle" style="width:72px;height:79px"/></a><div class="author-name"><div><a class="author-name-content"><div><svg class="bio_fontaswesome" width="1em" display="inline-block" font-size="inherit" height="1em" overflow="visible" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg> <!-- -->Goidle<!-- --> <svg class="bio_fontaswesome" width="1.25em" display="inline-block" font-size="inherit" height="1em" overflow="visible" viewBox="0 0 640 512"><path d="M96 224c35.3 0 64-28.7 64-64s-28.7-64-64-64-64 28.7-64 64 28.7 64 64 64zm448 0c35.3 0 64-28.7 64-64s-28.7-64-64-64-64 28.7-64 64 28.7 64 64 64zm32 32h-64c-17.6 0-33.5 7.1-45.1 18.6 40.3 22.1 68.9 62 75.1 109.4h66c17.7 0 32-14.3 32-32v-32c0-35.3-28.7-64-64-64zm-256 0c61.9 0 112-50.1 112-112S381.9 32 320 32 208 82.1 208 144s50.1 112 112 112zm76.8 32h-8.3c-20.8 10-43.9 16-68.5 16s-47.6-6-68.5-16h-8.3C179.6 288 128 339.6 128 403.2V432c0 26.5 21.5 48 48 48h288c26.5 0 48-21.5 48-48v-28.8c0-63.6-51.6-115.2-115.2-115.2zm-223.7-13.4C161.5 263.1 145.6 256 128 256H64c-35.3 0-64 28.7-64 64v32c0 17.7 14.3 32 32 32h65.9c6.3-47.4 34.9-87.3 75.2-109.4z"></path></svg> TMON</div></a></div><div class="author-introduction">오픈소스를 톺아보며 매직 코드라 생각했던 부분들의 동작 원리와 의미, 의도를 파악해보고 서로의 생각을 나누기 위한 블로그</div></div></div></div></div><ul class="navigator"><li><a rel="prev" href="/react/in-depth-react-reconciler_3/">← <!-- -->React 톺아보기- 05. Reconciler_3</a></li><li><a rel="next" href="/react/in-depth-react-reconciler_5/">React 톺아보기- 05. Reconciler_5<!-- --> →</a></li></ul><div class="utterences"></div><footer class="footer">©<a href="https://github.com/JaeYeopHan">Goidle</a>, Built with<!-- --> <a href="https://github.com/JaeYeopHan/gatsby-starter-bee">Gatsby-starter-bee</a></footer></div></div></div><script>
+  
+  
+  if(true) {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  }
+  if (typeof ga === "function") {
+    ga('create', 'UA-154981109-1', 'auto', {});
+      
+      
+      
+      
+      
+      }</script><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/react/in-depth-react-reconciler_4/";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"app":["/app-69573b14c89d32433a71.js"],"component---node-modules-gatsby-plugin-offline-app-shell-js":["/component---node-modules-gatsby-plugin-offline-app-shell-js-5efb7b8fb8a6286e0a5c.js"],"component---src-templates-blog-post-js":["/component---src-templates-blog-post-js-ef229068f1a7461d6597.js"],"component---src-pages-404-js":["/component---src-pages-404-js-6bdb37d3a7ac9f5a4c88.js"],"component---src-pages-index-js":["/component---src-pages-index-js-c9089e990f73b65ff865.js"]};/*]]>*/</script><script src="/webpack-runtime-e1056f6722281b635472.js" async=""></script><script src="/commons-e292b02c69f3a51ef82a.js" async=""></script><script src="/styles-f42f8789f3cee93e7f05.js" async=""></script><script src="/component---src-templates-blog-post-js-ef229068f1a7461d6597.js" async=""></script><script src="/app-69573b14c89d32433a71.js" async=""></script></body></html>

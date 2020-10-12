@@ -1,0 +1,718 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, minimum-scale=1, maximum-scale=2"/><link rel="shortcut icon" href="/icons/icon-48x48.png"/><style id="typography.js">html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,main,menu,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block}audio:not([controls]){display:none;height:0}progress{vertical-align:baseline}[hidden],template{display:none}a{background-color:transparent;-webkit-text-decoration-skip:objects}a:active,a:hover{outline-width:0}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:inherit;font-weight:bolder}dfn{font-style:italic}h1{font-size:2em;margin:.67em 0}mark{background-color:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}img{border-style:none}svg:not(:root){overflow:hidden}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}figure{margin:1em 40px}hr{box-sizing:content-box;height:0;overflow:visible}button,input,optgroup,select,textarea{font:inherit;margin:0}optgroup{font-weight:700}button,input{overflow:visible}button,select{text-transform:none}[type=reset],[type=submit],button,html [type=button]{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:1px dotted ButtonText}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-cancel-button,[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-input-placeholder{color:inherit;opacity:.54}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}html{font:100%/1.625 -apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';box-sizing:border-box;overflow-y:scroll;}*{box-sizing:inherit;}*:before{box-sizing:inherit;}*:after{box-sizing:inherit;}body{color:hsla(0,0%,0%,0.8);font-family:-apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight:normal;word-wrap:break-word;font-kerning:normal;-moz-font-feature-settings:"kern", "liga", "clig", "calt";-ms-font-feature-settings:"kern", "liga", "clig", "calt";-webkit-font-feature-settings:"kern", "liga", "clig", "calt";font-feature-settings:"kern", "liga", "clig", "calt";}img{max-width:100%;margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}h1{margin-left:0;margin-right:0;margin-top:2.4375rem;padding-bottom:calc(0.40625rem - 1px);padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.21875rem;color:inherit;font-family:Catamaran;font-weight:800;text-rendering:optimizeLegibility;font-size:2rem;line-height:1.2;border-bottom:1px solid hsla(0,0%,0%,0.07);}h2{margin-left:0;margin-right:0;margin-top:56px;padding-bottom:calc(0.40625rem - 1px);padding-left:0;padding-right:0;padding-top:0;margin-bottom:20px;color:inherit;font-family:Catamaran;font-weight:700;text-rendering:optimizeLegibility;font-size:1.51572rem;line-height:1.2;border-bottom:1px solid hsla(0,0%,0%,0.07);}h3{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;color:inherit;font-family:-apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight:600;text-rendering:optimizeLegibility;font-size:1.31951rem;line-height:1.1;}h4{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;color:inherit;font-family:-apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight:600;text-rendering:optimizeLegibility;font-size:1rem;line-height:1.1;}h5{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;color:inherit;font-family:-apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight:600;text-rendering:optimizeLegibility;font-size:0.87055rem;line-height:1.1;}h6{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;color:hsla(0,0%,0%,0.53);font-family:-apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight:600;text-rendering:optimizeLegibility;font-size:0.81225rem;line-height:1.1;}hgroup{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}ul{margin-left:1.625rem;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:6px;list-style-position:outside;list-style-image:none;}ol{margin-left:1.625rem;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;list-style-position:outside;list-style-image:none;}dl{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}dd{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}p{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}figure{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}pre{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;font-size:0.85rem;line-height:1.625rem;}table{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;font-size:1rem;line-height:1.625rem;border-collapse:collapse;width:100%;}fieldset{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}blockquote{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:calc(0.8125rem - 1px);padding-right:0;padding-top:0;margin-bottom:0.8125rem;border-left:4px solid hsla(0,0%,0%,0.13);color:hsla(0,0%,0%,0.53);}form{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}noscript{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}iframe{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}hr{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:calc(0.8125rem - 1px);background:hsla(0,0%,0%,0.2);border:none;height:1px;}address{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}b{font-weight:600;}strong{font-weight:600;}dt{font-weight:600;}th{font-weight:600;}li{margin-bottom:2px;}ol li{padding-left:0;}ul li{padding-left:0;}li > ol{margin-left:1.625rem;margin-bottom:calc(0.8125rem / 2);margin-top:calc(0.8125rem / 2);}li > ul{margin-left:1.625rem;margin-bottom:calc(0.8125rem / 2);margin-top:calc(0.8125rem / 2);}blockquote *:last-child{margin-bottom:0;}li *:last-child{margin-bottom:0;}p *:last-child{margin-bottom:0;}li > p{margin-bottom:calc(0.8125rem / 2);}code{font-size:0.85rem;line-height:1.625rem;}kbd{font-size:0.85rem;line-height:1.625rem;}samp{font-size:0.85rem;line-height:1.625rem;}abbr{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;}acronym{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;}abbr[title]{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;text-decoration:none;}thead{text-align:left;}td,th{text-align:left;border-bottom:1px solid hsla(0,0%,0%,0.12);font-feature-settings:"tnum";-moz-font-feature-settings:"tnum";-ms-font-feature-settings:"tnum";-webkit-font-feature-settings:"tnum";padding-left:1.08333rem;padding-right:1.08333rem;padding-top:0.8125rem;padding-bottom:calc(0.8125rem - 1px);}th:first-child,td:first-child{padding-left:0;}th:last-child,td:last-child{padding-right:0;}h3,h4,h5,h6{margin-bottom:0.8125rem;margin-top:1.625rem;}ol,ul{margin-left:2.03125rem;}li>ol,li>ul{margin-left:2.03125rem;}a{color:#0687f0;text-decoration:none;box-shadow:none;}a:hover,a:active{text-decoration:underline;}a.gatsby-resp-image-link{box-shadow:none;text-decoration:none;}a:hover{text-decoration:none;}</style><style data-href="/styles.49f24db4f09953f776c8.css">@import url(https://cdn.jsdelivr.net/gh/tonsky/FiraCode@1.206/distr/fira_code.css);@font-face{font-family:Noto Sans KR;font-style:normal;font-display:swap;font-weight:100;src:local("Noto Sans KR Thin "),local("Noto Sans KR-Thin"),url(/static/noto-sans-kr-latin-100-2de137ca3e12ea146ee47485a97f1e78.woff2) format("woff2"),url(/static/noto-sans-kr-latin-100-b965647685dd9fc531d1f8a1cc25e024.woff) format("woff")}@font-face{font-family:Noto Sans KR;font-style:normal;font-display:swap;font-weight:300;src:local("Noto Sans KR Light "),local("Noto Sans KR-Light"),url(/static/noto-sans-kr-latin-300-4f773a0fce88aa857d70b56c5b0a1d26.woff2) format("woff2"),url(/static/noto-sans-kr-latin-300-ee87751dac814562bac316d848e35748.woff) format("woff")}@font-face{font-family:Noto Sans KR;font-style:normal;font-display:swap;font-weight:400;src:local("Noto Sans KR Regular "),local("Noto Sans KR-Regular"),url(/static/noto-sans-kr-latin-400-be09f2ced7ff9fa6eda5f0416e2fc840.woff2) format("woff2"),url(/static/noto-sans-kr-latin-400-4c50be0fe5b21a153b8e40a392c2d3fe.woff) format("woff")}@font-face{font-family:Noto Sans KR;font-style:normal;font-display:swap;font-weight:500;src:local("Noto Sans KR Medium "),local("Noto Sans KR-Medium"),url(/static/noto-sans-kr-latin-500-416698c2fc4b3951f8d63d3d2ae23900.woff2) format("woff2"),url(/static/noto-sans-kr-latin-500-28601458e118110e494903a1fcd6dcf5.woff) format("woff")}@font-face{font-family:Noto Sans KR;font-style:normal;font-display:swap;font-weight:700;src:local("Noto Sans KR Bold "),local("Noto Sans KR-Bold"),url(/static/noto-sans-kr-latin-700-04e782e08729f3725ae5a9c95da0c8ba.woff2) format("woff2"),url(/static/noto-sans-kr-latin-700-b9e989a96027f839a9569d2d011e0b71.woff) format("woff")}@font-face{font-family:Noto Sans KR;font-style:normal;font-display:swap;font-weight:900;src:local("Noto Sans KR Black "),local("Noto Sans KR-Black"),url(/static/noto-sans-kr-latin-900-c41f1395489a117ca36d550142a1695f.woff2) format("woff2"),url(/static/noto-sans-kr-latin-900-589f5fbf84d9dc9984a969bae969fd60.woff) format("woff")}@font-face{font-family:Catamaran;font-style:normal;font-display:swap;font-weight:100;src:local("Catamaran Thin "),local("Catamaran-Thin"),url(/static/catamaran-latin-100-3570195a7b5f619dd9b2419d8fa3f089.woff2) format("woff2"),url(/static/catamaran-latin-100-e82908f57f6d2f23eb9876b2d6868195.woff) format("woff")}@font-face{font-family:Catamaran;font-style:normal;font-display:swap;font-weight:200;src:local("Catamaran Extra Light "),local("Catamaran-Extra Light"),url(/static/catamaran-latin-200-987ea210308405ac77ba2f36430a70c9.woff2) format("woff2"),url(/static/catamaran-latin-200-bb5993d2f001b739bb9ab7c3ed9725c3.woff) format("woff")}@font-face{font-family:Catamaran;font-style:normal;font-display:swap;font-weight:300;src:local("Catamaran Light "),local("Catamaran-Light"),url(/static/catamaran-latin-300-2b8a4bd13e9d5ba755f010f8732b0bb6.woff2) format("woff2"),url(/static/catamaran-latin-300-c2696c65c33dcf37871b72bad51ee1ce.woff) format("woff")}@font-face{font-family:Catamaran;font-style:normal;font-display:swap;font-weight:400;src:local("Catamaran Regular "),local("Catamaran-Regular"),url(/static/catamaran-latin-400-640947b787a38ec35d097129637d9130.woff2) format("woff2"),url(/static/catamaran-latin-400-97e5bc807a3e915e3fbf40ce5fcb1128.woff) format("woff")}@font-face{font-family:Catamaran;font-style:normal;font-display:swap;font-weight:500;src:local("Catamaran Medium "),local("Catamaran-Medium"),url(/static/catamaran-latin-500-884483dd213f37ae3b5c98f73dd190a5.woff2) format("woff2"),url(/static/catamaran-latin-500-412cf386e31213e3601cb2132b9c4c2d.woff) format("woff")}@font-face{font-family:Catamaran;font-style:normal;font-display:swap;font-weight:600;src:local("Catamaran SemiBold "),local("Catamaran-SemiBold"),url(/static/catamaran-latin-600-eb6ebda25331e50d3f42c45a41f613bb.woff2) format("woff2"),url(/static/catamaran-latin-600-215c58c6114e0556cb1c332c0fda463a.woff) format("woff")}@font-face{font-family:Catamaran;font-style:normal;font-display:swap;font-weight:700;src:local("Catamaran Bold "),local("Catamaran-Bold"),url(/static/catamaran-latin-700-3196f49881b324fa5a5f937875cc380f.woff2) format("woff2"),url(/static/catamaran-latin-700-05f6e51c518dd3b521b258e5c05d0e72.woff) format("woff")}@font-face{font-family:Catamaran;font-style:normal;font-display:swap;font-weight:800;src:local("Catamaran ExtraBold "),local("Catamaran-ExtraBold"),url(/static/catamaran-latin-800-601b1d0f1b78fd65c3205b2c004bbe60.woff2) format("woff2"),url(/static/catamaran-latin-800-3b1675e4ede7e86ec79fa84c1203908e.woff) format("woff")}@font-face{font-family:Catamaran;font-style:normal;font-display:swap;font-weight:900;src:local("Catamaran Black "),local("Catamaran-Black"),url(/static/catamaran-latin-900-6bb5f96614acb7754020b922e1a63d24.woff2) format("woff2"),url(/static/catamaran-latin-900-79292dba48851cc3a212863c860d8f09.woff) format("woff")}code[class*=language-],pre[class*=language-]{color:#657b83;font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;font-size:1em;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-ms-hyphens:none;hyphens:none}code[class*=language-]::selection,code[class*=language-] ::selection,pre[class*=language-]::selection,pre[class*=language-] ::selection{background:#073642}pre[class*=language-]{padding:1em;margin:.5em 0;overflow:auto;border-radius:.3em}:not(pre)>code[class*=language-],pre[class*=language-]{background-color:#fdf6e3}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#93a1a1}.token.punctuation{color:#586e75}.namespace{opacity:.7}.token.boolean,.token.constant,.token.deleted,.token.number,.token.property,.token.symbol,.token.tag{color:#268bd2}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string,.token.url{color:#2aa198}.token.entity{color:#657b83;background:#eee8d5}.token.atrule,.token.attr-value,.token.keyword{color:#859900}.token.class-name,.token.function{color:#b58900}.token.important,.token.regex,.token.variable{color:#cb4b16}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}.custom-hr{margin:64px 0;background:linear-gradient(72deg,#291e95,#cc007a);border:none;height:2px}.home-header{margin-top:0;border-bottom:none;font-weight:900;font-size:48px;letter-spacing:-2px}.link{box-shadow:none;text-decoration:none;color:inherit}.switch-container{text-align:right}.switch-container .icon{text-align:center;color:#222;font-size:14px;font-weight:900}.footer{padding-top:52px;text-align:center;font-size:12px}.footer a{text-decoration:none!important}.home{position:absolute;margin-top:-1.5px}body.light{background-color:#fff;color:#615f5f}body.light .home-header{color:#5a5a5a}body.light .bio .author-name-content{background-color:#ecf0f2}body.light .bio .author-introduction{color:#7d7d7d}body.light .bio a{color:navy}body.light .bio .bio_fontaswesome{fill:navy;vertical-align:-.125em}body.light .category-container{border-color:#ecf0f2;border-style:solid;border-width:1px 6px;background-color:#f4f7f8}body.light .category-container .item{border:1px solid #ecf0f2;background-color:#fff;box-shadow:0 1px 1px rgba(0,0,0,.1)}body.light .category-container .item a{color:#666}body.light .category-container .item[aria-selected=true]{border:2px solid #909da1;font-weight:bolder}body.light .category-container .item[aria-selected=true] a{color:#636c6e}body.light .category-container .item .badge{background-color:#f5222d;color:#fff}body.light .thumbnail{background-color:#fff;box-shadow:0 0 12px rgba(122,124,136,.212)}body.light .thumbnail h3{color:#5173b3}body.light .thumbnail p{color:#7d7d7d}body.light .thumbnail:hover{text-shadow:.1px .1px .1px rgba(68,67,67,.925);box-shadow:1px 3px 15px rgba(122,124,136,.432)}body.light .footer,body.light .thumbnail .thumbnail-subinfo{color:#615f5f}body.light .footer a{color:#5a5a5a}body.light .navigator a{background-color:#fceff7;color:#cc007a}body.light :not(pre)>code[class*=language-]{color:#fff;border:1.2px solid hsla(0,0%,100%,.64);background:#7d7d7d}body.dark{background-color:#282c35;color:#dbd8d8}body.dark .home-header{color:#eee}body.dark .bio .author-name-content{background-color:#383636}body.dark .bio .author-introduction{color:#dbd8d8}body.dark .bio a{color:#bb72ec}body.dark .bio .bio_fontaswesome{fill:#bb72ec;vertical-align:-.125em}body.dark .category-container{border-color:#383636;border-style:solid;border-width:1px 6px;background-color:#24272c}body.dark .category-container .item{border:1px solid #383636;background-color:#282c35;box-shadow:0 1px 1px hsla(0,0%,100%,.1)}body.dark .category-container .item a{color:#d8d7d7}body.dark .category-container .item[aria-selected=true]{border:2px solid #666;font-weight:bolder}body.dark .category-container .item[aria-selected=true] a{color:#fff}body.dark .category-container .item .badge{background-color:#d695ab;color:#eee}body.dark .thumbnail{background-color:#282c35;box-shadow:0 0 12px rgba(197,166,201,.2)}body.dark .thumbnail h3{color:#d695ab}body.dark .thumbnail p{color:#dbd8d8}body.dark .thumbnail:hover{box-shadow:1px 1px 13px rgba(195,153,201,.26);text-shadow:.1px .1px .1px #fff}body.dark .footer,body.dark .thumbnail .thumbnail-subinfo{color:#dbd8d8}body.dark .footer a{color:#fff}body.dark blockquote{border-left:4px solid hsla(0,0%,100%,.822)}body.dark h1,body.dark h2{border-bottom-color:hsla(0,0%,100%,.3)}body.dark .navigator a{background-color:#fceff7;color:#cc007a}body.dark td,body.dark th{border-bottom:1px solid hsla(0,0%,100%,.15)}body.dark :not(pre)>code[class*=language-]{color:#c85656;border:1.2px solid rgba(0,0,0,.64);background:#e1e1e1}body.dark hr{background:hsla(0,0%,100%,.3)}body{font-family:Noto Sans KR,sans-serif;background-color:#fff;-webkit-text-size-adjust:antialiased;-moz-osx-font-smoothing:grayscale;-webkit-transition:background-color .3s,color .3s;transition:background-color .3s,color .3s}h1{margin-top:2em;font-size:2.15em}h1,h2{letter-spacing:-1px;border-bottom:transparent!important}h2{margin-top:1.5em;margin-bottom:0;font-size:1.5em}h3{font-weight:700;margin-bottom:.1rem;margin-top:0;letter-spacing:-1px}@media (max-width:500px){.home-header{font-size:40px}}.post-date{text-align:right;font-size:12px;font-style:italic}.bio{margin-bottom:15px}.bio .author-description{display:flex}.bio .author-image{margin-top:0;margin-right:12px;margin-bottom:0;min-width:95px}.bio .author-name{display:flex;flex-direction:column;justify-content:center}.bio .author-name-prefix{font-size:90%;margin-right:4px}.bio .author-name-content{display:inline-block;font-size:95%;padding:2px 6px;font-weight:bolder;border-radius:8px;-webkit-transform-origin:center;transform-origin:center}.bio .author-introduction{margin-top:4px;font-size:80%;line-height:1.4}.bio .author-socials{margin-top:4px}.bio a{margin-right:8px;font-size:80%;cursor:pointer}.bio a.visited{text-decoration:none}@-webkit-keyframes flutter{0%{-webkit-transform:rotate(0deg);transform:rotate(0deg)}35%{-webkit-transform:rotate(0deg);transform:rotate(0deg)}40%{-webkit-transform:rotate(-5deg);transform:rotate(-5deg)}60%{-webkit-transform:rotate(5deg);transform:rotate(5deg)}65%{-webkit-transform:rotate(0deg);transform:rotate(0deg)}to{-webkit-transform:rotate(0deg);transform:rotate(0deg)}}@keyframes flutter{0%{-webkit-transform:rotate(0deg);transform:rotate(0deg)}35%{-webkit-transform:rotate(0deg);transform:rotate(0deg)}40%{-webkit-transform:rotate(-5deg);transform:rotate(-5deg)}60%{-webkit-transform:rotate(5deg);transform:rotate(5deg)}65%{-webkit-transform:rotate(0deg);transform:rotate(0deg)}to{-webkit-transform:rotate(0deg);transform:rotate(0deg)}}.navigator{margin:40px 0;display:flex;flex-wrap:wrap;justify-content:space-between;list-style:none;padding:0}.navigator li{margin-bottom:12px}.navigator a{padding:7px 16px 8px;border-radius:6px;font-size:12px;opacity:.8}.post h1{font-size:2.5rem;line-height:1.1}.post h2{margin-top:3.5rem;font-size:1.73286rem}.post h2,.post p{margin-bottom:1.75rem}.post li{margin-bottom:.875rem}.post .gatsby-highlight-code-line{background-color:#022a4b;display:block;margin-right:-1.2em;margin-left:-1.2em;padding-right:1em;padding-left:.75em;border-left:.35em solid #0687f0}.post blockquote{color:#999}.post code[class*=language-],.post pre[class*=language-]{color:#e0e0e0;background:none;font-family:Fira Code,Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.6;font-size:13px;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-hyphens:none;-ms-hyphens:none;hyphens:none;-ms-overflow-style:none;overflow:-moz-scrollbars-none}.post pre[class*=language-]::-webkit-scrollbar{display:none}.post pre[class*=language-]{padding:1.2em;margin:1.5em 0;overflow:auto;border-radius:.6em}.post :not(pre)>code[class*=language-],.post pre[class*=language-]{background:#212121}.post :not(pre)>code[class*=language-]{padding:.1em .3em;border-radius:.5em;white-space:normal;color:#d66587;margin:0 .1em}.post .token.block-comment,.post .token.cdata,.post .token.comment,.post .token.doctype,.post .token.prolog{color:#616161}.post .token.punctuation{color:#e0e0e0}.post .token.attr-name,.post .token.deleted,.post .token.namespace,.post .token.tag{color:#e2777a}.post .token.function-name{color:#6196cc}.post .token.boolean,.post .token.function,.post .token.number{color:#ff9100}.post .token.class-name,.post .token.constant,.post .token.property,.post .token.symbol{color:#ff0}.post .token.atrule,.post .token.builtin,.post .token.important,.post .token.keyword,.post .token.selector{color:#b388ff}.post .token.attr-value,.post .token.char,.post .token.regex,.post .token.string,.post .token.variable{color:#00e676}.post .token.entity,.post .token.operator,.post .token.url{color:#67cdcc}.post .token.bold,.post .token.important{font-weight:700}.post .token.italic{font-style:italic}.post .token.entity{cursor:help}.post .token.inserted{color:green}.dark .anchor{fill:#dbd8d8}.light .anchor{fill:#615f5f}td[align=center]:first-child,th[align=center]:first-child{text-align:center!important;font-weight:bolder!important}table{margin-top:100px}pre[class*=language-].line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}pre[class*=language-].line-numbers>code{position:relative;white-space:inherit}.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:0;font-size:100%;left:-3.8em;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-ms-user-select:none;user-select:none;margin:1.2em}.line-numbers-rows>span{display:block;counter-increment:linenumber}.line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.tldr{padding-left:1em;margin-top:-26px}h3{margin-bottom:.5em}h3 code.language-text{font-size:16px!important}up{top:-.5em;font-size:75%}down,up{position:relative;line-height:0;vertical-align:baseline;font-weight:500}down{font-size:85%}figcaption{padding:3px;text-align:center}center,figcaption{font:italic smaller sans-serif;font-weight:700;font-size:14px}center{top:-.7em;position:relative}ol li,ol li p{margin-bottom:.3rem!important}.gatsby-resp-image-wrapper{margin-bottom:20px}p{position:relative}a.code_link{position:absolute;font-size:small;bottom:-2rem;left:1rem}a.code_link_2{bottom:-2rem}a.code_link_2,a.code_link_3{position:absolute;font-size:small;left:3.1rem;z-index:999}a.code_link_3{bottom:-2.5rem}a.code_link_4{position:absolute;font-size:small;bottom:-3rem;left:1rem}h4{font-weight:700}a.code_link_5{position:absolute;font-size:small;bottom:-3rem;left:3.1rem;z-index:999}strong{font-weight:700}a.code_link_6{position:absolute;font-size:small;bottom:-2.5rem;z-index:999;left:1rem}.item{position:relative}.item .badge{display:inline-block;position:absolute;top:1px;right:3px;-webkit-transform:translate(50%,-50%);transform:translate(50%,-50%);border-radius:10px;box-shadow:0 0 0 1px;padding:8px 7px;z-index:999;font-weight:700}.category-container{position:sticky;position:-webkit-sticky;top:0;line-height:0;white-space:nowrap;overflow-x:scroll;-ms-overflow-style:none;overflow:-moz-scrollbars-none;z-index:1;padding:6px 20px;margin:0 -5px!important}.category-container .item{display:inline-block;margin:.25rem 7px .25rem 0;border-radius:15px;white-space:normal;box-sizing:border-box;cursor:pointer}.category-container .item div{display:block;padding:14px 16px 16px;font-size:13px;box-sizing:border-box}.category-container .item:last-child{margin-right:0}.category-container::-webkit-scrollbar{display:none}.thumbnail-container{min-height:calc(100vh - 3.5rem)}.thumbnail{display:block;margin-top:12px;padding:15px 15px 12px;-webkit-transition:box-shadow .3s,text-shadow .3s,opacity .4s;transition:box-shadow .3s,text-shadow .3s,opacity .4s;opacity:0;border-radius:10px}.thumbnail p{font-size:90%;line-height:1.4}.thumbnail .thumbnail-subinfo{font-size:.75rem;margin-bottom:.6rem;padding-bottom:.6rem;border-bottom:1px solid #e8e8e8}.thumbnail.visible{opacity:1}</style><style type="text/css">.gatsby-resp-image-image{width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;color:transparent;}</style><style type="text/css">
+    .anchor {
+      float: left;
+      padding-right: 4px;
+      margin-left: -20px;
+    }
+    h1 .anchor svg,
+    h2 .anchor svg,
+    h3 .anchor svg,
+    h4 .anchor svg,
+    h5 .anchor svg,
+    h6 .anchor svg {
+      visibility: hidden;
+    }
+    h1:hover .anchor svg,
+    h2:hover .anchor svg,
+    h3:hover .anchor svg,
+    h4:hover .anchor svg,
+    h5:hover .anchor svg,
+    h6:hover .anchor svg,
+    h1 .anchor:focus svg,
+    h2 .anchor:focus svg,
+    h3 .anchor:focus svg,
+    h4 .anchor:focus svg,
+    h5 .anchor:focus svg,
+    h6 .anchor:focus svg {
+      visibility: visible;
+    }
+  </style><script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+      var hash = window.decodeURI(location.hash.replace('#', ''))
+      if (hash !== '') {
+        var element = document.getElementById(hash)
+        if (element) {
+          var offset = element.offsetTop
+          // Wait for the browser to finish rendering before scrolling.
+          setTimeout((function() {
+            window.scrollTo(0, offset - 0)
+          }), 0)
+        }
+      }
+    })
+  </script><link rel="preconnect dns-prefetch" href="https://www.google-analytics.com"/><link rel="icon" href="/icons/icon-48x48.png?v=9dbdaa6d9a815c4dab57eaac04ef491f"/><link rel="manifest" href="/manifest.webmanifest"/><meta name="theme-color" content="#ffffff"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=9dbdaa6d9a815c4dab57eaac04ef491f"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=9dbdaa6d9a815c4dab57eaac04ef491f"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=9dbdaa6d9a815c4dab57eaac04ef491f"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=9dbdaa6d9a815c4dab57eaac04ef491f"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=9dbdaa6d9a815c4dab57eaac04ef491f"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=9dbdaa6d9a815c4dab57eaac04ef491f"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=9dbdaa6d9a815c4dab57eaac04ef491f"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=9dbdaa6d9a815c4dab57eaac04ef491f"/><meta name="generator" content="Gatsby 2.18.10"/><link rel="alternate" type="application/rss+xml" href="/rss.xml"/><title data-react-helmet="true">React 톺아보기- 05. Reconciler_1 | Deep Dive Magic Code</title><meta data-react-helmet="true" name="description" content="모든 설명은 v16.12.0 버전 함수형 컴포넌트와 브라우저 환경을 기준으로 합니다. 버전에 따라 코드는 변경될 수 있으며 클래스 컴포넌트는 설명에서 제외됨을 알려 드립니다. 포스트별 주제 훅을 통해 컴포넌트 상태를 업데이트한다. 업데이트를 반영할 Work를 scheduler에게 전달하고 scheduler는 스케줄링된 Task를 적절한 시기에 실행한다. Work을 통해 VDOM 재조정 작업을 진행한다. 완성된 VDOM을 commit phase를 통해 DOM…"/><meta data-react-helmet="true" property="og:title" content="React 톺아보기- 05. Reconciler_1 | Deep Dive Magic Code"/><meta data-react-helmet="true" property="og:description" content="모든 설명은 v16.12.0 버전 함수형 컴포넌트와 브라우저 환경을 기준으로 합니다. 버전에 따라 코드는 변경될 수 있으며 클래스 컴포넌트는 설명에서 제외됨을 알려 드립니다. 포스트별 주제 훅을 통해 컴포넌트 상태를 업데이트한다. 업데이트를 반영할 Work를 scheduler에게 전달하고 scheduler는 스케줄링된 Task를 적절한 시기에 실행한다. Work을 통해 VDOM 재조정 작업을 진행한다. 완성된 VDOM을 commit phase를 통해 DOM…"/><meta data-react-helmet="true" property="og:image" content="/static/felog-f24356c48475809626ea0c2ac67855c6.png"/><meta data-react-helmet="true" property="og:type" content="website"/><meta data-react-helmet="true" name="google-site-verification" content="o402P1kCwteUVT_5s9zR21dD9lTF4ALZNLms22CIMx4"/><meta data-react-helmet="true" name="keywords" content="react, redux, javascript, web, development, frontend, 리액트, react, fiber, VDOM, reconciler"/><link rel="sitemap" type="application/xml" href="/sitemap.xml"/><link as="script" rel="preload" href="/app-69573b14c89d32433a71.js"/><link as="script" rel="preload" href="/component---src-templates-blog-post-js-ef229068f1a7461d6597.js"/><link as="script" rel="preload" href="/styles-f42f8789f3cee93e7f05.js"/><link as="script" rel="preload" href="/commons-e292b02c69f3a51ef82a.js"/><link as="script" rel="preload" href="/webpack-runtime-e1056f6722281b635472.js"/><link as="fetch" rel="preload" href="/page-data/react/in-depth-react-reconciler_1/page-data.json" crossorigin="anonymous"/></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="___gatsby"><div style="outline:none" tabindex="-1" role="group" id="gatsby-focus-wrapper"><div style="margin-left:auto;margin-right:auto;max-width:52rem;padding:2.4375rem 1.21875rem" class="post"><a class="link" href="/"><svg class="home" width="1.125em" font-size="2em" overflow="visible" viewBox="0 0 576 512"><path fill="currentColor" d="M280.37 148.26L96 300.11V464a16 16 0 0 0 16 16l112.06-.29a16 16 0 0 0 15.92-16V368a16 16 0 0 1 16-16h64a16 16 0 0 1 16 16v95.64a16 16 0 0 0 16 16.05L464 480a16 16 0 0 0 16-16V300L295.67 148.26a12.19 12.19 0 0 0-15.3 0zM571.6 251.47L488 182.56V44.05a12 12 0 0 0-12-12h-56a12 12 0 0 0-12 12v72.61L318.47 43a48 48 0 0 0-61 0L4.34 251.47a12 12 0 0 0-1.6 16.9l25.5 31A12 12 0 0 0 45.15 301l235.22-193.74a12.19 12.19 0 0 1 15.3 0L530.9 301a12 12 0 0 0 16.9-1.6l25.5-31a12 12 0 0 0-1.7-16.93z"></path></svg></a><div class="switch-container"><label for="normal-switch"><div style="position:relative;display:inline-block;text-align:left;opacity:1;direction:ltr;border-radius:12px;-webkit-transition:opacity 0.25s;-moz-transition:opacity 0.25s;transition:opacity 0.25s;touch-action:none;-webkit-tap-highlight-color:rgba(0, 0, 0, 0);-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none"><div class="react-switch-bg" style="height:24px;width:48px;margin:0;position:relative;background:#d9dfe2;border-radius:12px;cursor:pointer;-webkit-transition:background 0.25s;-moz-transition:background 0.25s;transition:background 0.25s"><div style="height:24px;width:26px;position:relative;opacity:0;pointer-events:none;-webkit-transition:opacity 0.25s;-moz-transition:opacity 0.25s;transition:opacity 0.25s"><div class="icon checkedIcon">D</div></div><div style="height:24px;width:26px;position:absolute;opacity:1;right:0;top:0;pointer-events:none;-webkit-transition:opacity 0.25s;-moz-transition:opacity 0.25s;transition:opacity 0.25s"><div class="icon uncheckedIcon">L</div></div></div><div class="react-switch-handle" style="height:22px;width:22px;background:#ffffff;display:inline-block;cursor:pointer;border-radius:50%;position:absolute;transform:translateX(1px);top:1px;outline:0;border:0;-webkit-transition:background-color 0.25s, transform 0.25s, box-shadow 0.15s;-moz-transition:background-color 0.25s, transform 0.25s, box-shadow 0.15s;transition:background-color 0.25s, transform 0.25s, box-shadow 0.15s"></div><input type="checkbox" role="switch" style="border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px" id="normal-switch"/></div></label></div><h1>React 톺아보기- 05. Reconciler_1</h1><p class="post-date">a day ago</p><div><blockquote>
+<p>모든 설명은 v16.12.0 버전 함수형 컴포넌트와 브라우저 환경을 기준으로 합니다. 버전에 따라 코드는 변경될 수 있으며 클래스 컴포넌트는 설명에서 제외됨을 알려 드립니다.</p>
+</blockquote>
+<h3 id="포스트별-주제"><a href="#%ED%8F%AC%EC%8A%A4%ED%8A%B8%EB%B3%84-%EC%A3%BC%EC%A0%9C" aria-label="포스트별 주제 permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>포스트별 주제</h3>
+<ol>
+<li>훅을 통해 컴포넌트 상태를 업데이트한다.</li>
+<li>업데이트를 반영할 <strong>Work</strong>를 <strong>scheduler</strong>에게 전달하고 <strong>scheduler</strong>는 스케줄링된 <strong>Task</strong>를 적절한 시기에 실행한다.</li>
+<li>
+<h3 id="uwork을-통해-vdom-재조정-작업을-진행한다u"><a href="#uwork%EC%9D%84-%ED%86%B5%ED%95%B4-vdom-%EC%9E%AC%EC%A1%B0%EC%A0%95-%EC%9E%91%EC%97%85%EC%9D%84-%EC%A7%84%ED%96%89%ED%95%9C%EB%8B%A4u" aria-label="uwork을 통해 vdom 재조정 작업을 진행한다u permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><u><strong>Work</strong>을 통해 VDOM 재조정 작업을 진행한다.</u></h3>
+</li>
+<li>완성된 VDOM을 commit phase를 통해 DOM에 적용한다.</li>
+<li>사용자의 상호작용으로 이벤트가 발생하고 등록된 핸들러가 실행되면서 다시 1번으로 되돌아간다.</li>
+</ol>
+<p>아마 이번 포스터에서 리액트에 대한 궁금증을 가지고 있었던 대부분을 다루지 않을까 생각해봅니다. 그만큼 중추적인 역할을 하는 패키지가 <strong>reconciler</strong>입니다.  </p>
+<p>우리는 먼저 <u>JSX로 작성한 컴포넌트들이 어떻게 react element로 변환되고 또 이것을 VDOM에 올리기 위한 fiber로의 확장을 알아볼 것입니다. 그 후에 변경점들을 VDOM에 적용하는 render phase와 완성된 VDOM을 DOM에 적용하는 commit phase를 순서대로 확인해보며 마무리할 것입니다.</u>  </p>
+<h1 id="1-react-element"><a href="#1-react-element" aria-label="1 react element permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1. React element</h1>
+<h2 id="1---1-종류"><a href="#1---1-%EC%A2%85%EB%A5%98" aria-label="1   1 종류 permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1 - 1 종류</h2>
+<p>리액트 컴포넌트는 크게 호스트 컴포넌트, 사용자 정의 컴포넌트<up>커스텀 컴포넌트</up>, 리액트에서 제공하는 컴포넌트<up>스태틱 컴포넌트</up>로 나눌 수 있습니다.<br>
+호스트 컴포넌트는 div, input, button 등 html element에 대응하는 컴포넌트이며<br>
+커스텀 컴포넌트는 일반적으로 개발자들이 만들게 되는 class, functional component입니다.<br>
+리액트에서 제공하는 컴포넌트는 하나의 특수한 목적을 가진 컴포넌트로 fragment, lazy, context(Provider, Consumer), memo 등이 있습니다.</p>
+<h2 id="1---2-createelement"><a href="#1---2-createelement" aria-label="1   2 createelement permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1 - 2 createElement</h2>
+<p>JSX 문법으로 작성된 코드는 바벨을 통해 React.createElement로 치환됩니다. 이 이유 때문에 개발자는 React를 명시적으로 사용하지 않아도 JSX를 작성할 때는 항상 React를 import 해야합니다.   </p>
+<p>createElement() 함수가 어떤 인자를 받는지부터 확인하겠습니다.</p>
+<p><a class="code_link" href="https://github.com/facebook/react/blob/v16.12.0/packages/react/src/ReactElement.js#L312" target="_blank">react > ReactElement.js</a></p>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js">  
+<span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">createElement</span><span class="token punctuation">(</span><span class="token parameter">type<span class="token punctuation">,</span> config<span class="token punctuation">,</span> children</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+  <span class="token comment">/*...*/</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p><code class="language-text">type</code>: 컴포넌트의 종류에 따라 다음의 값이 사용됩니다.  </p>
+<ul>
+<li>호스트 컴포넌트: 태그 이름</li>
+<li>커스텀 컴포넌트: class, function 그 자체</li>
+<li>스태틱 컴포넌트: <a target="_black" href="https://github.com/facebook/react/blob/v16.12.0/packages/shared/ReactSymbols.js">미리 정의된 Symbol</a> 또는 memo, lazy와 같이 함수 호출을 통해 만들어진 react element</li>
+</ul>
+<p><code class="language-text">config</code>: 컴포넌트를 사용할 때 넘겨준 props를 담고 있는 객체입니다.<br>
+<code class="language-text">children</code>: 위 코드에서는 자식을 하나의 인자가 받도록 되어 있지만 실제로는 여러 자식이 올 경우 3 ~ n번째의 인자에 자식들이 들어옵니다. type, config, children1, children2, … childrenN의 형태가 됩니다.</p>
+<p>다음의 예제로 위 내용을 확인해봅시다.</p>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">CustomComponent</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token string">''</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> <span class="token function-variable function">App</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token operator">&lt;</span><span class="token operator">></span><span class="token operator">&lt;</span>CustomComponent <span class="token operator">/</span><span class="token operator">></span><span class="token operator">&lt;</span>div id<span class="token operator">=</span><span class="token string">"host_component"</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span><span class="token operator">></span></code></pre></div>
+<blockquote>
+<p>&#x3C;>…&#x3C;/>는 &#x3C;React.Fragment>…&#x3C;/React.Fragment>의 단축 형태입니다.</p>
+</blockquote>
+<p>바벨을 통해 치환된 코드는 다음과 같습니다.</p>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">App</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">(</span>
+  React<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span>
+    React<span class="token punctuation">.</span>Fragment<span class="token punctuation">,</span> <span class="token comment">// type: Symbol.for('react.fragment')</span>
+    <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token comment">// config</span>
+    React<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span> <span class="token comment">// 첫번째 자식</span>
+      CustomComponent<span class="token punctuation">,</span> <span class="token comment">// type: function</span>
+      <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token comment">// config</span>
+      <span class="token comment">// 자식은 없음</span>
+    <span class="token punctuation">)</span><span class="token punctuation">,</span>
+    React<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span> <span class="token comment">// 두번째 자식</span>
+      <span class="token string">"div"</span><span class="token punctuation">,</span> <span class="token comment">// type: tag name</span>
+      <span class="token punctuation">{</span> id<span class="token punctuation">:</span> <span class="token string">"host_component"</span> <span class="token punctuation">}</span> <span class="token comment">// config</span>
+      <span class="token comment">// 자식은 없음</span>
+    <span class="token punctuation">)</span> 
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">)</span></code></pre></div>
+<p>react element를 만드는 과정은 다음과 같습니다.</p>
+<ol>
+<li>react element에는 key와 ref라는 예약된 속성들이 존재합니다. config에 해당 속성을 제외한 나머지를 props 객체에 저장합니다. </li>
+<li>복수개의 자식이 넘어온다면 하나의 배열에 저장합니다.</li>
+<li>default props가 존재할 경우 props 객체에 적용합니다.</li>
+<li>정제된 정보를 가지고 react element 객체를 만듭니다.</li>
+</ol>
+<anchor id="createElement" />
+<p><a class="code_link" href="https://github.com/facebook/react/blob/v16.12.0/packages/react/src/ReactElement.js#L312" target="_blank">react > ReactElement.js</a></p>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js">  
+<span class="token keyword">const</span> <span class="token constant">RESERVED_PROPS</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+  key<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  ref<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">function</span> <span class="token function">createElement</span><span class="token punctuation">(</span><span class="token parameter">type<span class="token punctuation">,</span> config<span class="token punctuation">,</span> children</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+  <span class="token comment">// 1. react element에는 key와 ref라는 예약된 속성들이 존재합니다. config에 해당 속성을 제외한 나머지를 props 객체에 저장합니다. </span>
+  <span class="token keyword">let</span> propName<span class="token punctuation">;</span>
+
+  <span class="token keyword">const</span> props <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">let</span> key <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+  <span class="token keyword">let</span> ref <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>config <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">hasValidRef</span><span class="token punctuation">(</span>config<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// config.ref !== undefined;</span>
+      ref <span class="token operator">=</span> config<span class="token punctuation">.</span>ref<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">hasValidKey</span><span class="token punctuation">(</span>config<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// config.key !== undefined;</span>
+      key <span class="token operator">=</span> <span class="token string">''</span> <span class="token operator">+</span> config<span class="token punctuation">.</span>key<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// 예약된 속성을 제외한 나머지를 props 객체에 저장</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span>propName <span class="token keyword">in</span> config<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>
+        <span class="token function">hasOwnProperty</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>config<span class="token punctuation">,</span> propName<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span>
+        <span class="token operator">!</span><span class="token constant">RESERVED_PROPS</span><span class="token punctuation">.</span><span class="token function">hasOwnProperty</span><span class="token punctuation">(</span>propName<span class="token punctuation">)</span>
+      <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        props<span class="token punctuation">[</span>propName<span class="token punctuation">]</span> <span class="token operator">=</span> config<span class="token punctuation">[</span>propName<span class="token punctuation">]</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">// 2. 인자로 넘어온 자식이 복수개이면 하나의 배열에 저장합니다.</span>
+  <span class="token keyword">const</span> childrenLength <span class="token operator">=</span> arguments<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">2</span><span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>childrenLength <span class="token operator">===</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    props<span class="token punctuation">.</span>children <span class="token operator">=</span> children<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>childrenLength <span class="token operator">></span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> childArray <span class="token operator">=</span> <span class="token function">Array</span><span class="token punctuation">(</span>childrenLength<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> childrenLength<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      childArray<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> arguments<span class="token punctuation">[</span>i <span class="token operator">+</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    props<span class="token punctuation">.</span>children <span class="token operator">=</span> childArray<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">// 3. default props가 존재할경우 props 객체에 기본값으로 저장합니다.</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>type <span class="token operator">&amp;&amp;</span> type<span class="token punctuation">.</span>defaultProps<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> defaultProps <span class="token operator">=</span> type<span class="token punctuation">.</span>defaultProps<span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span>propName <span class="token keyword">in</span> defaultProps<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>props<span class="token punctuation">[</span>propName<span class="token punctuation">]</span> <span class="token operator">===</span> <span class="token keyword">undefined</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        props<span class="token punctuation">[</span>propName<span class="token punctuation">]</span> <span class="token operator">=</span> defaultProps<span class="token punctuation">[</span>propName<span class="token punctuation">]</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">// 4. 정제된 정보를 가지고 react element 객체를 만듭니다.</span>
+  <span class="token keyword">return</span> <span class="token function">ReactElement</span><span class="token punctuation">(</span>
+    type<span class="token punctuation">,</span>
+    key<span class="token punctuation">,</span>
+    ref<span class="token punctuation">,</span>
+    props<span class="token punctuation">,</span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>만드는 과정은 확인했으니 react element의 생김새를 한번 확인해볼까요?</p>
+<p><a class="code_link" href="https://github.com/facebook/react/blob/v16.12.0/packages/react/src/ReactElement.js#L111" target="_blank">react > ReactElement.js</a></p>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js">  
+<span class="token keyword">const</span> <span class="token function-variable function">ReactElement</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">type<span class="token punctuation">,</span> key<span class="token punctuation">,</span> ref<span class="token punctuation">,</span> props</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> element <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token comment">// This tag allows us to uniquely identify this as a React Element</span>
+    $$<span class="token keyword">typeof</span><span class="token punctuation">:</span> <span class="token constant">REACT_ELEMENT_TYPE</span><span class="token punctuation">,</span>
+    <span class="token comment">// Built-in properties that belong on the element</span>
+    type<span class="token punctuation">:</span> type<span class="token punctuation">,</span>
+    key<span class="token punctuation">:</span> key<span class="token punctuation">,</span>
+    ref<span class="token punctuation">:</span> ref<span class="token punctuation">,</span>
+    props<span class="token punctuation">:</span> props<span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> element<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre></div>
+<p>특이하게 생긴 <code class="language-text">$$typeof</code>가 있습니다. 이 속성은 fiber를 만들 때 element의 종류를 확인하는 데 쓰입니다. 기본적으로는 <code class="language-text">REACT_ELEMENT_TYPE</code>이지만 스태틱 컴포넌트의 경우는 심볼을 사용합니다.  스태틱 컴포넌트 중 간단하게 memo와 lazy만 확인해보겠습니다.</p>
+<anchor id="memo">
+<p><a class="code_link" href="https://github.com/facebook/react/blob/v16.12.0/packages/react/src/memo.js" target="_blank">react > memo.js</a></p>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js">  
+<span class="token keyword">import</span> <span class="token punctuation">{</span><span class="token constant">REACT_MEMO_TYPE</span><span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'shared/ReactSymbols'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">function</span> memo<span class="token operator">&lt;</span>Props<span class="token operator">></span><span class="token punctuation">(</span>
+  type<span class="token punctuation">:</span> React$ElementType<span class="token punctuation">,</span>
+  compare<span class="token operator">?</span><span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token parameter">oldProps<span class="token punctuation">:</span> Props<span class="token punctuation">,</span> newProps<span class="token punctuation">:</span> Props</span><span class="token punctuation">)</span> <span class="token operator">=></span> boolean<span class="token punctuation">,</span>
+<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">{</span>
+    $$<span class="token keyword">typeof</span><span class="token punctuation">:</span> <span class="token constant">REACT_MEMO_TYPE</span><span class="token punctuation">,</span>
+    type<span class="token punctuation">,</span>
+    compare<span class="token punctuation">:</span> compare <span class="token operator">===</span> <span class="token keyword">undefined</span> <span class="token operator">?</span> <span class="token keyword">null</span> <span class="token punctuation">:</span> compare<span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p><a class="code_link" href="https://github.com/facebook/react/blob/v16.12.0/packages/react/src/ReactLazy.js#L13" target="_blank">react > ReactLazy.js</a></p>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js">  
+<span class="token keyword">import</span> <span class="token punctuation">{</span><span class="token constant">REACT_LAZY_TYPE</span><span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'shared/ReactSymbols'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">function</span> lazy<span class="token operator">&lt;</span><span class="token constant">T</span><span class="token punctuation">,</span> <span class="token constant">R</span><span class="token operator">></span><span class="token punctuation">(</span><span class="token function-variable function">ctor</span><span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> Thenable<span class="token operator">&lt;</span><span class="token constant">T</span><span class="token punctuation">,</span> <span class="token constant">R</span><span class="token operator">></span><span class="token punctuation">)</span><span class="token punctuation">:</span> LazyComponent<span class="token operator">&lt;</span><span class="token constant">T</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> lazyType <span class="token operator">=</span> <span class="token punctuation">{</span>
+    $$<span class="token keyword">typeof</span><span class="token punctuation">:</span> <span class="token constant">REACT_LAZY_TYPE</span><span class="token punctuation">,</span>
+    _ctor<span class="token punctuation">:</span> ctor<span class="token punctuation">,</span>
+    <span class="token comment">// React uses these fields to store the result.</span>
+    _status<span class="token punctuation">:</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span>
+    _result<span class="token punctuation">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">return</span> lazyType<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>react element에 대해서 알아야 할 부분은 이 정도면 충분할 것 같습니다. react core 패키지가 하는 일은 대게 이런 리액트용 element를 만드는 거라고 생각하시면 됩니다.</p>
+<h1 id="2-fiber"><a href="#2-fiber" aria-label="2 fiber permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2. Fiber</h1>
+<blockquote>
+<p>react element를 VDOM에 올리기 위해서는 fiber로 확장해야 합니다. 이때 element의 종류가 많기 때문에 코드의 길이가 꽤 깁니다. 이를 간략화하기 위해 분석 대상을  커스텀 컴포넌트, 호스트 컴포넌트, fragment, memo로 줄여서 진행하도록 하겠습니다.</p>
+</blockquote>
+<p>react element의 종류를 type 심볼을 통해 판단했다면 fiber는 <a target="_black" href="https://github.com/facebook/react/blob/v16.12.0/packages/shared/ReactWorkTags.js">tag</a>를 통해 판단합니다. 이 tag의 명칭은 work tag로 각 fiber의 종류에 따라 재조정 작업의 처리가 달라야 하기 때문에 붙은 명칭입니다. </p>
+<h2 id="2---1-createfiber"><a href="#2---1-createfiber" aria-label="2   1 createfiber permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2 - 1 createFiber</h2>
+<p>react element를 만들 때 와 마찬가지로 fiber도 종류에 따라 만드는 형식이 약간 다릅니다. 이에 맞춰서 함수 또한 createFiberFrom***()의 형태로 나뉘어 있지만 결국에는 모두 createFiber()로 끝나므로 먼저 이 함수부터 확인해 보겠습니다.</p>
+<p><a class="code_link" href="https://github.com/facebook/react/blob/v16.12.0/packages/react-reconciler/src/ReactFiber.js#L354" target="_blank">reconciler > ReactFiber.js</a></p>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js">  
+<span class="token keyword">const</span> <span class="token function-variable function">createFiber</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>
+  <span class="token parameter">tag<span class="token punctuation">:</span> WorkTag<span class="token punctuation">,</span>
+  pendingProps<span class="token punctuation">:</span> mixed<span class="token punctuation">,</span>
+  key<span class="token punctuation">:</span> <span class="token keyword">null</span> <span class="token operator">|</span> string<span class="token punctuation">,</span>
+  mode<span class="token punctuation">:</span> TypeOfMode<span class="token punctuation">,</span></span>
+<span class="token punctuation">)</span><span class="token punctuation">:</span> Fiber <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">FiberNode</span><span class="token punctuation">(</span>tag<span class="token punctuation">,</span> pendingProps<span class="token punctuation">,</span> key<span class="token punctuation">,</span> mode<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre></div>
+<p><code class="language-text">FiberNode</code>의 설명은 <a target="_blank" href="/react/in-depth-react-intro#FiberNode">Intro</a>에서 언급한 내용으로 대체하도록 하겠습니다.</p>
+<p>일반적으로 createFiberFromElement()를 통해 fiber를 만드는데 몇몇 종류의 fiber들은 props를 조금 다른 의미로 다루고 있습니다. 이들을 처리하기 위해 파생된 함수가 createFiberFrom***()입니다. props를 특별하게 다루는 fragment와 text를 먼저 다루어 보고 그 후에 일반적인 fiber를 생성하는 createFiberFromElement()를 확인하겠습니다.</p>
+<h2 id="2---2-createfiberfromfragment-createfiberfromtext"><a href="#2---2-createfiberfromfragment-createfiberfromtext" aria-label="2   2 createfiberfromfragment createfiberfromtext permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2 - 2 createFiberFromFragment, createFiberFromText</h2>
+<p>fragment는 단순히 컴포넌트들을 하나로 묶어주는 포장지라고 생각하시면 됩니다. 그래서 props에는 다른 값을 다루지 않고 오로지 children만을 저장합니다.</p>
+<div class="gatsby-highlight has-highlighted-lines" data-language="js"><pre style="counter-reset: linenumber 0" class="language-js line-numbers"><code class="language-js"><span class="token comment">// fragment fiber를 만드는 코드 중..</span>
+<span class="token keyword">const</span> created <span class="token operator">=</span> <span class="token function">createFiberFromFragment</span><span class="token punctuation">(</span>
+<span class="gatsby-highlight-code-line">  element<span class="token punctuation">.</span>props<span class="token punctuation">.</span>children<span class="token punctuation">,</span></span>  returnFiber<span class="token punctuation">.</span>mode<span class="token punctuation">,</span>
+  expirationTime<span class="token punctuation">,</span>
+  element<span class="token punctuation">.</span>key<span class="token punctuation">,</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+created<span class="token punctuation">.</span>return <span class="token operator">=</span> returnFiber<span class="token punctuation">;</span>
+<span class="token keyword">return</span> created<span class="token punctuation">;</span></code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></div>
+<p>createFiberFromFragment()를 호출할 때 children을 꺼내<up>6</up> 넘겨줍니다.  </p>
+<p><a class="code_link" href="https://github.com/facebook/react/blob/v16.12.0/packages/react-reconciler/src/ReactFiber.js#L758" target="_blank">reconciler > ReactFiber.js</a></p>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js">  
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Fragment <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'shared/ReactWorkTags'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">function</span> <span class="token function">createFiberFromFragment</span><span class="token punctuation">(</span>
+  <span class="token parameter">elements<span class="token punctuation">,</span>
+  mode<span class="token punctuation">,</span>
+  expirationTime<span class="token punctuation">,</span>
+  key</span>
+<span class="token punctuation">)</span><span class="token punctuation">:</span> Fiber <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> fiber <span class="token operator">=</span> <span class="token function">createFiber</span><span class="token punctuation">(</span>Fragment<span class="token punctuation">,</span> elements<span class="token punctuation">,</span> key<span class="token punctuation">,</span> mode<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  fiber<span class="token punctuation">.</span>expirationTime <span class="token operator">=</span> expirationTime<span class="token punctuation">;</span>
+  <span class="token keyword">return</span> fiber<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>첫 번째 인자인 elements로 children이 넘어옵니다. 그리고 이를 <code class="language-text">createFiber()</code>의 두 번째 인자<up>pendingProps</up>에 넘겨줍니다. 해당 인자는 fiber의 props를 받는 인자이며 fragment는 props를 자식의 저장소로 사용합니다.   </p>
+<p>그렇다면 text fiber의 props에는 무엇이 저장될까요?<br>
+text는 그 자체가 데이터입니다. 다른 추가적이 요소가 필요 없습니다 심지어 key도요. 그래서 props에는 text 그 자체가 들어갑니다.</p>
+<div class="gatsby-highlight has-highlighted-lines" data-language="js"><pre class="language-js"><code class="language-js"><span class="token comment">// text fiber를 만드는 코드 중..</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> newChild <span class="token operator">===</span> <span class="token string">'string'</span> <span class="token operator">||</span> <span class="token keyword">typeof</span> newChild <span class="token operator">===</span> <span class="token string">'number'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> created <span class="token operator">=</span> <span class="token function">createFiberFromText</span><span class="token punctuation">(</span>
+<span class="gatsby-highlight-code-line">    <span class="token string">''</span> <span class="token operator">+</span> newChild<span class="token punctuation">,</span></span>    returnFiber<span class="token punctuation">.</span>mode<span class="token punctuation">,</span>
+    expirationTime<span class="token punctuation">,</span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>fiber로 확장할 element<up>newChild</up>가 string, number일 경우 그 자체를 첫 번째 인자로 넘겨줍니다.  </p>
+<p><a class="code_link" href="https://github.com/facebook/react/blob/v16.12.0/packages/react-reconciler/src/ReactFiber.js#L860" target="_blank">reconciler > ReactFiber.js</a></p>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js">  
+<span class="token keyword">import</span> <span class="token punctuation">{</span> HostText <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'shared/ReactWorkTags'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">function</span> <span class="token function">createFiberFromText</span><span class="token punctuation">(</span>
+  <span class="token parameter">content<span class="token punctuation">,</span>
+  mode<span class="token punctuation">,</span>
+  expirationTime<span class="token punctuation">,</span></span>
+<span class="token punctuation">)</span><span class="token punctuation">:</span> Fiber <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> fiber <span class="token operator">=</span> <span class="token function">createFiber</span><span class="token punctuation">(</span>HostText<span class="token punctuation">,</span> content<span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">,</span> mode<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  fiber<span class="token punctuation">.</span>expirationTime <span class="token operator">=</span> expirationTime<span class="token punctuation">;</span>
+  <span class="token keyword">return</span> fiber<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>넘겨받은 문자열<up>content</up>를 <code class="language-text">createFiber()</code>의 두 번째 인자로 넘겨주는 걸 확인할 수 있습니다.</p>
+<blockquote>
+<p>이 이외에도 props를 특별하게 다루는 fiber는 portal이 있습니다.</p>
+</blockquote>
+<p>다음은 일반적으로 fiber를 확장하는 데 쓰이는 createFiberFromElement()입니다.</p>
+<h2 id="2---3-createfiberfromelement"><a href="#2---3-createfiberfromelement" aria-label="2   3 createfiberfromelement permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2 - 3 createFiberFromElement</h2>
+<p><a class="code_link_2" href="https://github.com/facebook/react/blob/v16.12.0/packages/react-reconciler/src/ReactFiber.js#L731" target="_blank">reconciler > ReactFiber.js</a></p>
+<div class="gatsby-highlight" data-language="js"><pre style="counter-reset: linenumber 0" class="language-js line-numbers"><code class="language-js">  
+<span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">createFiberFromElement</span><span class="token punctuation">(</span>
+  <span class="token parameter">element<span class="token punctuation">:</span> ReactElement<span class="token punctuation">,</span>
+  mode<span class="token punctuation">:</span> TypeOfMode<span class="token punctuation">,</span>
+  expirationTime<span class="token punctuation">:</span> ExpirationTime<span class="token punctuation">,</span></span>
+<span class="token punctuation">)</span><span class="token punctuation">:</span> Fiber <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> type <span class="token operator">=</span> element<span class="token punctuation">.</span>type<span class="token punctuation">;</span>
+  <span class="token keyword">const</span> key <span class="token operator">=</span> element<span class="token punctuation">.</span>key<span class="token punctuation">;</span>
+  <span class="token keyword">const</span> pendingProps <span class="token operator">=</span> element<span class="token punctuation">.</span>props<span class="token punctuation">;</span>
+  <span class="token keyword">const</span> fiber <span class="token operator">=</span> <span class="token function">createFiberFromTypeAndProps</span><span class="token punctuation">(</span>
+    type<span class="token punctuation">,</span>
+    key<span class="token punctuation">,</span>
+    pendingProps<span class="token punctuation">,</span>
+    mode<span class="token punctuation">,</span>
+    expirationTime<span class="token punctuation">,</span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> fiber<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></div>
+<p>먼저 element에서 필요한 정보들을 꺼냅니다<up>7 ~ 9</up>. <code class="language-text">createFiberFromTypeAndProps()</code>는 이 정보들을 이용하여 element의 type에 맞는 fiber을 찾아 확장합니다.  </p>
+<p>createFiberFromTypeAndProps()의 첫 번째 목적은 element에 맞는 fiber tag를 추출하는 겁니다. 그리고 난 후 fiber를 생성하여 반환합니다.</p>
+<anchor id="createFiberFromTypeAndProps" />
+<p><a class="code_link_2" href="https://github.com/facebook/react/blob/v16.12.0/packages/react-reconciler/src/ReactFiber.js#L593" target="_blank">reconciler > ReactFiber.js</a></p>
+<div class="gatsby-highlight has-highlighted-lines" data-language="js"><pre style="counter-reset: linenumber 0" class="language-js line-numbers"><code class="language-js">  
+<span class="token keyword">import</span> <span class="token punctuation">{</span>
+  IndeterminateComponent<span class="token punctuation">,</span>
+<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'shared/ReactWorkTags'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span>
+  <span class="token constant">REACT_FRAGMENT_TYPE</span><span class="token punctuation">,</span>
+  <span class="token constant">REACT_STRICT_MODE_TYPE</span><span class="token punctuation">,</span>
+  <span class="token constant">REACT_CONCURRENT_MODE_TYPE</span><span class="token punctuation">,</span>
+  <span class="token constant">REACT_SUSPENSE_TYPE</span><span class="token punctuation">,</span>
+  <span class="token constant">REACT_MEMO_TYPE</span><span class="token punctuation">,</span>
+  <span class="token constant">REACT_LAZY_TYPE</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'shared/ReactSymbols'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">createFiberFromTypeAndProps</span><span class="token punctuation">(</span>
+  <span class="token parameter">type<span class="token punctuation">:</span> any<span class="token punctuation">,</span>
+  key<span class="token punctuation">:</span> <span class="token keyword">null</span> <span class="token operator">|</span> string<span class="token punctuation">,</span>
+  pendingProps<span class="token punctuation">:</span> any<span class="token punctuation">,</span>
+  mode<span class="token punctuation">:</span> TypeOfMode<span class="token punctuation">,</span>
+  expirationTime<span class="token punctuation">:</span> ExpirationTime<span class="token punctuation">,</span></span>
+<span class="token punctuation">)</span><span class="token punctuation">:</span> Fiber <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> fiber<span class="token punctuation">;</span>
+<span class="gatsby-highlight-code-line">  <span class="token keyword">let</span> fiberTag <span class="token operator">=</span> IndeterminateComponent<span class="token punctuation">;</span> </span>  <span class="token keyword">let</span> resolvedType <span class="token operator">=</span> type<span class="token punctuation">;</span>
+
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> type <span class="token operator">===</span> <span class="token string">'function'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// class component</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">shouldConstruct</span><span class="token punctuation">(</span>type<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// type.prototype &amp;&amp; type.prototype.isReactComponent;</span>
+      fiberTag <span class="token operator">=</span> ClassComponent<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="gatsby-highlight-code-line">    <span class="token comment">// else?? 여기서는 함수형 컴포넌트라고 단정지을 수 없습니다.</span></span>    
+  <span class="token comment">// type이 string이면 호스트 컴포넌트 입니다. ex) 'div', 'input'..</span>
+  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> type <span class="token operator">===</span> <span class="token string">'string'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    fiberTag <span class="token operator">=</span> HostComponent<span class="token punctuation">;</span>
+
+  <span class="token comment">// 이하 스태틱 컴포넌트</span>
+  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+    getTag<span class="token punctuation">:</span> <span class="token keyword">switch</span> <span class="token punctuation">(</span>type<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">case</span> <span class="token constant">REACT_FRAGMENT_TYPE</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token function">createFiberFromFragment</span><span class="token punctuation">(</span>
+          pendingProps<span class="token punctuation">.</span>children<span class="token punctuation">,</span>
+          mode<span class="token punctuation">,</span>
+          expirationTime<span class="token punctuation">,</span>
+          key<span class="token punctuation">,</span>
+        <span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">case</span> <span class="token constant">REACT_CONCURRENT_MODE_TYPE</span><span class="token punctuation">:</span>
+        fiberTag <span class="token operator">=</span> Mode<span class="token punctuation">;</span>
+        mode <span class="token operator">|=</span> ConcurrentMode <span class="token operator">|</span> BlockingMode <span class="token operator">|</span> StrictMode<span class="token punctuation">;</span>
+        <span class="token keyword">break</span><span class="token punctuation">;</span>
+      <span class="token keyword">case</span> <span class="token constant">REACT_SUSPENSE_TYPE</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token function">createFiberFromSuspense</span><span class="token punctuation">(</span>pendingProps<span class="token punctuation">,</span> mode<span class="token punctuation">,</span> expirationTime<span class="token punctuation">,</span> key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token comment">/*...*/</span>
+      <span class="token keyword">default</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+<span class="gatsby-highlight-code-line">        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> type <span class="token operator">===</span> <span class="token string">'object'</span> <span class="token operator">&amp;&amp;</span> type <span class="token operator">!==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span></span>          <span class="token keyword">switch</span> <span class="token punctuation">(</span>type<span class="token punctuation">.</span>$$<span class="token keyword">typeof</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">case</span> <span class="token constant">REACT_MEMO_TYPE</span><span class="token punctuation">:</span>
+              fiberTag <span class="token operator">=</span> MemoComponent<span class="token punctuation">;</span>
+              <span class="token keyword">break</span> getTag<span class="token punctuation">;</span>
+            <span class="token keyword">case</span> <span class="token constant">REACT_LAZY_TYPE</span><span class="token punctuation">:</span>
+              fiberTag <span class="token operator">=</span> LazyComponent<span class="token punctuation">;</span>
+              resolvedType <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+              <span class="token keyword">break</span> getTag<span class="token punctuation">;</span>
+            <span class="token comment">/*...*/</span>
+          <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">let</span> info <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">;</span>
+        <span class="token function">invariant</span><span class="token punctuation">(</span>
+          <span class="token boolean">false</span><span class="token punctuation">,</span>
+          <span class="token string">'Element type is invalid: expected a string (for built-in '</span> <span class="token operator">+</span>
+            <span class="token string">'components) or a class/function (for composite components) '</span> <span class="token operator">+</span>
+            <span class="token string">'but got: %s.%s'</span><span class="token punctuation">,</span>
+          type <span class="token operator">==</span> <span class="token keyword">null</span> <span class="token operator">?</span> type <span class="token punctuation">:</span> <span class="token keyword">typeof</span> type<span class="token punctuation">,</span>
+          info<span class="token punctuation">,</span>
+        <span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+  fiber <span class="token operator">=</span> <span class="token function">createFiber</span><span class="token punctuation">(</span>fiberTag<span class="token punctuation">,</span> pendingProps<span class="token punctuation">,</span> key<span class="token punctuation">,</span> mode<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  fiber<span class="token punctuation">.</span>elementType <span class="token operator">=</span> type<span class="token punctuation">;</span>
+  fiber<span class="token punctuation">.</span>type <span class="token operator">=</span> resolvedType<span class="token punctuation">;</span>
+  fiber<span class="token punctuation">.</span>expirationTime <span class="token operator">=</span> expirationTime<span class="token punctuation">;</span>
+
+  <span class="token keyword">return</span> fiber<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></div>
+<ul>
+<li>22: <code class="language-text">IndeterminateComponent</code> tag는 현재 이 fiber가 클래스 컴포넌트인지 함수형 컴포넌트인지 확실히 알 수 없는 상태라는 걸 나타냅니다.  </li>
+</ul>
+<anchor id="IndeterminateComponent" />
+<ul>
+<li>
+<p>30: 27라인에서 <code class="language-text">type</code>이 React.Componenet를 상속받은 클래스인지 확인하여 <code class="language-text">ClassComponent</code> tag를 설정합니다.<br>
+그런데 왜 함수형 컴포넌트는 else 문을 사용하여 단정 짓지 않은 것일까요?<br>
+이유는 개발자의 실수에 의해 다음과 같이 작성될 수 있기 때문입니다.</p>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">Foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">{</span>
+    <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token string">"I'm Foo"</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p><code class="language-text">Foo</code>는 함수형 컴포넌트이고 render 메소드를 품고 있는 객체 리터럴을 반환하고 있습니다. 하지만 이 객체는 리액트 컴포넌트를 상속하지 않았기 때문에 내부에서 문제를 일으킬 소지가 있습니다.  </p>
+<p>리액트는 이와 같은 케이스를 클래스 컴포넌트를 작성하려다 발생한 휴먼 에러라고 판단하고 내부에서 올바르게 동작하도록 Foo를 클래스 컴포넌트로 변환시킵니다. Component를 Foo에 상속시킴과 동시에 반환했던 객체 리터럴까지 Foo의 instance로 갈아 끼워 주면서 말이죠.  </p>
+<p>문제는 이러한 케이스는 함수를 실행해 보기 전까지는 알 수 없다는 것입니다. createFiberFromTypeAndProps()는 fiber로 확장하는 책임만 가지고 있기 때문에 여기서는 이를 알 수 있는 방법이 없습니다. 그래서 컴포넌트를 호출할 수 있는 시점에 다시 판단하도록 <code class="language-text">IndeterminateComponent</code> tag를 달아주는 것입니다. </p>
+</li>
+<li>
+<p>54: switch case문<up>39 ~ 51 </up>은 쉽게 이해할 수 있지만 아마 default<up>45</up>는 그렇지 않을 것입니다. type이 object인지는 왜 확인하는 걸까요?<br>
+이를 이해하기 위해서 리액트 코어 패키지의 <a href="#memo">memo 함수</a>를 다시 확인해 보고 오세요. <u>반환값이 react element입니다.</u> 아래의 memo 사용 코드를 보시면 default의 내용이 이제는 이해가 가실 겁니다.</p>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token keyword">const</span> <span class="token constant">FC</span> <span class="token operator">=</span> React<span class="token punctuation">.</span><span class="token function">memo</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token string">'memo component'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> <span class="token function-variable function">App</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token operator">&lt;</span><span class="token constant">FC</span> <span class="token operator">/</span><span class="token operator">></span><span class="token punctuation">;</span></code></pre></div>
+<p>이해 가시나요? 우리는 첫 줄에서 이미 memo element를 만들었습니다. 그리고 이 element를 다시 JSX로 컴포넌트 선언을 하였기 때문에 type에는 memo element 오브젝트가 들어가게 되는 것입니다.</p>
+</li>
+</ul>
+<p>react element와 fiber를 어떻게 생성하는지는 이 정도면 충분할 것 같습니다.  </p>
+<p>다음 주제는 render phase이지만 VDOM 순회 로직을 분석할 때 헷갈리지 않도록 VDOM에 좀 더 익숙해지는 시간을 가지도록 하겠습니다. </p>
+<h1 id="3-fiber-root-node"><a href="#3-fiber-root-node" aria-label="3 fiber root node permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3. Fiber Root Node</h1>
+<p>Intro에서 사용했던 VDOM 이미지를 다시 한번 확인하면서 부족했던 설명을 보충하도록 하겠습니다.</p>
+<figure>
+ <span class="gatsby-resp-image-wrapper" style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 634px;">
+      <span class="gatsby-resp-image-background-image" style="padding-bottom: 143.69085173501577%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAdCAYAAACqhkzFAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAEOElEQVRIx31VaVMbRxDl/1cZCXOksKGAKrv4EmOBDSGxY9kcTkglgSRCEgh0sTr2vne150vPiBUSEnRV1+xcb1/PdL+Zw5ilacpbx3VhOw58f4AoipAkCR8zTQuO40LTDXi+P9qT7WM2Nw6W3E9UqjUcfiriy9cTHBx+xq/FY/zx5zl2Cvu8/2b7R5Qr13wt+9k46NwshsyCIOTs/MGAswvDiPdD8iiOZ+6ZYsjMNE1IkgRRFKEoCndd16Gqw9axbSg0L/V6MKj/OOwpQJ/OxjAM2LSRuWVZvC8IAmzPg0NgSqkEg1qPmM8EzDqP6Y+bS2DMom4XqarOCPkR4HN+cnyMt9vbEGo1pLKMmN082Fx2IckDw6dYZePs3FZXVzE/P4+fDw/xnLE9nKETWhA9AYrfR5zGCOOQPCAWCfpSH4XdAlZfraJyVeEb7cBAz2lDsBvou3foum1Ygf4Qco8GWnaNT+oDGU5igpIF10IVl80SZK+LlnYDLZSh+QrUQIQa99H37yA4DbTtW94mRIYDGoE6Qb3VbOGqegWZUmc4T4wINDPHclD65xK+OxiN2aGBIB4MAfWBwjvMms0mFhYWsJCbx28XJVzrKb7U+9i/buGi5+LvjoN3799jZXkJu3u77GqQkQqT4AGQnRmzer2OxcUl/LCyjOO//kONAE/bIj7V2yhLPm4UD+92drC0soJCoTBiaATaJGCUhKPJi/Nz/Ht6OuprvoaO02GVy/syVc/Rx4+wKOGzFDQfA8Yp5VacQFE1nipUf4hM2hClMEMdktfh4bmuB5nWuO02HaaD+L5azGmGEc+jMAx5/ULTkFICM1IWAcp+lycwUxeLlWSrNVQbtmY24DDkmJTkw4c9HOztkeIML6prK3SWdyOVKVcqeLOxgUaj8XTI2aWUy2Xk8nl+y/vffsdZN8HB9R12SCNPWg6+3hhY39hELpfD1tbWqKKMacAhw77Yx8bmJjbW11BrCdDpPyWqlrNuE307gBumKBaLWHz5EkdHR7MZalQdCWKIsgJR6MAlqXLu1SU7H9F7uGX2BFQq1YlimAJkv5EUFQ4pCqns1GKJKiXhqgIMSMU1ujSm4FliTwDasY6+LKJE+RcrD2UoSiKajRa/5QyQGcuEIAi4z2R4pzTwev0V8vkFfP9+DHhU+MItXq+tIT+fx7ezIsxE4RnwlMxNANZ7NSwuL5Lm5fD5F9K8xELr9hJLy8vIvcjhpyJVRaoSYIRZgjwjZAPlapnf2ngY1WqV1PoUqitRYvdGIY8/GTMBzVDDIPThe/79WxuP3gjXduHEJkS3MwH4mOFEHmq+TC+cRZs9KqVkxNCjuvVsnxjKkPzus/JvkmKPAFVf4sltByaXdyekltyibzbG5lnITObZc2Hfz2fO1qu+iJj0gAOyOnYjG17kcGff7tg3+zNbnI2Pe7YmE+j/AYmfmLxmz5QpAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;"></span>
+  <img class="gatsby-resp-image-image" alt="vDOM" title="vDOM" src="/static/258b43ce623e7b6340fc6aed969199ed/153fa/vDOM.png" srcset="/static/258b43ce623e7b6340fc6aed969199ed/0780f/vDOM.png 198w,
+/static/258b43ce623e7b6340fc6aed969199ed/47b26/vDOM.png 395w,
+/static/258b43ce623e7b6340fc6aed969199ed/153fa/vDOM.png 634w" sizes="(max-width: 634px) 100vw, 634px" loading="lazy">
+    </span>
+  <figcaption>Virtual DOM</figcaption>
+</figure>
+<p><code class="language-text">Root Node</code><up>root</up>는 VDOM을 대표하는 노드로서 <a href="https://github.com/facebook/react/blob/v16.12.0/packages/react-reconciler/src/ReactFiberRoot.js#L104" target="_blank">FiberRootNode</a>를 통해 생성됩니다.<br>
+root가 관리하는 정보를 몇 개만 추려보자면 현재 DOM에 적용된 VDOM 최상단 node<up>host root</up>인 <code class="language-text">current</code>, container element를 참조하는 <code class="language-text">containerInfo</code>, <strong>scheduler</strong>에서 이미 다루었던 스케줄링 정보를 저장하는 callback***등이 있습니다.</p>
+<p>root가 참조하는 current를 최상단 node라고 해서 <code class="language-text">&lt;App /&gt;</code>이라 생각할 수도 있는데 그렇지는 않고 root의 fiber<up>host root</up>입니다. </p>
+<figure>
+ <span class="gatsby-resp-image-wrapper" style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 521px;">
+      <span class="gatsby-resp-image-background-image" style="padding-bottom: 85.41266794625719%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAARCAYAAADdRIy+AAAACXBIWXMAAAsSAAALEgHS3X78AAACf0lEQVQ4y41U23baMBDkV+ILvkm2ZPkGDgYbFwK5tC9N+9L//4zprhKRhqY5fdizWiFGo9lZL7I4w64YcVeeMOoJYz/hNJ4wj0ckSYogCBCG4SVfr69jEQYhermxgAd9h0Y2kJFG6MfwPP8doIvPQBdxFFuGszpgq7bomi1ub7dotISQkljGnzL6CzBJEsz6C0a1x7Sb8P35B6ZxwtAP2Gy20KpE4PPh4B3Lj8L3fSy8wEOTtXiqvuG+fsRczTDEdOh+Ylz/ovyMUm3g+TeIoghxHNvsWC+Xy0tmcgs/9NHmHfZqRqdXqE2NVbdGv+bnD2jqDlprlGWJYRjQdW/1er1GXdcoigJt22K1Wr0wNGmFQ3nEoLfo1S36skeRG2IT2eDb0zRFlmWWHYermRUH17y/8HwPVVrjVN5jIi1zoQkgtHq8RXBV/zteNBQtHs1X3JtHbKodpNT2NvZhHCVWN2bJe8zK1ZyZGTPktdWQAVvR4VidScseIhHI84JABWmjILLcrvkwgxlj6Pfc1pJsxXpyLYSwWl4AJ7OHySvESXzRJ00zZKm0NTPgPQZwWjIgg3DmM5xfAGWLoz6RjmesFHWuqWwXldLEUFowHgBmxUycdVwz3LP5IgvYEcOZulyRlvxkmUv7R8eExf7TvNdmdnu2KTdkWAY8Vw/U5T3ZpUBEVvG8G2tmn1wQBP7/jx7bps4a7M1M80sfhli+dpYaEZP4VEdRakE/Yngdr8Y2eDBPGM2EtuhQZKUdt1qPNIY78mZjvel0Y8s4G3GEbCHKS2bo082VqHE0Z1SyRipSq5+UGdkhgxTOEjk1SdEHY2Otw90tKSvaT4qSRpZIiAS/AbLjBPBM7nRJAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;"></span>
+  <img class="gatsby-resp-image-image" alt="FiberRootNode" title="FiberRootNode" src="/static/1d082036557ede9ed154c0ce38e680a1/2ff8c/FiberRootNode.png" srcset="/static/1d082036557ede9ed154c0ce38e680a1/0780f/FiberRootNode.png 198w,
+/static/1d082036557ede9ed154c0ce38e680a1/47b26/FiberRootNode.png 395w,
+/static/1d082036557ede9ed154c0ce38e680a1/2ff8c/FiberRootNode.png 521w" sizes="(max-width: 521px) 100vw, 521px" loading="lazy">
+    </span>
+  <figcaption>root&#xC758; &#xC18D;&#xC131;</figcaption>
+</figure>
+<p>current의 <code class="language-text">return</code>을 보면 null임을 확인할 수 있습니다. VDOM의 최상단이기 때문이며 root는 stateNode를 통해 가리키고 있습니다.</p>
+<blockquote>
+<h3 id="statenode"><a href="#statenode" aria-label="statenode permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>stateNode</h3>
+<p>호스트 컴포넌트의 stateNode는 DOM에 마운트된 html element를 가리키는 반면에 개발자가 작성한 커스텀 컴포넌트의 stateNode는 null입니다. DOM에 마운트되는게 아니기 때문이며 특별히 host root만 DOM에 마운트 되지 않아도 root를 가리키도록 되어있습니다.</p>
+</blockquote>
+<p>이제 본격적으로 다음의 간단한 todo list 예제를 VDOM에 대입해보며 VDOM 구조에 대해 익숙해져 봅시다.</p>
+<anchor id="todo">
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">Todo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token punctuation">[</span>todos<span class="token punctuation">,</span> push<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token operator">&lt;</span><span class="token operator">></span>
+      <span class="token operator">&lt;</span>Input submit<span class="token operator">=</span><span class="token punctuation">{</span><span class="token parameter">todo</span> <span class="token operator">=></span> <span class="token function">push</span><span class="token punctuation">(</span><span class="token parameter">todos</span> <span class="token operator">=></span> <span class="token punctuation">[</span><span class="token operator">...</span>todos<span class="token punctuation">,</span> todo<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">></span>
+      <span class="token operator">&lt;</span>OrderList list<span class="token operator">=</span><span class="token punctuation">{</span>todos<span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span><span class="token operator">></span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">function</span> <span class="token function">Input</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> submit <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token punctuation">[</span>value<span class="token punctuation">,</span> setValue<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token operator">&lt;</span><span class="token operator">></span>
+      <span class="token operator">&lt;</span>input value<span class="token operator">=</span><span class="token punctuation">{</span>value<span class="token punctuation">}</span> onChange<span class="token operator">=</span><span class="token punctuation">{</span><span class="token parameter">e</span> <span class="token operator">=></span> <span class="token function">setValue</span><span class="token punctuation">(</span>e<span class="token punctuation">.</span>target<span class="token punctuation">.</span>value<span class="token punctuation">)</span><span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">></span>
+      <span class="token operator">&lt;</span>button
+        onClick<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+          <span class="token function">submit</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token function">setValue</span><span class="token punctuation">(</span><span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">}</span>
+      <span class="token operator">></span>
+        submit
+      <span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">></span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span><span class="token operator">></span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">OrderList</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> list <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token operator">&lt;</span>ol<span class="token operator">></span>
+      <span class="token punctuation">{</span>list<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token parameter">item</span> <span class="token operator">=></span> <span class="token punctuation">(</span>
+        <span class="token operator">&lt;</span>li<span class="token operator">></span><span class="token punctuation">{</span>item<span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>li<span class="token operator">></span>
+      <span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">}</span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>ol<span class="token operator">></span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">App</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> <span class="token operator">&lt;</span>Todo <span class="token operator">/</span><span class="token operator">></span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+ReactDOM<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span><span class="token operator">&lt;</span>App <span class="token operator">/</span><span class="token operator">></span><span class="token punctuation">,</span> container<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></div>
+<h1 id="4-트리-구조"><a href="#4-%ED%8A%B8%EB%A6%AC-%EA%B5%AC%EC%A1%B0" aria-label="4 트리 구조 permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4. 트리 구조</h1>
+<p>todo list를 VDOM과 매칭시켜 볼 텐데 root node 부분은 생략하고 바로 App부터 시작하도록 하겠습니다.  </p>
+<p>먼저 react element tree의 구조를 보고 VDOM으로 어떻게 변경되는지 확인하겠습니다.</p>
+<span class="gatsby-resp-image-wrapper" style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 790px;">
+      <span class="gatsby-resp-image-background-image" style="padding-bottom: 55.91695501730104%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsSAAALEgHS3X78AAACi0lEQVQoz22S7UtTYRjG/RdsIvNt8+xszk0zo7f/JyKM0lTsm34JP4UUSWLgl0CKVSCBaKayzTm3qbgdT3NrOJ2uqXufTtvL2cvVfc4JS+iBi+fhfp7nx3W/1FSrVfxv5fN58DwPn88Hp9MJu90OjuOwarPh9Ozs8l0umUAyfIj06SlyuRxqxODc7DxeTUzgzdQUXr+dxMvxcbwYG8Pz0VEEgkHkSwIy2TPkikVckBJHEfjNywh7tlAVBJxnMkimUshmszLwwcPHqGtl0KLXQalR41pzExSk2sYGLK9YJSfFShnlSgViPumTY7i/zCBgW0GFYv8uCdg30A9Gr0f3vbsw3uxGe/cNdNy+BR3tZsea9LBALgvlEsTv6UQc/sUF7NOdUCpJ9yJYLJ8EfNo3CJVKjc4OI/RaDVhWAw3LopVhYFm1Sa5+CUWU6YNA2t/aBD83i52FecT2ghJQhF0CnwwMoq2rkxzeQXvXdegNelI7WHLtcLnkJpETsYa5i3PEgruIbHtw5OWRpnoWqYFXgI96e8Gom2A0GqAmZ0xbGxidDiotC6vLeVmfaDyG9U8m8DOf4f74Aa7pd9h4P40dh10qxV+HBGxUqcASSKPVyiJgK2lpzS6PB7mLH4QQpnQPSOlolOon4MT7HcnQvuyQ6igB+weeEYRFFzVEZzBAR6lqSSLYapeBRdLejhfeFQv85CiTTKJMsdDmOmKBH1e7fL+nB4qWJjTT2CgalKhTKqEg1dbXY9FiQYQcBF0ORHhOmr29jXWk43EpzUPOgyjnxoFzDSkaJwloMpkwNDSEkZERDA8Py/ufc2B3FyGPGxx11b/0DdvUWW7xK44jP1GgFH1WM4LmJXgpnqDYbwd4pYiJCeSlAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;"></span>
+  <img class="gatsby-resp-image-image" alt="react element tree" title="react element tree" src="/static/2e4121db1459e29f83f309f0fa55b5e4/c94d1/react_element_tree.png" srcset="/static/2e4121db1459e29f83f309f0fa55b5e4/0780f/react_element_tree.png 198w,
+/static/2e4121db1459e29f83f309f0fa55b5e4/47b26/react_element_tree.png 395w,
+/static/2e4121db1459e29f83f309f0fa55b5e4/c94d1/react_element_tree.png 790w,
+/static/2e4121db1459e29f83f309f0fa55b5e4/9e288/react_element_tree.png 1185w,
+/static/2e4121db1459e29f83f309f0fa55b5e4/35b34/react_element_tree.png 1445w" sizes="(max-width: 790px) 100vw, 790px" loading="lazy">
+    </span>
+<p>특별한 부분은 없으므로 바로 VDOM으로 넘어가겠습니다.</p>
+<anchor id="VDOM" />
+<span class="gatsby-resp-image-wrapper" style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 790px;">
+      <span class="gatsby-resp-image-background-image" style="padding-bottom: 56.08575380359613%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsSAAALEgHS3X78AAACFElEQVQoz21SDY+aQBDl//+KJqa9xLRJ07R6UQ/16tcpoOIpwikKCigItoeod368DqumXnsvmexmMvve7Jvh1gsPi4mJYLnEer3GNcrlMkRRRKVSQSaTAc/z7I7j3xovfIbpuTjs9yzNHV9fsSKyxWKBiAhDOtViHoZQRxiG2Gw2TCiKInbuqN6iJtJiA43BE6LtBrppYDwaIQgCIsRbhJ6H5rev6Bd4pvoeHN9HqlFFXVOoZofo2SeyJVarkAiPR8RxOBxY8erXEkrmFk/3RWy2W5a71MQRYxb4SBRyyLWl/8S468IYptxGJ/Ud3dsUHE09EZ7F1iRQVVXk5CbG9gSCqoBv1VDqKxjPZ28J97sdXsgjTx9i2pJgd9rwyZsX8vAiuI5C5FsCCrIE33WgGgbSwgOyYg2aNT0RXr66pMHUPyfR/pKElLxBNfEBjU8JyLGXxFfudfHxZ5511ifRm2IWkq6jPzHQIC9jxFyMMI6AFEyanCEKCGybdTxTenAHGvuy4c4hU8dzErZocD3Lgj6zMZmNYdpDojsNkLt4NyUfFP4O2n0Bv89+mERud+R3J72k/TMcA64/h+PZGFsjNizOUvuw6aH7KMMm78a0fwvHZo+s3iPcdhOTeg3edMJyu/MqifoAJbJBol0sUl1J6UKgHKfVH9BJ/4B2l2GTje/OSGeP+rQ6Qz7L8rNzLrbneiv+xR+O4i8sOl/+vQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;"></span>
+  <img class="gatsby-resp-image-image" alt="fiber tree" title="fiber tree" src="/static/9b78c3f6f60939e0dc886845b74cb49c/c94d1/fiber_tree.png" srcset="/static/9b78c3f6f60939e0dc886845b74cb49c/0780f/fiber_tree.png 198w,
+/static/9b78c3f6f60939e0dc886845b74cb49c/47b26/fiber_tree.png 395w,
+/static/9b78c3f6f60939e0dc886845b74cb49c/c94d1/fiber_tree.png 790w,
+/static/9b78c3f6f60939e0dc886845b74cb49c/9e288/fiber_tree.png 1185w,
+/static/9b78c3f6f60939e0dc886845b74cb49c/c4e1e/fiber_tree.png 1446w" sizes="(max-width: 790px) 100vw, 790px" loading="lazy">
+    </span>
+<p>마찬가지로 <code class="language-text">Fragment</code>가 사라진 부분을 제외하고는 특별한 부분은 없습니다.  </p>
+<p>Fragment는 포장지 역할만 하기 때문에 Fiber로 변환될 때 <strong>reconciler</strong>가 Fragment를 제거하고 자식들만 취합니다. 하지만 Fragment도 react element이므로 key를 설정할 수 있습니다. 이 key가 설정된 Fragment는 단순한 포장지 역할을 넘어서 개발자가 의도적으로 컴포넌트를 판별하기 위한 장치이므로 제거하지 않고 fiber로 만듭니다. 이 부분은 추후에 코드를 통해 확인하게 될 것입니다.</p>
+<blockquote>
+<p>만약 Fragment를 다음과 같이 정의했다면 Todo 컴포넌트 자식으로 Fragment가 살아있었을 것입니다.<br>
+&#x3C;Fragment key=“foo”></p>
+</blockquote>
+<span class="gatsby-resp-image-wrapper" style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 790px;">
+      <span class="gatsby-resp-image-background-image" style="padding-bottom: 56.08575380359613%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsSAAALEgHS3X78AAABwklEQVQoz42S2W7aYBSE/f6XfYGoN71qVTVSUFMRWpXVFMIW2xBcNoPBDjaLwTaL+WoMRCSlSkcaHV/MmX+OxkLTGDGbz9kFAbvdjteQJIlUKoUoisiyzCWcdvcUJs6E/kBjqA/ZbjaUfqt8Ld/TNoxI7HoeXkQ3mvs3u0qSZvELj4VrptbwhangLRxs22JsWaxWPuVWi5tfaTrmKFTxV+q1v0RrZFDLt6jVOFOzE2mCo1bYi4LQ/YRcXeL9jzhqmPocupqnEn+HVk8y1uvIqSvalRjuck4jfYUm30U64WQ2GI9J1KpklCp90yBREkk+lBGbjziuy3JmYvQeWMzHOLMnRj0Ja9RivfJ40iSmhkqw3RwS7tEZdIkVRCpNhbk1Jh0W8K2Q5Xu1hB2W9i8o2Q/0GllatTsa+Y9hKaH4cy7DTbg8nU5I3Of5lEvSNU1+1kIzx4kWt9vtizaD6Dtg5S+ilGvfDaeL4PoektZDHvSxZzMa4VR0nc5Qo95RsCfG8d/g2eycryFcOqNn6Fi2gfF0mK1+m9Vme/C9YHpO4RT/VI6/XnNdyFPvdbktlyiqTWKl4vPpwf8YvnXGMdqb6fb8A3EjQgw3LaplAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;"></span>
+  <img class="gatsby-resp-image-image" alt="dom tree" title="dom tree" src="/static/914819c7e9cfda3169682706ca97475a/c94d1/dom_tree.png" srcset="/static/914819c7e9cfda3169682706ca97475a/0780f/dom_tree.png 198w,
+/static/914819c7e9cfda3169682706ca97475a/47b26/dom_tree.png 395w,
+/static/914819c7e9cfda3169682706ca97475a/c94d1/dom_tree.png 790w,
+/static/914819c7e9cfda3169682706ca97475a/9e288/dom_tree.png 1185w,
+/static/914819c7e9cfda3169682706ca97475a/c4e1e/dom_tree.png 1446w" sizes="(max-width: 790px) 100vw, 790px" loading="lazy">
+    </span>
+<p>VDOM을 DOM에 적용할 때는 html element에 대응하는 호스트 컴포넌트만 마운트됩니다.<br>
+개발자가 작성한 커스텀 컴포넌트는 react element를 반환하는 ‘상태를 가진 콜백 함수’ 그 이상 그 이하도 아닙니다.  </p>
+<p>자 이제 사전준비는 모두 끝났습니다. 본격적으로 재조정 작업을 시작해 봅시다.</p>
+<h1 id="5-sync-work-async-work"><a href="#5-sync-work-async-work" aria-label="5 sync work async work permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>5. Sync <strong>Work</strong>, Async <strong>Work</strong></h1>
+<p>훅을 이용하여 <strong>Work</strong> 콜백을 스케줄링시켰던 것 기억하시나요? 이때 여러 상황을 고려하여 재조정 작업을 비동기로 처리해야 할지 동기적으로 처리해야 할지 결정했습니다. 이 결정에 따라서 사용된 콜백이 각각 performConcurrentWorkOnRoot()와 performSyncWorkOnRoot()이었습니다.</p>
+<blockquote>
+<p>비동기 작업에 대한 분석은 performConcurrentWorkOnRoot()의 초입부분 까지만 진행하고 이 이후로는 동기 작업에 대해서만 분석하도록 하겠습니다.</p>
+</blockquote>
+<h2 id="5---1-async-work"><a href="#5---1-async-work" aria-label="5   1 async work permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>5 - 1 Async <strong>Work</strong></h2>
+<p>비동기 작업에 대해 지난 포스터에서 언급만 하고 아직 코드로 확인하지 못했던 부분이 있었습니다. 바로 <strong>scheduler</strong>에게 잔여작업이 있는지 알려주는 <a href="/react/in-depth-react-scheduler_2#work_loop" target="_blank">부분<up>22번 라인</up></a>입니다.<br>
+이 부분을 performConcurrentWorkOnRoot()를 통해 확인해볼 텐데 이 부분을 제외하고는 performSyncWorkOnRoot()와 로직은 같습니다. 그러므로 나머지 부분은 동기 작업을 분석할 때 설명하도록 하겠습니다.</p>
+<p><a class="code_link_2" href="https://github.com/facebook/react/blob/v16.12.0/packages/react-reconciler/src/ReactFiberWorkLoop.js#L631" target="_blank">reconciler > ReactFiberWorkLoop.js</a></p>
+<div class="gatsby-highlight" data-language="js"><pre style="counter-reset: linenumber 0" class="language-js line-numbers"><code class="language-js">  
+<span class="token keyword">function</span> <span class="token function">performConcurrentWorkOnRoot</span><span class="token punctuation">(</span><span class="token parameter">root<span class="token punctuation">,</span> didTimeout</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> expirationTime <span class="token operator">=</span> <span class="token function">getNextRootExpirationTimeToWorkOn</span><span class="token punctuation">(</span>root<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 처리해야 될 expiration time을 가지고 온다.</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>expirationTime <span class="token operator">!==</span> NoWork<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> originalCallbackNode <span class="token operator">=</span> root<span class="token punctuation">.</span>callbackNode<span class="token punctuation">;</span>
+    <span class="token comment">/*...*/</span>
+
+    <span class="token comment">/* render phase 진입 생략.. */</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>workInProgress <span class="token operator">!==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token comment">/*...*/</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+      <span class="token comment">/* commit phase 진입 생략.. */</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token function">ensureRootIsScheduled</span><span class="token punctuation">(</span>root<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>root<span class="token punctuation">.</span>callbackNode <span class="token operator">===</span> originalCallbackNode<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token comment">// root에는 잔여 작업이 남아 있으므로 root를 잡아논 Work 콜백을 반환한다.</span>
+      <span class="token keyword">return</span> <span class="token function">performConcurrentWorkOnRoot</span><span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">,</span> root<span class="token punctuation">)</span><span class="token punctuation">;</span> 
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></div>
+<blockquote>
+<p>생략된 부분은 render phase와 commit phase에 진입하는 코드입니다.</p>
+</blockquote>
+<p><code class="language-text">root.callbackNode</code><up>17</up>는 commit phase<up>13</up>를 지나면 null로 초기화됩니다. null이 아니라는 건 아래의 코드에서 <strong>Work</strong>를 진행하다 중지된 겁니다. </p>
+<p><a class="code_link" href="https://github.com/facebook/react/blob/v16.12.0/packages/react-reconciler/src/ReactFiberWorkLoop.js#L1462" target="_blank">reconciler > ReactFiberWorkLoop.js</a></p>
+<div class="gatsby-highlight has-highlighted-lines" data-language="js"><pre class="language-js"><code class="language-js">  
+<span class="token keyword">function</span> <span class="token function">workLoopConcurrent</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// Perform work until Scheduler asks us to yield</span>
+<span class="gatsby-highlight-code-line">  <span class="token keyword">while</span> <span class="token punctuation">(</span>workInProgress <span class="token operator">!==</span> <span class="token keyword">null</span> <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span><span class="token function">shouldYield</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span></span>    workInProgress <span class="token operator">=</span> <span class="token function">performUnitOfWork</span><span class="token punctuation">(</span>workInProgress<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>while 문이 중지되었다면 <code class="language-text">workInProgress</code>는 비어있지 않을 것<up>10</up>이므로 commit phase<up>13</up>에 도달하지 못해 callbackNode는 초기화되지 않습니다.<br>
+그리고 한 가지 더 <a href="https://github.com/facebook/react/blob/v16.12.0/packages/react-reconciler/src/ReactFiberWorkLoop.js#L552" target="_blank">ensureRootIsScheduled()</a><up>16</up>를 실행했는데도 root가 가지고 있는 callbackNode가 현재 <strong>Work</strong>를 진행한 originalCallbackNode<up>5</up>와 같다는 건<up>17</up> 현재 Task가 가장 우선순위가 높음을 나타내므로 계속해서 작업을 진행할 수 있다는 뜻입니다.<br>
+이 모든 근거를 바탕으로 <code class="language-text">performConcurrentWorkOnRoot()</code><up>19</up>을 반환해 재조정 작업을 계속해서 이어서 진행할 수 있도록 합니다.</p>
+<blockquote>
+<p>concurrent mode에 대해서는 자세히 다루지는 않았지만 기반이 되는 몇몇 부분들을 확인해보았습니다. 이번 시리즈에서는 이 이상으로 분석하지는 않지만, 추후에 보편적으로 사용하게 되는 날이 오면 그때 가서 다루어 보도록 하겠습니다.</p>
+</blockquote>
+<h2 id="5---2-sync-work"><a href="#5---2-sync-work" aria-label="5   2 sync work permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>5 - 2 Sync <strong>Work</strong></h2>
+<blockquote>
+<p>async work와는 다르게 해당 <strong>Work</strong>는 한번 실행되면 모든 작업이 끝날때 까지 동기적으로 처리합니다.</p>
+</blockquote>
+<p><a class="code_link" href="https://github.com/facebook/react/blob/v16.12.0/packages/react-reconciler/src/ReactFiberWorkLoop.js#L977" target="_blank">reconciler > ReactFiberWorkLoop.js</a></p>
+<div class="gatsby-highlight has-highlighted-lines" data-language="js"><pre class="language-js"><code class="language-js">  
+<span class="token keyword">function</span> <span class="token function">performSyncWorkOnRoot</span><span class="token punctuation">(</span><span class="token parameter">root</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// Check if there's expired work on this root. Otherwise, render at Sync.</span>
+  <span class="token keyword">const</span> lastExpiredTime <span class="token operator">=</span> root<span class="token punctuation">.</span>lastExpiredTime<span class="token punctuation">;</span>
+<span class="gatsby-highlight-code-line">  <span class="token keyword">const</span> expirationTime <span class="token operator">=</span> lastExpiredTime <span class="token operator">!==</span> NoWork <span class="token operator">?</span> lastExpiredTime <span class="token punctuation">:</span> Sync<span class="token punctuation">;</span></span>
+  <span class="token comment">/*...*/</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p><code class="language-text">lastExpiredTime</code>는 이전 <strong>Work</strong>가 만료되었을 때 할당되는 시간입니다. 이 부분은 위에서 performConcurrentWorkOnRoot()를 다룰 때 여러분의 이해를 위해 생략했던 부분으로 따로 <a href="https://github.com/facebook/react/blob/v16.12.0/packages/react-reconciler/src/ReactFiberWorkLoop.js#L636" target="_blank">여기서</a> 확인해 볼 수 있습니다.<br>
+concurrent mode에서 비동기로 <strong>Work</strong>를 진행하다 만료가 될 경우<down>(didTimeout)</down> root에 lastExpiredTime이 새겨지고<down>(markRootExpiredAtTime())</down> 다음 프레임에 동기로 처리하기 위해 performSyncWorkOnRoot()를 root에 스케줄링<down>(ensureRootIsScheduled())</down> 시킨다. 라고만 생각해주세요.  </p>
+<p>정리하자면 sync work가 실행되는 경우는 두 가지입니다. concurrent -> sync와 처음부터 sync인 경우이며 이때 expirationTime을 구하는 방식이 다르기 때문에 위 스니펫의 하이라이트 부분이 있는 것입니다.</p>
+<p><a class="code_link_2" href="https://github.com/facebook/react/blob/v16.12.0/packages/react-reconciler/src/ReactFiberWorkLoop.js#L977" target="_blank">reconciler > ReactFiberWorkLoop.js</a></p>
+<div class="gatsby-highlight" data-language="js"><pre style="counter-reset: linenumber 0" class="language-js line-numbers"><code class="language-js">  
+<span class="token keyword">function</span> <span class="token function">performSyncWorkOnRoot</span><span class="token punctuation">(</span><span class="token parameter">root</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">/*...*/</span>
+  <span class="token comment">// const expirationTime = lastExpiredTime !== NoWork ? lastExpiredTime : Sync;</span>
+
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>root <span class="token operator">!==</span> workInProgressRoot <span class="token operator">||</span> expirationTime <span class="token operator">!==</span> renderExpirationTime<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">prepareFreshStack</span><span class="token punctuation">(</span>root<span class="token punctuation">,</span> expirationTime<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">/*...*/</span>
+<span class="token punctuation">}</span></code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></div>
+<p>if 문의 의미를 알아보겠습니다.  </p>
+<p>이 부분도 concurrent mode와 연관이 있는데 자바스크립트는 멀티 스레드 환경에서 실행되는 게 아니기 때문에 리액트는 하나의 VDOM에 대한 <strong>Work</strong>만 진행할 수 있습니다.<br>
+그리고 <strong>reconciler</strong>가 작업 중인 root를 <code class="language-text">workInProgressRoot</code>로 잡아두고 있습니다.<br>
+하지만 현재 가장 우선순위가 높은 Task의 <code class="language-text">root</code>가 작업 중이던 workInProgressRoot와 다르다면 새로운 작업을 진행해야 하므로 현재 root에 새로운 workInProgress 트리를 만들어<up>7</up> 줍니다.  </p>
+<p><code class="language-text">expirationTime !== renderExpirationTime</code>도 root와 비슷한 의미로 다른 작업이 더 우선순위가 높아 이전 작업을 초기화 해야 함을 나타냅니다.</p>
+<blockquote>
+<p>VDOM에는 하나의 root만 존재합니다. 이 말인즉슨 root가 다르다는 의미는 ReactDOM.render()를 통해 만들어진 다른 VDOM에서 발생한 작업이 더 우선순위가 높다는 말입니다. 그래서 새로운 VDOM root에 재조정 작업을 하기 위한 작업용 트리를 만들게되는 것입니다.</p>
+</blockquote>
+<blockquote>
+<p>renderExpirationTime는 초기에는 noWork<up>0</up>입니다. 만약 맨 처음으로 performSyncWorkOnRoot()가 호출되는 경우 if문<up>6</up>은 true일 것이고(<down>expirationTime  !== noWork</down>) 재조정 작업 전에 항상 초기화될 것입니다.  </p>
+</blockquote>
+<p>prepareFreshStack()는 workInProgress 트리의 host root를 만듦과 동시에 작업에 필요한 전역 변수들을 초기화합니다.</p>
+<anchor id="prepareFreshStack" />
+<p><a class="code_link_2" href="https://github.com/facebook/react/blob/v16.12.0/packages/react-reconciler/src/ReactFiberWorkLoop.js#L1236" target="_blank">reconciler > ReactFiberWorkLoop.js</a></p>
+<div class="gatsby-highlight has-highlighted-lines" data-language="js"><pre style="counter-reset: linenumber 0" class="language-js line-numbers"><code class="language-js">  
+<span class="token keyword">function</span> <span class="token function">prepareFreshStack</span><span class="token punctuation">(</span><span class="token parameter">root<span class="token punctuation">,</span> expirationTime</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  root<span class="token punctuation">.</span>finishedWork <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span> 
+  root<span class="token punctuation">.</span>finishedExpirationTime <span class="token operator">=</span> NoWork<span class="token punctuation">;</span>
+
+<span class="gatsby-highlight-code-line">  workInProgressRoot <span class="token operator">=</span> root<span class="token punctuation">;</span></span>  workInProgress <span class="token operator">=</span> <span class="token function">createWorkInProgress</span><span class="token punctuation">(</span>root<span class="token punctuation">.</span>current<span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">,</span> expirationTime<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="gatsby-highlight-code-line">  renderExpirationTime <span class="token operator">=</span> expirationTime<span class="token punctuation">;</span></span>  workInProgressRootExitStatus <span class="token operator">=</span> RootIncomplete<span class="token punctuation">;</span>
+  workInProgressRootFatalError <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+  workInProgressRootLatestProcessedExpirationTime <span class="token operator">=</span> Sync<span class="token punctuation">;</span>
+  workInProgressRootLatestSuspenseTimeout <span class="token operator">=</span> Sync<span class="token punctuation">;</span>
+  <span class="token comment">/*...*/</span>
+<span class="token punctuation">}</span></code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></div>
+<anchor id="createWorkInProgress" />
+<p>위에서 보았던 변수들이 하이라이트 부분에서 초기화됨을 알 수 있습니다.<br>
+workInProgress tree의 host root를 만들어야 합니다. workInProgress를 만들 때는 current을 자가복제해서 만든다고 언급했습니다. 그리고 매번 새로운 객체를 만들어내지 않습니다. 재조정 작업은 매우 반복적으로 발생하는 작업입니다. 그래서 매번 객체를 만들어 리소스를 낭비하지 않고 기존에 만들어진 객체를 재활용하고 속성만 초기화합니다.</p>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">createWorkInProgress</span><span class="token punctuation">(</span>
+  <span class="token parameter">current<span class="token punctuation">:</span> Fiber<span class="token punctuation">,</span>
+  pendingProps<span class="token punctuation">:</span> any<span class="token punctuation">,</span>
+  expirationTime<span class="token punctuation">:</span> ExpirationTime<span class="token punctuation">,</span></span>
+<span class="token punctuation">)</span><span class="token punctuation">:</span> Fiber <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> workInProgress <span class="token operator">=</span> current<span class="token punctuation">.</span>alternate<span class="token punctuation">;</span>
+  <span class="token comment">// 새로 생성</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>workInProgress <span class="token operator">===</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    workInProgress <span class="token operator">=</span> <span class="token function">createFiber</span><span class="token punctuation">(</span>
+      current<span class="token punctuation">.</span>tag<span class="token punctuation">,</span>
+      pendingProps<span class="token punctuation">,</span>
+      current<span class="token punctuation">.</span>key<span class="token punctuation">,</span>
+      current<span class="token punctuation">.</span>mode<span class="token punctuation">,</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// host root</span>
+    workInProgress<span class="token punctuation">.</span>elementType <span class="token operator">=</span> current<span class="token punctuation">.</span>elementType<span class="token punctuation">;</span>
+    workInProgress<span class="token punctuation">.</span>type <span class="token operator">=</span> current<span class="token punctuation">.</span>type<span class="token punctuation">;</span>
+    workInProgress<span class="token punctuation">.</span>stateNode <span class="token operator">=</span> current<span class="token punctuation">.</span>stateNode<span class="token punctuation">;</span>
+
+    workInProgress<span class="token punctuation">.</span>alternate <span class="token operator">=</span> current<span class="token punctuation">;</span>
+    current<span class="token punctuation">.</span>alternate <span class="token operator">=</span> workInProgress<span class="token punctuation">;</span>
+
+  <span class="token comment">// 재활용</span>
+  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 기존 객체에서 재활용 하지 못하는 속성들은 초기화 해준다.</span>
+    workInProgress<span class="token punctuation">.</span>pendingProps <span class="token operator">=</span> pendingProps<span class="token punctuation">;</span>
+    workInProgress<span class="token punctuation">.</span>effectTag <span class="token operator">=</span> NoEffect<span class="token punctuation">;</span>
+    workInProgress<span class="token punctuation">.</span>nextEffect <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+    workInProgress<span class="token punctuation">.</span>firstEffect <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+    workInProgress<span class="token punctuation">.</span>lastEffect <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token comment">// current와 workInProgress가 공유하는 속성들</span>
+  workInProgress<span class="token punctuation">.</span>childExpirationTime <span class="token operator">=</span> current<span class="token punctuation">.</span>childExpirationTime<span class="token punctuation">;</span>
+  workInProgress<span class="token punctuation">.</span>expirationTime <span class="token operator">=</span> current<span class="token punctuation">.</span>expirationTime<span class="token punctuation">;</span>
+
+  workInProgress<span class="token punctuation">.</span>child <span class="token operator">=</span> current<span class="token punctuation">.</span>child<span class="token punctuation">;</span>
+  workInProgress<span class="token punctuation">.</span>memoizedProps <span class="token operator">=</span> current<span class="token punctuation">.</span>memoizedProps<span class="token punctuation">;</span>
+  workInProgress<span class="token punctuation">.</span>memoizedState <span class="token operator">=</span> current<span class="token punctuation">.</span>memoizedState<span class="token punctuation">;</span>
+  workInProgress<span class="token punctuation">.</span>updateQueue <span class="token operator">=</span> current<span class="token punctuation">.</span>updateQueue<span class="token punctuation">;</span>
+
+  workInProgress<span class="token punctuation">.</span>sibling <span class="token operator">=</span> current<span class="token punctuation">.</span>sibling<span class="token punctuation">;</span>
+  workInProgress<span class="token punctuation">.</span>index <span class="token operator">=</span> current<span class="token punctuation">.</span>index<span class="token punctuation">;</span>
+  workInProgress<span class="token punctuation">.</span>ref <span class="token operator">=</span> current<span class="token punctuation">.</span>ref<span class="token punctuation">;</span>
+
+  <span class="token keyword">return</span> workInProgress<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>이쯤에서 한 가지 여러분에게 상기시켜 드릴 부분이 있습니다.<br>
+현재 위치는 재조정 작업을 진행하기 전 시작 위치이며 최상단 current을 복제한 workInProgress<up>host root</up>을 만들었습니다. 여기까지만 놓고 봤을 때 컴포넌트의 상태가 변하면 항상 host root부터 시작한다는 걸 어림짐작할 수 있습니다. 깊이가 깊은 자식의 상태 값이 바뀌어도 항상 host root부터 시작하여 자식까지 workInProgress 트리를 만들어 가게 됩니다.</p>
+<blockquote>
+<p>! 트리만 만든다는 것이지 host root부터 자식까지의 컴포넌트 호출이 아님을 유의하세요.</p>
+</blockquote>
+<p>prepareFreshStack()이 실행된 후 VDOM의 상태는 다음과 같습니다.</p>
+<span class="gatsby-resp-image-wrapper" style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 586px;">
+      <span class="gatsby-resp-image-background-image" style="padding-bottom: 62.116040955631405%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAAsSAAALEgHS3X78AAAB0klEQVQoz5WSy27TQBSG846wYFMkHqCvwYbuWSAVIVVs6AKQskACpAoEaoqKmkSkSk3u8SV17GCPPfZc/HM8tgshlVDH+jUjz+g7/7m0iqJAKZQ7AEWSpPLc3O2ovm/W33etBlaCnPMOuq+O0D9+CW84MI91oUiyljb/guEQ69EIYRQhTdMtaKs5aIoZzgJYn3qwz0eI/LgKrxq7tXVa7uwJ7Nlz+OsMnmuDc34DrRwSLhXA2DlEp/cQP5f7mIdf4fgbTC8PMOjew9XgPoJ5u3yKmHnYbDx43gq2vYTv+/+kXAIpumsfovv9AcaXewQ7QbDJMBk+w2lnD72LR1gv3hnHUgpElO50OsViucBkMkGWZcblTQ1zVcByIpz0RzizHNgES3MBzihyVqdb7lohkhJhwnC9Whl3SZLs1jCXBT70L/D0fRsvvnzEqWVREG3cVxVWKOre8jACC3/BcV24pDiOIYTYdphRKhFLcDW2YDtzcqegqtnZGRmIHCrPwMgZY8wApZR/gOUnyOHbb2d4/PoYB+03+PxjUHdO3zqHt62tOeQE5FQzx3cRhCuwXELoYtfhf1R3mVKWGoKOUcIRk3jZTV3d3RnYSGpt6mak7wZq9BuhCZjgovPNLwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;"></span>
+  <img class="gatsby-resp-image-image" alt="prepare fresh stack" title="prepare fresh stack" src="/static/ebe6186ba40a6583c9e3d095d10dcec5/77b8d/prepare_fresh_stack.png" srcset="/static/ebe6186ba40a6583c9e3d095d10dcec5/0780f/prepare_fresh_stack.png 198w,
+/static/ebe6186ba40a6583c9e3d095d10dcec5/47b26/prepare_fresh_stack.png 395w,
+/static/ebe6186ba40a6583c9e3d095d10dcec5/77b8d/prepare_fresh_stack.png 586w" sizes="(max-width: 586px) 100vw, 586px" loading="lazy">
+    </span>
+<p>이렇게 작업용 VDOM의 entry를 만들었습니다.   </p>
+<p>다음 포스터에서는 본격적으로 render phase에 진입하여 <strong>Work</strong>가 무엇인지? VDOM은 어떻게 순회하는지 등을 알아볼 것입니다.</p></div><hr class="custom-hr"/><div class="bio"><div class="author"><div class="author-description"><a class="link" href="/"><img class="author-image" src="/static/felog-f24356c48475809626ea0c2ac67855c6.png" alt="Goidle" style="width:72px;height:79px"/></a><div class="author-name"><div><a class="author-name-content"><div><svg class="bio_fontaswesome" width="1em" display="inline-block" font-size="inherit" height="1em" overflow="visible" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg> <!-- -->Goidle<!-- --> <svg class="bio_fontaswesome" width="1.25em" display="inline-block" font-size="inherit" height="1em" overflow="visible" viewBox="0 0 640 512"><path d="M96 224c35.3 0 64-28.7 64-64s-28.7-64-64-64-64 28.7-64 64 28.7 64 64 64zm448 0c35.3 0 64-28.7 64-64s-28.7-64-64-64-64 28.7-64 64 28.7 64 64 64zm32 32h-64c-17.6 0-33.5 7.1-45.1 18.6 40.3 22.1 68.9 62 75.1 109.4h66c17.7 0 32-14.3 32-32v-32c0-35.3-28.7-64-64-64zm-256 0c61.9 0 112-50.1 112-112S381.9 32 320 32 208 82.1 208 144s50.1 112 112 112zm76.8 32h-8.3c-20.8 10-43.9 16-68.5 16s-47.6-6-68.5-16h-8.3C179.6 288 128 339.6 128 403.2V432c0 26.5 21.5 48 48 48h288c26.5 0 48-21.5 48-48v-28.8c0-63.6-51.6-115.2-115.2-115.2zm-223.7-13.4C161.5 263.1 145.6 256 128 256H64c-35.3 0-64 28.7-64 64v32c0 17.7 14.3 32 32 32h65.9c6.3-47.4 34.9-87.3 75.2-109.4z"></path></svg> TMON</div></a></div><div class="author-introduction">오픈소스를 톺아보며 매직 코드라 생각했던 부분들의 동작 원리와 의미, 의도를 파악해보고 서로의 생각을 나누기 위한 블로그</div></div></div></div></div><ul class="navigator"><li><a rel="prev" href="/react/in-depth-react-scheduler_2/">← <!-- -->React 톺아보기- 04. Scheduler_2</a></li><li><a rel="next" href="/react/in-depth-react-reconciler_2/">React 톺아보기- 05. Reconciler_2<!-- --> →</a></li></ul><div class="utterences"></div><footer class="footer">©<a href="https://github.com/JaeYeopHan">Goidle</a>, Built with<!-- --> <a href="https://github.com/JaeYeopHan/gatsby-starter-bee">Gatsby-starter-bee</a></footer></div></div></div><script>
+  
+  
+  if(true) {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  }
+  if (typeof ga === "function") {
+    ga('create', 'UA-154981109-1', 'auto', {});
+      
+      
+      
+      
+      
+      }</script><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/react/in-depth-react-reconciler_1/";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"app":["/app-69573b14c89d32433a71.js"],"component---node-modules-gatsby-plugin-offline-app-shell-js":["/component---node-modules-gatsby-plugin-offline-app-shell-js-5efb7b8fb8a6286e0a5c.js"],"component---src-templates-blog-post-js":["/component---src-templates-blog-post-js-ef229068f1a7461d6597.js"],"component---src-pages-404-js":["/component---src-pages-404-js-6bdb37d3a7ac9f5a4c88.js"],"component---src-pages-index-js":["/component---src-pages-index-js-c9089e990f73b65ff865.js"]};/*]]>*/</script><script src="/webpack-runtime-e1056f6722281b635472.js" async=""></script><script src="/commons-e292b02c69f3a51ef82a.js" async=""></script><script src="/styles-f42f8789f3cee93e7f05.js" async=""></script><script src="/component---src-templates-blog-post-js-ef229068f1a7461d6597.js" async=""></script><script src="/app-69573b14c89d32433a71.js" async=""></script></body></html>
