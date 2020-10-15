@@ -593,7 +593,7 @@ Placement tag는 커스텀 컴포넌트에도 달릴 수 있으므로 필터링�
   <span class="token keyword">let</span> parent
   <span class="token keyword">let</span> isContainer
   <span class="token keyword">const</span> parentStateNode <span class="token operator">=</span> parentFiber<span class="token punctuation">.</span>stateNode
-  <span class="token comment">// 부모 html element 추출</span>
+  <span class="token comment">// 부모 HTML element 추출</span>
   <span class="token keyword">switch</span> <span class="token punctuation">(</span>parentFiber<span class="token punctuation">.</span>tag<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">case</span> HostComponent<span class="token punctuation">:</span>
       parent <span class="token operator">=</span> parentStateNode
@@ -755,7 +755,7 @@ Placement tag는 커스텀 컴포넌트에도 달릴 수 있으므로 필터링�
 <p>beginWork()에서 <code class="language-text">div</code>의 props변경 여부를 따져 bailout path를 할지 결정합니다. <code class="language-text">div</code>의 경우 <code class="language-text">Todo</code>가 재호출되면서 새 props를 가진 React element로 반환되었기 때문에 <a href="/react/in-depth-react-reconciler_2/#beginWork" target="_blank">props 비교</a>에서 참조값이 달라 bailout하지 못하고 div의 자식(<down><code class="language-text">Input</code>과 <code class="language-text">OrderList</code>를 포함한 배열</down>)을 대상으로 <a href="/react/in-depth-react-reconciler_3/#reconcileChildrenArray" target="_blank">재조정 작업</a>을 진행하게 됩니다.  </p>
 <p><code class="language-text">Input</code>은 current가 없으므로 재조정 작업 중 <a href="/react/in-depth-react-reconciler_3/#placeChild" target="_blank">placeChild()</a>를 통해 Placement<up>2</up> tag가 달립니다.<br>
 fiber로 확장된 <code class="language-text">Input</code>을 호출해 <code class="language-text">input</code>과 <code class="language-text">button</code>을 담고 있는 Fragment를 반환받지만 key가 없으므로 바로 벗겨내고 배열에 대한 재조정 작업을 진행합니다. 이 과정에서 <code class="language-text">Input</code>에도 PerformedWork<up>1</up> tag가 달립니다. (<down>OrderList는 설명을 생략합니다.</down>)  </p>
-<p>이때 <code class="language-text">div</code>가 반환한 배열과 <code class="language-text">Input</code>이 반환한 배열의 처리가 placeChild()에서 조금 다르게 동작하게 됩니다. 부모가 새로 추가된 경우에는 그 하위 서브 트리는 다른 처리 필요 없이 그냥 마운트만 하면 됩니다. 그래서 서브 트리에 Placement tag를 달아줄 필요가 없습니다. 어차피 부모가 <a href="/react/in-depth-react-reconciler_4/#create_element" target="_blank">completeWork()</a>에서 html element를 생성함과 동시에 자식들을 연결하기 때문에 부모만 DOM에 마운트된다면 자식들도 자연스레 딸려 올라갑니다. 그래서 <code class="language-text">input</code>과 <code class="language-text">button</code>에는 Placement tag가 없는 것이 이 이유때문입니다. </p>
+<p>이때 <code class="language-text">div</code>가 반환한 배열과 <code class="language-text">Input</code>이 반환한 배열의 처리가 placeChild()에서 조금 다르게 동작하게 됩니다. 부모가 새로 추가된 경우에는 그 하위 서브 트리는 다른 처리 필요 없이 그냥 마운트만 하면 됩니다. 그래서 서브 트리에 Placement tag를 달아줄 필요가 없습니다. 어차피 부모가 <a href="/react/in-depth-react-reconciler_4/#create_element" target="_blank">completeWork()</a>에서 HTML element를 생성함과 동시에 자식들을 연결하기 때문에 부모만 DOM에 마운트된다면 자식들도 자연스레 딸려 올라갑니다. 그래서 <code class="language-text">input</code>과 <code class="language-text">button</code>에는 Placement tag가 없는 것이 이 이유때문입니다. </p>
 </li>
 <li>
 <h4 id="effect-list"><a href="#effect-list" aria-label="effect list permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>effect list</h4>
@@ -915,7 +915,7 @@ renderPriorityLevel<span class="token punctuation">:</span> ReactPriorityLevel<s
             <span class="token string">'a bug in React. Please file an issue.'</span><span class="token punctuation">,</span>
         <span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token keyword">const</span> parentStateNode <span class="token operator">=</span> parent<span class="token punctuation">.</span>stateNode<span class="token punctuation">;</span>
-        <span class="token comment">//  부모 html element 추출</span>
+        <span class="token comment">//  부모 HTML element 추출</span>
         <span class="token keyword">switch</span> <span class="token punctuation">(</span>parent<span class="token punctuation">.</span>tag<span class="token punctuation">)</span> <span class="token punctuation">{</span>
           <span class="token keyword">case</span> HostComponent<span class="token punctuation">:</span>
             currentParent <span class="token operator">=</span> parentStateNode<span class="token punctuation">;</span>

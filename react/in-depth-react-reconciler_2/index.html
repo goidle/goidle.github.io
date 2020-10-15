@@ -110,6 +110,7 @@
 <p>concurrent mode용 <a href="/react/in-depth-react-scheduler_2/#workLoopConcurrent" target="_blank">workLoopConcurrent()</a>와는 다르게 제어권을 yield하는 부분이 없으므로 동기적으로 Render phase가 진행될 것이라는 걸 알 수 있습니다.  </p>
 </blockquote>
 <h2 id="6---2-performunitofwork"><a href="#6---2-performunitofwork" aria-label="6   2 performunitofwork permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>6 - 2 performUnitOfWork()</h2>
+<anchor id="performUnitOfWork">
 <p><a class="code_link_2" href="https://github.com/facebook/react/blob/v16.12.0/packages/react-reconciler/src/ReactFiberWorkLoop.js#L1469" target="_blank">reconciler > ReactFiberWorkLoop.js</a></p>
 <div class="gatsby-highlight" data-language="js"><pre style="counter-reset: linenumber 0" class="language-js line-numbers"><code class="language-js">  
 <span class="token keyword">function</span> <span class="token function">performUnitOfWork</span><span class="token punctuation">(</span><span class="token parameter">unitOfWork<span class="token punctuation">:</span> Fiber</span><span class="token punctuation">)</span><span class="token punctuation">:</span> Fiber <span class="token operator">|</span> <span class="token keyword">null</span> <span class="token punctuation">{</span>
@@ -215,7 +216,7 @@ beginWork()가 끝나면 해당 fiber의 props로 인해 더 이상 영향을 �
 <li>31: 해당 컴포넌트에서 <strong>Work</strong>를 예약했지만<up>19</up> props는 변경된 것이 없음<up>15</up>을 나타냅니다.</li>
 </ul>
 </li>
-<li>36: 컴포넌트가 마운트 될 때는 앞뒤 잴 거 없이 fiber던 html element던 그냥 다 생성하고 삽입만 하면 됩니다. 그래서 didReceiveUpdate 플래그 또한 설정<up>36</up>해줄 필요가 없습니다.</li>
+<li>36: 컴포넌트가 마운트 될 때는 앞뒤 잴 거 없이 fiber던 HTML element던 그냥 다 생성하고 삽입만 하면 됩니다. 그래서 didReceiveUpdate 플래그 또한 설정<up>36</up>해줄 필요가 없습니다.</li>
 <li>42: fiber의 종류에 맞게 <strong>Work</strong>를 시작합니다.</li>
 </ul>
 <h2 id="6---4-bailoutonalreadyfinishedwork"><a href="#6---4-bailoutonalreadyfinishedwork" aria-label="6   4 bailoutonalreadyfinishedwork permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>6 - 4 bailoutOnAlreadyFinishedWork()</h2>
