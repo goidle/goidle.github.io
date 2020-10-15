@@ -40,7 +40,7 @@
         }
       }
     })
-  </script><link rel="preconnect dns-prefetch" href="https://www.google-analytics.com"/><link rel="icon" href="/icons/icon-48x48.png?v=9dbdaa6d9a815c4dab57eaac04ef491f"/><link rel="manifest" href="/manifest.webmanifest"/><meta name="theme-color" content="#ffffff"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=9dbdaa6d9a815c4dab57eaac04ef491f"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=9dbdaa6d9a815c4dab57eaac04ef491f"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=9dbdaa6d9a815c4dab57eaac04ef491f"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=9dbdaa6d9a815c4dab57eaac04ef491f"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=9dbdaa6d9a815c4dab57eaac04ef491f"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=9dbdaa6d9a815c4dab57eaac04ef491f"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=9dbdaa6d9a815c4dab57eaac04ef491f"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=9dbdaa6d9a815c4dab57eaac04ef491f"/><meta name="generator" content="Gatsby 2.18.10"/><link rel="alternate" type="application/rss+xml" href="/rss.xml"/><title data-react-helmet="true">React 톺아보기 - 05. Reconciler_4 | Deep Dive Magic Code</title><meta data-react-helmet="true" name="description" content="모든 설명은 v16.12.0 버전 함수형 컴포넌트와 브라우저 환경을 기준으로 합니다. 버전에 따라 코드는 변경될 수 있으며 클래스 컴포넌트는 설명에서 제외됨을 알려 드립니다. 현재 분석을 1 ~ 5 업데이트된 컴포넌트를 호출하여 반환받은 element를 fiber로 확장까지 진행하였습니다. 그리고 이 fiber는 reconcileChildren()에서 반환되어 5 -&gt; 3-&gt; 2-&gt; 1로 전달되어 다음 Work의  대상이 됩니다.   지금까지 Work…"/><meta data-react-helmet="true" property="og:title" content="React 톺아보기 - 05. Reconciler_4 | Deep Dive Magic Code"/><meta data-react-helmet="true" property="og:description" content="모든 설명은 v16.12.0 버전 함수형 컴포넌트와 브라우저 환경을 기준으로 합니다. 버전에 따라 코드는 변경될 수 있으며 클래스 컴포넌트는 설명에서 제외됨을 알려 드립니다. 현재 분석을 1 ~ 5 업데이트된 컴포넌트를 호출하여 반환받은 element를 fiber로 확장까지 진행하였습니다. 그리고 이 fiber는 reconcileChildren()에서 반환되어 5 -&gt; 3-&gt; 2-&gt; 1로 전달되어 다음 Work의  대상이 됩니다.   지금까지 Work…"/><meta data-react-helmet="true" property="og:image" content="/static/felog-f24356c48475809626ea0c2ac67855c6.png"/><meta data-react-helmet="true" property="og:type" content="website"/><meta data-react-helmet="true" name="google-site-verification" content="o402P1kCwteUVT_5s9zR21dD9lTF4ALZNLms22CIMx4"/><meta data-react-helmet="true" name="keywords" content="react, redux, javascript, web, development, frontend, 리액트, react, fiber, VDOM, reconciler"/><link rel="sitemap" type="application/xml" href="/sitemap.xml"/><link as="script" rel="preload" href="/app-0ccc271fc6ca8fad878f.js"/><link as="script" rel="preload" href="/component---src-templates-blog-post-js-4dc9112f7d4bfc5bdeb9.js"/><link as="script" rel="preload" href="/styles-f42f8789f3cee93e7f05.js"/><link as="script" rel="preload" href="/commons-abe852d41faf05dcfc96.js"/><link as="script" rel="preload" href="/webpack-runtime-9f6b1d2a45518b92e568.js"/><link as="fetch" rel="preload" href="/page-data/react/in-depth-react-reconciler_4/page-data.json" crossorigin="anonymous"/></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="___gatsby"><div style="outline:none" tabindex="-1" role="group" id="gatsby-focus-wrapper"><div style="margin-left:auto;margin-right:auto;max-width:52rem;padding:2.4375rem 1.21875rem" class="post"><a class="link" href="/"><svg class="home" width="1.125em" font-size="2em" overflow="visible" viewBox="0 0 576 512"><path fill="currentColor" d="M280.37 148.26L96 300.11V464a16 16 0 0 0 16 16l112.06-.29a16 16 0 0 0 15.92-16V368a16 16 0 0 1 16-16h64a16 16 0 0 1 16 16v95.64a16 16 0 0 0 16 16.05L464 480a16 16 0 0 0 16-16V300L295.67 148.26a12.19 12.19 0 0 0-15.3 0zM571.6 251.47L488 182.56V44.05a12 12 0 0 0-12-12h-56a12 12 0 0 0-12 12v72.61L318.47 43a48 48 0 0 0-61 0L4.34 251.47a12 12 0 0 0-1.6 16.9l25.5 31A12 12 0 0 0 45.15 301l235.22-193.74a12.19 12.19 0 0 1 15.3 0L530.9 301a12 12 0 0 0 16.9-1.6l25.5-31a12 12 0 0 0-1.7-16.93z"></path></svg></a><div class="switch-container"><label for="normal-switch"><div style="position:relative;display:inline-block;text-align:left;opacity:1;direction:ltr;border-radius:12px;-webkit-transition:opacity 0.25s;-moz-transition:opacity 0.25s;transition:opacity 0.25s;touch-action:none;-webkit-tap-highlight-color:rgba(0, 0, 0, 0);-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none"><div class="react-switch-bg" style="height:24px;width:48px;margin:0;position:relative;background:#d9dfe2;border-radius:12px;cursor:pointer;-webkit-transition:background 0.25s;-moz-transition:background 0.25s;transition:background 0.25s"><div style="height:24px;width:26px;position:relative;opacity:0;pointer-events:none;-webkit-transition:opacity 0.25s;-moz-transition:opacity 0.25s;transition:opacity 0.25s"><div class="icon checkedIcon">D</div></div><div style="height:24px;width:26px;position:absolute;opacity:1;right:0;top:0;pointer-events:none;-webkit-transition:opacity 0.25s;-moz-transition:opacity 0.25s;transition:opacity 0.25s"><div class="icon uncheckedIcon">L</div></div></div><div class="react-switch-handle" style="height:22px;width:22px;background:#ffffff;display:inline-block;cursor:pointer;border-radius:50%;position:absolute;transform:translateX(1px);top:1px;outline:0;border:0;-webkit-transition:background-color 0.25s, transform 0.25s, box-shadow 0.15s;-moz-transition:background-color 0.25s, transform 0.25s, box-shadow 0.15s;transition:background-color 0.25s, transform 0.25s, box-shadow 0.15s"></div><input type="checkbox" role="switch" style="border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px" id="normal-switch"/></div></label></div><h1>React 톺아보기 - 05. Reconciler_4</h1><p class="post-date">4 days ago</p><div><blockquote>
+  </script><link rel="preconnect dns-prefetch" href="https://www.google-analytics.com"/><link rel="icon" href="/icons/icon-48x48.png?v=9dbdaa6d9a815c4dab57eaac04ef491f"/><link rel="manifest" href="/manifest.webmanifest"/><meta name="theme-color" content="#ffffff"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=9dbdaa6d9a815c4dab57eaac04ef491f"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=9dbdaa6d9a815c4dab57eaac04ef491f"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=9dbdaa6d9a815c4dab57eaac04ef491f"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=9dbdaa6d9a815c4dab57eaac04ef491f"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=9dbdaa6d9a815c4dab57eaac04ef491f"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=9dbdaa6d9a815c4dab57eaac04ef491f"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=9dbdaa6d9a815c4dab57eaac04ef491f"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=9dbdaa6d9a815c4dab57eaac04ef491f"/><meta name="generator" content="Gatsby 2.18.10"/><link rel="alternate" type="application/rss+xml" href="/rss.xml"/><title data-react-helmet="true">React 톺아보기 - 05. Reconciler_4 | Deep Dive Magic Code</title><meta data-react-helmet="true" name="description" content="모든 설명은 v16.12.0 버전 함수형 컴포넌트와 브라우저 환경을 기준으로 합니다. 버전에 따라 코드는 변경될 수 있으며 클래스 컴포넌트는 설명에서 제외됨을 알려 드립니다. 현재 분석을 1 ~ 5 업데이트된 컴포넌트를 호출하여 반환받은 element를 fiber로 확장까지 진행하였습니다. 그리고 이 fiber는 reconcileChildren()에서 반환되어 5 -&gt; 3-&gt; 2-&gt; 1로 전달되어 다음 Work의  대상이 됩니다.   지금까지 Work…"/><meta data-react-helmet="true" property="og:title" content="React 톺아보기 - 05. Reconciler_4 | Deep Dive Magic Code"/><meta data-react-helmet="true" property="og:description" content="모든 설명은 v16.12.0 버전 함수형 컴포넌트와 브라우저 환경을 기준으로 합니다. 버전에 따라 코드는 변경될 수 있으며 클래스 컴포넌트는 설명에서 제외됨을 알려 드립니다. 현재 분석을 1 ~ 5 업데이트된 컴포넌트를 호출하여 반환받은 element를 fiber로 확장까지 진행하였습니다. 그리고 이 fiber는 reconcileChildren()에서 반환되어 5 -&gt; 3-&gt; 2-&gt; 1로 전달되어 다음 Work의  대상이 됩니다.   지금까지 Work…"/><meta data-react-helmet="true" property="og:image" content="/static/felog-f24356c48475809626ea0c2ac67855c6.png"/><meta data-react-helmet="true" property="og:type" content="website"/><meta data-react-helmet="true" name="google-site-verification" content="o402P1kCwteUVT_5s9zR21dD9lTF4ALZNLms22CIMx4"/><meta data-react-helmet="true" name="keywords" content="react, redux, javascript, web, development, frontend, 리액트, react, fiber, VDOM, reconciler"/><link rel="sitemap" type="application/xml" href="/sitemap.xml"/><link as="script" rel="preload" href="/app-0ccc271fc6ca8fad878f.js"/><link as="script" rel="preload" href="/component---src-templates-blog-post-js-4dc9112f7d4bfc5bdeb9.js"/><link as="script" rel="preload" href="/styles-f42f8789f3cee93e7f05.js"/><link as="script" rel="preload" href="/commons-abe852d41faf05dcfc96.js"/><link as="script" rel="preload" href="/webpack-runtime-9f6b1d2a45518b92e568.js"/><link as="fetch" rel="preload" href="/page-data/react/in-depth-react-reconciler_4/page-data.json" crossorigin="anonymous"/></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="___gatsby"><div style="outline:none" tabindex="-1" role="group" id="gatsby-focus-wrapper"><div style="margin-left:auto;margin-right:auto;max-width:52rem;padding:2.4375rem 1.21875rem" class="post"><a class="link" href="/"><svg class="home" width="1.125em" font-size="2em" overflow="visible" viewBox="0 0 576 512"><path fill="currentColor" d="M280.37 148.26L96 300.11V464a16 16 0 0 0 16 16l112.06-.29a16 16 0 0 0 15.92-16V368a16 16 0 0 1 16-16h64a16 16 0 0 1 16 16v95.64a16 16 0 0 0 16 16.05L464 480a16 16 0 0 0 16-16V300L295.67 148.26a12.19 12.19 0 0 0-15.3 0zM571.6 251.47L488 182.56V44.05a12 12 0 0 0-12-12h-56a12 12 0 0 0-12 12v72.61L318.47 43a48 48 0 0 0-61 0L4.34 251.47a12 12 0 0 0-1.6 16.9l25.5 31A12 12 0 0 0 45.15 301l235.22-193.74a12.19 12.19 0 0 1 15.3 0L530.9 301a12 12 0 0 0 16.9-1.6l25.5-31a12 12 0 0 0-1.7-16.93z"></path></svg></a><div class="switch-container"><label for="normal-switch"><div style="position:relative;display:inline-block;text-align:left;opacity:1;direction:ltr;border-radius:12px;-webkit-transition:opacity 0.25s;-moz-transition:opacity 0.25s;transition:opacity 0.25s;touch-action:none;-webkit-tap-highlight-color:rgba(0, 0, 0, 0);-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none"><div class="react-switch-bg" style="height:24px;width:48px;margin:0;position:relative;background:#d9dfe2;border-radius:12px;cursor:pointer;-webkit-transition:background 0.25s;-moz-transition:background 0.25s;transition:background 0.25s"><div style="height:24px;width:26px;position:relative;opacity:0;pointer-events:none;-webkit-transition:opacity 0.25s;-moz-transition:opacity 0.25s;transition:opacity 0.25s"><div class="icon checkedIcon">D</div></div><div style="height:24px;width:26px;position:absolute;opacity:1;right:0;top:0;pointer-events:none;-webkit-transition:opacity 0.25s;-moz-transition:opacity 0.25s;transition:opacity 0.25s"><div class="icon uncheckedIcon">L</div></div></div><div class="react-switch-handle" style="height:22px;width:22px;background:#ffffff;display:inline-block;cursor:pointer;border-radius:50%;position:absolute;transform:translateX(1px);top:1px;outline:0;border:0;-webkit-transition:background-color 0.25s, transform 0.25s, box-shadow 0.15s;-moz-transition:background-color 0.25s, transform 0.25s, box-shadow 0.15s;transition:background-color 0.25s, transform 0.25s, box-shadow 0.15s"></div><input type="checkbox" role="switch" style="border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px" id="normal-switch"/></div></label></div><h1>React 톺아보기 - 05. Reconciler_4</h1><p class="post-date">5 days ago</p><div><blockquote>
 <p>모든 설명은 v16.12.0 버전 함수형 컴포넌트와 브라우저 환경을 기준으로 합니다. 버전에 따라 코드는 변경될 수 있으며 클래스 컴포넌트는 설명에서 제외됨을 알려 드립니다.</p>
 </blockquote>
 <span class="gatsby-resp-image-wrapper" style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 790px;">
@@ -126,7 +126,7 @@ input -> button -> Input … -> Todo -> App</p>
 <ul>
 <li>leaf 노드의 <strong>Work</strong>를 마무리<up>9 ~ 10</up> 하고 형제 노드<up>15 ~ 16</up>를 찾습니다. </li>
 <li>만약 형제 노드가 없다면 이는 부모의 서브 트리가 모두 마무리 된 것으로 다음 대상은 부모<up>21</up>가 됩니다. 이때 부모 또한 leaf 노드처럼 하위 모든 노드들이 <strong>Work</strong>가 마무리된 상태이므로 현재 여기서 자식과 같이 마무리를 진행합니다.</li>
-<li>계속해서 while 문은 부모의 <strong>Work</strong>도 마무리하며 위 내용을 반복합니다. 그리고 최종적으로 최상단 노드인 host root에 도달<up>22</up>하며 끝납니다.</li>
+<li>계속해서 while 문은 부모의 <strong>Work</strong>도 마무리하며 위 내용을 반복합니다. 그리고 최종적으로 최상단 노드인 Host root에 도달<up>22</up>하며 끝납니다.</li>
 </ul>
 <p>그러면 <strong>Work</strong>의 결과물들 중에 무엇을 마무리해야 하는 것일까요? 크게 다음의 두가지가 있습니다.</p>
 <anchor id="completeUnitOfWork">
@@ -172,7 +172,7 @@ input -> button -> Input … -> Todo -> App</p>
   <span class="token keyword">switch</span> <span class="token punctuation">(</span>workInProgress<span class="token punctuation">.</span>tag<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token comment">/*...*/</span>
     <span class="token keyword">case</span> HostComponent<span class="token punctuation">:</span> <span class="token punctuation">{</span>
-      <span class="token keyword">var</span> rootContainerInstance <span class="token operator">=</span> <span class="token function">getRootHostContainer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// host root를 가지고 온다.</span>
+      <span class="token keyword">var</span> rootContainerInstance <span class="token operator">=</span> <span class="token function">getRootHostContainer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Host root를 가지고 온다.</span>
       <span class="token keyword">const</span> type <span class="token operator">=</span> workInProgress<span class="token punctuation">.</span>type<span class="token punctuation">;</span>
       <span class="token keyword">if</span> <span class="token punctuation">(</span>current <span class="token operator">!==</span> <span class="token keyword">null</span> <span class="token operator">&amp;&amp;</span> workInProgress<span class="token punctuation">.</span>stateNode <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token comment">// 업데이트</span>
@@ -200,7 +200,7 @@ input -> button -> Input … -> Todo -> App</p>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span></code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></div>
 <blockquote>
-<p>getRootHostContainer()<up>7</up>는 설명의 간략화를 위해 생략된 부분으로 스택에서 workInProgress 트리의 host root를 가지고 온다고만 생각해주세요. 추가하는 부분은 <a href="https://github.com/facebook/react/blob/v16.13.0/packages/react-reconciler/src/ReactFiberBeginWork.js#L2931" target="_blank">beginWork()</a>에 있습니다. </p>
+<p>getRootHostContainer()<up>7</up>는 설명의 간략화를 위해 생략된 부분으로 스택에서 workInProgress 트리의 Host root를 가지고 온다고만 생각해주세요. 추가하는 부분은 <a href="https://github.com/facebook/react/blob/v16.13.0/packages/react-reconciler/src/ReactFiberBeginWork.js#L2931" target="_blank">beginWork()</a>에 있습니다. </p>
 </blockquote>
 <ul>
 <li>
@@ -219,7 +219,7 @@ input -> button -> Input … -> Todo -> App</p>
 <span class="token keyword">function</span> <span class="token function">createInstance</span><span class="token punctuation">(</span>
   type<span class="token punctuation">,</span>
   props<span class="token punctuation">,</span>
-  rootContainerInstance<span class="token punctuation">,</span>
+  rootContainerInstance<span class="token punctuation">,</span> <span class="token comment">// Host root</span>
   internalInstanceHandle <span class="token comment">// workInProgress</span>
 <span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token keyword">const</span> domElement <span class="token operator">=</span> <span class="token function">createElement</span><span class="token punctuation">(</span>
@@ -231,8 +231,10 @@ input -> button -> Input … -> Todo -> App</p>
   <span class="token function">updateFiberProps</span><span class="token punctuation">(</span>domElement<span class="token punctuation">,</span> props<span class="token punctuation">)</span>
   <span class="token keyword">return</span> domElement
 <span class="token punctuation">}</span></code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></div>
-<p>브라우저 환경에서 <code class="language-text">createElement()</code>는 document.createElement(type)와 같으며 호스트 컴포넌트의 경우 type은 HTML element의 tag명 문자열 입니다.</p>
-<p>일전에 생성한 element를 fiber의 stateNode에 저장해주었습니다. 이는 react에서 호스트에 접근할 수 있도록 해주는 부분이고 그 반대로 호스트 영역에서 리액트에 접근할 수 있도록 element에 fiber와 props를 저장하는 부분이 <code class="language-text">precacheFiberNode()</code>와 <code class="language-text">updateFiberProps()</code>입니다.</p>
+<ul>
+<li>브라우저 환경의 <code class="language-text">createElement()</code><up>8</up>는 document.createElement(type)와 같습니다.</li>
+</ul>
+<p>completeWork()에서 생성한 element는 fiber의 stateNode에 저장해주었습니다. 이는 리액트가 호스트에 접근할 수 있도록 해주는 부분이고 그 반대로 호스트 영역에서 리액트에 접근할 수 있도록 fiber와 props를 element에 저장하는 부분이 <code class="language-text">precacheFiberNode()</code>와 <code class="language-text">updateFiberProps()</code>입니다.</p>
 <p><a class="code_link" href="https://github.com/facebook/react/blob/v16.12.0/packages/react-dom/src/client/ReactDOMComponentTree.js#L18" target="_blank">react-dom > client > ReactDOMComponentTree.js</a></p>
 <div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js">  
 <span class="token keyword">const</span> randomKey <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
@@ -248,13 +250,13 @@ input -> button -> Input … -> Todo -> App</p>
 <span class="token keyword">function</span> <span class="token function">updateFiberProps</span><span class="token punctuation">(</span><span class="token parameter">node<span class="token punctuation">,</span> props</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   node<span class="token punctuation">[</span>internalEventHandlersKey<span class="token punctuation">]</span> <span class="token operator">=</span> props
 <span class="token punctuation">}</span></code></pre></div>
-<h4 id="appendallchildren"><a href="#appendallchildren" aria-label="appendallchildren permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>appendAllChildren</h4>
-<p>일전에 설명드린 것 처럼 연결해 줄 것은 DOM 기준으로 ‘자식’ 호스트 컴포넌트의 element입니다.</p>
+<h4 id="appendallchildren"><a href="#appendallchildren" aria-label="appendallchildren permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>appendAllChildren()</h4>
+<p>fiber를 새로 생성하였다면 다음은 ‘DOM 기준’으로 자식 호스트 컴포넌트를 찾아 연결해주어야 합니다. </p>
 <anchor id="append_all_children"/>
 <p><a class="code_link_2" href="https://github.com/facebook/react/blob/v16.12.0/packages/react-reconciler/src/ReactFiberCompleteWork.js#L151" target="_blank">reconciler > ReactFiberCompleteWork.js</a></p>
 <div class="gatsby-highlight" data-language="js"><pre style="counter-reset: linenumber 0" class="language-js line-numbers"><code class="language-js">  
 <span class="token keyword">function</span> <span class="token function">appendAllChildren</span><span class="token punctuation">(</span><span class="token parameter">parent<span class="token punctuation">,</span> workInProgress</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token comment">// 자식 호스트 컴포넌트를 추려내기 위한 변수</span>
+  
   <span class="token keyword">let</span> node <span class="token operator">=</span> workInProgress<span class="token punctuation">.</span>child
 
   <span class="token keyword">while</span> <span class="token punctuation">(</span>node <span class="token operator">!==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -278,12 +280,12 @@ input -> button -> Input … -> Todo -> App</p>
       node <span class="token operator">=</span> node<span class="token punctuation">.</span>return
     <span class="token punctuation">}</span>
 
-    <span class="token comment">// 옆으로 이동한다.</span>
+    <span class="token comment">// 형제로 이동한다.</span>
     node<span class="token punctuation">.</span>sibling<span class="token punctuation">.</span>return <span class="token operator">=</span> node<span class="token punctuation">.</span>return
     node <span class="token operator">=</span> node<span class="token punctuation">.</span>sibling
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span></code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></div>
-<p>코드의 설명은 주석으로 대신하고 <a href="/react/in-depth-react-reconciler_1/#todo" target="_blank">Todo 예제</a>를 이용하여 appendAllChildren()의 알고리즘이 어떻게 동작하는지 다음의 이미지를 통해 확인해봅시다.</p>
+<p>코드 설명은 주석으로 대신하고 <a href="/react/in-depth-react-reconciler_1/#todo" target="_blank">Todo 예제</a>를 이용하여 appendAllChildren()의 알고리즘이 어떻게 동작하는지 확인해봅시다.</p>
 <blockquote>
 <p>appendAllChildren() 알고리즘의 커버리지를 위해 Todo 컴포넌트의 Fragment를 div로 변경합니다.</p>
 <div class="gatsby-highlight has-highlighted-lines" data-language="js"><pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">Todo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -293,10 +295,10 @@ input -> button -> Input … -> Todo -> App</p>
       <span class="token operator">&lt;</span>OrderList list<span class="token operator">=</span><span class="token punctuation">{</span>todos<span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">></span>
 <span class="gatsby-highlight-code-line">    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span></span>  <span class="token punctuation">)</span>
 <span class="token punctuation">}</span></code></pre></div>
-<p>다음의 이미지에서 Input 컴포넌트의 형제인 OrderList는 간략화를 위해 생략했음을 유의해주세요.</p>
+<p>다음 이미지에서 Input 컴포넌트의 형제인 OrderList는 간략화를 위해 생략했음을 유의해주세요.</p>
 </blockquote>
 <img src="/path/to/dir/b0bbf0943d606f5f1770404c6c550e7c/append_all_children.gif" width="100%">
-<h4 id="finalizeinitialchildren-markupdate"><a href="#finalizeinitialchildren-markupdate" aria-label="finalizeinitialchildren markupdate permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>finalizeInitialChildren, markUpdate</h4>
+<h4 id="finalizeinitialchildren-markupdate"><a href="#finalizeinitialchildren-markupdate" aria-label="finalizeinitialchildren markupdate permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>finalizeInitialChildren(), markUpdate()</h4>
 <p><a class="code_link_4" href="https://github.com/facebook/react/blob/v16.12.0/packages/react-dom/src/client/ReactDOMHostConfig.js#L258" target="_blank">react-dom > client > ReactDOMHostConfig.js</a></p>
 <div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js">  
 <span class="token keyword">function</span> <span class="token function">finalizeInitialChildren</span><span class="token punctuation">(</span>
@@ -371,13 +373,14 @@ input -> button -> Input … -> Todo -> App</p>
   <span class="token punctuation">)</span>
 <span class="token punctuation">}</span></code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></div>
 <blockquote>
-<p>코드 형식이 중복되는 태그들은 생략하였습니다.</p>
+<p>코드가 중복되지 않는 몇 개의 태그만 추렸습니다.</p>
 </blockquote>
-<p>이벤트 바인딩과 관련된 부분은 다음 포스트인 Synthetic Event에서 다루게 되므로 자세한 설명은 생략하고 간략하게나마 알려드리자면 <code class="language-text">trapBubbledEvent()</code>는 명시된 이벤트만 <strong>element</strong>에 바인딩하고 <code class="language-text">ensureListeningTo()</code>는 명시된 이벤트이외에도 해당 이벤트와 의존성을 가지고 있는 다른 이벤트들도 <strong>document</strong>에 이벤트 위임 형식으로 바인딩합니다. ex) <a href="https://github.com/facebook/react/blob/v16.12.0/packages/react-dom/src/events/ChangeEventPlugin.js#L33" target="_blank">onChange</a></p>
+<ul>
+<li>이벤트 바인딩과 관련된 부분은 다음 포스트인 Synthetic Event에서 다루게 되므로 자세한 설명은 생략하고 간략하게나마 알려드리자면 <code class="language-text">trapBubbledEvent()</code>는 <strong><U>명시된 이벤트만 element에 바인딩</u></strong>하고 <code class="language-text">ensureListeningTo()</code>는 <strong><u>명시된 이벤트이외에도 해당 이벤트와 의존성을 가지고 있는 이벤트를 document에 이벤트 위임 형식으로 바인딩</u></strong>합니다. ex) <a href="https://github.com/facebook/react/blob/v16.12.0/packages/react-dom/src/events/ChangeEventPlugin.js#L33" target="_blank">onChange</a></li>
+<li>
 <p><code class="language-text">ReactDOMInputInitWrapperState()</code><up>24</up> 와 <code class="language-text">ReactDOMInputGetHostProps()</code><up>25</up>는 리액트에서 input 태그를 다룸에 있어 기본적으로 필요한 속성들을 추가합니다.</p>
-<p><a class="code_link" href="https://github.com/facebook/react/blob/v16.12.0/packages/react-dom/src/client/ReactDOMInput.js#L73" target="_blank">react-dom > client > ReactDOMInput.js</a></p>
-<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js">  
-<span class="token comment">// ReactDOMInputInitWrapperState</span>
+<p><a class="code_link" href="https://github.com/facebook/react/blob/v16.12.0/packages/react-dom/src/client/ReactDOMInput.js#L73"    target="_blank">react-dom > client > ReactDOMInput.js</a></p>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token comment">// ReactDOMInputInitWrapperState</span>
 <span class="token keyword">function</span> <span class="token function">initWrapperState</span><span class="token punctuation">(</span><span class="token parameter">element<span class="token punctuation">:</span> Element<span class="token punctuation">,</span> props<span class="token punctuation">:</span> Object</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token keyword">const</span> node <span class="token operator">=</span> element
   <span class="token keyword">const</span> defaultValue <span class="token operator">=</span> props<span class="token punctuation">.</span>defaultValue <span class="token operator">==</span> <span class="token keyword">null</span> <span class="token operator">?</span> <span class="token string">''</span> <span class="token punctuation">:</span> props<span class="token punctuation">.</span>defaultValue
@@ -411,12 +414,12 @@ input -> button -> Input … -> Todo -> App</p>
 
   <span class="token keyword">return</span> hostProps
 <span class="token punctuation">}</span></code></pre></div>
-<p><code class="language-text">setInitialDOMProperties()</code><up>34</up>는 호스트 컴포넌트가 가지고 있는 props를 element에 적용시키는 함수입니다.<br>
-하지만 호스트 입장에서는 이렇게 넘어오는 props를 날것 그대로 사용할 수 없으므로 각 종류에 맞춰 가공처리가 필요합니다.<br>
-props가 가지고 있는 정보들을 분류해보자면 다음과 같습니다.  </p>
-<p>일반적인 값, style 그리고 리액트 전용의 event, children, dangerouslySetInnerHTML 등이 있습니다.  </p>
-<p><a class="code_link_2" href="https://github.com/facebook/react/blob/v16.12.0/packages/react-dom/src/client/ReactDOMComponent.js#L308" target="_blank">react-dom > client > ReactDOMComponent.js</a></p>
-<div class="gatsby-highlight" data-language="js"><pre style="counter-reset: linenumber 0" class="language-js line-numbers"><code class="language-js">  
+</li>
+<li>
+<p><code class="language-text">setInitialDOMProperties()</code><up>34</up>는 호스트 컴포넌트가 가지고 있는 props를 element에 적용하는 함수입니다.<br>
+하지만 호스트 입장에서는 이렇게 넘어오는 props를 날것 그대로 사용할 수 없으므로 각 종류에 맞춰 가공처리가 필요합니다.</p>
+<p><a class="code_link_2" href="https://github.com/facebook/react/blob/v16.12.0/packages/react-dom/src/client/   ReactDOMComponent.js#L308" target="_blank">react-dom > client > ReactDOMComponent.js</a></p>
+<div class="gatsby-highlight" data-language="js"><pre style="counter-reset: linenumber 0" class="language-js line-numbers"><code class="language-js">       
 <span class="token keyword">function</span> <span class="token function">setInitialDOMProperties</span><span class="token punctuation">(</span>
   <span class="token parameter">tag<span class="token punctuation">:</span> string<span class="token punctuation">,</span>
   domElement<span class="token punctuation">:</span> Element<span class="token punctuation">,</span>
@@ -453,13 +456,15 @@ props가 가지고 있는 정보들을 분류해보자면 다음과 같습니다
     <span class="token punctuation">}</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span></code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></div>
-<p><code class="language-text">registrationNameModules</code><up>29</up> 는 HTML 모든 이벤트를 on***의 형태로 가지고 있으며 이 또한 추후에 Synthetic Event에서 다룹니다.  </p>
-<p>props를 처리하는 함수들의 설명은 다음의 링크로 대체합니다.</p>
+<p><code class="language-text">registrationNameModules</code><up>29</up> 는 HTML 모든 이벤트를 on***의 형태로 가지고 있으며 이 또한 추후에 Synthetic Event에서     다룹니다.  </p>
+<p>props를 처리하는 함수들은 다음 링크를 통해 확인하세요.</p>
 <ul>
-<li><a href="https://github.com/facebook/react/blob/v16.12.0/packages/react-dom/src/shared/CSSPropertyOperations.js#L62" target="_blank">setValueForStyles</a></li>
-<li><a href="https://github.com/facebook/react/blob/v16.12.0/packages/react-dom/src/client/setInnerHTML.js#L26" target="_blank">setInnerHTML</a></li>
-<li><a href="https://github.com/facebook/react/blob/v16.12.0/packages/react-dom/src/client/setTextContent.js#L21" target="_blank">setTextContent</a></li>
-<li><a href="https://github.com/facebook/react/blob/v16.12.0/packages/react-dom/src/client/DOMPropertyOperations.js#L127" target="_blank">setValueForProperty</a></li>
+<li><a href="https://github.com/facebook/react/blob/v16.12.0/packages/react-dom/src/shared/CSSPropertyOperations.js#L62"    target="_blank">setValueForStyles</a></li>
+<li><a href="https://github.com/facebook/react/blob/v16.12.0/packages/react-dom/src/client/setInnerHTML.js#L26"     target="_blank">setInnerHTML</a></li>
+<li><a href="https://github.com/facebook/react/blob/v16.12.0/packages/react-dom/src/client/setTextContent.js#L21"     target="_blank">setTextContent</a></li>
+<li><a href="https://github.com/facebook/react/blob/v16.12.0/packages/react-dom/src/client/DOMPropertyOperations.js#L127"     target="_blank">setValueForProperty</a></li>
+</ul>
+</li>
 </ul>
 <p>다음은 기존 current를 재사용 했을 때 current와 workInProgress 사이의 변경점을 찾아 어떻게 HTML element에 적용하는지 알아보겠습니다.</p>
 <h3 id="2-html-element-업데이트"><a href="#2-html-element-%EC%97%85%EB%8D%B0%EC%9D%B4%ED%8A%B8" aria-label="2 html element 업데이트 permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2) HTML element 업데이트</h3>
@@ -473,7 +478,7 @@ props가 가지고 있는 정보들을 분류해보자면 다음과 같습니다
       <span class="token comment">// var rootContainerInstance = getRootHostContainer();</span>
       <span class="token comment">// const type = workInProgress.type;</span>
       <span class="token keyword">if</span> <span class="token punctuation">(</span>current <span class="token operator">!==</span> <span class="token keyword">null</span> <span class="token operator">&amp;&amp;</span> workInProgress<span class="token punctuation">.</span>stateNode <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token comment">// 업데이트</span>
+        <span class="token comment">// element 업데이트</span>
         <span class="token function">updateHostComponent</span><span class="token punctuation">(</span>
           current<span class="token punctuation">,</span>
           workInProgress<span class="token punctuation">,</span>
@@ -482,16 +487,20 @@ props가 가지고 있는 정보들을 분류해보자면 다음과 같습니다
           rootContainerInstance<span class="token punctuation">,</span>
         <span class="token punctuation">)</span><span class="token punctuation">;</span>
       <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
-        <span class="token comment">// element 생성</span>
-        <span class="token comment">// let instance = createInstance(...);</span>
-        <span class="token comment">// appendAllChildren(instance, ...);</span>
-        <span class="token comment">/*...*/</span>
+        <span class="token comment">/*
+        element 생성
+        let instance = createInstance(...);
+        appendAllChildren(instance, ...);
+        ...
+        */</span>  
     <span class="token punctuation">}</span>
     <span class="token comment">/*...*/</span>
   <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></div>
-<p><code class="language-text">updateHostComponent()</code>는 current와 workInProgress 사이의 차이점을 찾아내 Commit phase에서 소비할 수 있도록 가공해놓습니다. 실질적으로 props가 element에 반영되는 시점은 Commit phase 입니다.</p>
-<p><a class="code_link_2" href="https://github.com/facebook/react/blob/v16.12.0/packages/react-reconciler/src/ReactFiberCompleteWork.js#L191" target="_blank">reconciler > ReactFiberCompleteWork.js</a></p>
+<span class="token punctuation">}</span></code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></div>
+<ul>
+<li><code class="language-text">updateHostComponent()</code><up>11</up>는 current와 workInProgress 사이의 차이점을 찾아내 Commit phase에서 소비할 수 있도록 가공해놓습니다. 실질적으로 <strong><u>props가 element에 반영되는 시점은 Commit phase</u></strong> 입니다.</li>
+</ul>
+<p><a class="code_link_5" href="https://github.com/facebook/react/blob/v16.12.0/packages/react-reconciler/src/ReactFiberCompleteWork.js#L191" target="_blank">reconciler > ReactFiberCompleteWork.js</a></p>
 <div class="gatsby-highlight" data-language="js"><pre style="counter-reset: linenumber 0" class="language-js line-numbers"><code class="language-js">  
 <span class="token keyword">function</span> <span class="token function">updateHostComponent</span><span class="token punctuation">(</span>
   <span class="token parameter">current<span class="token punctuation">:</span> Fiber<span class="token punctuation">,</span>
@@ -519,10 +528,12 @@ props가 가지고 있는 정보들을 분류해보자면 다음과 같습니다
     <span class="token function">markUpdate</span><span class="token punctuation">(</span>workInProgress<span class="token punctuation">)</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span></code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></div>
-<p><code class="language-text">prepareUpdate()</code>는 변경점을 찾아 가공된 데이터를 반환<up>16</up>합니다. 여기에는 추가, 수정, 삭제 해야 될 속성들이 담겨있습니다.<br>
-이것을 workInProgress의 <code class="language-text">updateQueue</code>에 담아<up>23</up>놓습니다. 일전에도 updateQueue를 다룬적이 있습니다. 그때는 커스텀 컴포넌트의 updateQueue였으며 라이프 사이클 hook의 정보가 저장된다고 언급했습니다.</p>
-<p>그리고 <code class="language-text">updatePayload</code>가 비어 있지 않다면<up>24</up> Commit phase에서 element를 수정해야 하므로 Update tag를 달아줍니다.<up>25</up></p>
-<p><a class="code_link" href="https://github.com/facebook/react/blob/v16.12.0/packages/react-dom/src/client/ReactDOMHostConfig.js#L269" target="_blank">react-dom > client > ReactDOMHostConfig.js</a></p>
+<ul>
+<li><code class="language-text">prepareUpdate()</code>는 변경점을 찾아 가공된 데이터를 반환<up>16</up>합니다. 여기에는 추가, 수정, 삭제 해야 될 속성들이 담겨있습니다.  </li>
+<li>이것을 workInProgress의 <code class="language-text">updateQueue</code>에 담아<up>23</up>놓습니다. 일전에도 updateQueue를 다룬적이 있습니다. 그때는 커스텀 컴포넌트의 updateQueue였으며 라이프 사이클 hook 정보가 저장된다고 언급했습니다.</li>
+<li>그리고 <code class="language-text">updatePayload</code>가 비어 있지 않다면<up>24</up> Commit phase에서 element를 수정해야 하므로 Update tag를 달아<up>25</up>줍니다.</li>
+</ul>
+<p><a class="code_link_4" href="https://github.com/facebook/react/blob/v16.12.0/packages/react-dom/src/client/ReactDOMHostConfig.js#L269" target="_blank">react-dom > client > ReactDOMHostConfig.js</a></p>
 <div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js">  
 <span class="token keyword">function</span> <span class="token function">prepareUpdate</span><span class="token punctuation">(</span>
   <span class="token parameter">domElement<span class="token punctuation">:</span> Instance<span class="token punctuation">,</span>
@@ -540,13 +551,12 @@ props가 가지고 있는 정보들을 분류해보자면 다음과 같습니다
     rootContainerInstance
   <span class="token punctuation">)</span>
 <span class="token punctuation">}</span></code></pre></div>
-<p>변경점을 추출할 때는 다음의 두 단계로 나누어 처리합니다. 그래야 O(n)으로 처리(<down>style 제외</down>)할 수 있습니다.</p>
+<p>변경점을 추출할 때는 다음의 두 단계로 나누어 처리합니다(<down>style 제외</down>). 그래야 O(n)으로 처리할 수 있습니다.</p>
 <ul>
 <li>삭제: current를 기준으로 workInProgress에 없다면 삭제이다.</li>
 <li>추가, 수정: workInProgress를 기준으로 current에 없다면 추가, 값이 다르다면 수정이다.</li>
 </ul>
-<p>즉 current, workInProgress기준으로 각각 한번의 반복을 통해 처리합니다.<br>
-이때 style만은 유일하게 추가, 수정, 삭제가 모두 한번에 일어날 수 있는 속성이므로 다른 속성들과는 조금 다르게 처리합니다.</p>
+<p>즉 current, workInProgress 기준으로 각각 한번의 전진으로 처리합니다. 이때 style만은 유일하게 추가, 수정, 삭제가 모두 한번에 일어날 수 있으므로 다른 속성들과는 조금 다르게 처리합니다.</p>
 <p><a class="code_link" href="https://github.com/facebook/react/blob/v16.12.0/packages/react-dom/src/client/ReactDOMComponent.js#L643" target="_blank">react-dom > client > ReactDOMComponent.js</a></p>
 <div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js">  
 <span class="token keyword">function</span> <span class="token function">diffProperties</span><span class="token punctuation">(</span>
@@ -690,11 +700,10 @@ props가 가지고 있는 정보들을 분류해보자면 다음과 같습니다
   <span class="token keyword">return</span> updatePayload
 <span class="token punctuation">}</span></code></pre></div>
 <p>completeWork()의 첫 번째 역할인 호스트 영역에 대한 작업(<down>element 생성과 업데이트</down>)을 보았습니다.<br>
-다음은 side-effect를 가지고 있는 fiber를 effect list로 연결하는 두번 째 역할을 보도록 하겠습니다.</p>
-<h3 id="3-effect-list-연결"><a href="#3-effect-list-%EC%97%B0%EA%B2%B0" aria-label="3 effect list 연결 permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3) effect list 연결</h3>
-<p><strong>Work</strong>를 진행하며 발생한 VDOM에 산재되어 있는 side-effect을 어떻게 하면 Commit phase에서 편하게 사용할 수 있을까요?<br>
-그냥 host root부터 시작해서 밑으로 내려가며 effect를 소비하면 될까요?</p>
-<p>다행히도 effect를 수거해갈 타이밍이 있습니다. 일전에 언급한 <a href="#processing_order">Work 마무리 순서</a>를 생각해보시면 됩니다. 후위 순회이기 때문에 어쨋든 host root로 되돌아가게 됩니다. 이때 우리는 effect가 발생한 fiber을 위로 엮어주기만 하면 됩니다. 이렇게 되면 최종적으로 host root는 side-effect가 발생한 fiber들을 모두 가지고 있게 되므로 Commit phase에서는 root만 참조할 수 있으면 됩니다.</p>
+다음은 side-effect를 가지고 있는 fiber를 Effect list로 연결하는 두번 째 역할을 보도록 하겠습니다.</p>
+<h2 id="6---9-effect-list-연결"><a href="#6---9-effect-list-%EC%97%B0%EA%B2%B0" aria-label="6   9 effect list 연결 permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>6 - 9 Effect list 연결</h2>
+<p><strong>Work</strong>를 진행하며 발생한 VDOM에 산재되어 있는 side-effect을 어떻게 하면 Commit phase에서 편하게 사용할 수 있을까요? 그냥 Host root부터 시작해서 밑으로 내려가며 Effect를 소비하면 될까요?</p>
+<p>다행히도 Effect를 쉽게 수거해 갈 타이밍이 있습니다. 일전에 언급한 <a href="#processing_order">Work 마무리 순서</a>를 생각해보시면 됩니다. 후위 순회이기 때문에 Host root로 되돌아가는데 이때 우리는 Effect만 위로 엮어주기만 하면 됩니다. 이렇게 되면 최종적으로 Host root는 side-effect가 발생한 fiber들이 모두 엮여있는 리스트의 head를 가지고 있게 됩니다. 이제 Commit phase에서는 root만 참조할 수 있으면 됩니다.</p>
 <p><a class="code_link" href="https://github.com/facebook/react/blob/v16.12.0/packages/react-reconciler/src/ReactFiberWorkLoop.js#L1498" target="_blank">reconciler > ReactFiberWorkLoop.js</a></p>
 <div class="gatsby-highlight has-highlighted-lines" data-language="js"><pre class="language-js"><code class="language-js">  
 <span class="token keyword">function</span> <span class="token function">completeUnitOfWork</span><span class="token punctuation">(</span><span class="token parameter">unitOfWork<span class="token punctuation">:</span> Fiber</span><span class="token punctuation">)</span><span class="token punctuation">:</span> Fiber <span class="token operator">|</span> <span class="token keyword">null</span> <span class="token punctuation">{</span>
@@ -722,9 +731,9 @@ props가 가지고 있는 정보들을 분류해보자면 다음과 같습니다
         <span class="token punctuation">}</span>
         returnFiber<span class="token punctuation">.</span>lastEffect <span class="token operator">=</span> workInProgress<span class="token punctuation">.</span>lastEffect
       <span class="token punctuation">}</span>
-<span class="gatsby-highlight-code-line">      <span class="token comment">// 자신도 side-effect를 품고 있다면 부모 list에 연결한다.</span></span>      <span class="token keyword">const</span> effectTag <span class="token operator">=</span> workInProgress<span class="token punctuation">.</span>effectTag
-      <span class="token keyword">if</span> <span class="token punctuation">(</span>effectTag <span class="token operator">></span> PerformedWork<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>returnFiber<span class="token punctuation">.</span>lastEffect <span class="token operator">!==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token comment">// 자신도 side-effect를 품고 있다면 부모 list에 연결한다.</span>
+      <span class="token keyword">const</span> effectTag <span class="token operator">=</span> workInProgress<span class="token punctuation">.</span>effectTag
+<span class="gatsby-highlight-code-line">      <span class="token keyword">if</span> <span class="token punctuation">(</span>effectTag <span class="token operator">></span> PerformedWork<span class="token punctuation">)</span> <span class="token punctuation">{</span></span>        <span class="token keyword">if</span> <span class="token punctuation">(</span>returnFiber<span class="token punctuation">.</span>lastEffect <span class="token operator">!==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
           returnFiber<span class="token punctuation">.</span>lastEffect<span class="token punctuation">.</span>nextEffect <span class="token operator">=</span> workInProgress
         <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
           returnFiber<span class="token punctuation">.</span>firstEffect <span class="token operator">=</span> workInProgress
@@ -734,7 +743,7 @@ props가 가지고 있는 정보들을 분류해보자면 다음과 같습니다
     <span class="token punctuation">}</span>
   <span class="token comment">/*
   } else {
-  부모의 서브트리에서 Work를 진행하던 중 에러가 발생한 경우.
+    부모의 서브트리에서 Work를 진행하던 중 에러가 발생한 경우.
   }
 
   const siblingFiber = workInProgress.sibling
@@ -748,38 +757,22 @@ props가 가지고 있는 정보들을 분류해보자면 다음과 같습니다
   return null
   */</span>
 <span class="token punctuation">}</span></code></pre></div>
-<p>하이라이트 코드만 설명하고 넘어가겠습다.<br>
-기억 안나실 수 있지만 <code class="language-text">PerformedWork</code>는 <a href="/react/in-depth-react-reconciler_2/#updateFunctionComponent" target="_blank">updateFunctionComponent()</a>에서 커스텀 컴포넌트를 호출한 후에 달아주었습니다. 부등호를 보면 커스텀 컴포넌트의 호출을 제외한 나머지 side-effect가 발생한다면 자신을 effect로 간주하고 위로 올린다라고 해석하시면 되겠습니다.</p>
+<ul>
+<li>
+<p>하이라이트 코드만 설명하고 넘어가겠습니다.  </p>
+<p>기억 안나실 수 있지만 <code class="language-text">PerformedWork</code> tag는 <a href="/react/in-depth-react-reconciler_2/#updateFunctionComponent"       target="_blank">updateFunctionComponent()<up>4</up></a>에서 커스텀 컴포넌트를 호출한 후에 달아주었습니다. 부등호(<down>></down>)를 통해 짐작해보자면 커스텀 컴포넌트의 호출 이외에 side-effect가 발생한다면 자신을 Effect로 간주하고 위로 올린다고      해석하시면 되겠습니다.</p>
 <blockquote>
-<p>effect tag</p>
-<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token comment">// 주소</span>
+<p><a href="https://github.com/facebook/react/blob/v16.12.0/packages/shared/ReactSideEffectTags.js#L13" target="_blank"    class="code_link">shared > ReactSideEffectTags.js</a></p>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js">  
 <span class="token keyword">export</span> <span class="token keyword">const</span> NoEffect <span class="token operator">=</span> <span class="token comment">/*              */</span> <span class="token number">0b0000000000000</span>
-<span class="token keyword">export</span> <span class="token keyword">const</span> PerformedWork <span class="token operator">=</span> <span class="token comment">/*     */</span> <span class="token number">0b0000000000001</span>
-<span class="token keyword">export</span> <span class="token keyword">const</span> Placement <span class="token operator">=</span> <span class="token comment">/*            */</span> <span class="token number">0b0000000000010</span>
+<span class="token keyword">export</span> <span class="token keyword">const</span> PerformedWork <span class="token operator">=</span> <span class="token comment">/*         */</span> <span class="token number">0b0000000000001</span>
+<span class="token keyword">export</span> <span class="token keyword">const</span> Placement <span class="token operator">=</span> <span class="token comment">/*             */</span> <span class="token number">0b0000000000010</span>
 <span class="token keyword">export</span> <span class="token keyword">const</span> Update <span class="token operator">=</span> <span class="token comment">/*                */</span> <span class="token number">0b0000000000100</span>
 <span class="token comment">/*...*/</span></code></pre></div>
 </blockquote>
-<p>이번에도 마찬가지로 이미지를 통해 함수의 호출부터 tag가 어떤 순서로 달리고 effect가 어떻게 host root까지 전달되는지 확인해봅시다.</p>
-<blockquote>
-<p>effect list 연결 로직의 커버리지를 위해 useEffect를 Input 컴포넌트에 추가합니다.</p>
-<div class="gatsby-highlight has-highlighted-lines" data-language="jsx"><pre class="language-jsx"><code class="language-jsx"><span class="token keyword">function</span> <span class="token function">Input</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> submit <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token keyword">const</span> <span class="token punctuation">[</span>value<span class="token punctuation">,</span> setValue<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">)</span>
-
-<span class="gatsby-highlight-code-line">  <span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span></span><span class="gatsby-highlight-code-line">    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Deep dive magic code'</span><span class="token punctuation">)</span></span><span class="gatsby-highlight-code-line">  <span class="token punctuation">}</span><span class="token punctuation">)</span></span>
-  <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token operator">...</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span></code></pre></div>
-</blockquote>
-<anchor id="effect_list" />
-<blockquote>
-<p>아래의 이미지는 Input 컴포넌트에서 사용자가 타이핑 했다고 가정하고 그 이후의 흐름을 보여주고 있는 것입니다.</p>
-</blockquote>
-<img src="/path/to/dir/d978a8fa3dc9fecda1104272ca46ab9e/effect_list.gif" width="100%">
-<p>Render phase를 거치고 나면 Root<up>host root</up>는 firstEffect로 input을 lastEffect로 Input 가지고 있게 됩니다.<br>
-이제 Commit phase에서 host root의 firstEffect 참조만을 통해 모든 변경점들을 알 수 있게 되었습니다.</p>
-<blockquote>
-<p>호스트 컴포넌트의 tag 4는 Update(<down>props 변경</down>) tag, Input 컴포넌트의 tag 517은 Passive(<down>useEffect</down>) + Update(<down>useState 상태 변경</down>) + PerformedWork tag를 나타냅니다.</p>
-</blockquote>
-<p>host root까지 올라왔다면 더 이상의 <strong>Work</strong>를 진행할 노드가 남아 있지 않으므로 자연스레 workLoop()의 반복은 중단될 것입니다.</p>
+</li>
+</ul>
+<p>completeUnitOfWork()를 통해 Host root까지 올라왔다면 더 이상의 <strong>Work</strong>를 진행할 노드가 남아 있지 않으므로 자연스레 workLoop()의 반복은 중단될 것입니다.</p>
 <div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">workLoopSync</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token keyword">while</span> <span class="token punctuation">(</span>workInProgress <span class="token operator">!==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     workInProgress <span class="token operator">=</span> <span class="token function">performUnitOfWork</span><span class="token punctuation">(</span>workInProgress<span class="token punctuation">)</span>
@@ -810,7 +803,26 @@ props가 가지고 있는 정보들을 분류해보자면 다음과 같습니다
   <span class="token keyword">return</span> <span class="token keyword">null</span> <span class="token comment">// 잔여 작업이 없으므로 null을 리턴.</span>
 <span class="token punctuation">}</span></code></pre></div>
 <p>이전 context로 다시 설정해줌으로써 Render phase가 끝나게 됩니다.</p>
-<p>다음 포스트는 완성된 workInProgress tree를 Commit phase를 통해 DOM에 적용해보면서 <strong>reconciler</strong> 시리즈를 마무리할 것입니다. </p></div><hr class="custom-hr"/><div class="bio"><div class="author"><div class="author-description"><a class="link" href="/"><img class="author-image" src="/static/felog-f24356c48475809626ea0c2ac67855c6.png" alt="Goidle" style="width:72px;height:79px"/></a><div class="author-name"><div><a class="author-name-content"><div><svg class="bio_fontaswesome" width="1em" display="inline-block" font-size="inherit" height="1em" overflow="visible" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg> <!-- -->Goidle<!-- --> <svg class="bio_fontaswesome" width="1.25em" display="inline-block" font-size="inherit" height="1em" overflow="visible" viewBox="0 0 640 512"><path d="M96 224c35.3 0 64-28.7 64-64s-28.7-64-64-64-64 28.7-64 64 28.7 64 64 64zm448 0c35.3 0 64-28.7 64-64s-28.7-64-64-64-64 28.7-64 64 28.7 64 64 64zm32 32h-64c-17.6 0-33.5 7.1-45.1 18.6 40.3 22.1 68.9 62 75.1 109.4h66c17.7 0 32-14.3 32-32v-32c0-35.3-28.7-64-64-64zm-256 0c61.9 0 112-50.1 112-112S381.9 32 320 32 208 82.1 208 144s50.1 112 112 112zm76.8 32h-8.3c-20.8 10-43.9 16-68.5 16s-47.6-6-68.5-16h-8.3C179.6 288 128 339.6 128 403.2V432c0 26.5 21.5 48 48 48h288c26.5 0 48-21.5 48-48v-28.8c0-63.6-51.6-115.2-115.2-115.2zm-223.7-13.4C161.5 263.1 145.6 256 128 256H64c-35.3 0-64 28.7-64 64v32c0 17.7 14.3 32 32 32h65.9c6.3-47.4 34.9-87.3 75.2-109.4z"></path></svg> TMON</div></a></div><div class="author-introduction">오픈소스를 톺아보며 매직 코드라 생각했던 부분들의 동작 원리와 의미, 의도를 파악해보고 서로의 생각을 나누기 위한 블로그</div></div></div></div></div><ul class="navigator"><li class="left_navi"><a rel="prev" href="/react/in-depth-react-reconciler_3/">← <!-- -->React 톺아보기 - 05. Reconciler_3</a></li><li class="right_navi"><a rel="next" href="/react/in-depth-react-reconciler_5/">React 톺아보기 - 05. Reconciler_5<!-- --> →</a></li></ul><div class="utterences"></div><footer class="footer">©<a href="https://github.com/JaeYeopHan">Goidle</a>, Built with<!-- --> <a href="https://github.com/JaeYeopHan/gatsby-starter-bee">Gatsby-starter-bee</a></footer></div></div></div><script>
+<p>이번에도 마찬가지로 Todo를 통해 컴포넌트의 호출부터 side-effect tag가 어떤 순서로 달리고 Effect가 어떻게 Host root까지 전달되는지 확인해봅시다.</p>
+<blockquote>
+<p>Effect list 연결 로직의 커버리지를 위해 useEffect를 Input 컴포넌트에 추가합니다.</p>
+<div class="gatsby-highlight has-highlighted-lines" data-language="jsx"><pre class="language-jsx"><code class="language-jsx"><span class="token keyword">function</span> <span class="token function">Input</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> submit <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token punctuation">[</span>value<span class="token punctuation">,</span> setValue<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">)</span>
+
+<span class="gatsby-highlight-code-line">  <span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span></span><span class="gatsby-highlight-code-line">    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Deep dive magic code'</span><span class="token punctuation">)</span></span><span class="gatsby-highlight-code-line">  <span class="token punctuation">}</span><span class="token punctuation">)</span></span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token operator">...</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+</blockquote>
+<anchor id="effect_list" />
+<figure>
+  <img src="/path/to/dir/d978a8fa3dc9fecda1104272ca46ab9e/effect_list.gif" width="100%">
+  <figcaption>Input &#xCEF4;&#xD3EC;&#xB10C;&#xD2B8;&#xC5D0;&#xC11C; &#xD0C0;&#xC774;&#xD551;&#xC774; &#xBC1C;&#xC0DD;&#xD55C; &#xC774;&#xD6C4; completeUnitOfWork()&#xC758; &#xD750;&#xB984;</figcaption>
+</figure>
+<p>Render phase를 거치고 나면 Host root는 Effect 리스트의 head를 가지고 있게 됩니다. 이제 Commit phase에서 Host root의 firstEffect 참조를 통해 모든 변경점에 접근할 수 있게 되었습니다.</p>
+<blockquote>
+<p>호스트 컴포넌트의 tag 4는 Update(<down>props 변경</down>), Input 컴포넌트의 tag 517은 Passive(<down>useEffect</down>) + Update(<down>useState 상태 변경</down>) + PerformedWork 나타냅니다.</p>
+</blockquote>
+<p>다음 포스트는 Render phase를 진행하며 발생한 Effect을 Commit phase에서 어떻게 소비하는지, 라이프 사이클은 어느 시점에 동작하는지 등을 확인하며  <strong>reconciler</strong> 시리즈를 마무리합니다.</p></div><hr class="custom-hr"/><div class="bio"><div class="author"><div class="author-description"><a class="link" href="/"><img class="author-image" src="/static/felog-f24356c48475809626ea0c2ac67855c6.png" alt="Goidle" style="width:72px;height:79px"/></a><div class="author-name"><div><a class="author-name-content"><div><svg class="bio_fontaswesome" width="1em" display="inline-block" font-size="inherit" height="1em" overflow="visible" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg> <!-- -->Goidle<!-- --> <svg class="bio_fontaswesome" width="1.25em" display="inline-block" font-size="inherit" height="1em" overflow="visible" viewBox="0 0 640 512"><path d="M96 224c35.3 0 64-28.7 64-64s-28.7-64-64-64-64 28.7-64 64 28.7 64 64 64zm448 0c35.3 0 64-28.7 64-64s-28.7-64-64-64-64 28.7-64 64 28.7 64 64 64zm32 32h-64c-17.6 0-33.5 7.1-45.1 18.6 40.3 22.1 68.9 62 75.1 109.4h66c17.7 0 32-14.3 32-32v-32c0-35.3-28.7-64-64-64zm-256 0c61.9 0 112-50.1 112-112S381.9 32 320 32 208 82.1 208 144s50.1 112 112 112zm76.8 32h-8.3c-20.8 10-43.9 16-68.5 16s-47.6-6-68.5-16h-8.3C179.6 288 128 339.6 128 403.2V432c0 26.5 21.5 48 48 48h288c26.5 0 48-21.5 48-48v-28.8c0-63.6-51.6-115.2-115.2-115.2zm-223.7-13.4C161.5 263.1 145.6 256 128 256H64c-35.3 0-64 28.7-64 64v32c0 17.7 14.3 32 32 32h65.9c6.3-47.4 34.9-87.3 75.2-109.4z"></path></svg> TMON</div></a></div><div class="author-introduction">오픈소스를 톺아보며 매직 코드라 생각했던 부분들의 동작 원리와 의미, 의도를 파악해보고 서로의 생각을 나누기 위한 블로그</div></div></div></div></div><ul class="navigator"><li class="left_navi"><a rel="prev" href="/react/in-depth-react-reconciler_3/">← <!-- -->React 톺아보기 - 05. Reconciler_3</a></li><li class="right_navi"><a rel="next" href="/react/in-depth-react-reconciler_5/">React 톺아보기 - 05. Reconciler_5<!-- --> →</a></li></ul><div class="utterences"></div><footer class="footer">©<a href="https://github.com/JaeYeopHan">Goidle</a>, Built with<!-- --> <a href="https://github.com/JaeYeopHan/gatsby-starter-bee">Gatsby-starter-bee</a></footer></div></div></div><script>
   
   
   if(true) {
