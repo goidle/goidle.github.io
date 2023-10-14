@@ -78,7 +78,7 @@
 <h2 id="1---1-hook의-구현체는-어디에-있을까" style="position:relative;"><a href="#1---1-hook%EC%9D%98-%EA%B5%AC%ED%98%84%EC%B2%B4%EB%8A%94-%EC%96%B4%EB%94%94%EC%97%90-%EC%9E%88%EC%9D%84%EA%B9%8C" aria-label="1   1 hook의 구현체는 어디에 있을까 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1 - 1 Hook의 구현체는 어디에 있을까?</h2>
 <p>분석을 시작하기 가장 좋은 방법은 분석할 함수를 어디서 어떻게 가져오는지 먼저 확인하는 것입니다.</p>
 <p><a class="code_link" href="https://github.com/facebook/react/blob/v16.12.0/packages/react/src/React.js#L66" target="_blank">react > React.js</a></p>
-<div class="gatsby-highlight has-highlighted-lines" data-language="js"><pre class="language-js"><code class="language-js">  
+<div class="gatsby-highlight has-highlighted-lines" data-language="js"><pre class="language-js"><code class="language-js">  ‎
 <span class="gatsby-highlight-code-line"><span class="token keyword">import</span> <span class="token punctuation">{</span> useState<span class="token punctuation">,</span> useEffect<span class="token punctuation">,</span> <span class="token operator">...</span> <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./ReactHooks'</span></span><span class="token keyword">import</span> ReactSharedInternals <span class="token keyword">from</span> <span class="token string">'./ReactSharedInternals'</span> <span class="token comment">// 의존성을 주입받는 징검다리</span>
 
 <span class="token keyword">const</span> React <span class="token operator">=</span> <span class="token punctuation">{</span>
@@ -91,7 +91,7 @@
 <span class="token keyword">export</span> <span class="token keyword">default</span> React</code></pre></div>
 <p>개발자가 코어를 통해 가져오는 훅은 <code class="language-text">ReactHooks.js</code> 모듈에서 가져오고 있습니다.</p>
 <p><a class="code_link" href="https://github.com/facebook/react/blob/v16.12.0/packages/react/src/ReactHooks.js#L21" target="_blank">react > ReactHooks.js</a></p>
-<div class="gatsby-highlight has-highlighted-lines" data-language="js"><pre class="language-js"><code class="language-js">  
+<div class="gatsby-highlight has-highlighted-lines" data-language="js"><pre class="language-js"><code class="language-js">  ‎
 <span class="token keyword">import</span> ReactCurrentDispatcher <span class="token keyword">from</span> <span class="token string">'./ReactCurrentDispatcher'</span>
 
 <span class="token keyword">function</span> <span class="token function">resolveDispatcher</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -111,7 +111,7 @@
 <p>우리가 사용하는 훅은 <code class="language-text">ReactCurrentDispatcher.js</code> 모듈에서 가지고온 <code class="language-text">dispatcher</code>의 메소드 였네요.<br>
 함수를 호출해 반환받은 결괏값을 사용하는 모습이 꼭 동적 바인딩을 위한 패턴 같습니다. 아직 원하는 결과를 얻지 못했으니 의심가는 <code class="language-text">ReactCurrentDispatcher.current</code>를 따라가보겠습니다.</p>
 <p><a class="code_link" href="https://github.com/facebook/react/blob/v16.12.0/packages/react/src/ReactCurrentDispatcher.js#L15" target="_blank">react > ReactCurrentDispatcher.js</a></p>
-<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js">  
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js">  ‎
 <span class="token keyword">const</span> ReactCurrentDispatcher <span class="token operator">=</span> <span class="token punctuation">{</span>
   <span class="token literal-property property">current</span><span class="token operator">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
 <span class="token punctuation">}</span>
@@ -120,13 +120,13 @@
 <p>아무것도 없습니다.. 그냥 객체 하나가 끝입니다.</p>
 <p>코어와 훅 사이의 관계에 대해서 좀만 더 생각해보자면 코어는 컴포넌트의 모델인 React element만 알고 있습니다. 이 element를 인스턴스화되기 전인 클래스라고 생각해보자면 훅은 이 클래스의 인스턴스화된 객체의 상태 값을 관리하는 역할을 합니다. 이렇게 따져보면 둘 사이의 괴리감이 존재합니다.</p>
 <p>React element는 fiber로 확장되고 나서야 살아 숨 쉬게 됩니다. 그리고 이 역할은 <strong>reconciler</strong>가 가지고 있습니다. 그러므로 훅 또한 <strong>reconciler</strong>가 알고 있는 것이 맞습니다.</p>
-<p>근데 위 리액트 코어를 보면 어디에도 <strong>reconciler</strong>에서 훅을 가져오는 부분을 확인하지 못했습니다. 그렇다는 말은 반대로 훅 객체를 외부에서 내부로 ReactCurrentDispatcher.current를 통해 주입해준다는 말이 됩니다.  </p>
+<p>근데 위 리액트 코어를 보면 어디에도 <strong>reconciler</strong>에서 훅을 가져오는 부분을 확인하지 못했습니다. 그렇다는 말은 반대로 훅 객체를 외부에서 내부로 ReactCurrentDispatcher.current를 통해 주입해준다는 말이 됩니다.</p>
 <p>이렇듯 코어는 다른 패키지의 기능을 개발자에게 제공해 줄 때 의존성을 자기가 만들지 않고 외부에서 주입 받습니다. 스프링의 DI(Dependency Injection) 처럼요.</p>
 <p>그리고 한발 더 나아가 리액트는 외부에서 의존성을 주입할 때 코어에 직접 주입하지 않습니다. 중간자를 하나 더 두게 되는데 코어에서는 ReactSharedInternals.js가 이에 해당하고 리액트 프로젝트 전체로 보면 shared라는 패키지가 이 역할을 합니다.</p>
 <h3 id="1-의존성을-관리하는-reactsharedinternalsjs와-shared-패키지" style="position:relative;"><a href="#1-%EC%9D%98%EC%A1%B4%EC%84%B1%EC%9D%84-%EA%B4%80%EB%A6%AC%ED%95%98%EB%8A%94-reactsharedinternalsjs%EC%99%80-shared-%ED%8C%A8%ED%82%A4%EC%A7%80" aria-label="1 의존성을 관리하는 reactsharedinternalsjs와 shared 패키지 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1) 의존성을 관리하는 ReactSharedInternals.js와 shared 패키지</h3>
 <p>먼저 ReactSharedInternals.js는 외부에서 주입받길 기다리는 모듈들의 대기소 같은 곳입니다. <code class="language-text">ReactCurrentDispatcher</code> 또한 여기에서 훅을 주입받길 기다리고 있습니다.</p>
 <p><a class="code_link" href="https://github.com/facebook/react/blob/v16.12.0/packages/react/src/ReactSharedInternals.js" target="_blank">react > ReactSharedInternals.js</a></p>
-<div class="gatsby-highlight has-highlighted-lines" data-language="js"><pre class="language-js"><code class="language-js">  
+<div class="gatsby-highlight has-highlighted-lines" data-language="js"><pre class="language-js"><code class="language-js">  ‎
 <span class="gatsby-highlight-code-line"><span class="token keyword">import</span> ReactCurrentDispatcher <span class="token keyword">from</span> <span class="token string">'./ReactCurrentDispatcher'</span></span><span class="token keyword">import</span> ReactCurrentBatchConfig <span class="token keyword">from</span> <span class="token string">'./ReactCurrentBatchConfig'</span>
 <span class="token keyword">import</span> ReactCurrentOwner <span class="token keyword">from</span> <span class="token string">'./ReactCurrentOwner'</span>
 <span class="token comment">/*...*/</span>
@@ -138,12 +138,12 @@
 <span class="token punctuation">}</span>
 
 <span class="token keyword">export</span> <span class="token keyword">default</span> ReactSharedInternals</code></pre></div>
-<p>shared는 모든 패키지가 공유하는 공통 폴더의 역할을 합니다. 그 중 코어의 출입구 역할을 하는 모듈이 shared의 ReactSharedInternals.js입니다. <strong>reconciler</strong> 역시 훅을 주입할 때 Shared 패키지를 통해서 동적으로 구현체를 주입합니다. </p>
+<p>shared는 모든 패키지가 공유하는 공통 폴더의 역할을 합니다. 그 중 코어의 출입구 역할을 하는 모듈이 shared의 ReactSharedInternals.js입니다. <strong>reconciler</strong> 역시 훅을 주입할 때 Shared 패키지를 통해서 동적으로 구현체를 주입합니다.</p>
 <blockquote>
 <p>코어 모듈의 ReactSharedInternals.js와 이름이 같음을 유의하세요.</p>
 </blockquote>
 <p><a class="code_link" href="https://github.com/facebook/react/blob/v16.12.0/packages/shared/ReactSharedInternals.js#L10" target="_blank">shared > ReactSharedInternals.js</a></p>
-<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js">  
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js">  ‎
 <span class="token keyword">import</span> React <span class="token keyword">from</span> <span class="token string">'react'</span>
 
 <span class="token keyword">const</span> ReactSharedInternals <span class="token operator">=</span>
@@ -159,7 +159,7 @@
 <span class="token keyword">export</span> <span class="token keyword">default</span> ReactSharedInternals</code></pre></div>
 <p>훅이 개발자에게 도달되는 흐름은 다음과 같습니다.<br>
 <strong>reconciler -> shared/ReactSharedInternal -> react/ReactSharedInternal -> react/ReactCurrentDispatcher -> react/ReactHooks -> react -> 개발자</strong></p>
-<p>이제 우리는 훅의 위치를 <em>shared/ReactSharedInternal.js를 import하고 ReactCurrentDispatcher를 사용하고 있는 곳</em>을 찾아가면 확인할 수 있을 것이란 짐작을 할 수 있습니다.  </p>
+<p>이제 우리는 훅의 위치를 <em>shared/ReactSharedInternal.js를 import하고 ReactCurrentDispatcher를 사용하고 있는 곳</em>을 찾아가면 확인할 수 있을 것이란 짐작을 할 수 있습니다.</p>
 <h2 id="1---2-hook-구현체-주입" style="position:relative;"><a href="#1---2-hook-%EA%B5%AC%ED%98%84%EC%B2%B4-%EC%A3%BC%EC%9E%85" aria-label="1   2 hook 구현체 주입 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1 - 2 Hook 구현체 주입</h2>
 <blockquote>
 <p>본격적으로 분석을 시작하기 전에 알려 드립니다.</p>
@@ -173,7 +173,7 @@
 <p>훅 주입은 reconciler/renderWithHooks()에서 이루어집니다. 함수 이름에서 느껴지시나요? 컴포넌트 호출 또한 여기서 합니다. 이 함수는 Render phase에서 실행되는데 그때 가서 자세히 다루고 지금은 훅과 관련된 코드들만 뜯어와서 보도록 하겠습니다.</p>
 <anchor id="renderWithHooks" />
 <p><a class="code_link_2" href="https://github.com/facebook/react/blob/v16.12.0/packages/react-reconciler/src/ReactFiberHooks.js#L375" target="_blank">reconciler > ReactFiberHooks.js</a></p>
-<div class="gatsby-highlight has-highlighted-lines" data-language="ts"><pre style="counter-reset: linenumber 0" class="language-ts line-numbers"><code class="language-ts">  
+<div class="gatsby-highlight has-highlighted-lines" data-language="ts"><pre style="counter-reset: linenumber 0" class="language-ts line-numbers"><code class="language-ts">  ‎
 <span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">renderWithHooks</span><span class="token punctuation">(</span>
   current<span class="token operator">:</span> Fiber<span class="token punctuation">,</span>
   workInProgress<span class="token operator">:</span> Fiber<span class="token punctuation">,</span>
@@ -196,10 +196,9 @@
 
   ReactCurrentDispatcher<span class="token punctuation">.</span>current <span class="token operator">=</span> ContextOnlyDispatcher
 
- 
-  currentlyRenderingFiber <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
-   <span class="token comment">/*...*/</span>
-<span class="token punctuation">}</span></code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></div>
+  currentlyRenderingFiber <span class="token operator">=</span> <span class="token keyword">null</span>
+  <span class="token comment">/*...*/</span>
+<span class="token punctuation">}</span></code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></div>
 <blockquote>
 <p><strong>reconciler</strong> 패키지의 여러 모듈은 자신의 컨텍스트를 현재 작업 중인 컴포넌트 전용으로 사용합니다. 이 말이 무슨 뜻이냐면 해당 모듈에서 선언되는
 모든 전역 변수들(<down>firstWorkInProgressHook, nextCurrentHook..</down>)은 작업 중인 컴포넌트에만 국한되는 상태 값으로 관리한다는 뜻입니다.<br>
@@ -213,7 +212,7 @@
 <li>라인 24를 보면 추가적으로 <code class="language-text">ContextOnlyDispatcher</code> 훅 구현체를 주입해주는 걸 확인할 수 있습니다. 이는 개발자의 실수로 컴포넌트 실행 시점이 지났음에도 훅 호출이 발생하는 상황을 대비하여 개발자가 올바르게 훅을 사용할 수 있도록 에러를 던져주는 장치입니다.</li>
 </ul>
 <p><a class="code_link_4" href="https://github.com/facebook/react/blob/v16.12.0/packages/react-reconciler/src/ReactFiberHooks.js#L1362" target="_blank">reconciler > ReactFiberHooks.js</a></p>
-<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js">  
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js">  ‎
 <span class="token comment">// mount</span>
 <span class="token keyword">const</span> HooksDispatcherOnMount <span class="token operator">=</span> <span class="token punctuation">{</span>
   <span class="token literal-property property">useState</span><span class="token operator">:</span> mountState<span class="token punctuation">,</span>
@@ -241,15 +240,15 @@
 <h2 id="2---1-훅-객체-만들기" style="position:relative;"><a href="#2---1-%ED%9B%85-%EA%B0%9D%EC%B2%B4-%EB%A7%8C%EB%93%A4%EA%B8%B0" aria-label="2   1 훅 객체 만들기 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2 - 1 훅 객체 만들기</h2>
 <p>컴포넌트가 마운트 될 때 useState()를 호출할 경우 fiber의 memoizedState는 null이므로 mount 구현체인 <code class="language-text">mountState()</code>를 사용하게 됩니다.</p>
 <p><a class="code_link" href="https://github.com/facebook/react/blob/v16.12.0/packages/react-reconciler/src/ReactFiberHooks.js#L823" target="_blank">reconciler > ReactFiberHooks.js</a></p>
-<div class="gatsby-highlight" data-language="ts"><pre class="language-ts"><code class="language-ts">  
+<div class="gatsby-highlight" data-language="ts"><pre class="language-ts"><code class="language-ts">  ‎
 <span class="token keyword">function</span> <span class="token function">mountState</span><span class="token punctuation">(</span>initialState<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token keyword">const</span> hook <span class="token operator">=</span> <span class="token function">mountWorkInProgressHook</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 훅 객체를 생성한다.</span>
+  <span class="token keyword">const</span> hook <span class="token operator">=</span> <span class="token function">mountWorkInProgressHook</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// 훅 객체를 생성한다.</span>
   <span class="token comment">/*...*/</span>
 <span class="token punctuation">}</span></code></pre></div>
 <p>먼저 훅 객체부터 만들어 줍니다.</p>
 <anchor id="hook_object">
 <p><a class="code_link" href="https://github.com/facebook/react/blob/v16.12.0/packages/react-reconciler/src/ReactFiberHooks.js#L572" target="_blank">reconciler > ReactFiberHooks.js</a></p>
-<div class="gatsby-highlight" data-language="ts"><pre class="language-ts"><code class="language-ts">    
+<div class="gatsby-highlight" data-language="ts"><pre class="language-ts"><code class="language-ts">  ‎
 <span class="token keyword">function</span> <span class="token function">mountWorkInProgressHook</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> Hook <span class="token punctuation">{</span>
   <span class="token comment">// hook 객체에 대해서는 업데이트 구현체에서 자세히 다룹니다.</span>
   <span class="token keyword">const</span> hook<span class="token operator">:</span> Hook <span class="token operator">=</span> <span class="token punctuation">{</span>
@@ -276,11 +275,11 @@
 <p>리액트는 많은 곳에서 built-in collection 대신 연결 리스트를 이용하여 구현하였습니다. 지금까지 확인한 것만 짚어 보자면 fiber 그 자체가 effect 연결 리스트의 노드였으며, 컴포넌트와 여러 훅을 매핑 시키기 위해, 하나의 훅이 여러 번 호출될 때 정보를 저장하기 위한 queue 등이 있었습니다.</p>
 <p>built-in collection이 아닌 연결리스트를 사용하여 구현한 이유는 리스트 탐색 흐름 제어나 노드 삭제 등 조작이 쉽고 리스트 병합에 많은 리소스가 필요하지 않는다는 것입니다. 또한, 랜덤 액세스가 필요한 부분이 없으므로 더욱이 연결리스트를 쓰지 않을 이유가 없습니다.</p>
 </blockquote>
-<p><code class="language-text">firstWorkInProgressHook</code>은 훅 연결 리스트의 head로 renderWithHooks()에서 이미 봤듯이 컴포넌트 실행이 끝났을 때 fiber에 저장되어 컴포넌트와 훅 리스트를 연결해주고 <code class="language-text">workInProgressHook</code>은 현재 처리되고 있는 훅을 나타내면서 동시에 리스트의 tail 포인터로 사용합니다. </p>
+<p><code class="language-text">firstWorkInProgressHook</code>은 훅 연결 리스트의 head로 renderWithHooks()에서 이미 봤듯이 컴포넌트 실행이 끝났을 때 fiber에 저장되어 컴포넌트와 훅 리스트를 연결해주고 <code class="language-text">workInProgressHook</code>은 현재 처리되고 있는 훅을 나타내면서 동시에 리스트의 tail 포인터로 사용합니다.</p>
 <p>여러 블로그에서 훅을 설명할 때 배열을 이용하여 설명하지만 우리는 이제 실제 코드를 통해 연결 리스트로 되어 있다는 걸 알 수 있습니다. 추후에 업데이트 구현체를 보면 왜 훅의 순서가 항상 같아야 하는지에 대한 이유도 명확하게 알 수 있습니다.</p>
 <p>훅 객체를 생성했으니 계속해서 mountState()의 분석을 진행해봅시다.</p>
 <p><a class="code_link" href="https://github.com/facebook/react/blob/v16.12.0/packages/react-reconciler/src/ReactFiberHooks.js#L827" target="_blank">reconciler > ReactFiberHooks.js</a></p>
-<div class="gatsby-highlight" data-language="ts"><pre class="language-ts"><code class="language-ts">  
+<div class="gatsby-highlight" data-language="ts"><pre class="language-ts"><code class="language-ts">  ‎
 <span class="token keyword">function</span> <span class="token function">mountState</span><span class="token punctuation">(</span>initialState<span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token comment">// const hook = mountWorkInProgressHook();</span>
   <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> initialState <span class="token operator">===</span> <span class="token string">'function'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -295,7 +294,7 @@
 <p>훅을 이용하여 컴포넌트 상태를 변경하고자 할 때 업데이트 정보를 담고 있는 update 객체가 생성됩니다. 이 객체는 훅의 queue에 저장됩니다. 가령 한 번의 컴포넌트 호출에서 단일 훅의 setState()가 여러 번 호출되었다면 매 호출 생성된 update 객체는 이 queue에 쌓이게 되는 것입니다. 그 후 컴포넌트가 리-렌더링 될 때 queue에 저장되어 있던 update을 차례대로 실행해 최종적으로 적용될 state를 도출하게 됩니다.</p>
 <anchor id="create_queue">
 <p><a class="code_link_2" href="https://github.com/facebook/react/blob/v16.12.0/packages/react-reconciler/src/ReactFiberHooks.js#L831" target="_blank">reconciler > ReactFiberHooks.js</a></p>
-<div class="gatsby-highlight" data-language="js"><pre style="counter-reset: linenumber 0" class="language-js line-numbers"><code class="language-js">  
+<div class="gatsby-highlight" data-language="js"><pre style="counter-reset: linenumber 0" class="language-js line-numbers"><code class="language-js">  ‎
 <span class="token keyword">function</span> <span class="token function">mountState</span><span class="token punctuation">(</span><span class="token parameter">initialState</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token comment">/*...*/</span>
   <span class="token comment">// hook.memoizedState = hook.baseState = initialState;</span>
@@ -317,7 +316,7 @@
 <span class="token punctuation">}</span>
 
 <span class="token keyword">function</span> <span class="token function">basicStateReducer</span><span class="token punctuation">(</span><span class="token parameter">state<span class="token punctuation">,</span> action</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token keyword">return</span> <span class="token keyword">typeof</span> action <span class="token operator">===</span> <span class="token string">'function'</span> <span class="token operator">?</span> <span class="token function">action</span><span class="token punctuation">(</span>state<span class="token punctuation">)</span> <span class="token operator">:</span> action<span class="token punctuation">;</span>
+  <span class="token keyword">return</span> <span class="token keyword">typeof</span> action <span class="token operator">===</span> <span class="token string">'function'</span> <span class="token operator">?</span> <span class="token function">action</span><span class="token punctuation">(</span>state<span class="token punctuation">)</span> <span class="token operator">:</span> action
 <span class="token punctuation">}</span></code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></div>
 <p><code class="language-text">dispatch</code>는 <code class="language-text">queue</code>의 push 함수입니다. <code class="language-text">dispatch</code> 할당<up>14</up>을 자세히 보면 bind()를 통해 인자를 잡아둔 상태로 외부에 노출<up>19</up>시키고 있습니다. dispatch는 홀로 외부로 노출되기 때문에 필요한 인자들을 잡아둘 필요가 있습니다. 그 중 하나는 훅과 매핑되는 컴포넌트의 fiber<up>16</up>이며 다른 하나는 자신의 존재 목적인 queue입니다.</p>
 <p>마지막에 반환하는 배열<up>19</up>이 바로 우리가 사용하고 있는 <code class="language-text">const [foo, setFoo] = useState(0)</code>가 되겠습니다.</p>
@@ -329,14 +328,14 @@
   <span class="token function">setA</span><span class="token punctuation">(</span><span class="token parameter">_a</span> <span class="token operator">=></span> _a <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token comment">// secondUpdate</span>
   <span class="token function">setA</span><span class="token punctuation">(</span><span class="token parameter">_a</span> <span class="token operator">=></span> _a <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token comment">// thirdUpdate</span>
 
- <span class="token comment">/*
-  *  fiber의 훅 리스트
-  *  fiber.memoizedState => aHook.next => bHook.next => null
-  *
-  *  aHook의 queue
-  *  fiber.memoizedState => aHook.queue.last => thirdUpdate.next =>
-  *  firstUpdate.next => secondUpdate.next => thirdUpdate.next => firstUpdate
-  */</span>
+  <span class="token comment">/*
+   *  fiber의 훅 리스트
+   *  fiber.memoizedState => aHook.next => bHook.next => null
+   *
+   *  aHook의 queue
+   *  fiber.memoizedState => aHook.queue.last => thirdUpdate.next =>
+   *  firstUpdate.next => secondUpdate.next => thirdUpdate.next => firstUpdate
+   */</span>
 <span class="token punctuation">}</span></code></pre></div>
 <blockquote>
 <p>queue가 원형 연결 리스트(Circular Linked List)인 이유는 업데이트 구현체에서 확인합니다.</p>
@@ -346,7 +345,7 @@
 <p>dispatchAction()은 queue에 update를 push함과 동시에 <strong>scheduler</strong>에게 <strong>Work</strong>를 예약하는 함수입니다.</p>
 <anchor id="dispatchAction" />
 <p><a href="https://github.com/facebook/react/blob/v16.12.0/packages/react-reconciler/src/ReactFiberHooks.js#L1221" target="_blank" class="code_link_2">reconciler > ReactFiberHooks.js</a></p>
-<div class="gatsby-highlight has-highlighted-lines" data-language="ts"><pre style="counter-reset: linenumber 0" class="language-ts line-numbers"><code class="language-ts">  
+<div class="gatsby-highlight has-highlighted-lines" data-language="ts"><pre style="counter-reset: linenumber 0" class="language-ts line-numbers"><code class="language-ts">  ‎
 <span class="token keyword">function</span> <span class="token function">dispatchAction</span><span class="token punctuation">(</span>fiber<span class="token punctuation">,</span> queue<span class="token punctuation">,</span> action<span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token keyword">const</span> alternate <span class="token operator">=</span> fiber<span class="token punctuation">.</span>alternate
 
@@ -383,7 +382,7 @@
 </ol>
 <p>위 내용은 idle update일 경우이고 Render phase update는 또 4번을 제외하고는 로직이 다릅니다.</p>
 <p><a href="https://github.com/facebook/react/blob/v16.12.0/packages/react-reconciler/src/ReactFiberHooks.js#L1275" target="_blank" class="code_link_2">reconciler > ReactFiberHooks.js</a></p>
-<div class="gatsby-highlight" data-language="ts"><pre style="counter-reset: linenumber 0" class="language-ts line-numbers"><code class="language-ts">  
+<div class="gatsby-highlight" data-language="ts"><pre style="counter-reset: linenumber 0" class="language-ts line-numbers"><code class="language-ts">  ‎
 <span class="token keyword">function</span> <span class="token function">dispatchAction</span><span class="token punctuation">(</span>fiber<span class="token punctuation">,</span> queue<span class="token punctuation">,</span> action<span class="token punctuation">)</span> <span class="token punctuation">{</span>
 <span class="token comment">// const alternate = fiber.alternate</span>
   <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">...</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -429,48 +428,59 @@
 <span class="token punctuation">}</span></code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></div>
 <p>update를 queue에 추가할 때는 연결 리스트로 추가<up>28 ~ 39</up>합니다. 로직을 보면 <em>Circular Linked List</em>로 만들어 주는 부분<up>34 ~ 37</up>이 있는데 왜 이렇게 만들어 주는지는 업데이트 구현체에서 설명하도록 하겠습니다.</p>
 <h3 id="불필요한-컴포넌트-리-렌더링-방지" style="position:relative;"><a href="#%EB%B6%88%ED%95%84%EC%9A%94%ED%95%9C-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8-%EB%A6%AC-%EB%A0%8C%EB%8D%94%EB%A7%81-%EB%B0%A9%EC%A7%80" aria-label="불필요한 컴포넌트 리 렌더링 방지 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>불필요한 컴포넌트 리-렌더링 방지</h3>
-<p>리액트는 이 시점에(<down><em>idle</em> 상태에서 업데이트가 발생한 상황</down>) 아래와 같은 상황이라면 간단하게 성능 최적화를 할 수 있습니다. </p>
+<p>리액트는 이 시점에(<down><em>idle</em> 상태에서 업데이트가 발생한 상황</down>) 아래와 같은 상황이라면 간단하게 성능 최적화를 할 수 있습니다.</p>
 <ol>
 <li>현재 컴포넌트의 업데이트로 인해 <strong>Work</strong>가 스케줄링 되어있지 않은 상태이고</li>
 <li><code class="language-text">action</code>의 결괏값이 현재 상태 값과 같다면?
 이때는 변경된 게 없으므로 더 이상 진행하지 않고 중단할 수 있습니다.</li>
 </ol>
 <p><a href="https://github.com/facebook/react/blob/v16.12.0/packages/react-reconciler/src/ReactFiberHooks.js#L1312" target="_blank" class="code_link_4">reconciler > ReactFiberHooks.js</a></p>
-<div class="gatsby-highlight" data-language="ts"><pre class="language-ts"><code class="language-ts">  
+<div class="gatsby-highlight" data-language="ts"><pre class="language-ts"><code class="language-ts">‎
 <span class="token keyword">function</span> <span class="token function">dispatchAction</span><span class="token punctuation">(</span>fiber<span class="token punctuation">,</span> queue<span class="token punctuation">,</span> action<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token comment">/*...*/</span>
-  <span class="token comment">// queue.last = update;</span>
+<span class="token comment">// const alternate = fiber.alternate</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">...</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// Render phase update</span>
+  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+    <span class="token comment">/* ... */</span>
+    <span class="token comment">// queue.last = update</span>
 
-  <span class="token comment">// 컴포넌트에서 업데이트가 발생한 적이 있는지 확인</span>
-  <span class="token keyword">if</span> <span class="token punctuation">(</span>
-    fiber<span class="token punctuation">.</span>expirationTime <span class="token operator">===</span> NoWork <span class="token operator">&amp;&amp;</span>
-    <span class="token punctuation">(</span>alternate <span class="token operator">===</span> <span class="token keyword">null</span> <span class="token operator">||</span> alternate<span class="token punctuation">.</span>expirationTime <span class="token operator">===</span> NoWork<span class="token punctuation">)</span>
-  <span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token comment">// 최적화 로직..</span>
+    <span class="token comment">// 컴포넌트에서 업데이트가 발생한 적이 있는지 확인</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>
+      fiber<span class="token punctuation">.</span>expirationTime <span class="token operator">===</span> NoWork <span class="token operator">&amp;&amp;</span>
+      <span class="token punctuation">(</span>alternate <span class="token operator">===</span> <span class="token keyword">null</span> <span class="token operator">||</span> alternate<span class="token punctuation">.</span>expirationTime <span class="token operator">===</span> NoWork<span class="token punctuation">)</span>
+    <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token comment">// 최적화 로직..</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment">/*...*/</span>
   <span class="token punctuation">}</span>
-  <span class="token comment">/*...*/</span>
 <span class="token punctuation">}</span></code></pre></div>
 <p>이제 우리는 dispatchAction()에서 <code class="language-text">fiber</code>와 <code class="language-text">alternate</code>를 모두 비교하는 이유를 알고 있습니다. 여기서 <code class="language-text">expirationTime</code>은 업데이트가 발생하여 <strong>Work</strong>가 스케줄링 될 경우 fiber에 발생 시간을 기록하게 되는데 그게 expirationTime입니다.</p>
 <p><a href="https://github.com/facebook/react/blob/v16.12.0/packages/react-reconciler/src/ReactFiberHooks.js#L1319" target="_blank" class="code_link_2">reconciler > ReactFiberHooks.js</a></p>
-<div class="gatsby-highlight" data-language="ts"><pre style="counter-reset: linenumber 0" class="language-ts line-numbers"><code class="language-ts">  
+<div class="gatsby-highlight" data-language="ts"><pre style="counter-reset: linenumber 0" class="language-ts line-numbers"><code class="language-ts">‎
 <span class="token keyword">function</span> <span class="token function">dispatchAction</span><span class="token punctuation">(</span>fiber<span class="token punctuation">,</span> queue<span class="token punctuation">,</span> action<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token comment">/*...*/</span>
-  <span class="token comment">// queue.last = update;</span>
-
+<span class="token comment">// const alternate = fiber.alternate</span>
   <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">...</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">const</span> lastRenderedReducer <span class="token operator">=</span> queue<span class="token punctuation">.</span>lastRenderedReducer
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>lastRenderedReducer <span class="token operator">!==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-      <span class="token keyword">const</span> currentState <span class="token operator">=</span> queue<span class="token punctuation">.</span>lastRenderedState <span class="token comment">// 컴포넌트에 적용된 상태값</span>
-      <span class="token keyword">const</span> eagerState <span class="token operator">=</span> <span class="token function">lastRenderedReducer</span><span class="token punctuation">(</span>currentState<span class="token punctuation">,</span> action<span class="token punctuation">)</span> <span class="token comment">// 리듀서를 통해 action의 결괏값을 얻는다</span>
-      update<span class="token punctuation">.</span>eagerReducer <span class="token operator">=</span> lastRenderedReducer
-      update<span class="token punctuation">.</span>eagerState <span class="token operator">=</span> eagerState
-      <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">is</span><span class="token punctuation">(</span>eagerState<span class="token punctuation">,</span> currentState<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">return</span>
+    <span class="token comment">// Render phase update</span>
+  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+    <span class="token comment">/* ... */</span>
+    <span class="token comment">// queue.last = update</span>
+
+    <span class="token comment">// 컴포넌트에서 업데이트가 발생한 적이 있는지 확인</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">...</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">const</span> lastRenderedReducer <span class="token operator">=</span> queue<span class="token punctuation">.</span>lastRenderedReducer
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>lastRenderedReducer <span class="token operator">!==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">const</span> currentState <span class="token operator">=</span> queue<span class="token punctuation">.</span>lastRenderedState <span class="token comment">// 컴포넌트에 적용된 상태값</span>
+        <span class="token keyword">const</span> eagerState <span class="token operator">=</span> <span class="token function">lastRenderedReducer</span><span class="token punctuation">(</span>currentState<span class="token punctuation">,</span> action<span class="token punctuation">)</span> <span class="token comment">// 리듀서를 통해 action의 결괏값을 얻는다</span>
+        update<span class="token punctuation">.</span>eagerReducer <span class="token operator">=</span> lastRenderedReducer
+        update<span class="token punctuation">.</span>eagerState <span class="token operator">=</span> eagerState
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">is</span><span class="token punctuation">(</span>eagerState<span class="token punctuation">,</span> currentState<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          <span class="token keyword">return</span>
+        <span class="token punctuation">}</span>
       <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
+    <span class="token function">scheduleWork</span><span class="token punctuation">(</span>fiber<span class="token punctuation">,</span> expirationTime<span class="token punctuation">)</span>
   <span class="token punctuation">}</span>
-  <span class="token function">scheduleWork</span><span class="token punctuation">(</span>fiber<span class="token punctuation">,</span> expirationTime<span class="token punctuation">)</span>
-<span class="token punctuation">}</span></code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></div>
+<span class="token punctuation">}</span></code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></div>
 <p>useState()의 queue를 만들 때 <code class="language-text">lastRenderedReducer</code><up>7</up>에 기본 리듀서인 <a href="https://github.com/facebook/react/blob/v16.12.0/packages/react-reconciler/src/ReactFiberHooks.js#L642" target="_blank">basicStateReducer()</a>를 할당했습니다.
 참고로 lastRenderedReducer에는 useReducer(reducer, initialArg, init)의 reducer 함수가 할당되기도 합니다. 결론적으로
 useState()는 useReducer()와 같은 업데이트 구현체를 공유합니다. 그러므로 useState() 하나를 분석하면 useReducer()도 함께 알 수 있습니다.</p>
@@ -482,11 +492,11 @@ useState()는 useReducer()와 같은 업데이트 구현체를 공유합니다. 
 <p>답은 <em>아니다</em>입니다.<br>
 특정 컴포넌트의 상태 변경으로 <strong>Work</strong>가 스케줄링 되면 해당 fiber에는 expirationTime이 새겨지므로 if 문<up>6</up>에서 걸러져 중복으로 스케줄링 되는 경우는 없습니다. 또한, eagerState를 얻기 위해 action을 소비하는 행동도 마찬가지로 한 번만 하지 매 호출 소비하진 않습니다. 원래 action은 컴포넌트가 호출될 때 소비되는 것이지 업데이트를 위한 dispatchAction() 호출에서 소비되는 게 아닙니다.</p>
 <h2 id="3---3-render-phase에서의-dispatchaction" style="position:relative;"><a href="#3---3-render-phase%EC%97%90%EC%84%9C%EC%9D%98-dispatchaction" aria-label="3   3 render phase에서의 dispatchaction permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3 - 3 Render phase에서의 dispatchAction</h2>
-<p>유휴 상태에서 dispatchAction()이 호출되었다면 <strong>Work</strong>를 통해 Render phase가 진행될 것입니다. 그리고 컴포넌트를 재호출하는데 이 와중에 추가로 dispatchAction()가 호출되었다고 생각해봅시다. </p>
+<p>유휴 상태에서 dispatchAction()이 호출되었다면 <strong>Work</strong>를 통해 Render phase가 진행될 것입니다. 그리고 컴포넌트를 재호출하는데 이 와중에 추가로 dispatchAction()가 호출되었다고 생각해봅시다.</p>
 <p>이때는 유휴 상태에서 dispatchAction()이 해야 할 일(<down><strong>Work</strong> 스케줄링, 성능 최적화</down>)을 할 필요가 없습니다. 이미 <strong>Work</strong>는 진행 중이므로 <strong>Work</strong>를 스케줄링하거나 성능 최적화를 위한 처리가 필요 없습니다. 단지 Render phase update가 더 이상 발생하지 않을 때까지 계속해서 컴포넌트를 재호출하여 action을 소비시키기만 하면 됩니다.</p>
 <p>Render phase update를 바로 소비하기 위해서는 update를 잠깐 담아둘 임시 저장소가 필요합니다. 그래야 다음 컴포넌트 호출 때 이 저장소에서 꺼내 소비할 수 있습니다.</p>
 <p><a href="https://github.com/facebook/react/blob/v16.12.0/packages/react-reconciler/src/ReactFiberHooks.js#L1242" target="_blank" class="code_link">reconciler > ReactFiberHooks.js</a></p>
-<div class="gatsby-highlight" data-language="ts"><pre class="language-ts"><code class="language-ts">  
+<div class="gatsby-highlight" data-language="ts"><pre class="language-ts"><code class="language-ts">‎
 <span class="token keyword">function</span> <span class="token function">dispatchAction</span><span class="token punctuation">(</span>fiber<span class="token punctuation">,</span> queue<span class="token punctuation">,</span> action<span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token comment">// const alternate = fiber.alternate</span>
   <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">...</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -521,17 +531,17 @@ useState()는 useReducer()와 같은 업데이트 구현체를 공유합니다. 
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span></code></pre></div>
 <p><code class="language-text">renderPhaseUpdates</code>를 소비하기 위한 컴포넌트 재호출 로직을 <a href="#renderWithHooks">renderWithHooks()</a>를 분석할 때 생략했었습니다. 이 부분을 마저 채우고 가도록 하겠습니다.</p>
-<p>renderWithHooks()는 <code class="language-text">didScheduleRenderPhaseUpdate</code> 플래그를 통해 Render phase update가 발생했는지 판단합니다. </p>
+<p>renderWithHooks()는 <code class="language-text">didScheduleRenderPhaseUpdate</code> 플래그를 통해 Render phase update가 발생했는지 판단합니다.</p>
 <anchor id="renderWithHooks_2">
 <p><a href="https://github.com/facebook/react/blob/v16.12.0/packages/react-reconciler/src/ReactFiberHooks.js#L439" target="_blank" class="code_link_2">reconciler > ReactFiberHooks.js</a></p>
-<div class="gatsby-highlight" data-language="ts"><pre style="counter-reset: linenumber 0" class="language-ts line-numbers"><code class="language-ts">  
+<div class="gatsby-highlight" data-language="ts"><pre style="counter-reset: linenumber 0" class="language-ts line-numbers"><code class="language-ts">‎
 <span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">renderWithHooks</span><span class="token punctuation">(</span><span class="token operator">...</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token comment">/*...*/</span>
   <span class="token keyword">if</span> <span class="token punctuation">(</span>didScheduleRenderPhaseUpdate<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">do</span> <span class="token punctuation">{</span>
       didScheduleRenderPhaseUpdate <span class="token operator">=</span> <span class="token boolean">false</span>
       <span class="token comment">// 무한 루프 방지와 업데이트 구현체에게 Render phase update를 알려주는 플래그</span>
-      numberOfReRenders <span class="token operator">+=</span> <span class="token number">1</span> 
+      numberOfReRenders <span class="token operator">+=</span> <span class="token number">1</span>
 
       <span class="token comment">//이하 훅 업데이트 구현체에서 Render phase update를 소비하는데 필요한 변수들을 설정</span>
       nextCurrentHook <span class="token operator">=</span> current <span class="token operator">!==</span> <span class="token keyword">null</span> <span class="token operator">?</span> current<span class="token punctuation">.</span>memoizedState <span class="token operator">:</span> <span class="token keyword">null</span>
@@ -553,7 +563,7 @@ useState()는 useReducer()와 같은 업데이트 구현체를 공유합니다. 
 <blockquote>
 <p>훅에 익숙하지 않다면 자주 확인하게 되는 <em><em>“Too many re-renders. React limits the number of renders to prevent an infinite > loop.”</em></em> 메세지는 dispatchAction()에서 <code class="language-text">numberOfReRenders</code>을 기준으로 출력합니다.</p>
 <p><a href="https://github.com/facebook/react/blob/v16.12.0/packages/react-reconciler/src/ReactFiberHooks.js#L1226" target="_blank" class="code_link">reconciler > ReactFiberHooks.js</a></p>
-<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js">  
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js">‎
 <span class="token keyword">const</span> <span class="token constant">RE_RENDER_LIMIT</span> <span class="token operator">=</span> <span class="token number">25</span><span class="token punctuation">;</span>
 <span class="token keyword">function</span> <span class="token function">dispatchAction</span><span class="token punctuation">(</span><span class="token parameter"><span class="token operator">...</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token function">invariant</span><span class="token punctuation">(</span>
@@ -576,19 +586,19 @@ useState()는 useReducer()와 같은 업데이트 구현체를 공유합니다. 
 <ol>
 <li>setState() 실행이 훅의 현재 상태와 같다면 아무 일도 일어나지 않는다. 그게 아니라면 한데 묶어 한 번만 컴포넌트를 재호출한다. 왜냐하면 dispatchAction()은 컴포넌트를 재호출할 <strong>Work</strong>를 딱 한 번만 스케줄링하고 모든 업데이트는 훅 객체에 저장되었다가 Render phase에서 한 번에 소비되기 때문이다.</li>
 <li>
-<p>클릭을 통한 업데이트로 컴포넌트가 재호출 된다. 그리고 재호출 시점에 추가로 발생하는 여러 setState()는 1번처럼 묶어서 한 번만 실행한다.  </p>
-<p>여기서 추가적인 업데이트가 발생하지 않을 때까지 계속해서 함수를 재실행하는데, 결국 최소 2번 최대 25번(<down>RE<em>RENDER</em>LIMIT = 25</down>) 컴포넌트가 재실행될 수 있다. </p>
+<p>클릭을 통한 업데이트로 컴포넌트가 재호출 된다. 그리고 재호출 시점에 추가로 발생하는 여러 setState()는 1번처럼 묶어서 한 번만 실행한다.</p>
+<p>여기서 추가적인 업데이트가 발생하지 않을 때까지 계속해서 함수를 재실행하는데, 결국 최소 2번 최대 25번(<down>RE<em>RENDER</em>LIMIT = 25</down>) 컴포넌트가 재실행될 수 있다.</p>
 </li>
 </ol>
 <p>참고로 위 내용은 Render phase에서 동작하고 있는 것입니다. 다시 말해 VDOM에 변경 점을 적용하는 것이지 화면에 반영하는 단계가 아닙니다. 이 단계는 Commit phase에서 진행되므로 아무리 컴포넌트가 재호출된다고 하여도 브라우저의 렌더링과 관련된 리소스가 낭비되지 않음을 이해하시길 바랍니다.</p>
 <h2 id="번외" style="position:relative;"><a href="#%EB%B2%88%EC%99%B8" aria-label="번외 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>번외</h2>
 <h3 id="expirationtime" style="position:relative;"><a href="#expirationtime" aria-label="expirationtime permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>expirationTime</h3>
-<p>설명을 생략한 expirationTime에 대해 마저 알아보겠습니다.  </p>
+<p>설명을 생략한 expirationTime에 대해 마저 알아보겠습니다.</p>
 <p>expirationTime는 <strong>scheduler</strong>와 <strong>reconciler</strong>에서 사용하는데 살짝 다른 뜻으로 쓰이며 구현도 다릅니다. <strong>scheduler</strong>에서는 이름 그대로 Task의 만료시간을 나타내는 데 비해 <strong>reconciler</strong>에서는 이벤트를 구분하는 기준으로 쓰입니다. <strong>reconciler</strong>는 같은 expirationTime에서 발생한 연속적인 이벤트는 하나의 이벤트로 간주하고 expirationTime이 달라야지만 개별 이벤트로 판단합니다.</p>
 <p>expirationTime의 가장 큰 수는 부호 있는 31bit 값입니다. 이 값을 <code class="language-text">Sync</code>로 다룹니다.
-시간을 이렇게 특정 고유명사로 다룰 수 있는 이유는 위에서 설명한 것처럼 <strong>reconciler</strong>는 expirationTime을 이벤트를 구분하는데 사용하기 때문입니다. 그래서 구현 또한 일반적으로 시간을 다루는 방식과는 다르게 구현되었으며 아무리 시간이 지나도 절대로 Sync 값에 도달하지 않습니다. </p>
+시간을 이렇게 특정 고유명사로 다룰 수 있는 이유는 위에서 설명한 것처럼 <strong>reconciler</strong>는 expirationTime을 이벤트를 구분하는데 사용하기 때문입니다. 그래서 구현 또한 일반적으로 시간을 다루는 방식과는 다르게 구현되었으며 아무리 시간이 지나도 절대로 Sync 값에 도달하지 않습니다.</p>
 <p><a href="https://github.com/facebook/react/blob/v16.12.0/packages/react-reconciler/src/ReactFiberExpirationTime.js#L23" target="_blank" class="code_link">reconciler > ReactFiberExpirationTime.js</a></p>
-<div class="gatsby-highlight" data-language="ts"><pre class="language-ts"><code class="language-ts">  
+<div class="gatsby-highlight" data-language="ts"><pre class="language-ts"><code class="language-ts">‎
 <span class="token keyword">export</span> <span class="token keyword">const</span> NoWork <span class="token operator">=</span> <span class="token number">0</span>
 <span class="token keyword">export</span> <span class="token keyword">const</span> Never <span class="token operator">=</span> <span class="token number">1</span>
 <span class="token keyword">export</span> <span class="token keyword">const</span> Idle <span class="token operator">=</span> <span class="token number">2</span>
@@ -604,13 +614,13 @@ useState()는 useReducer()와 같은 업데이트 구현체를 공유합니다. 
 <p>now()가 오른쪽 피연산자에 있다는 건 나중에 발생한 작업일수록 더 작은 expirationTime 값을 가지게 된다는 뜻입니다.
 이 부분은 나중에 코드에서 fiber에 새겨진 expirationTime를 가지고 대소비교를 할 때 헷갈릴 수 있으므로 기억해두시길 바랍니다.</p>
 <p>여기서 주의할 점은 performance.now()로 시간을 구하기 때문에 이론상으로 발생 시간이 0일 수 있습니다. 이렇게 되면 <code class="language-text">Sync</code>나 <code class="language-text">Batched</code>와 값이 겹칠 수 있어 기존 상수들과 겹치지 않도록 offset 값을 추가로 사용하는데 그게 바로 <code class="language-text">MAGIC_NUMBER_OFFSET</code>입니다.
-MAGIC_NUMBER_OFFSET이 있기 때문에 더 이상 MAX_SIGNED_31_BIT_INT를 시간을 구하는데 사용할 필요가 없습니다. </p>
+MAGIC<em>NUMBER</em>OFFSET이 있기 때문에 더 이상 MAX<em>SIGNED</em>31<em>BIT</em>INT를 시간을 구하는데 사용할 필요가 없습니다.</p>
 <p>이제 브라우저 시작과 동시에 이벤트가 발생해도 offset을 이용한 다음의 계산식이라면 Sync, Batched와 겹칠 일은 없습니다.<br>
 MAGIC<em>NUMBER</em>OFFSET - now()</p>
 <p>아래의 코드가 발생시간에서 expirationTime을 expirationTime에서 다시 발생시간을 구하는 계산식입니다.</p>
 <anchor id="currentTime">
 <p><a href="https://github.com/facebook/react/blob/v16.12.0/packages/react-reconciler/src/ReactFiberExpirationTime.js#L46" target="_blank" class="code_link">reconciler > ReactFiberExpirationTime.js</a></p>
-<div class="gatsby-highlight" data-language="ts"><pre class="language-ts"><code class="language-ts">  
+<div class="gatsby-highlight" data-language="ts"><pre class="language-ts"><code class="language-ts">‎
 <span class="token comment">/*...*/</span>
 <span class="token comment">// const MAGIC_NUMBER_OFFSET = Batched - 1</span>
 
@@ -624,7 +634,7 @@ MAGIC<em>NUMBER</em>OFFSET - now()</p>
 <span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">expirationTimeToMs</span><span class="token punctuation">(</span>expirationTime<span class="token operator">:</span> ExpirationTime<span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">number</span> <span class="token punctuation">{</span>
   <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token constant">MAGIC_NUMBER_OFFSET</span> <span class="token operator">-</span> expirationTime<span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token constant">UNIT_SIZE</span>
 <span class="token punctuation">}</span></code></pre></div>
-<p>간략하게 정리하자면 <strong>fiber의 expirationTime이 NoWork라면 놀고 있다는 뜻이고 Sync는 작업이 동기적으로 처리될 것이며 expirationTime을 대소로 비교하는 조건문이 있을 때는 큰 숫자가 더 먼저 발생한 작업이다.</strong> 라고만 생각하고 넘어가시면 분석할 때 큰 무리 없이 이해할 수 있을 것입니다. </p>
+<p>간략하게 정리하자면 <strong>fiber의 expirationTime이 NoWork라면 놀고 있다는 뜻이고 Sync는 작업이 동기적으로 처리될 것이며 expirationTime을 대소로 비교하는 조건문이 있을 때는 큰 숫자가 더 먼저 발생한 작업이다.</strong> 라고만 생각하고 넘어가시면 분석할 때 큰 무리 없이 이해할 수 있을 것입니다.</p>
 <p>expirationTime은 주로 concurrent mode에서 더 넓은 의미로 사용됩니다. 우선순위와 같은 뜻으로 말이죠. <strong><u>legacy mode에서는 expirationTime을 Sync로 설정하여 동기적으로 처리</u></strong>합니다. 그러므로 시간과 관련된 부분은 concurrent mode를 일반적으로 사용하게 되는 날, 그때 깊이 있게 들어가 보고 지금은 이 정도면 충분합니다.</p>
 <blockquote>
 <p>expirationTime을 구하는 방법이 궁금하신 분은 <a href="https://github.com/facebook/react/blob/v16.12.0/packages/react-reconciler/src/ReactFiberWorkLoop.js#L310" target="_blank">computeExpirationForFiber()</a>를 참고하세요.</p>
