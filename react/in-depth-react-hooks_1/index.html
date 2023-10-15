@@ -485,10 +485,6 @@
 참고로 lastRenderedReducer에는 useReducer(reducer, initialArg, init)의 reducer 함수가 할당되기도 합니다. 결론적으로
 useState()는 useReducer()와 같은 업데이트 구현체를 공유합니다. 그러므로 useState() 하나를 분석하면 useReducer()도 함께 알 수 있습니다.</p>
 <p>현재 상태와 같지 않다면<up>18</up> 컴포넌트 리-렌더링을 진행해야 하므로 <strong>Work</strong>를 스케줄링<up>23</up>합니다. <strong>scheduler</strong>와 연관이 있는 <code class="language-text">scheduleWork()</code>는 다음 포스트인 <strong>scheduler</strong>에서 자세히 다루게 되므로 잠시 생략하고, 단지 fiber에 expirationTime을 새기고 재조정을 진행할 <strong>Work</strong> 함수를 스케줄링한다고 이해하시면 됩니다.</p>
-<p>여기 까지가 유휴 상황에서의 컴포넌트 상태 업데이트 흐름 입니다. 좀 더 오래 기억할 수 있도록 아래의 질문에 답해보세요.</p>
-<ul>
-<li>dispatchAction()이 여러번 호출될 경우 매 호출 <strong>Work</strong>가 스케줄링 되는가?</li>
-</ul>
 <h2 id="3---3-render-phase에서의-dispatchaction" style="position:relative;"><a href="#3---3-render-phase%EC%97%90%EC%84%9C%EC%9D%98-dispatchaction" aria-label="3   3 render phase에서의 dispatchaction permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3 - 3 Render phase에서의 dispatchAction</h2>
 <p>유휴 상태에서 dispatchAction()이 호출되었다면 <strong>Work</strong>를 통해 Render phase가 진행될 것입니다. 그리고 컴포넌트를 재호출하는데 이 와중에 추가로 dispatchAction()가 호출되었다고 생각해봅시다.</p>
 <p>이때는 유휴 상태에서 dispatchAction()이 해야 할 일(<down><strong>Work</strong> 스케줄링, 성능 최적화</down>)을 할 필요가 없습니다. 이미 <strong>Work</strong>는 진행 중이므로 <strong>Work</strong>를 스케줄링하거나 성능 최적화를 위한 처리가 필요 없습니다. 단지 Render phase update가 더 이상 발생하지 않을 때까지 계속해서 컴포넌트를 재호출하여 action을 소비시키기만 하면 됩니다.</p>
@@ -583,7 +579,7 @@ useState()는 useReducer()와 같은 업데이트 구현체를 공유합니다. 
 <p>하나씩 답변 해봅시다.</p>
 <ol>
 <li>
-<p>setState() 실행이 훅의 현재 상태와 같다면 아무 일도 일어나지 않는다. 그게 아니라면 한데 묶어 한 번만 컴포넌트를 재호출한다. 왜냐하면 dispatchAction()은 컴포넌트를 재호출할 <strong>Work</strong>를 딱 한 번만 스케줄링하고 모든 업데이트는 훅 객체에 저장되었다가 Render phase에서 한 번에 소비되기 때문이다.</p>
+<p>setState() 실행이 훅의 현재 상태와 같다면 아무 일도 일어나지 않는다. 그게 아니라면 scheduleWork()를 통해 스케줄링되는 Work의 종류에 따라 다르다. 일반적으로 scheduleWork()가 호출된다면 렌더링이 진행된다고 생각하면 된다.</p>
 <blockquote>
 <p>더 정확하게는 추후에 다룰 Sync Work와 Async Work(정식 명칭은 concurrent)에 따라 동작이 다릅니다. 현재 확인한 코드로만 봤을 때는 한데 묶어 Action을 소비하는게 맞습니다. <strong>다만, Sync Work에서는 값이 다르다면 dispatchAction()마다 렌더링을 매번 진행합니다.</strong> 16 ~ 17 버전까지는 내부적으로 항상 Sync Work로 동작하며, 18로 넘어와서야 이벤트 종류에 따라 Sync, Async Work을 구분하여 사용하게 되었습니다.</p>
 </blockquote>
