@@ -196,7 +196,7 @@
 <ul>
 <li>5: <strong>Work</strong>를 동기적으로 호출해야 하는지 판단합니다. lagacy mode에서는 대게 expirationTime는 Sync입니다. </li>
 <li>8 ~ 9: 해당  조건은 VDOM이 처음 생성될 때 충족합니다. 이때는 <strong>Work</strong>를 바로 진행하여 VDOM을 빠르게 완성해줍니다. 동기로 재조정 작업을 수행해줄 함수가 바로 <code class="language-text">performSyncWorkOnRoot()</code><up>12</up>입니다.  </li>
-<li>13 ~ 16: <code class="language-text">ensureRootIsScheduled()</code>를 통해 재조정 작업이 필요한 root에 <strong>Work</strong>을 스케줄링 요청하고 정보를 새깁니다. reconciler가 놀고 있다면<up>14</up> <code class="language-text">flushSyncCallbackQueue()</code>를 통해 sync queue에 담겨 있는 <strong>Work</strong>를 바로 실행시켜 줍니다.</li>
+<li>13 ~ 16: <code class="language-text">ensureRootIsScheduled()</code>를 통해 재조정 작업이 필요한 root에 <strong>Work</strong>을 스케줄링 요청하고 정보를 새깁니다. <strong>reconciler</strong>가 NoContext라면<up>14</up> <code class="language-text">flushSyncCallbackQueue()</code>를 통해 sync queue에 담겨 있는 <strong>Work</strong>를 바로 실행시켜 줍니다. 여기서의 NoContext란, 리액트 관리 밖에서 발생한 업데이트를 뜻합니다. 예를 들어 사용자 클릭에서 발생한 업데이트라면 executionContext<up>14</up>에는 <a target="_blank" href="https://github.com/facebook/react/blob/v16.12.0/packages/react-reconciler/src/ReactFiberWorkLoop.js#L197-L198">EventContext, DiscreteEventContext</a> 가 새겨져 있습니다. 이는 리액트가 구성한 SyntheticEvent에서 사용자 이벤트 처리 과정 중에 설정됩니다. 즉 이벤트에서 발생한 업데이트는 <code class="language-text">flushSyncCallbackQueue()</code>가 호출되지 않기 때문에 배치 처리되고(아래 Sync Work 섹션에서 다시 다룹니다.), NoContext(setTimeout이나 Promise 등)일 때는 업데이트가 발생(<code class="language-text">dispatchAction()</code>)할 때마다 <code class="language-text">flushSyncCallbackQueue()</code>로 인해 <code class="language-text">ensureRootIsScheduled()</code>에서 스케줄링된 <strong>Work</strong>가 진행됩니다. 즉 업데이트 마다 렌더링이 발생한다는 의미입니다.</li>
 <li>19: <strong>Work</strong> 스케줄링 요청을 합니다. expirationTime이 Sync가 아니므로 비동기 전용 <strong>Work</strong>가 스케줄링 될 것입니다.</li>
 </ul>
 <p>scheduleUpdateOnFiber()<up>scheduleWork()</up>는 스케줄 요청 전과 후에 <strong>reconciler</strong> 입장에서의 추가 작업들이 위치할 수 있는 함수입니다. 스케줄링과 관련된 직접적인 코드는 존재하지 않으며 이와 관련된 코드들은 함수 이름에서 느껴지듯이 ensure<strong>Root</strong>Is<strong>Shceduled</strong>()가 모두 가지고 있습니다.</p>
@@ -359,8 +359,8 @@
   <span class="token punctuation">}</span>
   <span class="token keyword">return</span> fakeCallbackNode <span class="token comment">// Task는 없으니 가짜를 반환</span>
 <span class="token punctuation">}</span></code></pre></div>
-<p>async <strong>Work</strong>와는 다르게 callback을 shceulder에게 넘기지 않고 내부 큐에 넣습니다. 그리고 대신 이 큐를 소비하는 <code class="language-text">flushSyncCallbackQueueImpl()</code>를 스케줄링해줍니다. 만약 scheduleWork()에서 리액트가 놀고 있지 않아 syncQueue를 비우지 않았다면 다음 프레임에서 <strong>scheduler</strong>에 의해 처리될 것입니다.</p>
-<p>scheduleWork()에서 사용한 flushSyncCallbackQueue() 또한 내부적으로 flushSyncCallbackQueueImpl()를 사용하고 있습니다.</p>
+<p>async <strong>Work</strong>와는 다르게 callback을 shceulder에게 넘기지 않고 내부 큐에 넣습니다. 그리고 대신 이 큐를 소비하는 <code class="language-text">flushSyncCallbackQueueImpl()</code>를 스케줄링하여 다음 틱에 실행되도록 합니다. 만약 <code class="language-text">scheduleWork()</code>에서 executionContext가 NoContext라서 syncQueue를 비우지 않았다면 다음 틱에 이벤트(예. 클릭 이벤트)에서 동시에 발생한 업데이트는 배치 처리됩니다. 해당 이벤트의 업데이트는 같은 우선순위를 가지므로 하나의 <strong>Work</strong>만 스케줄링될 것이고 업데이트는 Linked List로 이미 연결되어 있기 때문에 한번의 렌더링(<strong>Work</strong>)으로 처리됩니다.</p>
+<p><code class="language-text">scheduleWork()</code>에서 사용한 <code class="language-text">flushSyncCallbackQueue()</code> 또한 내부적으로 <code class="language-text">flushSyncCallbackQueueImpl()</code>를 사용하고 있습니다.</p>
 <p><a href="https://github.com/facebook/react/blob/v16.12.0/packages/react-reconciler/src/SchedulerWithReactIntegration.js#L161" target="_blank" class="code_link_2">reconciler > SchedulerWithReactIntegration.js</a></p>
 <div class="gatsby-highlight has-highlighted-lines" data-language="js"><pre style="counter-reset: linenumber 0" class="language-js line-numbers"><code class="language-js">  
 <span class="token keyword">function</span> <span class="token function">flushSyncCallbackQueue</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -370,7 +370,7 @@
 <span class="gatsby-highlight-code-line">    <span class="token function">Scheduler_cancelCallback</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span></span>  <span class="token punctuation">}</span>
   <span class="token function">flushSyncCallbackQueueImpl</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token punctuation">}</span></code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></div>
-<p>만약 리액트가 놀고 있어서 scheduleWork()에서 <code class="language-text">flushSyncCallbackQueue()</code>를 호출했다면 반드시 스케줄링된 flushSyncCallbackQueueImpl()를 취소시켜 준 다음에 실행해야 합니다.</p>
+<p>만약 리액트가 놀고 있어서 <code class="language-text">scheduleWork()</code>에서 <code class="language-text">flushSyncCallbackQueue()</code>를 호출했다면 반드시 스케줄링된 <code class="language-text">flushSyncCallbackQueueImpl()</code>를 취소시켜 준 다음에 실행해야 합니다.</p>
 <p>마지막으로 sync queue를 소비하는 함수인 <code class="language-text">flushSyncCallbackQueueImpl()</code>만 확인하면 우리는 <strong>reconciler</strong>가 하는 일을 모두 확인하게 되는 것입니다.</p>
 <h1 id="11-flushsynccallbackqueueimpl" style="position:relative;"><a href="#11-flushsynccallbackqueueimpl" aria-label="11 flushsynccallbackqueueimpl permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>11. flushSyncCallbackQueueImpl</h1>
 <p><a href="https://github.com/facebook/react/blob/v16.12.0/packages/react-reconciler/src/SchedulerWithReactIntegration.js#L170" target="_blank" class="code_link_6">reconciler > SchedulerWithReactIntegration.js</a></p>
@@ -409,7 +409,7 @@
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span></code></pre></div>
 <p>로직은 특별한 게 없으므로 생소한 <code class="language-text">runWithPriority()</code>만 짚고 넘어가겠습니다.  </p>
-<p>runWithPriority()는 <strong>scheduler</strong>에게 콜백 함수의 우선순위를 알려주고 실행을 요청하는 함수입니다. 해당 우선순위는 shceduler의 컨텍스트 변수인 currentPriorityLevel에 저장됩니다.  </p>
+<p><code class="language-text">runWithPriority()</code>는 <strong>scheduler</strong>에게 콜백 함수의 우선순위를 알려주고 실행을 요청하는 함수입니다. 해당 우선순위는 shceduler의 컨텍스트 변수인 currentPriorityLevel에 저장됩니다.  </p>
 <p><a href="https://github.com/facebook/react/blob/v16.12.0/packages/scheduler/src/Scheduler.js#L217" target="_blank" class="code_link">scheduler > Scheduler.js</a></p>
 <div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js">  
 <span class="token keyword">function</span> <span class="token function">unstable_runWithPriority</span><span class="token punctuation">(</span><span class="token parameter">priorityLevel<span class="token punctuation">,</span> eventHandler</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>

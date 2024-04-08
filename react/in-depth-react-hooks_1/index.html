@@ -568,28 +568,7 @@ useState()는 useReducer()와 같은 업데이트 구현체를 공유합니다. 
   <span class="token comment">/*...*/</span>
 <span class="token punctuation">}</span></code></pre></div>
 </blockquote>
-<p>여기까지 마운트 구현체의 코드입니다. 다음은 컴포넌트를 재호출하면서 실행될 업데이트 구현체이지만, 이는 다음 포스트로 넘기고 먼저 지금까지의 내용을 정리부터 해보고 넘어갑시다.</p>
-<h2 id="정리" style="position:relative;"><a href="#%EC%A0%95%EB%A6%AC" aria-label="정리 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>정리</h2>
-<p>리액트 초보자가 아래와 같은 질문을 남겼습니다. 여러분은 이제 코드에 기반하여 대답할 수 있습니다.</p>
-<ol>
-<li>단일 혹은 복수의 setState()를 동시에 호출하면 setState()가 호출될 때 마다 컴포넌트가 리-렌더링 되나요?</li>
-<li>클릭을 통해 컴포넌트 상태를 업데이트했습니다. 그리고 변경된 상태를 기준으로 setState()를 추가로 호출했어요. 컴포넌트 렌더링은 클릭을 통한 상태 업데이트 때 한번, 추가 setState() 때 또 한 번. 이렇게 매번 리-렌더링 되나요?</li>
-</ol>
-<p>이런 질문이 들어오면 일단 가장 먼저 질문자에게 해주어야 할 행동은 렌더링의 의미를 명확하게 인식시키는 겁니다. 이 부분만 제대로 이해해도 개발자의 입장에서만 바라보던 것들을 리액트의 시선으로 바라볼 수 있게 됩니다.</p>
-<p>하나씩 답변 해봅시다.</p>
-<ol>
-<li>
-<p>setState() 실행이 훅의 현재 상태와 같다면 아무 일도 일어나지 않는다. 그게 아니라면 scheduleWork()를 통해 스케줄링되는 Work의 종류에 따라 다르다. 일반적으로 scheduleWork()가 호출된다면 렌더링이 진행된다고 생각하면 된다.</p>
-<blockquote>
-<p>더 정확하게는 추후에 다룰 Sync Work와 Async Work(정식 명칭은 concurrent)에 따라 동작이 다릅니다. 현재 확인한 코드로만 봤을 때는 한데 묶어 Action을 소비하는게 맞습니다. <strong>다만, Sync Work에서는 값이 다르다면 dispatchAction()마다 렌더링을 매번 진행합니다.</strong> 16 ~ 17 버전까지는 내부적으로 항상 Sync Work로 동작하며, 18로 넘어와서야 이벤트 종류에 따라 Sync, Async Work을 구분하여 사용하게 되었습니다.</p>
-</blockquote>
-</li>
-<li>
-<p>클릭을 통한 업데이트로 컴포넌트가 재호출 된다. 그리고 재호출 시점에 추가로 발생하는 여러 setState()는 1번처럼 묶어서 한 번만 실행한다.</p>
-<p>여기서 추가적인 업데이트가 발생하지 않을 때까지 계속해서 함수를 재실행하는데, 결국 최소 2번 최대 25번(<down>RE<em>RENDER</em>LIMIT = 25</down>) 컴포넌트가 재실행될 수 있다.</p>
-</li>
-</ol>
-<p>참고로 위 내용은 Render phase에서 동작하고 있는 것입니다. 다시 말해 VDOM에 변경 점을 적용하는 것이지 화면에 반영하는 단계가 아닙니다. 이 단계는 Commit phase에서 진행되므로 아무리 컴포넌트가 재호출된다고 하여도 브라우저의 렌더링과 관련된 리소스가 낭비되지 않음을 이해하시길 바랍니다.</p>
+<p>여기까지 마운트 구현체의 코드입니다. 다음은 컴포넌트를 재호출하면서 실행될 업데이트 구현체이지만, 이는 다음 포스트로 넘기겠습니다.</p>
 <h2 id="번외" style="position:relative;"><a href="#%EB%B2%88%EC%99%B8" aria-label="번외 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>번외</h2>
 <h3 id="expirationtime" style="position:relative;"><a href="#expirationtime" aria-label="expirationtime permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>expirationTime</h3>
 <p>설명을 생략한 expirationTime에 대해 마저 알아보겠습니다.</p>
